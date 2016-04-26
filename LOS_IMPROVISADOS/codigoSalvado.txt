@@ -1,0 +1,98 @@
+
+//cargar mapa, va en init
+TgcSceneLoader loader = new TgcSceneLoader();
+tgcScene = loader.loadSceneFromFile(
+	GuiController.Instance.AlumnoEjemplosDir + "Media\\habitacionMiedo\\habitacionMiedo-TgcScene.xml",
+	GuiController.Instance.AlumnoEjemplosDir + "Media\\habitacionMiedo\\");
+
+
+///////////////MODIFIERS//////////////////
+GuiController.Instance.Modifiers.addFloat("velocidadCaminar", 0f, 400f, 200f); //en init
+ 
+ float velocidadCaminar = (float)GuiController.Instance.Modifiers["velocidadCaminar"]; //en render
+            GuiController.Instance.FpsCamera.MovementSpeed = velocidadCaminar;
+
+
+
+
+//////////////////////////////////////////////
+/*****************MESH**********************/
+////////////////////////////////////////////
+
+variables
+        /////VARIABLES DE MESH/////
+        List<TgcMesh> meshesDeLaEscena;
+        Texture zBufferTexture;
+        Effect efectoNuevo;
+        Surface pOldRT;
+
+init
+//////////////////////////////////////////////
+            /*****************MESH**********************/
+            ////////////////////////////////////////////
+            /*
+            //habilito el uso de mesh y saco el default
+            GuiController.Instance.CustomRenderEnabled = true;
+
+            //cargo el mesh en esta variable
+            efectoNuevo = TgcShaders.loadEffect(GuiController.Instance.ExamplesMediaDir + "Shaders\\EjemploGetZBuffer.fx");
+
+            meshesDeLaEscena = tgcEscena.Meshes;
+            foreach (TgcMesh mesh in meshesDeLaEscena)
+            {
+                mesh.Effect = efectoNuevo;
+            }
+
+            //Crear textura para almacenar el zBuffer. Es una textura que se usa como RenderTarget y que tiene un formato de 1 solo float de 32 bits.
+            //En cada pixel no vamos a guardar un color sino el valor de Z de la escena
+            //La creamos con un solo nivel de mipmap (el original)
+            zBufferTexture = new Texture(d3dDevice, d3dDevice.Viewport.Width, d3dDevice.Viewport.Height, 1, Usage.RenderTarget, Format.R32F, Pool.Default);
+            */
+render
+
+            //////////////////////////////////////////////
+            /*****************MESH**********************/
+            ////////////////////////////////////////////
+            /*
+            //Guardar render target original
+            pOldRT = d3dDevice.GetRenderTarget(0);
+
+            // 1) Mandar a dibujar todos los mesh para que se genere la textura de ZBuffer
+            d3dDevice.BeginScene();
+
+            //Seteamos la textura de zBuffer como render  target (en lugar de dibujar a la pantalla)
+            Surface zBufferSurface = zBufferTexture.GetSurfaceLevel(0);
+            d3dDevice.SetRenderTarget(0, zBufferSurface);
+            d3dDevice.Clear(ClearFlags.Target | ClearFlags.ZBuffer, Color.Black, 1.0f, 0);
+
+            //Render de cada mesh
+            foreach (TgcMesh mesh in meshesDeLaEscena)
+            {
+                mesh.Technique = "GenerateZBuffer";
+                mesh.render();
+            }
+
+            zBufferSurface.Dispose();
+            d3dDevice.EndScene();
+            
+            // 2) Volvemos a dibujar la escena y pasamos el ZBuffer al shader como una textura.
+            // Para este ejemplo particular utilizamos el valor de Z para alterar el color del pixel
+            d3dDevice.BeginScene();
+
+            //Restaurar render target original
+            d3dDevice.SetRenderTarget(0, pOldRT);
+            d3dDevice.Clear(ClearFlags.Target | ClearFlags.ZBuffer, Color.Black, 1.0f, 0);
+
+            //Cargar textura de zBuffer al shader
+            efectoNuevo.SetValue("texZBuffer", zBufferTexture);
+            efectoNuevo.SetValue("screenDimensions", new float[] { d3dDevice.Viewport.Width, d3dDevice.Viewport.Height });
+
+            //Render de cada mesh
+            foreach (TgcMesh mesh in meshesDeLaEscena)
+            {
+                mesh.Technique = "AlterColorByDepth";
+                mesh.render();
+            }
+
+            d3dDevice.EndScene();
+           */
