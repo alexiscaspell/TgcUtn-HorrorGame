@@ -99,12 +99,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             GuiController.Instance.Modifiers.addColor("lightColor", Color.White);
             GuiController.Instance.Modifiers.addFloat("lightIntensity", 0, 150, 9f);
             GuiController.Instance.Modifiers.addFloat("lightAttenuation", 0.1f, 2, 0.34f);
-            GuiController.Instance.Modifiers.addFloat("specularEx", 0, 20, 10f);
-            GuiController.Instance.Modifiers.addFloat("spotAngle", 0, 180, 51f);
+            GuiController.Instance.Modifiers.addFloat("specularEx", 0, 20, 15f);
+            GuiController.Instance.Modifiers.addFloat("spotAngle", 0, 180, 45f);
             GuiController.Instance.Modifiers.addFloat("spotExponent", 0, 20, 12f);
 
             //material
-            GuiController.Instance.Modifiers.addColor("mEmissive", Color.FromArgb(39,39,39));
+            GuiController.Instance.Modifiers.addColor("mEmissive", Color.Black);
             GuiController.Instance.Modifiers.addColor("mAmbient", Color.White);
             GuiController.Instance.Modifiers.addColor("mDiffuse", Color.White);
             GuiController.Instance.Modifiers.addColor("mSpecular", Color.White);

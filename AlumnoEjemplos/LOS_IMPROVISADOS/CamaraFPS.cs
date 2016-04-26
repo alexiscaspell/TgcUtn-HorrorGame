@@ -50,8 +50,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             usarModificadoresIniciales();
             usarVariablesDeUsuarioIniciales();
 
-            camaraFramework.updateCamera();
-            camaraFramework.updateViewMatrix(d3dDevice);
+            //camaraFramework.updateCamera();
+            //camaraFramework.updateViewMatrix(d3dDevice);
         }
                 
         public void crearVariablesDeUsuario()
@@ -68,18 +68,18 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public void crearModificadores()
         {
-            GuiController.Instance.Modifiers.addFloat("velocidadCaminar", 0f, 400f, 40f);
+            GuiController.Instance.Modifiers.addFloat("velocidadCaminar", 0f, 400f, 50f);
         }
 
         public void usarVariablesDeUsuarioIniciales()
         {
-            GuiController.Instance.UserVars.setValue("camaraX", GuiController.Instance.FpsCamera.getPosition().X);
-            GuiController.Instance.UserVars.setValue("camaraY", GuiController.Instance.FpsCamera.getPosition().Y);
-            GuiController.Instance.UserVars.setValue("camaraZ", GuiController.Instance.FpsCamera.getPosition().Z);
+            GuiController.Instance.UserVars.setValue("camaraX", camaraFramework.getPosition().X);
+            GuiController.Instance.UserVars.setValue("camaraY", camaraFramework.getPosition().Y);
+            GuiController.Instance.UserVars.setValue("camaraZ", camaraFramework.getPosition().Z);
 
-            GuiController.Instance.UserVars.setValue("vistaX", GuiController.Instance.FpsCamera.getLookAt().X);
-            GuiController.Instance.UserVars.setValue("vistaY", GuiController.Instance.FpsCamera.getLookAt().Y);
-            GuiController.Instance.UserVars.setValue("vistaZ", GuiController.Instance.FpsCamera.getLookAt().Z);
+            GuiController.Instance.UserVars.setValue("vistaX", camaraFramework.getLookAt().X);
+            GuiController.Instance.UserVars.setValue("vistaY", camaraFramework.getLookAt().Y);
+            GuiController.Instance.UserVars.setValue("vistaZ", camaraFramework.getLookAt().Z);
         }
 
         public void usarModificadoresIniciales()
