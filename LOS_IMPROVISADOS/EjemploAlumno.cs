@@ -40,7 +40,7 @@ namespace AlumnoEjemplos.MiGrupo
 
         public override void init()
         {
-            Device d3dDevice = GuiController.Instance.D3dDevice;//GG VIEJA!!
+            Device d3dDevice = GuiController.Instance.D3dDevice;
             
             TgcSceneLoader loader = new TgcSceneLoader();
             tgcEscena = loader.loadSceneFromFile(
