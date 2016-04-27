@@ -22,6 +22,12 @@ namespace AlumnoEjemplos.MiGrupo
 
         private CamaraFPS camaraFPS;
 
+        private Caja cajaInteraccion;
+
+        private Bateria bateriaLinterna;
+
+        private Palanca palanca;
+
         public override string getCategory()
         {
             return "AlumnoEjemplos";
@@ -52,6 +58,15 @@ namespace AlumnoEjemplos.MiGrupo
 
             luzLinterna = new LuzLinterna(tgcEscena, camaraFPS.camaraFramework);
             luzLinterna.init();
+
+            cajaInteraccion = new Caja();
+            cajaInteraccion.init();
+
+            palanca = new Palanca();
+            palanca.init();
+
+            bateriaLinterna = new Bateria();
+            bateriaLinterna.init(3);
         }
 
 
@@ -64,6 +79,10 @@ namespace AlumnoEjemplos.MiGrupo
 
             camaraFPS.render(); 
             luzLinterna.render();
+
+            cajaInteraccion.render(camaraFPS);
+            palanca.render();
+            bateriaLinterna.render();
 
             //////////////////MUESTRO LOS OBJETOS//////////////////
             //tgcEscena.renderAll();

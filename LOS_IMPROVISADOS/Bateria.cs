@@ -15,6 +15,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         //private Vector2 posicion;
 
         private TgcSprite bateriaActual;
+        //private TgcAnimatedSprite bateriaActual;
 
         private List<TgcSprite> listaBaterias;
 
@@ -26,13 +27,19 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public void init(int velocidadPerdida)
         {
-            cantBateria = 4;
+            cantBateria = 5;
 
             velocidadDePerdida = velocidadPerdida;
 
             inicializarBaterias();
 
             bateriaActual = listaBaterias.ElementAt(cantBateria);
+            /*string pathSprite = GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\baterias.png";
+            Size frameSize = new Size(257,110);
+            bateriaActual = new TgcAnimatedSprite(pathSprite, frameSize, 4, 200f);
+            Size screenSize = GuiController.Instance.Panel3d.Size;
+            bateriaActual.Scaling = new Vector2((float)0.0002 * screenSize.Width, (float)0.0005 * screenSize.Height);
+            bateriaActual.Position = new Vector2(0, 20);*///ESTONO SE XQ NO FUNCA!!!!
 
             tiempoAnterior = System.DateTime.Now;
             
@@ -40,6 +47,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private void inicializarBaterias()
         {
+            TgcSprite sprite0 = new TgcSprite();
+            sprite0.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\bateria0.png");
             TgcSprite sprite1 = new TgcSprite();
             sprite1.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\bateria1.png");
             TgcSprite sprite2 = new TgcSprite();
@@ -54,12 +63,14 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             //Ubicarlo centrado en la pantalla
             Size screenSize = GuiController.Instance.Panel3d.Size;
 
+            sprite0.Scaling = new Vector2((float)0.0002 * screenSize.Width, (float)0.0005 * screenSize.Height);
             sprite1.Scaling = new Vector2((float)0.0002 * screenSize.Width, (float)0.0005 * screenSize.Height);
             sprite2.Scaling = new Vector2((float)0.0002 * screenSize.Width, (float)0.0005 * screenSize.Height);
             sprite3.Scaling = new Vector2((float)0.0002 * screenSize.Width, (float)0.0005 * screenSize.Height);
             sprite4.Scaling = new Vector2((float)0.0002 * screenSize.Width, (float)0.0005 * screenSize.Height);
             sprite5.Scaling = new Vector2((float)0.0002 * screenSize.Width, (float)0.0005 * screenSize.Height);
 
+            sprite0.Position = new Vector2(0, 20);
             sprite1.Position = new Vector2(0, 20);
             sprite2.Position = new Vector2(0, 20);
             sprite3.Position = new Vector2(0, 20);
@@ -68,6 +79,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             listaBaterias = new List<TgcSprite>();
 
+            listaBaterias.Add(sprite0);
             listaBaterias.Add(sprite1);
             listaBaterias.Add(sprite2);
             listaBaterias.Add(sprite3);
@@ -87,8 +99,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 bateriaActual = listaBaterias.ElementAt(cantBateria);
             }
 
-            GuiController.Instance.Drawer2D.beginDrawSprite();        
-            bateriaActual.render();           
+            GuiController.Instance.Drawer2D.beginDrawSprite();
+            bateriaActual.render();//updateAndRender();
             GuiController.Instance.Drawer2D.endDrawSprite();
         }
     }
