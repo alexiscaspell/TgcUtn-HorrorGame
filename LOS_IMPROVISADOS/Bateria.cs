@@ -36,7 +36,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             bateriaActual = listaBaterias.ElementAt(cantBateria);
             /*string pathSprite = GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\baterias.png";
             Size frameSize = new Size(257,110);
-            bateriaActual = new TgcAnimatedSprite(pathSprite, frameSize, 4, 200f);
+            bateriaActual = new TgcAnimatedSprite(pathSprite, frameSize, 6, 200);
             Size screenSize = GuiController.Instance.Panel3d.Size;
             bateriaActual.Scaling = new Vector2((float)0.0002 * screenSize.Width, (float)0.0005 * screenSize.Height);
             bateriaActual.Position = new Vector2(0, 20);*///ESTONO SE XQ NO FUNCA!!!!
@@ -100,7 +100,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             }
 
             GuiController.Instance.Drawer2D.beginDrawSprite();
-            bateriaActual.render();//updateAndRender();
+            bateriaActual.render();//*/updateAndRender();*/
             GuiController.Instance.Drawer2D.endDrawSprite();
         }
     }

@@ -52,6 +52,7 @@ namespace AlumnoEjemplos.MiGrupo
             tgcEscena = loader.loadSceneFromFile(
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\habitacionMiedo\\habitacionMiedo-TgcScene.xml",
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\habitacionMiedo\\");
+            
 
             camaraFPS = new CamaraFPS(new Vector3(280f, 25f, 95f), new Vector3(279f, 25f, 95f));
             camaraFPS.init(); 
