@@ -20,13 +20,17 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         public Vector3 direccionVista { get; set; }
 
         public CamaraFramework camaraFramework { get; set; }
-
+        
         public CamaraFPS(Vector3 posicionInicial, Vector3 direccionVistaInicial)
         {
             this.posicion = posicionInicial;
             this.direccionVista = direccionVistaInicial;
 
             camaraFramework = new CamaraFramework();
+        }
+        
+        public void update(){
+        	posicion = camaraFramework.Position;
         }
         
         public void init()

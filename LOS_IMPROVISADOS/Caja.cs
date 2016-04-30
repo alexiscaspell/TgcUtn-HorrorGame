@@ -20,11 +20,19 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
     {
         private TgcBox caja;
 
-        private Vector3 posicion;
+        public Vector3 posicion;
 
         private Vector3 tamanio;
 
         private Color color;
+        
+        public void move(Vector3 v){
+        	caja.move(v);
+        }
+        
+        public void changePosicion(Vector3 v){
+        	posicion = v;
+        }
 
         public void init()
         {

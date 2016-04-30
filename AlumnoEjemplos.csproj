@@ -88,6 +88,7 @@
     <Compile Include="LOS_IMPROVISADOS\Caja.cs" />
     <Compile Include="LOS_IMPROVISADOS\CamaraFPS.cs" />
     <Compile Include="LOS_IMPROVISADOS\CamaraFramework.cs" />
+    <Compile Include="LOS_IMPROVISADOS\CajaSigue.cs" />
     <Compile Include="LOS_IMPROVISADOS\LuzLinterna.cs" />
     <Compile Include="LOS_IMPROVISADOS\Palanca.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
