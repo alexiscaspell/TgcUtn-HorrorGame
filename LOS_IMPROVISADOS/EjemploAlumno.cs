@@ -10,22 +10,22 @@ using TgcViewer.Utils.Shaders;
 using System.Drawing;
 using TgcViewer.Utils.TgcGeometry;
 using AlumnoEjemplos.LOS_IMPROVISADOS;
+using AlumnoEjemplos.LOS_IMPROVISADOS.Efectos;
 
 namespace AlumnoEjemplos.MiGrupo
 {
     public class EjemploAlumno : TgcExample
     {
-        /////VARIABLES GLOBALES/////
+
+        ////////VARIABLES GLOBALES////////
         private TgcScene tgcEscena;
-
-        private LuzLinterna luzLinterna;
-
         private CamaraFPS camaraFPS;
 
-        private Caja cajaInteraccion;
-
+        private EfectosEscena efectoEscena;
+       
+        
         private Bateria bateriaLinterna;
-
+        private Caja cajaInteraccion;
         private Palanca palanca;
 
         public override string getCategory()
@@ -55,10 +55,12 @@ namespace AlumnoEjemplos.MiGrupo
             
 
             camaraFPS = new CamaraFPS(new Vector3(280f, 25f, 95f), new Vector3(279f, 25f, 95f));
-            camaraFPS.init(); 
+                camaraFPS.init();
 
-            luzLinterna = new LuzLinterna(tgcEscena, camaraFPS.camaraFramework);
-            luzLinterna.init();
+            efectoEscena = new EfectosEscena(tgcEscena, camaraFPS.camaraFramework);
+                efectoEscena.iniciarEfectos();
+            
+
 
             cajaInteraccion = new Caja();
             cajaInteraccion.init();
@@ -73,14 +75,18 @@ namespace AlumnoEjemplos.MiGrupo
 
         public override void render(float elapsedTime)
         {
-            
-            
             TgcD3dInput d3dInput = GuiController.Instance.D3dInput;
             Device d3dDevice = GuiController.Instance.D3dDevice;
 
-            camaraFPS.render(); 
-            luzLinterna.render();
+            if (d3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.E))
+            {
+                efectoEscena.cambiarASiguienteEfecto();
+            }
 
+            camaraFPS.render();
+            efectoEscena.renderizarEfecto();
+
+            
             cajaInteraccion.render(camaraFPS);
             palanca.render();
             bateriaLinterna.render();

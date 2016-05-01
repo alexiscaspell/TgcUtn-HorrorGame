@@ -41,11 +41,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             camaraFramework.Enable = true;
             camaraFramework.setCamera(posicion, direccionVista);
             camaraFramework.JumpSpeed = 200f;
-            /*
-            GuiController.Instance.FpsCamera.Enable = true;
-            GuiController.Instance.FpsCamera.setCamera(posicion, direccionVista);
-            GuiController.Instance.FpsCamera.JumpSpeed = 200f;
-            */
         }
 
         public void render()
@@ -53,9 +48,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             Device d3dDevice = GuiController.Instance.D3dDevice;
             usarModificadoresIniciales();
             usarVariablesDeUsuarioIniciales();
-
-            //camaraFramework.updateCamera();
-            //camaraFramework.updateViewMatrix(d3dDevice);
         }
                 
         public void crearVariablesDeUsuario()
@@ -72,7 +64,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public void crearModificadores()
         {
-            GuiController.Instance.Modifiers.addFloat("velocidadCaminar", 0f, 400f, 50f);
+            GuiController.Instance.Modifiers.addFloat("velocidadCaminar", 0f, 400f, 60f);
         }
 
         public void usarVariablesDeUsuarioIniciales()
@@ -88,7 +80,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public void usarModificadoresIniciales()
         {
-            //GuiController.Instance.FpsCamera.MovementSpeed = (float)GuiController.Instance.Modifiers["velocidadCaminar"];
             camaraFramework.MovementSpeed = (float)GuiController.Instance.Modifiers["velocidadCaminar"];
         }
 
