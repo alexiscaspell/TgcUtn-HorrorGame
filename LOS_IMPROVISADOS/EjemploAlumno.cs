@@ -22,11 +22,11 @@ namespace AlumnoEjemplos.MiGrupo
         private CamaraFPS camaraFPS;
 
         private EfectosEscena efectoEscena;
-       
-        
+
         private Bateria bateriaLinterna;
         private Caja cajaInteraccion;
         private Palanca palanca;
+        private Boss boss;
 
         public override string getCategory()
         {
@@ -52,15 +52,14 @@ namespace AlumnoEjemplos.MiGrupo
             tgcEscena = loader.loadSceneFromFile(
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\habitacionMiedo\\habitacionMiedo-TgcScene.xml",
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\habitacionMiedo\\");
-            
 
             camaraFPS = new CamaraFPS(new Vector3(280f, 25f, 95f), new Vector3(279f, 25f, 95f));
                 camaraFPS.init();
 
             efectoEscena = new EfectosEscena(tgcEscena, camaraFPS.camaraFramework);
                 efectoEscena.iniciarEfectos();
-            
 
+            boss = new Boss();
 
             cajaInteraccion = new Caja();
             cajaInteraccion.init();
@@ -86,7 +85,8 @@ namespace AlumnoEjemplos.MiGrupo
             camaraFPS.render();
             efectoEscena.renderizarEfecto();
 
-            
+            boss.render();
+
             cajaInteraccion.render(camaraFPS);
             palanca.render();
             bateriaLinterna.render();
