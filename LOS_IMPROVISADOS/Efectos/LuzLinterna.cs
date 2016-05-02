@@ -6,6 +6,7 @@ using Microsoft.DirectX.Direct3D;
 using System.Drawing;
 using TgcViewer.Utils.TgcGeometry;
 using AlumnoEjemplos.LOS_IMPROVISADOS.Efectos;
+using TgcViewer.Utils._2D;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
@@ -15,17 +16,29 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public CamaraFramework camaraFramework { get; set; }
 
+        public  TgcSprite spriteMano;
+
         public LuzLinterna(TgcScene tgcEscena, CamaraFramework camaraFramework)
         {
             this.tgcEscena = tgcEscena;
             this.camaraFramework = camaraFramework;
+///////////////////////////////////ACA EMPIEZA FERNILANDIA////////////////////////////////////////////////
+            spriteMano = new TgcSprite();
+            spriteMano.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\manoLinterna.png");
+
         }
 
         public void init()
         {
             crearModificadores();
             crearVariablesDeUsuario();
-        }
+///////////////////////////////////ACA EMPIEZA FERNILANDIA////////////////////////////////////////////////
+            Size screenSize = GuiController.Instance.Panel3d.Size;
+
+            spriteMano.Position = new Vector2(screenSize.Width/2, 0.75f*screenSize.Height);
+
+            spriteMano.Scaling = new Vector2((float)0.0002 * screenSize.Width, (float)0.0003 * screenSize.Height);
+        } 
 
         public void render()
         {
@@ -61,6 +74,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
                 mesh.render();
             }
+            ///////////////////////////////////ACA EMPIEZA FERNILANDIA////////////////////////////////////////////////
+            GuiController.Instance.Drawer2D.beginDrawSprite();
+            spriteMano.render();
+            GuiController.Instance.Drawer2D.endDrawSprite();
         }
 
         public void crearVariablesDeUsuario()
