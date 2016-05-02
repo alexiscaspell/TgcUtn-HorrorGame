@@ -631,7 +631,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             /*********HAGO QUE NO SE NECESITE MANTENER CLICK********************/
             //////////////////////////////////////////////////////////////////////
 
-            if (d3dInput.buttonDown(rotateMouseButton))
+            //if (d3dInput.buttonDown(rotateMouseButton))
             {
                 rotate(heading, pitch, 0.0f);
             }
