@@ -30,7 +30,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         }
         
         public void update(){
-        	posicion = camaraFramework.Position;
+        	posicion = camaraFramework.getPosition();
+            direccionVista = camaraFramework.getLookAt();
         }
         
         public void init()
@@ -45,9 +46,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public void render()
         {
-            Device d3dDevice = GuiController.Instance.D3dDevice;
             usarModificadoresIniciales();
             usarVariablesDeUsuarioIniciales();
+            update();
         }
                 
         public void crearVariablesDeUsuario()
