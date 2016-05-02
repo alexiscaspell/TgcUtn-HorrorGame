@@ -62,7 +62,7 @@ namespace AlumnoEjemplos.MiGrupo
             camaraFPS = new CamaraFPS(new Vector3(280f, 25f, 95f), new Vector3(279f, 25f, 95f));
             camaraFPS.init(); 
 
-            luzLinterna = new LuzLinterna(tgcEscena, camaraFPS.camaraFramework);
+            luzLinterna = new LuzLinterna(tgcEscena, camaraFPS);
             luzLinterna.init();
 
             cajaInteraccion = new Caja();

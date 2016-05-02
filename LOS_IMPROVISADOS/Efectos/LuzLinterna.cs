@@ -14,14 +14,14 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
     {
         public TgcScene tgcEscena { set; get; }
 
-        public CamaraFramework camaraFramework { get; set; }
+        public CamaraFPS camaraFPS { get; set; }
 
         public  TgcSprite spriteMano;
 
-        public LuzLinterna(TgcScene tgcEscena, CamaraFramework camaraFramework)
+        public LuzLinterna(TgcScene tgcEscena, CamaraFPS camaraFPS)
         {
             this.tgcEscena = tgcEscena;
-            this.camaraFramework = camaraFramework;
+            this.camaraFPS = camaraFPS;
 ///////////////////////////////////ACA EMPIEZA FERNILANDIA////////////////////////////////////////////////
             spriteMano = new TgcSprite();
             spriteMano.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\manoLinterna.png");
@@ -49,8 +49,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 mesh.Technique = GuiController.Instance.Shaders.getTgcMeshTechnique(mesh.RenderType);
             }
 
-            Vector3 lightPos = camaraFramework.getPosition();
-            Vector3 lightDir = camaraFramework.getLookAt() - camaraFramework.getPosition();
+            Vector3 lightPos = camaraFPS.posicion;
+            Vector3 lightDir = camaraFPS.direccionVista - camaraFPS.posicion;
             lightDir.Normalize();
 
             foreach (TgcMesh mesh in tgcEscena.Meshes)
@@ -86,7 +86,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public void crearModificadores()
         {
-            //luz
+            ///luz
             GuiController.Instance.Modifiers.addColor("linternaColor", Color.White);
             GuiController.Instance.Modifiers.addFloat("linternaIntensidad", 0, 150, 12f);
             GuiController.Instance.Modifiers.addFloat("linternaAtenuacion", 0.1f, 2, 0.4f);

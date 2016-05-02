@@ -1,11 +1,6 @@
 ﻿using AlumnoEjemplos.LOS_IMPROVISADOS.Efectos;
-using Microsoft.DirectX;
 using Microsoft.DirectX.Direct3D;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using TgcViewer;
 using TgcViewer.Utils.TgcSceneLoader;
 
@@ -15,21 +10,22 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
     {
         public TgcScene tgcEscena { set; get; }
 
-        public CamaraFramework camaraFramework { get; set; }
+        public CamaraFPS camaraFPS { get; set; }
 
         public List<IEfecto> efectos { get; set; }
 
         public int efectoActual { get; set; }
 
-        public EfectosEscena(TgcScene tgcEscena, CamaraFramework camaraFramework)
+        public EfectosEscena(TgcScene tgcEscena, CamaraFPS camaraFPS)
         {
             this.tgcEscena = tgcEscena;
-            this.camaraFramework = camaraFramework;
+            this.camaraFPS = camaraFPS;
             this.efectoActual = 0;
 
             efectos = new List<IEfecto>();
-                efectos.Add(new LuzLinterna(tgcEscena, camaraFramework));
-                efectos.Add(new LuzVela(tgcEscena, camaraFramework));
+                efectos.Add(new LuzLinterna(tgcEscena, camaraFPS));
+                efectos.Add(new LuzFarol(tgcEscena, camaraFPS));
+                efectos.Add(new LuzFluorescente(tgcEscena, camaraFPS));
         }
         
         public void iniciarEfectos()
@@ -67,8 +63,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             if (efectoActual >= efectos.Count)
                 efectoActual = 0;
-
-            //this.renderizarEfecto(numeroEfectoSiguiente);
+            
         }
 
     }
