@@ -85,6 +85,7 @@ namespace AlumnoEjemplos.MiGrupo
             camaraFPS.render();
             efectoEscena.renderizarEfecto();
 
+            boss.update(camaraFPS, elapsedTime,cajaInteraccion);
             boss.render();
 
             cajaInteraccion.render(camaraFPS);

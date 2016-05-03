@@ -93,10 +93,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             this.color = color;
         }
 
-        private bool estaCerca(Vector3 posObjeto)
+        public bool estaCerca(Vector3 posObjeto)
         {
             Vector3 vectorAux = posObjeto;
             vectorAux.Subtract(posicion);
+            //vectorAux.Subtract(new Vector3(0, vectorAux.Y, 0));//ESTO ES PARA Q NO IMPORTE LA ALTURA
 
             return vectorAux.Length() <= 30;
 
