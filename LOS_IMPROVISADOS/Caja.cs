@@ -34,6 +34,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         	posicion = v;
         }
 
+        public TgcBoundingBox getBoundingBox()
+        {
+            return caja.BoundingBox;
+        }
+
         public void init()
         {
             posicion = new Vector3(280, 10, 120);
