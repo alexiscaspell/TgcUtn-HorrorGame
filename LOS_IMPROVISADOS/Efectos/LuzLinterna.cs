@@ -12,36 +12,39 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
     class LuzLinterna : IEfecto
     {
+        //efecto
         public TgcScene tgcEscena { set; get; }
-
         public CamaraFPS camaraFPS { get; set; }
 
-        public  TgcSprite spriteMano;
-
+        //pantalla
+        public TgcSprite spriteMano { get; set; }
+        
         public LuzLinterna(TgcScene tgcEscena, CamaraFPS camaraFPS)
         {
+            //efecto
             this.tgcEscena = tgcEscena;
             this.camaraFPS = camaraFPS;
-///////////////////////////////////ACA EMPIEZA FERNILANDIA////////////////////////////////////////////////
+
+            //pantalla
             spriteMano = new TgcSprite();
             spriteMano.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\manoLinterna.png");
-
         }
 
         public void init()
         {
+            //efecto
             crearModificadores();
             crearVariablesDeUsuario();
-///////////////////////////////////ACA EMPIEZA FERNILANDIA////////////////////////////////////////////////
+
+            //pantalla
             Size screenSize = GuiController.Instance.Panel3d.Size;
-
             spriteMano.Position = new Vector2(screenSize.Width/2, 0.75f*screenSize.Height);
-
             spriteMano.Scaling = new Vector2((float)0.0002 * screenSize.Width, (float)0.0003 * screenSize.Height);
         } 
 
         public void render()
         {
+            //efecto
             Effect currentShader = GuiController.Instance.Shaders.TgcMeshSpotLightShader;
             foreach (TgcMesh mesh in tgcEscena.Meshes)
             {
@@ -74,7 +77,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
                 mesh.render();
             }
-            ///////////////////////////////////ACA EMPIEZA FERNILANDIA////////////////////////////////////////////////
+
+            //pantalla
             GuiController.Instance.Drawer2D.beginDrawSprite();
             spriteMano.render();
             GuiController.Instance.Drawer2D.endDrawSprite();

@@ -5,48 +5,47 @@ using TgcViewer.Utils.TgcSceneLoader;
 
 using Microsoft.DirectX.Direct3D;
 using System.Drawing;
-using TgcViewer.Utils.Shaders;
+using TgcViewer.Utils._2D;
+
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Efectos
 {
     class LuzFluorescente : IEfecto
     {
+        //efecto
         public TgcScene tgcEscena { set; get; }
-
         public CamaraFPS camaraFPS { get; set; }
+
+        //pantalla
+        public TgcSprite spriteFluor { get; set; }
+
 
         public LuzFluorescente(TgcScene tgcEscena, CamaraFPS camaraFPS)
         {
+            //efecto
             this.tgcEscena = tgcEscena;
             this.camaraFPS = camaraFPS;
-        }
-        
-        public void crearModificadores()
-        {
-            GuiController.Instance.Modifiers.addColor("fluorColor", Color.LightGreen);
-            GuiController.Instance.Modifiers.addFloat("fluorIntensidad", 0f, 150f, 8f);
-            GuiController.Instance.Modifiers.addFloat("fluorAtenuacion", 0.1f, 2f, 0.5f);
-            GuiController.Instance.Modifiers.addFloat("fluorEspecularEx", 0, 20, 5f);
 
-            //Modifiers de material
-            GuiController.Instance.Modifiers.addColor("fluorEmissive", Color.Black);
-            GuiController.Instance.Modifiers.addColor("fluorAmbient", Color.LawnGreen);
-            GuiController.Instance.Modifiers.addColor("fluorDiffuse", Color.DarkGreen);
-            GuiController.Instance.Modifiers.addColor("fluorSpecular", Color.White);
-        }
-
-        public void crearVariablesDeUsuario()
-        {
+            //pantalla      
+            spriteFluor = new TgcSprite();
+            spriteFluor.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\fluor.png");
         }
 
         public void init()
         {
+            //efecto
             crearModificadores();
             crearVariablesDeUsuario();
+
+            //pantalla
+            Size screenSize = GuiController.Instance.Panel3d.Size;
+            spriteFluor.Position = new Vector2(screenSize.Width - (screenSize.Width / 4), 0.40f * screenSize.Height);
+            spriteFluor.Scaling = new Vector2((float)0.0003 * screenSize.Width, (float)0.0006 * screenSize.Height);
         }
 
         public void render()
         {
+            //efecto
             Effect currentShader = GuiController.Instance.Shaders.TgcMeshPointLightShader;
 
             foreach (TgcMesh mesh in tgcEscena.Meshes)
@@ -75,6 +74,29 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Efectos
 
                 mesh.render();
             }
+
+            //pantalla
+            GuiController.Instance.Drawer2D.beginDrawSprite();
+            spriteFluor.render();
+            GuiController.Instance.Drawer2D.endDrawSprite();           
+        }
+
+        public void crearModificadores()
+        {
+            GuiController.Instance.Modifiers.addColor("fluorColor", Color.LightGreen);
+            GuiController.Instance.Modifiers.addFloat("fluorIntensidad", 0f, 150f, 8f);
+            GuiController.Instance.Modifiers.addFloat("fluorAtenuacion", 0.1f, 2f, 0.5f);
+            GuiController.Instance.Modifiers.addFloat("fluorEspecularEx", 0, 20, 5f);
+
+            //Modifiers de material
+            GuiController.Instance.Modifiers.addColor("fluorEmissive", Color.Black);
+            GuiController.Instance.Modifiers.addColor("fluorAmbient", Color.LawnGreen);
+            GuiController.Instance.Modifiers.addColor("fluorDiffuse", Color.DarkGreen);
+            GuiController.Instance.Modifiers.addColor("fluorSpecular", Color.White);
+        }
+
+        public void crearVariablesDeUsuario()
+        {
         }
 
         public void usarModificadoresIniciales()

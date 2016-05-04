@@ -3,29 +3,45 @@ using TgcViewer;
 using TgcViewer.Utils.TgcSceneLoader;
 using System.Drawing;
 using Microsoft.DirectX.Direct3D;
+using TgcViewer.Utils._2D;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Efectos
 {
     class LuzFarol : IEfecto
     {
+        //efecto
         public TgcScene tgcEscena { set; get; }
-
         public CamaraFPS camaraFPS { get; set; }
+
+        //pantalla
+        public TgcSprite spriteFarol{ get; set; }
+
 
         public LuzFarol (TgcScene tgcEscena, CamaraFPS camaraFPS)
         {
+            //efecto
             this.tgcEscena = tgcEscena;
             this.camaraFPS = camaraFPS;
+
+            //pantalla
+            spriteFarol = new TgcSprite();
+            spriteFarol.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\farol.png");
         }
 
         public void init()
         {
             crearModificadores();
             crearVariablesDeUsuario();
+
+            //pantalla
+            Size screenSize = GuiController.Instance.Panel3d.Size;
+            spriteFarol.Position = new Vector2( screenSize.Width - (screenSize.Width / 4), 0.50f * screenSize.Height);
+            spriteFarol.Scaling = new Vector2((float)0.0003 * screenSize.Width, (float)0.0005 * screenSize.Height);
         }
 
         public void render()
         {
+            //efecto
             Effect currentShader = GuiController.Instance.Shaders.TgcMeshPointLightShader;
 
             foreach (TgcMesh mesh in tgcEscena.Meshes)
@@ -54,6 +70,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Efectos
 
                 mesh.render();
             }
+
+
+            //pantalla
+            GuiController.Instance.Drawer2D.beginDrawSprite();
+            spriteFarol.render();
+            GuiController.Instance.Drawer2D.endDrawSprite();
         }
 
         public void crearModificadores()
