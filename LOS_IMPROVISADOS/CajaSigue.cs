@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using TgcViewer.Utils.Shaders;
 using System.Drawing;
 using TgcViewer.Utils.TgcGeometry;
+using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores;
 using AlumnoEjemplos.LOS_IMPROVISADOS;
 
 namespace AlumnoEjemplos.MiGrupo

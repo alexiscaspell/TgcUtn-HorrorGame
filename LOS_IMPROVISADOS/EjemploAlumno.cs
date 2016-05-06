@@ -10,7 +10,7 @@ using TgcViewer.Utils.Shaders;
 using System.Drawing;
 using TgcViewer.Utils.TgcGeometry;
 using AlumnoEjemplos.LOS_IMPROVISADOS;
-using AlumnoEjemplos.LOS_IMPROVISADOS.Efectos;
+using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores;
 
 namespace AlumnoEjemplos.MiGrupo
 {
@@ -21,7 +21,7 @@ namespace AlumnoEjemplos.MiGrupo
         private TgcScene tgcEscena;
         private CamaraFPS camaraFPS;
 
-        private EfectosEscena efectoEscena;
+        private Iluminador iluminador;
 
         private Bateria bateriaLinterna;
         private Caja cajaInteraccion;
@@ -56,8 +56,8 @@ namespace AlumnoEjemplos.MiGrupo
             camaraFPS = new CamaraFPS(new Vector3(280f, 25f, 95f), new Vector3(279f, 25f, 95f));
                 camaraFPS.init();
 
-            efectoEscena = new EfectosEscena(tgcEscena, camaraFPS);
-                efectoEscena.iniciarEfectos();
+            iluminador = new Iluminador(tgcEscena, camaraFPS);
+                iluminador.iniciarEfectos();
 
             boss = new Boss();
 
@@ -79,11 +79,11 @@ namespace AlumnoEjemplos.MiGrupo
 
             if (d3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.E))
             {
-                efectoEscena.cambiarASiguienteEfecto();
+                iluminador.cambiarASiguienteEfecto();
             }
 
             camaraFPS.render();
-            efectoEscena.renderizarEfecto();
+            iluminador.renderizarEfecto();
 
             boss.update(camaraFPS, elapsedTime,cajaInteraccion);
             boss.render();

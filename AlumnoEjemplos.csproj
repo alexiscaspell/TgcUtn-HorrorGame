@@ -90,11 +90,11 @@
     <Compile Include="LOS_IMPROVISADOS\CajaSigue.cs" />
     <Compile Include="LOS_IMPROVISADOS\Camara\CamaraFPS.cs" />
     <Compile Include="LOS_IMPROVISADOS\Camara\CamaraFramework.cs" />
-    <Compile Include="LOS_IMPROVISADOS\Efectos\EfectosEscena.cs" />
-    <Compile Include="LOS_IMPROVISADOS\Efectos\IEfecto.cs" />
-    <Compile Include="LOS_IMPROVISADOS\Efectos\LuzFarol.cs" />
-    <Compile Include="LOS_IMPROVISADOS\Efectos\LuzFluorescente.cs" />
-    <Compile Include="LOS_IMPROVISADOS\Efectos\LuzLinterna.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Iluminadores\Iluminador.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Iluminadores\IEfecto.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Iluminadores\LuzFarol.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Iluminadores\LuzFluorescente.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Iluminadores\LuzLinterna.cs" />
     <Compile Include="LOS_IMPROVISADOS\Palanca.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
