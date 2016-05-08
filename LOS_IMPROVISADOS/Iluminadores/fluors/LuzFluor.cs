@@ -1,30 +1,19 @@
-﻿
-using TgcViewer;
+﻿using TgcViewer;
 using Microsoft.DirectX;
 using TgcViewer.Utils.TgcSceneLoader;
-
 using Microsoft.DirectX.Direct3D;
 using System.Drawing;
-using TgcViewer.Utils._2D;
+using TgcViewer.Utils.TgcGeometry;
+using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA;
 
-namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores
+namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.fluors
 {
-    class LuzFluorescente : AEfecto
+    class LuzFluor : AEfecto
     {
-
-        //pantalla
-        public TgcSprite spriteFluor { get; set; }
-
-
-        public LuzFluorescente(TgcScene tgcEscena, CamaraFPS camaraFPS)
+        public LuzFluor(TgcScene tgcEscena, CamaraFPS camaraFPS)
         {
-            //efecto
             this.tgcEscena = tgcEscena;
             this.camaraFPS = camaraFPS;
-
-            //pantalla      
-            spriteFluor = new TgcSprite();
-            spriteFluor.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\fluor.png");
         }
 
         public override void init()
@@ -39,16 +28,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores
             GuiController.Instance.Modifiers.addColor("fluorAmbient", Color.LightGreen);
             GuiController.Instance.Modifiers.addColor("fluorDiffuse", Color.LightGreen);
             GuiController.Instance.Modifiers.addColor("fluorSpecular", Color.White);
-
-            //pantalla
-            Size screenSize = GuiController.Instance.Panel3d.Size;
-            spriteFluor.Position = new Vector2(screenSize.Width - (screenSize.Width / 4), 0.40f * screenSize.Height);
-            spriteFluor.Scaling = new Vector2((float)0.0003 * screenSize.Width, (float)0.0006 * screenSize.Height);
         }
 
         public override void render()
         {
-            //efecto
             Effect currentShader = GuiController.Instance.Shaders.TgcMeshPointLightShader;
 
             foreach (TgcMesh mesh in tgcEscena.Meshes)
@@ -76,12 +59,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores
                 mesh.Effect.SetValue("materialSpecularExp", (float)GuiController.Instance.Modifiers["fluorEspecularEx"]);
 
                 mesh.render();
-            }
-
-            //pantalla
-            GuiController.Instance.Drawer2D.beginDrawSprite();
-            spriteFluor.render();
-            GuiController.Instance.Drawer2D.endDrawSprite();           
+            }          
         }
     }
 }

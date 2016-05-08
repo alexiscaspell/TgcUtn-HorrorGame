@@ -5,23 +5,16 @@ using TgcViewer.Utils.TgcSceneLoader;
 using TgcViewer.Utils.Input;
 
 using Microsoft.DirectX.Direct3D;
-using System.Collections.Generic;
-using TgcViewer.Utils.Shaders;
-using System.Drawing;
-using TgcViewer.Utils.TgcGeometry;
 using AlumnoEjemplos.LOS_IMPROVISADOS;
-using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores;
 
 namespace AlumnoEjemplos.MiGrupo
 {
     public class EjemploAlumno : TgcExample
     {
-
-        ////////VARIABLES GLOBALES////////
         private TgcScene tgcEscena;
         private CamaraFPS camaraFPS;
 
-        private Iluminador iluminador;
+        private Personaje personaje;
 
         private Bateria bateriaLinterna;
         private Caja cajaInteraccion;
@@ -53,11 +46,11 @@ namespace AlumnoEjemplos.MiGrupo
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\escuela\\mapaEscuela-TgcScene.xml",
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\escuela\\");
 
-            camaraFPS = new CamaraFPS(new Vector3(280f, 25f, 95f), new Vector3(279f, 25f, 95f));
+            camaraFPS = new CamaraFPS(new Vector3(280f, 25f, 60f), new Vector3(270f, 25f, 60f));
                 camaraFPS.init();
 
-            iluminador = new Iluminador(tgcEscena, camaraFPS);
-                iluminador.iniciarEfectos();
+            personaje = new Personaje(tgcEscena, camaraFPS);
+                personaje.iniciarIluminadores();
 
             boss = new Boss();
 
@@ -79,22 +72,19 @@ namespace AlumnoEjemplos.MiGrupo
 
             if (d3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.E))
             {
-                iluminador.cambiarASiguienteEfecto();
+                personaje.cambiarASiguienteIluminador();
             }
 
             camaraFPS.render();
-            iluminador.renderizarEfecto();
+
+            personaje.renderizarIluminador();
 
             boss.update(camaraFPS, elapsedTime,cajaInteraccion);
             boss.render();
 
             cajaInteraccion.render(camaraFPS);
             palanca.render();
-            bateriaLinterna.render();
-
-            //////////////////MUESTRO LOS OBJETOS//////////////////
-            //tgcEscena.renderAll();
-            
+            bateriaLinterna.render();            
         }
 
 

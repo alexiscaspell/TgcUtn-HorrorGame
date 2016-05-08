@@ -90,11 +90,17 @@
     <Compile Include="LOS_IMPROVISADOS\CajaSigue.cs" />
     <Compile Include="LOS_IMPROVISADOS\Camara\CamaraFPS.cs" />
     <Compile Include="LOS_IMPROVISADOS\Camara\CamaraFramework.cs" />
-    <Compile Include="LOS_IMPROVISADOS\Iluminadores\Iluminador.cs" />
-    <Compile Include="LOS_IMPROVISADOS\Iluminadores\IEfecto.cs" />
-    <Compile Include="LOS_IMPROVISADOS\Iluminadores\LuzFarol.cs" />
-    <Compile Include="LOS_IMPROVISADOS\Iluminadores\LuzFluorescente.cs" />
-    <Compile Include="LOS_IMPROVISADOS\Iluminadores\LuzLinterna.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Iluminadores\faroles\PantallaFarol.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Iluminadores\fluors\PantallaFluor.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Iluminadores\IyCA\Iluminador.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Iluminadores\linternas\PantallaLinterna.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Personaje.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Iluminadores\IyCA\AEfecto.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Iluminadores\faroles\LuzFarol.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Iluminadores\fluors\LuzFluor.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Iluminadores\IyCA\Logica.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Iluminadores\IyCA\APantalla.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Iluminadores\linternas\LuzLinterna.cs" />
     <Compile Include="LOS_IMPROVISADOS\Palanca.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

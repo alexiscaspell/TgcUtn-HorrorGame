@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using TgcViewer.Utils.TgcSceneLoader;
 
-namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores
+namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
 {
     abstract class AEfecto
     {
