@@ -11,7 +11,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores
 
         public CamaraFPS camaraFPS { get; set; }
 
-        public List<IEfecto> efectos { get; set; }
+        public List<AEfecto> efectos { get; set; }
 
         public int efectoActual { get; set; }
 
@@ -21,7 +21,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores
             this.camaraFPS = camaraFPS;
             this.efectoActual = 0;
 
-            efectos = new List<IEfecto>();
+            efectos = new List<AEfecto>();
                 efectos.Add(new LuzLinterna(tgcEscena, camaraFPS));
                 efectos.Add(new LuzFarol(tgcEscena, camaraFPS));
                 efectos.Add(new LuzFluorescente(tgcEscena, camaraFPS));

@@ -9,12 +9,8 @@ using TgcViewer.Utils._2D;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores
 {
-    class LuzLinterna : IEfecto
+    class LuzLinterna : AEfecto
     {
-        //efecto
-        public TgcScene tgcEscena { set; get; }
-        public CamaraFPS camaraFPS { get; set; }
-
         //pantalla
         public TgcSprite spriteMano { get; set; }
         
@@ -29,11 +25,21 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores
             spriteMano.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\manoLinterna.png");
         }
 
-        public void init()
+        public override void init()
         {
-            //efecto
-            crearModificadores();
-            crearVariablesDeUsuario();
+            ///luz
+            GuiController.Instance.Modifiers.addColor("linternaColor", Color.White);
+            GuiController.Instance.Modifiers.addFloat("linternaIntensidad", 0, 150, 21f);
+            GuiController.Instance.Modifiers.addFloat("linternaAtenuacion", 0.1f, 2, 0.4f);
+            GuiController.Instance.Modifiers.addFloat("linternaSpecularEx", 0, 20, 15f);
+            GuiController.Instance.Modifiers.addFloat("linternaAngulo", 0, 180, 45f);
+            GuiController.Instance.Modifiers.addFloat("linternaSpotExponent", 0, 40, 20f);
+
+            //material
+            GuiController.Instance.Modifiers.addColor("linternaEmissive", Color.Black);
+            GuiController.Instance.Modifiers.addColor("linternaAmbient", Color.White);
+            GuiController.Instance.Modifiers.addColor("linternaDiffuse", Color.White);
+            GuiController.Instance.Modifiers.addColor("linternaSpecular", Color.White);
 
             //pantalla
             Size screenSize = GuiController.Instance.Panel3d.Size;
@@ -41,7 +47,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores
             spriteMano.Scaling = new Vector2((float)0.0002 * screenSize.Width, (float)0.0003 * screenSize.Height);
         } 
 
-        public void render()
+        public override void render()
         {
             //efecto
             Effect currentShader = GuiController.Instance.Shaders.TgcMeshSpotLightShader;
@@ -81,38 +87,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores
             GuiController.Instance.Drawer2D.beginDrawSprite();
             spriteMano.render();
             GuiController.Instance.Drawer2D.endDrawSprite();
-        }
-
-        public void crearVariablesDeUsuario()
-        {
-        }
-
-        public void crearModificadores()
-        {
-            ///luz
-            GuiController.Instance.Modifiers.addColor("linternaColor", Color.White);
-            GuiController.Instance.Modifiers.addFloat("linternaIntensidad", 0, 150, 12f);
-            GuiController.Instance.Modifiers.addFloat("linternaAtenuacion", 0.1f, 2, 0.4f);
-            GuiController.Instance.Modifiers.addFloat("linternaSpecularEx", 0, 20, 15f);
-            GuiController.Instance.Modifiers.addFloat("linternaAngulo", 0, 180, 45f);
-            GuiController.Instance.Modifiers.addFloat("linternaSpotExponent", 0, 20, 17f);
-
-            //material
-            GuiController.Instance.Modifiers.addColor("linternaEmissive", Color.Black);
-            GuiController.Instance.Modifiers.addColor("linternaAmbient", Color.White);
-            GuiController.Instance.Modifiers.addColor("linternaDiffuse", Color.White);
-            GuiController.Instance.Modifiers.addColor("linternaSpecular", Color.White);
-        }
-
-        public void usarVariablesDeUsuarioIniciales()
-        {
-            
-        }
-
-
-        public void usarModificadoresIniciales()
-        {
-            
         }
         
     }
