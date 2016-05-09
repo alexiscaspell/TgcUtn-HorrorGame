@@ -44,7 +44,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
             }
 
             Vector3 lightPos = camaraFPS.posicion;
-            Vector3 lightDir = camaraFPS.direccionVista - camaraFPS.posicion;
+            Vector3 lightDir = camaraFPS.direccionVista;
             lightDir.Normalize();
 
             foreach (TgcMesh mesh in tgcEscena.Meshes)
