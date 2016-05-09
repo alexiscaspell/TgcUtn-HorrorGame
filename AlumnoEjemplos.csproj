@@ -90,7 +90,6 @@
     <Compile Include="LOS_IMPROVISADOS\CajaSigue.cs" />
     <Compile Include="LOS_IMPROVISADOS\Camara\CamaraFPS.cs" />
     <Compile Include="LOS_IMPROVISADOS\Camara\CamaraFramework.cs" />
-    <Compile Include="LOS_IMPROVISADOS\Class1.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\faroles\PantallaFarol.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\fluors\PantallaFluor.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\IyCA\Iluminador.cs" />

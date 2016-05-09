@@ -42,6 +42,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             Vector3 aux = camara.posicion;
 
             float angulo;
+            Vector3 normal;
             bool collide = false;//ESTE BOOL ME DICE SI HAY COLISION
 
             movement.Subtract(cuerpo.BoundingBox.Position);//ACA MUEVO EL BOUNDING BOX SIMULANDO EL MOV DEL BOSS
@@ -71,10 +72,15 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                     
                     angulo = FastMath.Acos( Vector3.Dot(movement,dir) / (movement.Length() * dir.Length())  );
                     
+                    normal = Vector3.Cross(dir,movement);
+                    
                     dir = movement;
-                              
+
                     if(!float.IsNaN(angulo)){
-                 		mesh.rotateY(angulo);
+                    	if(normal.Y > 0){
+                 			mesh.rotateY(angulo);
+                    	}else
+                    		mesh.rotateY(-angulo);
                     }
                     
                     movement *= MOVEMENT_SPEED * elapsedTime;
