@@ -1,9 +1,9 @@
 <roomsEditor-Map>
   <mapSettings width="4000" height="4000" scaleX="1" scaleY="1" scaleZ="1" />
-  <rooms count="13">
+  <rooms count="17">
     <room name="Sala-Inicial-1" x="10" y="80" width="900" length="310" height="100" floorLevel="0">
       <wall name="Roof" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
-      <wall name="Floor" textureName="baldosaFacultad.jpg" autoAdjustUv="False" uTile="10" vTile="5" />
+      <wall name="Floor" textureName="baldosaFacultad.jpg" autoAdjustUv="True" uTile="10" vTile="5" />
       <wall name="East" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
       <wall name="West" textureName="dragonball.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
       <wall name="North" textureName="granito.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
@@ -27,8 +27,8 @@
     </room>
     <room name="Sala Llave" x="440" y="640" width="230" length="170" height="100" floorLevel="0">
       <wall name="Roof" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
-      <wall name="Floor" textureName="Tileable5t.png" autoAdjustUv="True" uTile="1" vTile="1" />
-      <wall name="East" textureName="Tileable9t.png" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="Tileable5t.png" autoAdjustUv="True" uTile="1,5" vTile="1" />
+      <wall name="East" textureName="Tileable9t.png" autoAdjustUv="True" uTile="2" vTile="1" />
       <wall name="West" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
       <wall name="North" textureName="baldosaFacultad.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
       <wall name="South" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
@@ -57,9 +57,9 @@
       <wall name="North" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
       <wall name="South" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
     </room>
-    <room name="Pasillo-largo" x="920" y="40" width="300" length="2000" height="100" floorLevel="0">
+    <room name="Pasillo-largo" x="920" y="40" width="300" length="1000" height="100" floorLevel="0">
       <wall name="Roof" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
-      <wall name="Floor" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1,5" />
+      <wall name="Floor" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
       <wall name="East" textureName="tierra.jpg" autoAdjustUv="True" uTile="2" vTile="1" />
       <wall name="West" textureName="tierra.jpg" autoAdjustUv="True" uTile="2" vTile="1" />
       <wall name="North" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
@@ -98,6 +98,38 @@
       <wall name="South" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
     </room>
     <room name="Room-26" x="1560" y="310" width="50" length="10" height="100" floorLevel="0">
+      <wall name="Roof" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="Room-27" x="1220" y="840" width="480" length="200" height="100" floorLevel="0">
+      <wall name="Roof" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="Room-29" x="1700" y="860" width="10" length="50" height="100" floorLevel="0">
+      <wall name="Roof" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="Room-30" x="1710" y="550" width="50" length="360" height="100" floorLevel="0">
+      <wall name="Roof" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="Room-32" x="1660" y="550" width="50" length="50" height="100" floorLevel="0">
       <wall name="Roof" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
       <wall name="Floor" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
       <wall name="East" textureName="tierra.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
