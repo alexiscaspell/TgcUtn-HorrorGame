@@ -31,7 +31,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         
         public void update(){
         	posicion = camaraFramework.getPosition();
-            direccionVista = camaraFramework.getLookAt();
+            direccionVista = camaraFramework.viewDir;
         }
         
         public void init()
