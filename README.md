@@ -1,2 +1,2 @@
-# TgcJuego
-Repo de Prueba TGC-UTN
+# TgcUtn-HorrorGame
+Juego de terror en primera persona basado en juegos famosos como Amnesia, Outlast, Penumbra, etc
