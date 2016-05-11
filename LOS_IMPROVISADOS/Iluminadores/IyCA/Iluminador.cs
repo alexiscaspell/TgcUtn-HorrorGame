@@ -8,28 +8,28 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
 {
     class Iluminador
     {
-        public AEfecto efecto { get; set; }
-        public Logica logica { get; set; }
-        public APantalla pantalla { get; set; }
+        public ALuz efecto { get; set; }
+        public ABateria bateria { get; set; }
+        public AManoPantalla pantalla { get; set; }
 
-        public Iluminador(AEfecto efecto, APantalla pantalla, Logica logica)
+        public Iluminador(ALuz efecto, AManoPantalla pantalla, ABateria bateria)
         {
             this.efecto = efecto;
             this.pantalla = pantalla;
-            this.logica = logica;
+            this.bateria = bateria;
         }
 
         public void init()
         {
             efecto.init();
             pantalla.init();
-            logica.init();
+            bateria.init();
         }
         public void render()
         {
             efecto.render();
             pantalla.render();
-            logica.render();
+            bateria.render();
         }
     }
 }

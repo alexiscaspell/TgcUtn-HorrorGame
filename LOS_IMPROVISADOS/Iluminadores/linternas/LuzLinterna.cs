@@ -8,7 +8,7 @@ using TgcViewer.Utils.TgcGeometry;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
 {
-    class LuzLinterna : AEfecto
+    class LuzLinterna : ALuz
     {        
         public LuzLinterna(TgcScene tgcEscena, CamaraFPS camaraFPS)
         {

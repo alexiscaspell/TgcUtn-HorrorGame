@@ -8,7 +8,7 @@ using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.fluors
 {
-    class LuzFluor : AEfecto
+    class LuzFluor : ALuz
     {
         public LuzFluor(TgcScene tgcEscena, CamaraFPS camaraFPS)
         {

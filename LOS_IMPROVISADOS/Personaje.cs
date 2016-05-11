@@ -12,11 +12,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
     class Personaje
     {
         public TgcScene tgcEscena { set; get; }
-
         public CamaraFPS camaraFPS { get; set; }
 
         public List<Iluminador> iluminadores { get; set; }
-
         public int posicionIluminadorActual { get; set; }
 
         public Personaje(TgcScene tgcEscena, CamaraFPS camaraFPS)
@@ -25,9 +23,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             this.camaraFPS = camaraFPS;
             this.posicionIluminadorActual = 0;
 
-            Iluminador linterna = new Iluminador(new LuzLinterna(tgcEscena, camaraFPS), new PantallaLinterna(), new Logica());
-            Iluminador farol = new Iluminador(new LuzFarol(tgcEscena, camaraFPS), new PantallaFarol(), new Logica());
-            Iluminador fluor = new Iluminador(new LuzFluor(tgcEscena, camaraFPS), new PantallaFluor(), new Logica());
+            Iluminador linterna = new Iluminador(new LuzLinterna(tgcEscena, camaraFPS), new ManoLinterna(), new BateriaLinterna());
+            Iluminador farol = new Iluminador(new LuzFarol(tgcEscena, camaraFPS), new ManoFarol(), new BateriaFarol());
+            Iluminador fluor = new Iluminador(new LuzFluor(tgcEscena, camaraFPS), new ManoFluor(), new BateriaFluor());
 
             iluminadores = new List<Iluminador>() {linterna, farol, fluor};
         }
@@ -61,6 +59,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             if (posicionIluminadorActual >= iluminadores.Count)
                 posicionIluminadorActual = 0;
             
+        }
+
+        public void recargarBateriaLinterna()
+        {
+            iluminadores[posicionIluminadorActual].bateria.recargar();
         }
 
     }

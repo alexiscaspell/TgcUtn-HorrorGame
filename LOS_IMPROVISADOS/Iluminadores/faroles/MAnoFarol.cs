@@ -11,9 +11,9 @@ using TgcViewer.Utils.TgcSceneLoader;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
 {
-    class PantallaFarol : APantalla
+    class ManoFarol : AManoPantalla
     {
-        public PantallaFarol()
+        public ManoFarol()
         {
             sprite = new TgcSprite();
             sprite.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\farol.png");

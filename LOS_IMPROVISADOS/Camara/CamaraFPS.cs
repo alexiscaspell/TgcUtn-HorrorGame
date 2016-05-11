@@ -65,7 +65,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public void crearModificadores()
         {
-            GuiController.Instance.Modifiers.addFloat("velocidadCaminar", 0f, 400f, 60f);
+            GuiController.Instance.Modifiers.addFloat("velocidadCaminar", 0f, 400f, 100f);
         }
 
         public void usarVariablesDeUsuarioIniciales()

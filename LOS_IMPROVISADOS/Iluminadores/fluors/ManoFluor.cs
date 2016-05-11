@@ -7,9 +7,9 @@ using TgcViewer.Utils.TgcSceneLoader;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.fluors
 {
-    class PantallaFluor : APantalla
+    class ManoFluor : AManoPantalla
     {
-        public PantallaFluor()
+        public ManoFluor()
         {
             sprite = new TgcSprite();
             sprite.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\fluor.png");

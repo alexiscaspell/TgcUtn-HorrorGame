@@ -16,7 +16,7 @@ namespace AlumnoEjemplos.MiGrupo
 
         private Personaje personaje;
 
-        private Bateria bateriaLinterna;
+       // private Bateria bateriaLinterna;
         private Caja cajaInteraccion;
         private Palanca palanca;
         private Boss boss;
@@ -46,7 +46,7 @@ namespace AlumnoEjemplos.MiGrupo
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\mapaScene-TgcScene.xml",
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\");
 
-            camaraFPS = new CamaraFPS(new Vector3(50,25,200/*280f, 25f, 60f*/), new Vector3(270f, 25f, 60f));
+            camaraFPS = new CamaraFPS(new Vector3(50,45,200/*280f, 25f, 60f*/), new Vector3(270f, 45f, 60f));
                 camaraFPS.init();
 
             personaje = new Personaje(tgcEscena, camaraFPS);
@@ -60,9 +60,9 @@ namespace AlumnoEjemplos.MiGrupo
 
             palanca = new Palanca();
             palanca.init();
-
+            /*
             bateriaLinterna = new Bateria();
-            bateriaLinterna.init(3);
+            bateriaLinterna.init(3);*/
         }
 
 
@@ -76,6 +76,11 @@ namespace AlumnoEjemplos.MiGrupo
                 personaje.cambiarASiguienteIluminador();
             }
 
+            if (d3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.R))
+            {
+                personaje.recargarBateriaLinterna();
+            }
+
             camaraFPS.render();
 
             personaje.renderizarIluminador();
@@ -85,7 +90,7 @@ namespace AlumnoEjemplos.MiGrupo
 
             cajaInteraccion.render(camaraFPS);
             palanca.render();
-            bateriaLinterna.render();            
+            //bateriaLinterna.render();            
         }
 
 
