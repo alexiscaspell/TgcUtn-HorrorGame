@@ -33,6 +33,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             Iluminador fluor = new Iluminador(new LuzFluor(tgcEscena, camaraFPS), new ManoFluor(), new BateriaFluor());
 
             iluminadores = new List<Iluminador>() {linterna, farol, fluor};
+
+            cuerpo = TgcBox.fromSize(new Vector3(10, camaraFPS.posicion.Y + 2, 14));
+
+            cuerpo.Position = camaraFPS.camaraFramework.LookAt;
         }
         
         public void iniciarIluminadores()
@@ -41,10 +45,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             {
                 iluminador.init();
             }
-
-            cuerpo = TgcBox.fromSize(new Vector3(4, camaraFPS.posicion.Y + 2, 14));
-
-            cuerpo.Position = camaraFPS.camaraFramework.LookAt;
         }
 
         public void renderizarIluminador()
@@ -89,6 +89,16 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         public void update()
         {
             updateMemento();
+
+            if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.R))
+            {
+                recargarBateriaLinterna();
+            }
+
+            if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.F))
+            {
+                cambiarASiguienteIluminador();
+            }
             cuerpo.Position = camaraFPS.camaraFramework.LookAt;
         }
 

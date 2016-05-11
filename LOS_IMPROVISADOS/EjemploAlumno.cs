@@ -77,10 +77,7 @@ namespace AlumnoEjemplos.MiGrupo
 
             boss.setColisiona(personaje.estasMirandoBoss());//El mejor truco del mundo! (seteo q el boss colisione solo si estoy mirando)
             mapa.detectarColisiones(colisionadores);
-            if (d3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.R))
-            {
-                personaje.recargarBateriaLinterna();
-            }
+
             camaraFPS.render();
 
             personaje.update();

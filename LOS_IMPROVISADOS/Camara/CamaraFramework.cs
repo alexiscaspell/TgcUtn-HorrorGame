@@ -735,13 +735,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             //Jump
             if (d3dInput.keyDown(Key.Space))
             {
-                if (!moveUpPressed)
+                /*if (!moveUpPressed)
                 {
                     moveUpPressed = true;
                     currentVelocity = new Vector3(currentVelocity.X, 0.0f, currentVelocity.Z);
                 }
 
-                direction.Y += 1.0f;
+                direction.Y += 1.0f;*/
             }
             else
             {
@@ -751,13 +751,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             //Crouch
             if (d3dInput.keyDown(Key.LeftControl))
             {
-                if (!moveDownPressed)
+               /* if (!moveDownPressed)
                 {
                     moveDownPressed = true;
                     currentVelocity = new Vector3(currentVelocity.X, 0.0f, currentVelocity.Z);
                 }
 
-                direction.Y -= 1.0f;
+                direction.Y -= 1.0f;*/
             }
             else
             {
