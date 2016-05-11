@@ -65,6 +65,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public void crearModificadores()
         {
+            GuiController.Instance.Modifiers.addBoolean("moverCamaraConClik", "Activar", false);
             GuiController.Instance.Modifiers.addFloat("velocidadCaminar", 0f, 400f, 100f);
         }
 
@@ -81,6 +82,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public void usarModificadoresIniciales()
         {
+            camaraFramework.camaraConClikActivado = (bool)GuiController.Instance.Modifiers["moverCamaraConClik"];
             camaraFramework.MovementSpeed = (float)GuiController.Instance.Modifiers["velocidadCaminar"];
         }
 

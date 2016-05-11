@@ -14,7 +14,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
 
         public override void recargar()
         {
-            throw new NotImplementedException();
         }
 
         public override void render()
