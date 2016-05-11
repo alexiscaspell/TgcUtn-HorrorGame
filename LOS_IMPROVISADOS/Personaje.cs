@@ -15,11 +15,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
     class Personaje:Colisionador
     {
         public TgcScene tgcEscena { set; get; }
-
         public CamaraFPS camaraFPS { get; set; }
 
         public List<Iluminador> iluminadores { get; set; }
-
         public int posicionIluminadorActual { get; set; }
 
         private TgcBox cuerpo;
@@ -30,9 +28,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             this.camaraFPS = camaraFPS;
             this.posicionIluminadorActual = 0;
 
-            Iluminador linterna = new Iluminador(new LuzLinterna(tgcEscena, camaraFPS), new PantallaLinterna(), new Logica());
-            Iluminador farol = new Iluminador(new LuzFarol(tgcEscena, camaraFPS), new PantallaFarol(), new Logica());
-            Iluminador fluor = new Iluminador(new LuzFluor(tgcEscena, camaraFPS), new PantallaFluor(), new Logica());
+            Iluminador linterna = new Iluminador(new LuzLinterna(tgcEscena, camaraFPS), new ManoLinterna(), new BateriaLinterna());
+            Iluminador farol = new Iluminador(new LuzFarol(tgcEscena, camaraFPS), new ManoFarol(), new BateriaFarol());
+            Iluminador fluor = new Iluminador(new LuzFluor(tgcEscena, camaraFPS), new ManoFluor(), new BateriaFluor());
 
             iluminadores = new List<Iluminador>() {linterna, farol, fluor};
         }
@@ -72,39 +70,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             
         }
 
-        public void update()
+        public void recargarBateriaLinterna()
         {
-            updateMemento();
-
-            if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.E))
-            {
-                cambiarASiguienteIluminador();
-            }
-
-                cuerpo.Position = camaraFPS.camaraFramework.LookAt;
-        }
-
-        internal bool estasMirandoBoss()
-        {
-            return true;
-        }
-
-        public override void retroceder(Vector3 vecRetroceso)
-        {
-            camaraFPS.camaraFramework.setPosition(camaraFPS.camaraFramework.Position - vecRetroceso);
-            //camaraFPS.camaraFramework.updateCamera();
-            //camaraFPS.update();
-            cuerpo.Position = camaraFPS.camaraFramework.LookAt;
-        }
-
-        public override Vector3 getPosition()
-        {
-            return camaraFPS.camaraFramework.Position;
-        }
-
-        public override TgcBoundingBox getBoundingBox()
-        {
-            return cuerpo.BoundingBox;
+            iluminadores[posicionIluminadorActual].bateria.recargar();
         }
     }
 }

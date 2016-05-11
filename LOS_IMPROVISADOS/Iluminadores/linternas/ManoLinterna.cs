@@ -11,9 +11,9 @@ using TgcViewer.Utils.TgcSceneLoader;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
 {
-    class PantallaLinterna : APantalla
+    class ManoLinterna : AManoPantalla
     {
-        public PantallaLinterna()
+        public ManoLinterna()
         {
             sprite = new TgcSprite();
             sprite.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\manoLinterna.png");

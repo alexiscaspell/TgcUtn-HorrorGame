@@ -16,6 +16,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
     /// </summary>
     public class CamaraFramework : TgcCamera
     {
+        public bool camaraConClikActivado { get; set; } = false;
+
+
         //Constantes de movimiento
         public const float DEFAULT_ROTATION_SPEED = 2f;
         public const float DEFAULT_MOVEMENT_SPEED = 100f;
@@ -630,12 +633,17 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             //////////////////////////////////////////////////////////////////////
             /*********HAGO QUE NO SE NECESITE MANTENER CLICK********************/
             //////////////////////////////////////////////////////////////////////
-
-            //if (d3dInput.buttonDown(rotateMouseButton))
+            if (camaraConClikActivado)
+            {
+                if (d3dInput.buttonDown(rotateMouseButton))
+                {
+                    rotate(heading, pitch, 0.0f);
+                }
+            }
+            else
             {
                 rotate(heading, pitch, 0.0f);
             }
-
 
             updatePosition(direction, elapsedTimeSec);
         }

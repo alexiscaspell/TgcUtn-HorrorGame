@@ -7,7 +7,7 @@ using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
 {
-    class LuzFarol : AEfecto
+    class LuzFarol : ALuz
     {
         public LuzFarol (TgcScene tgcEscena, CamaraFPS camaraFPS)
         {

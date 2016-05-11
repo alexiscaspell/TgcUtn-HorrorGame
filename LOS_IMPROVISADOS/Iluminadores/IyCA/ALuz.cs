@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TgcViewer.Utils._2D;
+using TgcViewer.Utils.TgcSceneLoader;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
 {
-    abstract class APantalla
+    abstract class ALuz
     {
-        public TgcSprite sprite { get; set; }
+        public TgcScene tgcEscena { set; get; }
+        public CamaraFPS camaraFPS { get; set; }
 
         abstract public void init();
         abstract public void render();

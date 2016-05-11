@@ -20,8 +20,7 @@ namespace AlumnoEjemplos.MiGrupo
 
         private Personaje personaje;
 
-        private Bateria bateriaLinterna;
-
+       // private Bateria bateriaLinterna;
         private Boss boss;
 
         private Mapa mapa;
@@ -48,7 +47,6 @@ namespace AlumnoEjemplos.MiGrupo
             Device d3dDevice = GuiController.Instance.D3dDevice;
 
             mapa = new Mapa();
-
             camaraFPS = new CamaraFPS(new Vector3(50,32,200/*280f, 25f, 60f*/), new Vector3(270f, 32f,60f));
                 camaraFPS.init();
 
@@ -58,8 +56,9 @@ namespace AlumnoEjemplos.MiGrupo
             boss = new Boss(camaraFPS);
             boss.init(30f,new Vector3(100,10,100));
 
+            /*
             bateriaLinterna = new Bateria();
-            bateriaLinterna.init(3);
+            bateriaLinterna.init(3);*/
 
             Cursor.Hide();
             colisionadores = new List<Colisionador>();
@@ -77,9 +76,11 @@ namespace AlumnoEjemplos.MiGrupo
             Cursor.Position = new Point(screenSize.Width / 2, screenSize.Height / 2);
 
             boss.setColisiona(personaje.estasMirandoBoss());//El mejor truco del mundo! (seteo q el boss colisione solo si estoy mirando)
-
             mapa.detectarColisiones(colisionadores);
-
+            if (d3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.R))
+            {
+                personaje.recargarBateriaLinterna();
+            }
             camaraFPS.render();
 
             personaje.update();
@@ -89,8 +90,7 @@ namespace AlumnoEjemplos.MiGrupo
             boss.update(elapsedTime);
             boss.render();
 
-            bateriaLinterna.render();
-      
+            //bateriaLinterna.render();            
         }
 
         public override void close()
