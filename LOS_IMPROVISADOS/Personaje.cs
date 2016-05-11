@@ -70,9 +70,36 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             
         }
 
+        internal bool estasMirandoBoss()
+        {
+            return true;
+        }
+
         public void recargarBateriaLinterna()
         {
             iluminadores[posicionIluminadorActual].bateria.recargar();
+        }
+
+        public override void retroceder(Vector3 vecRetroceso)
+        {
+            camaraFPS.camaraFramework.setPosition(camaraFPS.camaraFramework.Position - vecRetroceso);
+            cuerpo.Position = camaraFPS.camaraFramework.LookAt;
+        }
+
+        public void update()
+        {
+            updateMemento();
+            cuerpo.Position = camaraFPS.camaraFramework.LookAt;
+        }
+
+        public override Vector3 getPosition()
+        {
+            return camaraFPS.camaraFramework.Position;
+        }
+
+        public override TgcBoundingBox getBoundingBox()
+        {
+            return cuerpo.BoundingBox;
         }
     }
 }
