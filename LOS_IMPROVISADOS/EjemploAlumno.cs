@@ -46,13 +46,14 @@ namespace AlumnoEjemplos.MiGrupo
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\mapaScene-TgcScene.xml",
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\");
 
-            camaraFPS = new CamaraFPS(new Vector3(280f, 25f, 60f), new Vector3(270f, 25f, 60f));
+            camaraFPS = new CamaraFPS(new Vector3(50,25,200/*280f, 25f, 60f*/), new Vector3(270f, 25f, 60f));
                 camaraFPS.init();
 
             personaje = new Personaje(tgcEscena, camaraFPS);
                 personaje.iniciarIluminadores();
 
-            boss = new Boss();
+            boss = new Boss(camaraFPS);
+            boss.init(30f,new Vector3(100,0,100));
 
             cajaInteraccion = new Caja();
             cajaInteraccion.init();
@@ -79,7 +80,7 @@ namespace AlumnoEjemplos.MiGrupo
 
             personaje.renderizarIluminador();
 
-            boss.update(camaraFPS, elapsedTime,cajaInteraccion);
+            boss.update(elapsedTime);
             boss.render();
 
             cajaInteraccion.render(camaraFPS);

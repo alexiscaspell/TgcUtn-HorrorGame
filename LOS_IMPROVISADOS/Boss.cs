@@ -11,87 +11,95 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
     class Boss
     {
-        private TgcScene cuerpo;
-        private const float MOVEMENT_SPEED = 20f;
-        public Vector3 dir = new Vector3(1,0,0);
+        private TgcScene sceneBicho;
+        //private const float MOVEMENT_SPEED = 20f;
+        private float velocidadMovimiento;
+        private Vector3 dir = new Vector3(0, 0, -1);//1, 0, 0);
+        private TgcMesh cuerpo;
+        CamaraFPS camara;
 
-        public Boss()
+        public Boss(CamaraFPS camara)
         {
             TgcSceneLoader loader = new TgcSceneLoader();
 
-            cuerpo = loader.loadSceneFromFile(
-        GuiController.Instance.AlumnoEjemplosDir + "Media\\Calabera\\Calabera-TgcScene.xml",
-        GuiController.Instance.AlumnoEjemplosDir + "Media\\Calabera\\");
+            sceneBicho = loader.loadSceneFromFile(
+            GuiController.Instance.AlumnoEjemplosDir + "Media\\Calabera\\Calabera-TgcScene.xml",
+            GuiController.Instance.AlumnoEjemplosDir + "Media\\Calabera\\");
 
-            foreach (TgcMesh mesh in cuerpo.Meshes)
-            {
-                mesh.AutoUpdateBoundingBox = true;
-            }
+            cuerpo = sceneBicho.Meshes[0];
+
+            cuerpo.AutoTransformEnable = true;
+
+            this.camara = camara;
+        }
+
+        public void init(float velocidadMovimiento,Vector3 posicion)
+        {
+            this.velocidadMovimiento = velocidadMovimiento;
+
+            cuerpo.Position = posicion;
         }
 
         public void render()
         {
-            cuerpo.renderAll();
-                cuerpo.BoundingBox.render();
+            cuerpo.render();
         }
-        
 
-        public void update(CamaraFPS camara,float elapsedTime,Caja caja)//LA CAJA LA PASO TEMPORALMENTE SOLO PARA PROBAR COLISIONES
+        private void seguirPersonaje(float elapsedTime)
         {
-           Vector3 movement = camara.posicion;
-            Vector3 aux = camara.posicion;
+            Vector3 movement = camara.posicion;
 
-            float angulo;
-            Vector3 normal;
-            bool collide = false;//ESTE BOOL ME DICE SI HAY COLISION
+            bool hayColision = false;//Esto voy a llamar a un metodo de clase de ColinaAzul
 
-            movement.Subtract(cuerpo.BoundingBox.Position);//ACA MUEVO EL BOUNDING BOX SIMULANDO EL MOV DEL BOSS
-            //movement.Subtract(new Vector3(0, movement.Y, 0));
-            movement.Normalize();
-            movement *= MOVEMENT_SPEED * elapsedTime;
-            cuerpo.BoundingBox.move(movement);
-            
-            TgcCollisionUtils.BoxBoxResult result = TgcCollisionUtils.classifyBoxBox(cuerpo.BoundingBox, caja.getBoundingBox());
-            if (result == TgcCollisionUtils.BoxBoxResult.Adentro || result == TgcCollisionUtils.BoxBoxResult.Atravesando)
+            if (!hayColision)
             {
-                collide = true;
-                cuerpo.BoundingBox.move(-movement);//SI EL BOUNDING BOX CHOCA CON LA CAJA RETROCEDO EL BOUNDING BOX 
-                                                   //Y NO DEJO AVANZAR AL BOSS
-            }
+                movement.Subtract(cuerpo.BoundingBox.Position);
+                movement.Subtract(new Vector3(0, movement.Y, 0));
+                movement.Normalize();
+                dir.Subtract(new Vector3(0, dir.Y, 0));
 
+                float angulo = FastMath.Acos(Vector3.Dot(movement, dir) / (movement.Length() * dir.Length()));
 
-            if (!collide)//SI NO HAY COLISION AVANZO
-            {
-                foreach (TgcMesh mesh in cuerpo.Meshes)
+                Vector3 normal = Vector3.Cross(dir, movement);
+
+                dir = movement;
+
+                
+
+                /*if (!float.IsNaN(angulo))
                 {
-            		movement = aux;
-                    movement.Subtract(mesh.BoundingBox.Position);
-                    movement.Subtract(new Vector3(0, movement.Y, 0));
-                    movement.Normalize();
-                    dir.Subtract(new Vector3(0, dir.Y,0));
-                    
-                    angulo = FastMath.Acos( Vector3.Dot(movement,dir) / (movement.Length() * dir.Length())  );
-                    
-                    normal = Vector3.Cross(dir,movement);
-                    
-                    dir = movement;
+                    cuerpo.rotateY((FastMath.Abs(normal.Y) / normal.Y) * angulo);
+                }*/
 
-                    if(!float.IsNaN(angulo)){
-                    	if(normal.Y > 0){
-                 			mesh.rotateY(angulo);
-                    	}else
-                    		mesh.rotateY(-angulo);
+                if (!float.IsNaN(angulo))
+                {
+                    if (normal.Y > 0)
+                    {
+                        cuerpo.rotateY(angulo);
                     }
-                    
-                    movement *= MOVEMENT_SPEED * elapsedTime;
-                    mesh.move(movement);
-                    movement = aux;
+                    else
+                        cuerpo.rotateY(-angulo);
                 }
 
+                movement *= velocidadMovimiento * elapsedTime;
+                cuerpo.move(movement);
             }
-
         }
 
+        public void update(float elapsedTime)
+        {
+            seguirPersonaje(elapsedTime);//Por ahora solo tengo esto
+        }
 
     }
 }
+
+/*
+ * 
+ * public Vector3 rotar_xz(Vector3 v, float an)
+        {
+            return new Vector3((float)(v.X * Math.Cos(an) - v.Z * Math.Sin(an)),
+                                v.Y,
+                                (float)(v.X * Math.Sin(an) + v.Z * Math.Cos(an)));
+
+        }*/
