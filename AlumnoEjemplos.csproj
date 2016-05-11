@@ -86,10 +86,11 @@
   <ItemGroup>
     <Compile Include="LOS_IMPROVISADOS\Bateria.cs" />
     <Compile Include="LOS_IMPROVISADOS\Boss.cs" />
-    <Compile Include="LOS_IMPROVISADOS\Caja.cs" />
-    <Compile Include="LOS_IMPROVISADOS\CajaSigue.cs" />
     <Compile Include="LOS_IMPROVISADOS\Camara\CamaraFPS.cs" />
     <Compile Include="LOS_IMPROVISADOS\Camara\CamaraFramework.cs" />
+    <Compile Include="LOS_IMPROVISADOS\CosasPrueba\Caja.cs" />
+    <Compile Include="LOS_IMPROVISADOS\CosasPrueba\CajaSigue.cs" />
+    <Compile Include="LOS_IMPROVISADOS\CosasPrueba\Palanca.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\faroles\PantallaFarol.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\fluors\PantallaFluor.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\IyCA\Iluminador.cs" />
@@ -101,7 +102,6 @@
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\IyCA\Logica.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\IyCA\APantalla.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\linternas\LuzLinterna.cs" />
-    <Compile Include="LOS_IMPROVISADOS\Palanca.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -112,9 +112,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Content Include="LOS_IMPROVISADOS\codigoSalvado.txt" />
     <Compile Include="LOS_IMPROVISADOS\EjemploAlumno.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="LOS_IMPROVISADOS\CosasPrueba\codigoSalvado.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TgcViewer\TgcViewer.csproj">

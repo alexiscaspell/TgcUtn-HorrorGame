@@ -17,8 +17,7 @@ namespace AlumnoEjemplos.MiGrupo
         private Personaje personaje;
 
         private Bateria bateriaLinterna;
-        private Caja cajaInteraccion;
-        private Palanca palanca;
+
         private Boss boss;
 
         public override string getCategory()
@@ -55,12 +54,6 @@ namespace AlumnoEjemplos.MiGrupo
             boss = new Boss(camaraFPS);
             boss.init(30f,new Vector3(100,0,100));
 
-            cajaInteraccion = new Caja();
-            cajaInteraccion.init();
-
-            palanca = new Palanca();
-            palanca.init();
-
             bateriaLinterna = new Bateria();
             bateriaLinterna.init(3);
         }
@@ -83,8 +76,6 @@ namespace AlumnoEjemplos.MiGrupo
             boss.update(elapsedTime);
             boss.render();
 
-            cajaInteraccion.render(camaraFPS);
-            palanca.render();
             bateriaLinterna.render();            
         }
 
