@@ -6,10 +6,13 @@ using Microsoft.DirectX.Direct3D;
 using System.Collections.Generic;
 using TgcViewer;
 using TgcViewer.Utils.TgcSceneLoader;
+using System;
+using TgcViewer.Utils.TgcGeometry;
+using Microsoft.DirectX;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
-    class Personaje
+    class Personaje:Colisionador
     {
         public TgcScene tgcEscena { set; get; }
 
@@ -18,6 +21,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         public List<Iluminador> iluminadores { get; set; }
 
         public int posicionIluminadorActual { get; set; }
+
+        private TgcBox cuerpo;
 
         public Personaje(TgcScene tgcEscena, CamaraFPS camaraFPS)
         {
@@ -38,6 +43,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             {
                 iluminador.init();
             }
+
+            cuerpo = TgcBox.fromSize(new Vector3(4, camaraFPS.posicion.Y + 2, 14));
+
+            cuerpo.Position = camaraFPS.camaraFramework.LookAt;
         }
 
         public void renderizarIluminador()
@@ -63,5 +72,39 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             
         }
 
+        public void update()
+        {
+            updateMemento();
+
+            if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.E))
+            {
+                cambiarASiguienteIluminador();
+            }
+
+                cuerpo.Position = camaraFPS.camaraFramework.LookAt;
+        }
+
+        internal bool estasMirandoBoss()
+        {
+            return true;
+        }
+
+        public override void retroceder(Vector3 vecRetroceso)
+        {
+            camaraFPS.camaraFramework.setPosition(camaraFPS.camaraFramework.Position - vecRetroceso);
+            //camaraFPS.camaraFramework.updateCamera();
+            //camaraFPS.update();
+            cuerpo.Position = camaraFPS.camaraFramework.LookAt;
+        }
+
+        public override Vector3 getPosition()
+        {
+            return camaraFPS.camaraFramework.Position;
+        }
+
+        public override TgcBoundingBox getBoundingBox()
+        {
+            return cuerpo.BoundingBox;
+        }
     }
 }

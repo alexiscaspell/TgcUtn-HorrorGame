@@ -388,7 +388,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             }
         }
 
-        private void setPosition(Vector3 pos)
+        public void setPosition(Vector3 pos)
         {
             eye = pos;
             reconstructViewMatrix(false);
@@ -631,7 +631,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             /*********HAGO QUE NO SE NECESITE MANTENER CLICK********************/
             //////////////////////////////////////////////////////////////////////
 
-            if (d3dInput.buttonDown(rotateMouseButton))
+            //if (d3dInput.buttonDown(rotateMouseButton))
             {
                 rotate(heading, pitch, 0.0f);
             }

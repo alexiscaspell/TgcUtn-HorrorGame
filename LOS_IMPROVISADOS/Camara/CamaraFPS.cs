@@ -10,6 +10,7 @@ using TgcViewer.Utils.TgcSceneLoader;
 using Microsoft.DirectX.Direct3D;
 using System.Drawing;
 using TgcViewer.Utils.TgcGeometry;
+using System.Windows.Forms;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
@@ -20,7 +21,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         public Vector3 direccionVista { get; set; }
 
         public CamaraFramework camaraFramework { get; set; }
-        
+
         public CamaraFPS(Vector3 posicionInicial, Vector3 direccionVistaInicial)
         {
             this.posicion = posicionInicial;

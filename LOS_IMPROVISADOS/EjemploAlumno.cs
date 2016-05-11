@@ -6,12 +6,16 @@ using TgcViewer.Utils.Input;
 
 using Microsoft.DirectX.Direct3D;
 using AlumnoEjemplos.LOS_IMPROVISADOS;
+using TgcViewer.Utils.TgcGeometry;
+using System.Windows.Forms;
+using System.Drawing;
+using System;
+using System.Collections.Generic;
 
 namespace AlumnoEjemplos.MiGrupo
 {
     public class EjemploAlumno : TgcExample
     {
-        private TgcScene tgcEscena;
         private CamaraFPS camaraFPS;
 
         private Personaje personaje;
@@ -19,6 +23,9 @@ namespace AlumnoEjemplos.MiGrupo
         private Bateria bateriaLinterna;
 
         private Boss boss;
+
+        private Mapa mapa;
+        private List<Colisionador> colisionadores;
 
         public override string getCategory()
         {
@@ -39,24 +46,26 @@ namespace AlumnoEjemplos.MiGrupo
         public override void init()
         {
             Device d3dDevice = GuiController.Instance.D3dDevice;
-            
-            TgcSceneLoader loader = new TgcSceneLoader();
-            tgcEscena = loader.loadSceneFromFile(
-                GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\mapaScene-TgcScene.xml",
-                GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\");
 
-            camaraFPS = new CamaraFPS(new Vector3(50,25,200/*280f, 25f, 60f*/), new Vector3(270f, 25f, 60f));
+            mapa = new Mapa();
+
+            camaraFPS = new CamaraFPS(new Vector3(50,32,200/*280f, 25f, 60f*/), new Vector3(270f, 32f,60f));
                 camaraFPS.init();
 
-            personaje = new Personaje(tgcEscena, camaraFPS);
+            personaje = new Personaje(mapa.escena, camaraFPS);
                 personaje.iniciarIluminadores();
 
             boss = new Boss(camaraFPS);
-            boss.init(30f,new Vector3(100,0,100));
+            boss.init(30f,new Vector3(100,10,100));
 
             bateriaLinterna = new Bateria();
             bateriaLinterna.init(3);
-        }
+
+            Cursor.Hide();
+            colisionadores = new List<Colisionador>();
+            colisionadores.Add(boss);
+            colisionadores.Add(personaje);
+    }
 
 
         public override void render(float elapsedTime)
@@ -64,26 +73,33 @@ namespace AlumnoEjemplos.MiGrupo
             TgcD3dInput d3dInput = GuiController.Instance.D3dInput;
             Device d3dDevice = GuiController.Instance.D3dDevice;
 
-            if (d3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.E))
-            {
-                personaje.cambiarASiguienteIluminador();
-            }
+            Size screenSize = GuiController.Instance.Panel3d.Size;
+            Cursor.Position = new Point(screenSize.Width / 2, screenSize.Height / 2);
+
+            boss.setColisiona(personaje.estasMirandoBoss());//El mejor truco del mundo! (seteo q el boss colisione solo si estoy mirando)
+
+            mapa.detectarColisiones(colisionadores);
 
             camaraFPS.render();
+
+            personaje.update();
 
             personaje.renderizarIluminador();
 
             boss.update(elapsedTime);
             boss.render();
 
-            bateriaLinterna.render();            
+            bateriaLinterna.render();
+      
         }
-
 
         public override void close()
         {
-            tgcEscena.disposeAll();
+            mapa.dispose();
+
+            boss.dispose();
         }
+
 
     }
 }
