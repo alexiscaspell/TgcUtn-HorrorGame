@@ -37,6 +37,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             cuerpo = TgcBox.fromSize(new Vector3(10, camaraFPS.posicion.Y + 2, 14));
 
             cuerpo.Position = camaraFPS.camaraFramework.LookAt;
+
+            iniciarIluminadores();
         }
         
         public void iniciarIluminadores()

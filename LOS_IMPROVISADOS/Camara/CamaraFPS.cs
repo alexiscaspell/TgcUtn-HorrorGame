@@ -28,6 +28,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             this.direccionVista = direccionVistaInicial;
 
             camaraFramework = new CamaraFramework();
+
+            init();
         }
         
         public void update(){

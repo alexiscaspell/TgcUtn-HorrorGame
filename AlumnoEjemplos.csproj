@@ -84,7 +84,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LOS_IMPROVISADOS\Bateria.cs" />
     <Compile Include="LOS_IMPROVISADOS\Boss.cs" />
     <Compile Include="LOS_IMPROVISADOS\Camara\CamaraFPS.cs" />
     <Compile Include="LOS_IMPROVISADOS\Camara\CamaraFramework.cs" />
@@ -94,7 +93,7 @@
     <Compile Include="LOS_IMPROVISADOS\CosasPrueba\Palanca.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\faroles\BateriaFarol.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\faroles\LuzFarol.cs" />
-    <Compile Include="LOS_IMPROVISADOS\Iluminadores\faroles\MAnoFarol.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Iluminadores\faroles\ManoFarol.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\fluors\BateriaFluor.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\fluors\LuzFluor.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\fluors\ManoFluor.cs" />

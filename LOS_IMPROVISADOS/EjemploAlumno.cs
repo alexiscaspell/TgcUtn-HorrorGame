@@ -20,7 +20,6 @@ namespace AlumnoEjemplos.MiGrupo
 
         private Personaje personaje;
 
-       // private Bateria bateriaLinterna;
         private Boss boss;
 
         private Mapa mapa;
@@ -47,19 +46,14 @@ namespace AlumnoEjemplos.MiGrupo
             Device d3dDevice = GuiController.Instance.D3dDevice;
 
             mapa = new Mapa();
+
             camaraFPS = new CamaraFPS(new Vector3(50,32,200/*280f, 25f, 60f*/), new Vector3(270f, 32f,60f));
-                camaraFPS.init();
 
             personaje = new Personaje(mapa.escena, camaraFPS);
-                personaje.iniciarIluminadores();
 
             boss = new Boss(camaraFPS);
             boss.init(30f,new Vector3(100,10,100));
-
-            /*
-            bateriaLinterna = new Bateria();
-            bateriaLinterna.init(3);*/
-
+            
             Cursor.Hide();
             colisionadores = new List<Colisionador>();
             colisionadores.Add(boss);
@@ -86,8 +80,7 @@ namespace AlumnoEjemplos.MiGrupo
 
             boss.update(elapsedTime);
             boss.render();
-
-            //bateriaLinterna.render();            
+       
         }
 
         public override void close()

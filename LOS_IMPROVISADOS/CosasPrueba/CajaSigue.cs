@@ -29,8 +29,7 @@ namespace AlumnoEjemplos.MiGrupo
         private CamaraFPS camaraFPS;
 
         private Caja cajaInteraccion;
-
-        private Bateria bateriaLinterna;
+        
 
         private Palanca palanca;
 
@@ -72,9 +71,7 @@ namespace AlumnoEjemplos.MiGrupo
 
             palanca = new Palanca();
             palanca.init();
-
-            bateriaLinterna = new Bateria();
-            bateriaLinterna.init(3);
+            
 
             cajaPrueba = TgcBox.fromSize(new Vector3(0, 0, 0), new Vector3(10, 10, 10), Color.Blue);
 
@@ -94,7 +91,6 @@ namespace AlumnoEjemplos.MiGrupo
 
             cajaInteraccion.render(camaraFPS);
             palanca.render();
-            bateriaLinterna.render();
 
             //////////////////MUESTRO LOS OBJETOS//////////////////
             //tgcEscena.renderAll();

@@ -19,15 +19,20 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
         private List<TgcSprite> listaSprites;
         private DateTime tiempoAnterior;
 
+        private TgcText2d textoCantidadBaterias;
+
         public BateriaLinterna() : base()
         {
-            cantidadDesgaste = 1;
-            cantidadBaterias = 5; //lo pongo en 5 para probar
-            cantidadRecarga = 50;
+            cantidadDesgaste = 5; //gasta una linea cada 5 segundos
+            cantidadBaterias = 4;
+            cantidadRecarga = 2;
+
+            cargaActual = 6;
         }
 
         public override void init()
         {
+            //bateria
             TgcSprite sprite0 = new TgcSprite();
             sprite0.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\bateria0.png");
             TgcSprite sprite1 = new TgcSprite();
@@ -41,7 +46,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
             TgcSprite sprite5 = new TgcSprite();
             sprite5.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\bateria5.png");
 
-            //Ubicarlo centrado en la pantalla
             Size screenSize = GuiController.Instance.Panel3d.Size;
 
             sprite0.Scaling = new Vector2((float)0.0002 * screenSize.Width, (float)0.0005 * screenSize.Height);
@@ -59,6 +63,15 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
             sprite5.Position = new Vector2(0, 20);
 
             listaSprites = new List<TgcSprite>() {sprite0, sprite1, sprite2, sprite3, sprite4, sprite5};
+
+            //texto
+            textoCantidadBaterias = new TgcText2d();
+            textoCantidadBaterias.Color = Color.White;
+            textoCantidadBaterias.Align = TgcText2d.TextAlign.LEFT;
+            textoCantidadBaterias.Position = new Point(screenSize.Width/9, screenSize.Height/32);
+            textoCantidadBaterias.Size = new Size(300, 100);
+            textoCantidadBaterias.changeFont(new System.Drawing.Font("TimesNewRoman", 25, FontStyle.Bold));
+
         }
 
         public override void render()
@@ -72,43 +85,25 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
 
                 actualizarSprite();
             }
-
+            
             GuiController.Instance.Drawer2D.beginDrawSprite();
             spriteActual.render();
             GuiController.Instance.Drawer2D.endDrawSprite();
+
+
+            //texto
+            textoCantidadBaterias.Text = "x" + cantidadBaterias.ToString();
+            textoCantidadBaterias.render();
         }
 
         private void actualizarSprite()
         {
-            if (cargaActual >= 80)
-            {
-                spriteActual = listaSprites.ElementAt(5);
-            }
-            else if (cargaActual >= 60)
-            {
-                spriteActual = listaSprites.ElementAt(4);
-            }
-            else if (cargaActual >= 40)
-            {
-                spriteActual = listaSprites.ElementAt(3);
-            }
-            else if (cargaActual >= 20)
-            {
-                spriteActual = listaSprites.ElementAt(2);
-            }
-            else if (cargaActual > 0)
-            {
-                spriteActual = listaSprites.ElementAt(1);
-            }
-            else if (cargaActual == 0)
-            {
-                spriteActual = listaSprites.ElementAt(0);
-            }
+            spriteActual = listaSprites.ElementAt(cargaActual);
         }
 
         public override void recargar()
         {
-            if (cantidadBaterias == 0 || cargaActual == 100) return;
+            if (cantidadBaterias == 0 || cargaActual == 6) return;
 
             cantidadBaterias--;
             cargarBateria(cantidadRecarga);
@@ -118,9 +113,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
 
         private void cargarBateria(int cantidadACargar)
         {
-            if (cargaActual + cantidadACargar >= 100)
+            if (cargaActual + cantidadACargar >= 5)
             {
-                cargaActual = 100;
+                cargaActual = 5;
             }
             else
             {
