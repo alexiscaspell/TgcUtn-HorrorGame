@@ -33,5 +33,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
             pantalla.render();
             bateria.render();
         }
+
+        public void dispose()
+        {
+            //no se si hay que hacer el dispose de los sprites y demas
+        }
     }
 }

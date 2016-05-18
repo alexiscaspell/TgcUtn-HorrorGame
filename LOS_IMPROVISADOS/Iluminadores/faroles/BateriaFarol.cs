@@ -20,7 +20,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
             //farol
             sprite.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\farolIndicador.png");
 
-            Size screenSize = GuiController.Instance.Panel3d.Size;
             sprite.Scaling = new Vector2((float)0.0002 * screenSize.Width, (float)0.0002 * screenSize.Height);
 
             sprite.Position = new Vector2(20, 20);
@@ -40,14 +39,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
 
         public override void render()
         {
-            TimeSpan tiempoTranscurrido = DateTime.Now.Subtract(tiempoAnterior);
-
-            if (tiempoTranscurrido.Seconds >= cantidadDesgaste && tenesBateria())
-            {
-                cargaActual--;
-                tiempoAnterior = DateTime.Now;
-            }
-
+            gastarBateria(1);
             //farol
             GuiController.Instance.Drawer2D.beginDrawSprite();
             sprite.render();

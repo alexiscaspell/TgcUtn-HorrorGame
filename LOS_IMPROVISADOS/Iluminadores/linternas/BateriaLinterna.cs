@@ -41,8 +41,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
             TgcSprite sprite5 = new TgcSprite();
             sprite5.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\bateria5.png");
 
-            Size screenSize = GuiController.Instance.Panel3d.Size;
-
             sprite0.Scaling = new Vector2((float)0.0002 * screenSize.Width, (float)0.0005 * screenSize.Height);
             sprite1.Scaling = new Vector2((float)0.0002 * screenSize.Width, (float)0.0005 * screenSize.Height);
             sprite2.Scaling = new Vector2((float)0.0002 * screenSize.Width, (float)0.0005 * screenSize.Height);
@@ -71,16 +69,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
 
         public override void render()
         {
-            TimeSpan tiempoTranscurrido = DateTime.Now.Subtract(tiempoAnterior);
+            gastarBateria(1);
 
-            if (tiempoTranscurrido.Seconds >= cantidadDesgaste && tenesBateria())
-            {
-                cargaActual--;
-                tiempoAnterior = DateTime.Now;
+            sprite = listaSprites.ElementAt(cargaActual);
 
-                actualizarSprite();
-            }
-            
             GuiController.Instance.Drawer2D.beginDrawSprite();
             sprite.render();
             GuiController.Instance.Drawer2D.endDrawSprite();
@@ -91,11 +83,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
             texto.render();
         }
 
-        private void actualizarSprite()
-        {
-            sprite = listaSprites.ElementAt(cargaActual);
-        }
-
         public override void recargar()
         {
             if (cantidadBaterias == 0 || cargaActual == 6) return;
@@ -103,7 +90,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
             cantidadBaterias--;
             cargarBateria(cantidadRecarga);
 
-            actualizarSprite();
+            sprite = listaSprites.ElementAt(cargaActual);
         }
 
         private void cargarBateria(int cantidadACargar)
