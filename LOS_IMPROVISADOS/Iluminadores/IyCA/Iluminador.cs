@@ -17,6 +17,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
             this.efecto = efecto;
             this.pantalla = pantalla;
             this.bateria = bateria;
+
+            init();
         }
 
         public void init()

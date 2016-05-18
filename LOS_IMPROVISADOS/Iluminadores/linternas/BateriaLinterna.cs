@@ -15,18 +15,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
         public int cantidadBaterias { get; set; }
         public int cantidadRecarga { get; set; }
         
-        private TgcSprite spriteActual;
         private List<TgcSprite> listaSprites;
-        private DateTime tiempoAnterior;
-
-        private TgcText2d textoCantidadBaterias;
 
         public BateriaLinterna() : base()
         {
             cantidadDesgaste = 5; //gasta una linea cada 5 segundos
-            cantidadBaterias = 4;
-            cantidadRecarga = 2;
-
+            cantidadBaterias = 4; //le pongo 4 para probar
+            cantidadRecarga = 2; //cada vez que recarga, le carga 2 barras
             cargaActual = 6;
         }
 
@@ -65,12 +60,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
             listaSprites = new List<TgcSprite>() {sprite0, sprite1, sprite2, sprite3, sprite4, sprite5};
 
             //texto
-            textoCantidadBaterias = new TgcText2d();
-            textoCantidadBaterias.Color = Color.White;
-            textoCantidadBaterias.Align = TgcText2d.TextAlign.LEFT;
-            textoCantidadBaterias.Position = new Point(screenSize.Width/9, screenSize.Height/32);
-            textoCantidadBaterias.Size = new Size(300, 100);
-            textoCantidadBaterias.changeFont(new System.Drawing.Font("TimesNewRoman", 25, FontStyle.Bold));
+            texto = new TgcText2d();
+            texto.Color = Color.White;
+            texto.Align = TgcText2d.TextAlign.LEFT;
+            texto.Position = new Point(screenSize.Width/9, screenSize.Height/32);
+            texto.Size = new Size(300, 100);
+            texto.changeFont(new System.Drawing.Font("TimesNewRoman", 25, FontStyle.Bold));
 
         }
 
@@ -87,18 +82,18 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
             }
             
             GuiController.Instance.Drawer2D.beginDrawSprite();
-            spriteActual.render();
+            sprite.render();
             GuiController.Instance.Drawer2D.endDrawSprite();
 
 
             //texto
-            textoCantidadBaterias.Text = "x" + cantidadBaterias.ToString();
-            textoCantidadBaterias.render();
+            texto.Text = "x" + cantidadBaterias.ToString();
+            texto.render();
         }
 
         private void actualizarSprite()
         {
-            spriteActual = listaSprites.ElementAt(cargaActual);
+            sprite = listaSprites.ElementAt(cargaActual);
         }
 
         public override void recargar()

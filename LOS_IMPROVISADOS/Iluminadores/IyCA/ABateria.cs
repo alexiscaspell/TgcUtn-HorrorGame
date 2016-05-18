@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TgcViewer.Utils._2D;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
 {
@@ -11,9 +12,17 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
 
         public int cargaActual { get; set; }
 
+        public TgcText2d texto { get; set; }
+
+        public TgcSprite sprite { get; set; }
+
+        public DateTime tiempoAnterior { get; set; }
+        
         public ABateria()
         {
             cargaActual = 100;
+            texto = new TgcText2d();
+            sprite = new TgcSprite();
         }
 
         public bool tenesBateria()

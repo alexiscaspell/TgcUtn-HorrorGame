@@ -27,13 +27,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             this.tgcEscena = tgcEscena;
             this.camaraFPS = camaraFPS;
             this.posicionIluminadorActual = 0;
-
-            Iluminador linterna = new Iluminador(new LuzLinterna(tgcEscena, camaraFPS), new ManoLinterna(), new BateriaLinterna());
-            Iluminador farol = new Iluminador(new LuzFarol(tgcEscena, camaraFPS), new ManoFarol(), new BateriaFarol());
-            Iluminador fluor = new Iluminador(new LuzFluor(tgcEscena, camaraFPS), new ManoFluor(), new BateriaFluor());
-
-            iluminadores = new List<Iluminador>() {linterna, farol, fluor};
-
+            
             cuerpo = TgcBox.fromSize(new Vector3(10, camaraFPS.posicion.Y + 2, 14));
 
             cuerpo.Position = camaraFPS.camaraFramework.LookAt;
@@ -43,10 +37,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         
         public void iniciarIluminadores()
         {
-            foreach (var iluminador in iluminadores)
-            {
-                iluminador.init();
-            }
+            Iluminador linterna = new Iluminador(new LuzLinterna(tgcEscena, camaraFPS), new ManoLinterna(), new BateriaLinterna());
+            Iluminador farol = new Iluminador(new LuzFarol(tgcEscena, camaraFPS), new ManoFarol(), new BateriaFarol());
+            Iluminador fluor = new Iluminador(new LuzFluor(tgcEscena, camaraFPS), new ManoFluor(), new BateriaFluor());
+
+            iluminadores = new List<Iluminador>() { linterna, farol, fluor };
         }
 
         public void renderizarIluminador()
