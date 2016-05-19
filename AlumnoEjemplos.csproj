@@ -91,6 +91,7 @@
     <Compile Include="LOS_IMPROVISADOS\CosasPrueba\Caja.cs" />
     <Compile Include="LOS_IMPROVISADOS\CosasPrueba\CajaSigue.cs" />
     <Compile Include="LOS_IMPROVISADOS\CosasPrueba\Palanca.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Iluminadores\general\LuzOscura.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\faroles\BateriaFarol.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\faroles\LuzFarol.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\faroles\ManoFarol.cs" />
@@ -100,7 +101,7 @@
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\IyCA\ABateria.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\IyCA\ALuz.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\IyCA\AManoPantalla.cs" />
-    <Compile Include="LOS_IMPROVISADOS\Iluminadores\IyCA\Iluminador.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Iluminadores\general\Iluminador.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\linternas\BateriaLinterna.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\linternas\LuzLinterna.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\linternas\ManoLinterna.cs" />

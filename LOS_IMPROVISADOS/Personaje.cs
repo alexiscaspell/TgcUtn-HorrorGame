@@ -1,14 +1,13 @@
 ﻿using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles;
 using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.fluors;
-using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA;
 using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas;
-using Microsoft.DirectX.Direct3D;
 using System.Collections.Generic;
 using TgcViewer;
 using TgcViewer.Utils.TgcSceneLoader;
-using System;
 using TgcViewer.Utils.TgcGeometry;
 using Microsoft.DirectX;
+using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general;
+using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
@@ -99,6 +98,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             {
                 cambiarASiguienteIluminador();
             }
+
             cuerpo.Position = camaraFPS.camaraFramework.LookAt;
         }
 

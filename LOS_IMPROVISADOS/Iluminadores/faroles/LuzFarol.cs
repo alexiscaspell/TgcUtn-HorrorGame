@@ -9,12 +9,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
 {
     class LuzFarol : ALuz
     {
-        public LuzFarol (TgcScene tgcEscena, CamaraFPS camaraFPS)
+        public LuzFarol(TgcScene tgcEscena, CamaraFPS camaraFPS) : base(tgcEscena, camaraFPS)
         {
-            this.tgcEscena = tgcEscena;
-            this.camaraFPS = camaraFPS;
         }
-        
+
         public override void init()
         {
             GuiController.Instance.Modifiers.addColor("farolColor", Color.LightYellow);
@@ -38,15 +36,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
                 mesh.Effect = currentShader;
                 mesh.Technique = GuiController.Instance.Shaders.getTgcMeshTechnique(mesh.RenderType);
             }
-
-            Vector3 lightPos = camaraFPS.posicion;
-
+            
             foreach (TgcMesh mesh in tgcEscena.Meshes)
             {
                 //Cargar variables shader de la luz
                 mesh.Effect.SetValue("lightColor", ColorValue.FromColor((Color)GuiController.Instance.Modifiers["farolColor"]));
-                mesh.Effect.SetValue("lightPosition", TgcParserUtils.vector3ToFloat4Array(lightPos));
-                mesh.Effect.SetValue("eyePosition", TgcParserUtils.vector3ToFloat4Array(GuiController.Instance.FpsCamera.getPosition()));
+                mesh.Effect.SetValue("lightPosition", TgcParserUtils.vector3ToFloat4Array(camaraFPS.posicion));
                 mesh.Effect.SetValue("lightIntensity", (float)GuiController.Instance.Modifiers["farolIntensidad"]);
                 mesh.Effect.SetValue("lightAttenuation", (float)GuiController.Instance.Modifiers["farolAtenuacion"]);
 
