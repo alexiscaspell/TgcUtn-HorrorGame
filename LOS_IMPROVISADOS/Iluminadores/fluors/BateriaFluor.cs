@@ -63,7 +63,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.fluors
 
             //barra
             spriteBarra.Scaling = new Vector2(cargaActual * 0.000002f * screenSize.Width, 0.0002f * screenSize.Height);
-            spriteBarra.Position = new Vector2(10, 20);
+            spriteBarra.Position = new Vector2(0.005f*screenSize.Width, 0.03f*screenSize.Height);//new Vector2(10, 20);
 
             GuiController.Instance.Drawer2D.beginDrawSprite();
             spriteBarra.render();
