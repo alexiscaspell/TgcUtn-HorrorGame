@@ -22,12 +22,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
 
             sprite.Scaling = new Vector2((float)0.0002 * screenSize.Width, (float)0.0002 * screenSize.Height);
 
-            sprite.Position = new Vector2(20, 20);
+            sprite.Position = new Vector2(-0.015f * screenSize.Width, 0.025f * screenSize.Height);//new Vector2(0, 20);
 
             //texto
             texto.Color = Color.White;
             texto.Align = TgcText2d.TextAlign.LEFT;
-            texto.Position = new Point(screenSize.Width / 20, screenSize.Height / 8);
+            texto.Position = new Point(screenSize.Width / 70, screenSize.Height / 8);//new Point(screenSize.Width / 20, screenSize.Height / 8);
             texto.Size = new Size(300, 100);
             texto.changeFont(new System.Drawing.Font("TimesNewRoman", 22, FontStyle.Bold));
         }

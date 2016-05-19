@@ -28,35 +28,18 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
         public override void init()
         {
             //bateria
-            TgcSprite sprite0 = new TgcSprite();
-            sprite0.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\bateria0.png");
-            TgcSprite sprite1 = new TgcSprite();
-            sprite1.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\bateria1.png");
-            TgcSprite sprite2 = new TgcSprite();
-            sprite2.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\bateria2.png");
-            TgcSprite sprite3 = new TgcSprite();
-            sprite3.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\bateria3.png");
-            TgcSprite sprite4 = new TgcSprite();
-            sprite4.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\bateria4.png");
-            TgcSprite sprite5 = new TgcSprite();
-            sprite5.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\bateria5.png");
 
-            sprite0.Scaling = new Vector2((float)0.0002 * screenSize.Width, (float)0.0005 * screenSize.Height);
-            sprite1.Scaling = new Vector2((float)0.0002 * screenSize.Width, (float)0.0005 * screenSize.Height);
-            sprite2.Scaling = new Vector2((float)0.0002 * screenSize.Width, (float)0.0005 * screenSize.Height);
-            sprite3.Scaling = new Vector2((float)0.0002 * screenSize.Width, (float)0.0005 * screenSize.Height);
-            sprite4.Scaling = new Vector2((float)0.0002 * screenSize.Width, (float)0.0005 * screenSize.Height);
-            sprite5.Scaling = new Vector2((float)0.0002 * screenSize.Width, (float)0.0005 * screenSize.Height);
+            listaSprites = new List<TgcSprite>();
 
-            sprite0.Position = new Vector2(0, 20);
-            sprite1.Position = new Vector2(0, 20);
-            sprite2.Position = new Vector2(0, 20);
-            sprite3.Position = new Vector2(0, 20);
-            sprite4.Position = new Vector2(0, 20);
-            sprite5.Position = new Vector2(0, 20);
-
-            listaSprites = new List<TgcSprite>() {sprite0, sprite1, sprite2, sprite3, sprite4, sprite5};
-
+            for (int i = 0; i < 6; i++)
+            {
+                TgcSprite sprite = new TgcSprite();
+                sprite.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\bateria"+i.ToString()+".png");
+                sprite.Scaling = new Vector2((float)0.0002 * screenSize.Width, (float)0.0005 * screenSize.Height);
+                sprite.Position= new Vector2(0, 0.03f * screenSize.Height);
+                listaSprites.Add(sprite);
+            }
+            
             //texto
             texto = new TgcText2d();
             texto.Color = Color.White;
