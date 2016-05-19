@@ -91,6 +91,8 @@
     <Compile Include="LOS_IMPROVISADOS\CosasPrueba\Caja.cs" />
     <Compile Include="LOS_IMPROVISADOS\CosasPrueba\CajaSigue.cs" />
     <Compile Include="LOS_IMPROVISADOS\CosasPrueba\Palanca.cs" />
+    <Compile Include="LOS_IMPROVISADOS\EfectosPosProcesado\APosProcesado.cs" />
+    <Compile Include="LOS_IMPROVISADOS\EfectosPosProcesado\PosProcesadoAlarma.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\general\LuzOscura.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\faroles\BateriaFarol.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\faroles\LuzFarol.cs" />

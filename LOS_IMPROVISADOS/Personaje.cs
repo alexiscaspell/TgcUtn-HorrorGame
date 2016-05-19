@@ -7,17 +7,19 @@ using TgcViewer.Utils.TgcSceneLoader;
 using TgcViewer.Utils.TgcGeometry;
 using Microsoft.DirectX;
 using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general;
-using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA;
+using AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
-    class Personaje:Colisionador
+    class Personaje : Colisionador
     {
         public TgcScene tgcEscena { set; get; }
         public CamaraFPS camaraFPS { get; set; }
 
         public List<Iluminador> iluminadores { get; set; }
         public int posicionIluminadorActual { get; set; }
+
+        public List<APosProcesado> posProcesados { get; set; }
 
         private TgcBox cuerpo;
 
@@ -26,14 +28,17 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             this.tgcEscena = tgcEscena;
             this.camaraFPS = camaraFPS;
             this.posicionIluminadorActual = 0;
-            
+
             cuerpo = TgcBox.fromSize(new Vector3(10, camaraFPS.posicion.Y + 2, 14));
 
             cuerpo.Position = camaraFPS.camaraFramework.LookAt;
 
             iniciarIluminadores();
+
+            iniciarPosProcesadores();
         }
-        
+
+        /***********************ILUMINADOR/***********************/
         public void iniciarIluminadores()
         {
             Iluminador linterna = new Iluminador(new LuzLinterna(tgcEscena, camaraFPS), new ManoLinterna(), new BateriaLinterna());
@@ -47,8 +52,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             iluminadores[posicionIluminadorActual].render();
 
-            //hago que el fluor se gaste aunque no la este usando
-            iluminadores[2].bateria.gastarBateria(10);
+            iluminadores[2].bateria.gastarBateria(10);//hago que el fluor se gaste aunque no la este usando
         }
 
         public void renderizarIluminador(int posicionIluminador)
@@ -59,15 +63,29 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             posicionIluminadorActual = posicionIluminador;
             iluminadores[posicionIluminadorActual].render();
         }
-        
+
         public void cambiarASiguienteIluminador()
         {
             posicionIluminadorActual++;
 
             if (posicionIluminadorActual >= iluminadores.Count)
                 posicionIluminadorActual = 0;
-            
         }
+
+        /***********************POSPROCESADO***********************/
+        public void iniciarPosProcesadores()
+        {
+            PosProcesadoAlarma posProcesadoAlarma = new PosProcesadoAlarma(tgcEscena);
+
+            posProcesados = new List<APosProcesado>() { posProcesadoAlarma };
+        }
+
+        public void renderizarPosProcesado()
+        {
+            //por ahora lo hago solo con el primero, despues veo como implemento los demas
+            posProcesados[0].render();
+        }
+
 
         internal bool estasMirandoBoss()
         {
@@ -100,6 +118,14 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             }
 
             cuerpo.Position = camaraFPS.camaraFramework.LookAt;
+
+            //efecto de que se esta muriendo
+            if (!iluminadores[posicionIluminadorActual].bateria.tenesBateria())
+            {
+                renderizarPosProcesado();
+            }
+
+            renderizarIluminador();
         }
 
         public override Vector3 getPosition()
