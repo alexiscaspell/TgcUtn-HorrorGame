@@ -87,9 +87,15 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         }
 
 
-        internal bool estasMirandoBoss()
+        internal bool estasMirandoBoss(Boss boss)
         {
-            return true;
+            Vector3 direccionBoss = cuerpo.Position - boss.getPosition();
+
+            TgcRay rayoBoss = new TgcRay(boss.getPosition(), direccionBoss);
+            Plane farPlane = GuiController.Instance.Frustum.FarPlane;
+            float t;//= GuiController.Instance.ElapsedTime;
+            Vector3 ptoColision;
+            return !TgcCollisionUtils.intersectRayPlane(rayoBoss, farPlane, out t, out ptoColision);
         }
 
         public void recargarBateriaLinterna()

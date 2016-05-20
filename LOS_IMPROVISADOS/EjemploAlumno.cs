@@ -69,7 +69,7 @@ namespace AlumnoEjemplos.MiGrupo
             Size screenSize = GuiController.Instance.Panel3d.Size;
             Cursor.Position = new Point(screenSize.Width / 2, screenSize.Height / 2);
 
-            boss.setColisiona(personaje.estasMirandoBoss());//El mejor truco del mundo! (seteo q el boss colisione solo si estoy mirando)
+            boss.setColisiona(personaje.estasMirandoBoss(boss));//El mejor truco del mundo! (seteo q el boss colisione solo si estoy mirando)
             mapa.detectarColisiones(colisionadores);
 
             camaraFPS.render();
