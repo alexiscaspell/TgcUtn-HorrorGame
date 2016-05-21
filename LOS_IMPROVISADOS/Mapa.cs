@@ -52,5 +52,19 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             return false;
         }
 
+        public bool colisionaEsfera(TgcBoundingSphere esfera,TgcBoundingBox obstaculo)
+        {
+            foreach (TgcMesh mesh in escena.Meshes)
+            {
+                if (TgcCollisionUtils.testSphereAABB(esfera,mesh.BoundingBox))
+                {
+                    obstaculo = mesh.BoundingBox;
+
+                    return true;
+                }
+            }
+            return false;
+        }
+
     }
 }

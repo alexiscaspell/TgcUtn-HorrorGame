@@ -49,10 +49,10 @@ namespace AlumnoEjemplos.MiGrupo
 
             camaraFPS = new CamaraFPS(new Vector3(50,32,200/*280f, 25f, 60f*/), new Vector3(270f, 32f,60f));
 
-            personaje = new Personaje(mapa.escena, camaraFPS);
+            personaje = new Personaje(mapa, camaraFPS);
 
             boss = new Boss(camaraFPS);
-            boss.init(30f,new Vector3(100,10,100));
+            boss.init(40f,new Vector3(100,10,100));
             
             Cursor.Hide();
             colisionadores = new List<Colisionador>();
@@ -70,7 +70,10 @@ namespace AlumnoEjemplos.MiGrupo
             Cursor.Position = new Point(screenSize.Width / 2, screenSize.Height / 2);
 
             boss.setColisiona(personaje.estasMirandoBoss(boss));//El mejor truco del mundo! (seteo q el boss colisione solo si estoy mirando)
+
             mapa.detectarColisiones(colisionadores);
+
+            personaje.calcularColisiones();
 
             camaraFPS.render();
 
