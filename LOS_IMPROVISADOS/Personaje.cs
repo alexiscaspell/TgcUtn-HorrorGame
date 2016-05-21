@@ -24,6 +24,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public List<APosProcesado> posProcesados { get; set; }
 
+        private Vector3 posMemento;
+
         //private TgcBox cuerpo;
 
         public Personaje(Mapa mapa, CamaraFPS camaraFPS)
@@ -115,8 +117,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             //cuerpo.Position = camaraFPS.camaraFramework.LookAt;
         }
 
-        Vector3 posMemento;
-
         public void update()
         {
             //updateMemento();
@@ -163,9 +163,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             cuerpo.setCenter(posActual);
 
-            if (mapa.colisionaEsfera(cuerpo, obstaculo))
+            if (mapa.colisionaEsfera(cuerpo, ref obstaculo))
             {
-                Vector3 slide = obtenerVectorSlide(obstaculo);//new Vector3(1, 0, 0);
+                Vector3 slide = obtenerVectorSlide(obstaculo);
 
                 Vector3 desplazamiento = camaraFPS.camaraFramework.Position - posMemento;
 
@@ -179,48 +179,21 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             Vector3 posActual = camaraFPS.camaraFramework.Position;
 
-            Vector3 desplazamiento = posActual - posMemento;
+            Vector3 closestPoint = closestPointAABB(posActual, box);
 
-            desplazamiento.Normalize();
-
-            TgcRay rayoX = new TgcRay(posActual, new Vector3(desplazamiento.X, 0, 0));
-
-           Vector3 posColision;
-
-            if (TgcCollisionUtils.intersectRayAABB(rayoX, box, out posColision))
+            if (closestPoint.X==box.PMax.X||closestPoint.X==box.PMin.X)
             {
                 return new Vector3(0, 0, 1);
             }
 
             return new Vector3(1, 0, 0);
         }
-            /*
-                float radio = 9;
-
-                Vector3 posActual = camaraFPS.camaraFramework.Position;
-
-                TgcRay colisionRay = new TgcRay(posActual, desplazamiento);
-
-                Vector3 ptoColision;
-
-                if(!TgcCollisionUtils.intersectRayAABB(colisionRay, obstaculo, out ptoColision))
-                {
-                    desplazamiento = -desplazamiento;
-                    colisionRay = new TgcRay(posActual, desplazamiento);
-                    TgcCollisionUtils.intersectRayAABB(colisionRay, obstaculo, out ptoColision);
-                }
-
-                Vector3 movement = Vector3.Dot(desplazamiento, slide) * slide;
-
-                desplazamiento.Normalize();
-
-                Vector3 nuevaPos = posActual - desplazamiento * (radio - (ptoColision - posActual).LengthSq())+movement;*/
 
       public Vector3 closestPointAABB(Vector3 point,TgcBoundingBox box)
       {
             Vector3 closestPoint = new Vector3(0,0,0);
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 1; i < 4; i++)
             {
                 float v = getComponent(point,i);
 
@@ -233,7 +206,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                     v = getComponent(box.PMax,i);
                 }
 
-                setComponent(closestPoint, i, v);
+                setComponent(ref closestPoint, i, v);
             }
             return closestPoint;
         }
@@ -250,8 +223,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             return 0;
         }
 
-        private void setComponent(Vector3 point, int i,float value)
+        private void setComponent(ref Vector3 point, int i,float value)
         {
+
             switch (i)
             {
                 case 1:
