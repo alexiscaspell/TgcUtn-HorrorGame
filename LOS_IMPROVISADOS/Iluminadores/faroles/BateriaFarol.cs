@@ -12,7 +12,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
     {
         public BateriaFarol(): base()
         {
-            cantidadDesgaste = 1;
+            tiempoDesgaste = 1;//Gasta bateria cada 1min 40seg
+
+            cantidadDesgaste = 1;//Gasta una barra por vez
+
+            //cantidadDesgaste=1;
         }
 
         public override void init()
@@ -39,7 +43,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
 
         public override void render()
         {
-            gastarBateria(1);
+            gastarBateria();
             //farol
             GuiController.Instance.Drawer2D.beginDrawSprite();
             sprite.render();

@@ -60,7 +60,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             iluminadores[posicionIluminadorActual].render();
 
-            iluminadores[2].bateria.gastarBateria(10);//hago que el fluor se gaste aunque no la este usando
+            iluminadores[2].bateria.gastarBateria();//hago que el fluor se gaste aunque no la este usando
         }
 
         public void renderizarIluminador(int posicionIluminador)

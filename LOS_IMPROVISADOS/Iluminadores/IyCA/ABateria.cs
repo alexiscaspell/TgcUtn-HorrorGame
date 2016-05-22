@@ -10,7 +10,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
 {
     abstract class ABateria
     {
-        public int cantidadDesgaste { get; set; }
+        /*duracionTotal = cargaTotal * tiempoDesgaste / cantidadDesgaste (esta es la formula para saber cada cuanto tiempo bajar bateria 
+                                                                   y cuanto segun la cantidad que queres que dure la bateria)*/
+
+        public int cantidadDesgaste { get; set; }//Esta es la cantidad de carga que se baja pasado el tiempo de desgaste
+
+        public int tiempoDesgaste { get; set; }//Son los segundos que tienen que pasar para que se baje la carga
 
         public int cargaActual { get; set; }
 
@@ -36,15 +41,17 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
             return cargaActual > 0;
         }
 
-        public void gastarBateria(int cantidad)
+        public void gastarBateria()//int cantidad)
         {
             if (cargaActual == 0) return;
 
             TimeSpan tiempoTranscurrido = DateTime.Now.Subtract(tiempoAnterior);
 
-            if (tiempoTranscurrido.Seconds >= cantidadDesgaste && tenesBateria())
+            int tiempoTranscurridoEnSegundos = tiempoTranscurrido.Minutes * 60 + tiempoTranscurrido.Seconds;
+
+            if (/*tiempoTranscurrido.Seconds*/tiempoTranscurridoEnSegundos >= tiempoDesgaste && tenesBateria())
             {
-                cargaActual-= cantidad;
+                cargaActual -= cantidadDesgaste;//cantidad;
                 tiempoAnterior = DateTime.Now;
             }
         }

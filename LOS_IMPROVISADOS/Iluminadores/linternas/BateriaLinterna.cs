@@ -14,12 +14,18 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
     {
         public int cantidadBaterias { get; set; }
         public int cantidadRecarga { get; set; }
+
+        private int factorConversion;
         
         private List<TgcSprite> listaSprites;
 
         public BateriaLinterna() : base()
         {
-            cantidadDesgaste = 5; //gasta una linea cada 5 segundos
+            tiempoDesgaste = 10;//Gasta bateria cada 10seg
+            cantidadDesgaste = 1;//Gasta una barra por vez     
+
+            //cantidadDesgaste=5; //gasta una linea cada 5 segundos
+
             cantidadBaterias = 4; //le pongo 4 para probar
             cantidadRecarga = 2; //cada vez que recarga, le carga 2 barras
             cargaActual = 6;
@@ -52,7 +58,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
 
         public override void render()
         {
-            gastarBateria(1);
+            gastarBateria();
 
             sprite = listaSprites.ElementAt(cargaActual);
 

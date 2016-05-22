@@ -15,7 +15,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.fluors
 
         public BateriaFluor() : base()
         {
-            cantidadDesgaste = 2;
+            tiempoDesgaste = 6;//Gasta bateria cada 6seg
+            cantidadDesgaste = 10;//Gasta 10 barras por vez
+
+            //cantidadDesgaste = 2;
+
             cantidadFluors = 5;
             spriteBarra = new TgcSprite();
         }
@@ -52,7 +56,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.fluors
 
         public override void render()
         {
-            gastarBateria(10);
+            gastarBateria();
 
             /*
             //fluor
