@@ -14,7 +14,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private TgcScene sceneBicho;
         //private const float MOVEMENT_SPEED = 20f;
         private float velocidadMovimiento;
-        private Vector3 dir = new Vector3(0, 0, -1);//1, 0, 0);
+        private Vector3 direccionVista;//= new Vector3(0, 0, -1);//1, 0, 0);
         private TgcMesh cuerpo;
         CamaraFPS camara;
 
@@ -39,6 +39,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             cuerpo.Position = posicion;
             /*dir = cuerpo.Position - cuerpo.BoundingBox.calculateBoxCenter();*/
+
+            //direccionVista = new Vector3(0.9989f * posicion.X, 0, 0.9689f * posicion.Z);
+            //direccionVista.Normalize();
+
+            direccionVista= new Vector3(0, 0, -1);
         }
 
         public void render()
@@ -57,15 +62,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 movement.Subtract(cuerpo.BoundingBox.Position);
                 movement.Subtract(new Vector3(0, movement.Y, 0));
                 movement.Normalize();
-                dir.Subtract(new Vector3(0, dir.Y, 0));
+                //dir.Subtract(new Vector3(0, dir.Y, 0));
 
-                float angulo = FastMath.Acos(Vector3.Dot(movement, dir) / (movement.Length() * dir.Length()));
+                float angulo = FastMath.Acos(Vector3.Dot(movement, direccionVista));// / (movement.Length() * dir.Length()));
 
-                Vector3 normal = Vector3.Cross(dir, movement);
+                Vector3 normal = Vector3.Cross(direccionVista, movement);
 
-                dir = movement;
-
-                
+                direccionVista = movement;
 
                 /*if (!float.IsNaN(angulo))
                 {
