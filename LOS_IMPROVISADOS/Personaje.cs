@@ -171,6 +171,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
                 Vector3 movement = Vector3.Dot(desplazamiento, slide) * slide;
 
+                cuerpo.setCenter(posMemento + movement);
+
+                if (mapa.colisionaEsfera(cuerpo, ref obstaculo))
+                {
+                    movement = new Vector3(0, 0, 0);
+                }
+
                 camaraFPS.camaraFramework.setPosition(posMemento + movement);
             }
         }
