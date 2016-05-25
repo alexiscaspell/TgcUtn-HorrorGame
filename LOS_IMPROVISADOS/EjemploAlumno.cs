@@ -7,6 +7,7 @@ using AlumnoEjemplos.LOS_IMPROVISADOS;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Collections.Generic;
+using TgcViewer.Utils.Sound;
 
 namespace AlumnoEjemplos.MiGrupo
 {
@@ -19,7 +20,14 @@ namespace AlumnoEjemplos.MiGrupo
         private Boss boss;
 
         private Mapa mapa;
+        
         private List<Colisionador> colisionadores;
+        
+        private List<Punto> mapaPuntos;
+        
+        private Puerta puerta;
+        
+        private TgcStaticSound sonidoFondo;
 
         private AnimatedBoss bossAnimado;
 
@@ -56,10 +64,11 @@ namespace AlumnoEjemplos.MiGrupo
             colisionadores = new List<Colisionador>();
             colisionadores.Add(boss);
             colisionadores.Add(personaje);
-
+            puerta = new Puerta(630,32,200);
+            sonidoFondo = new TgcStaticSound();
+            sonidoFondo.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\asd16.wav");
             bossAnimado = new AnimatedBoss();
             bossAnimado.init();//Esto es para probar a un boss con esqueleto
-    }
 
         public override void render(float elapsedTime)
         {
@@ -81,7 +90,9 @@ namespace AlumnoEjemplos.MiGrupo
 
             boss.update(elapsedTime);
             boss.render();
-
+            puerta.update(elapsedTime);
+            puerta.render();
+            sonidoFondo.play(true);
             bossAnimado.render();
         }
 
@@ -91,6 +102,7 @@ namespace AlumnoEjemplos.MiGrupo
 
             boss.dispose();
         }
+        
 
 
        
