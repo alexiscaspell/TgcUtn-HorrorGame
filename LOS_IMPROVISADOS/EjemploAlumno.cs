@@ -23,7 +23,7 @@ namespace AlumnoEjemplos.MiGrupo
         
         private List<Colisionador> colisionadores;
         
-        private List<Punto> mapaPuntos;
+        //private List<Punto> mapaPuntos;
         
         private Puerta puerta;
         
@@ -53,22 +53,23 @@ namespace AlumnoEjemplos.MiGrupo
 
             mapa = new Mapa();
 
-            camaraFPS = new CamaraFPS(new Vector3(50,32,200/*280f, 25f, 60f*/), new Vector3(270f, 32f,60f));
+            camaraFPS = new CamaraFPS(new Vector3(50, 32, 200/*280f, 25f, 60f*/), new Vector3(270f, 32f, 60f));
 
             personaje = new Personaje(mapa, camaraFPS);
 
             boss = new Boss(camaraFPS);
-            boss.init(40f,new Vector3(100,10,100));
-            
+            boss.init(40f, new Vector3(100, 10, 100));
+
             Cursor.Hide();
             colisionadores = new List<Colisionador>();
             colisionadores.Add(boss);
             colisionadores.Add(personaje);
-            puerta = new Puerta(630,32,200);
+            puerta = new Puerta(630, 32, 200);
             sonidoFondo = new TgcStaticSound();
             sonidoFondo.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\asd16.wav");
             bossAnimado = new AnimatedBoss();
             bossAnimado.init();//Esto es para probar a un boss con esqueleto
+        }
 
         public override void render(float elapsedTime)
         {
@@ -90,9 +91,12 @@ namespace AlumnoEjemplos.MiGrupo
 
             boss.update(elapsedTime);
             boss.render();
+
             puerta.update(elapsedTime);
             puerta.render();
+
             sonidoFondo.play(true);
+
             bossAnimado.render();
         }
 

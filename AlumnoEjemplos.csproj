@@ -89,7 +89,6 @@
     <Compile Include="LOS_IMPROVISADOS\Camara\CamaraFPS.cs" />
     <Compile Include="LOS_IMPROVISADOS\Camara\CamaraFramework.cs" />
     <Compile Include="LOS_IMPROVISADOS\Puerta.cs" />
-    <Compile Include="LOS_IMPROVISADOS\Punto.cs" />
     <Compile Include="LOS_IMPROVISADOS\Colisionador.cs" />
     <Compile Include="LOS_IMPROVISADOS\CosasPrueba\Caja.cs" />
     <Compile Include="LOS_IMPROVISADOS\CosasPrueba\CajaSigue.cs" />
