@@ -12,21 +12,35 @@ using TgcViewer.Utils.TgcSkeletalAnimation;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
-    class AnimatedBoss
+    class AnimatedBoss : Colisionador
     {
-        string selectedMesh;
-        string selectedAnim;
-        TgcSkeletalMesh mesh;
-        TgcSkeletalBoneAttach attachment;
-        string mediaPath;
-        string[] animationsPath;
+        private string selectedMesh;
+        private string selectedAnim;
+        private TgcSkeletalBoneAttach attachment;
+        private string mediaPath;
+        private string[] animationsPath;
+        private TgcSkeletalMesh cuerpo;
+        private float velocidadMovimiento;
+        private Vector3 direccionVista;
+        CamaraFPS camara;
 
-        public void init()
+        public AnimatedBoss(CamaraFPS camara)
         {
             crearEsqueleto();
-            mesh.Position = new Vector3(50, 0, 100);
-            mesh.rotateY(FastMath.ToRad(180));
-        }
+            this.camara = camara;
+            selectedAnim = "Walk";//String con la animacion seleccionada
+            changeMesh("CS_Arctic");//String con el mesh seleccionado (Basic Human tiene varios)
+            cuerpo.AutoTransformEnable = true;
+            cuerpo.AutoUpdateBoundingBox = true;
+        } 
+
+        public void init(float velocidadMovimiento, Vector3 posicion)
+        {
+            cuerpo.Position = posicion;
+            cuerpo.Scale = new Vector3(1.2f, 1f, 1.2f);
+            this.velocidadMovimiento = velocidadMovimiento;
+            direccionVista = new Vector3(0, 0, -1);
+    }
 
         private void crearEsqueleto()
         {
@@ -55,10 +69,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 animationsPath[i] = animFiles[i].FullName;
             }
 
-            //Cargar mesh inicial
-            selectedAnim = "StandBy";
-            changeMesh("CS_Arctic");
-
         }
 
         private void changeAnimation(string animation)
@@ -66,7 +76,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             if (selectedAnim != animation)
             {
                 selectedAnim = animation;
-                mesh.playAnimation(selectedAnim, true);
+                cuerpo.playAnimation(selectedAnim, true);
             }
         }
 
@@ -74,49 +84,95 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             if (selectedMesh == null || selectedMesh != meshName)
             {
-                if (mesh != null)
+                if (cuerpo != null)
                 {
-                    mesh.dispose();
-                    mesh = null;
+                    cuerpo.dispose();
+                    cuerpo = null;
                 }
 
                 selectedMesh = meshName;
 
                 //Cargar mesh y animaciones
                 TgcSkeletalLoader loader = new TgcSkeletalLoader();
-                mesh = loader.loadMeshAndAnimationsFromFile(mediaPath + selectedMesh + "-TgcSkeletalMesh.xml", mediaPath, animationsPath);
+                cuerpo = loader.loadMeshAndAnimationsFromFile(mediaPath + selectedMesh + "-TgcSkeletalMesh.xml", mediaPath, animationsPath);
 
                 //Crear esqueleto a modo Debug
-                mesh.buildSkletonMesh();
+                cuerpo.buildSkletonMesh();
 
                 //Elegir animacion inicial
-                mesh.playAnimation(selectedAnim, true);
+                cuerpo.playAnimation(selectedAnim, true);
 
                 //Crear caja como modelo de Attachment del hueos "Bip01 L Hand"
                 attachment = new TgcSkeletalBoneAttach();
                 TgcBox attachmentBox = TgcBox.fromSize(new Vector3(2, 40, 2), Color.Red);
                 attachment.Mesh = attachmentBox.toMesh("attachment");
-                attachment.Bone = mesh.getBoneByName("Bip01 L Hand");
+                attachment.Bone = cuerpo.getBoneByName("Bip01 L Hand");
                 attachment.Offset = Matrix.Translation(3, -15, 0);
                 attachment.updateValues();
 
-
                 //Configurar camara
-                GuiController.Instance.RotCamera.targetObject(mesh.BoundingBox);
+                //GuiController.Instance.RotCamera.targetObject(mesh.BoundingBox);
             }
         }
 
         public void render()
         {
-            //Actualizar animacion
-            /* mesh.updateAnimation();
+            cuerpo.animateAndRender();
+        }
 
-             //Solo malla o esqueleto, depende lo seleccionado
-             mesh.RenderSkeleton = renderSkeleton;
-             mesh.render();*/
+        private void seguirPersonaje(float elapsedTime)
+        {
+            Vector3 movement = camara.posicion;
 
-            //Se puede renderizar todo mucho mas simple (sin esqueleto) de la siguiente forma:
-            mesh.animateAndRender();
+                movement.Subtract(cuerpo.Position);
+                movement.Subtract(new Vector3(0, movement.Y, 0));
+                movement.Normalize();
+
+                float angulo = FastMath.Acos(Vector3.Dot(movement, direccionVista));
+
+                Vector3 normal = Vector3.Cross(direccionVista, movement);
+
+                direccionVista = movement;
+
+                if (!float.IsNaN(angulo))
+                {
+                    if (normal.Y > 0)
+                    {
+                        cuerpo.rotateY(angulo);
+                    }
+                    else
+                        cuerpo.rotateY(-angulo);
+                }
+
+                movement *= velocidadMovimiento * elapsedTime;
+                cuerpo.move(movement);
+        }
+
+        public void update(float elapsedTime)
+        {
+            updateMemento();
+
+            seguirPersonaje(elapsedTime);
+        }
+
+        public void dispose()
+        {
+            cuerpo.dispose();
+        }
+
+        public override Vector3 getPosition()
+        {
+            return cuerpo.Position;
+        }
+
+        public override TgcBoundingBox getBoundingBox()
+        {
+            return cuerpo.BoundingBox;
+        }
+
+        public override void retroceder(Vector3 vecRetroceso)
+        {
+            cuerpo.move(-vecRetroceso);
         }
     }
 }

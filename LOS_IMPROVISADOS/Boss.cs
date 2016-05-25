@@ -12,9 +12,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
     class Boss:Colisionador
     {
         private TgcScene sceneBicho;
-        //private const float MOVEMENT_SPEED = 20f;
         private float velocidadMovimiento;
-        private Vector3 direccionVista;//= new Vector3(0, 0, -1);//1, 0, 0);
+        private Vector3 direccionVista;
         private TgcMesh cuerpo;
         CamaraFPS camara;
 
@@ -38,10 +37,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             this.velocidadMovimiento = velocidadMovimiento;
 
             cuerpo.Position = posicion;
-            /*dir = cuerpo.Position - cuerpo.BoundingBox.calculateBoxCenter();*/
-
-            //direccionVista = new Vector3(0.9989f * posicion.X, 0, 0.9689f * posicion.Z);
-            //direccionVista.Normalize();
 
             direccionVista= new Vector3(0, 0, -1);
         }
