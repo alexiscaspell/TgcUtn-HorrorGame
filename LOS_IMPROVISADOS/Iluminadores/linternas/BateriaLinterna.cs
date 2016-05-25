@@ -14,8 +14,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
     {
         public int cantidadBaterias { get; set; }
         public int cantidadRecarga { get; set; }
-
-        private int factorConversion;
         
         private List<TgcSprite> listaSprites;
 

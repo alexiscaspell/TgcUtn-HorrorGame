@@ -1,15 +1,11 @@
 using TgcViewer.Example;
 using TgcViewer;
 using Microsoft.DirectX;
-using TgcViewer.Utils.TgcSceneLoader;
 using TgcViewer.Utils.Input;
-
 using Microsoft.DirectX.Direct3D;
 using AlumnoEjemplos.LOS_IMPROVISADOS;
-using TgcViewer.Utils.TgcGeometry;
 using System.Windows.Forms;
 using System.Drawing;
-using System;
 using System.Collections.Generic;
 
 namespace AlumnoEjemplos.MiGrupo
@@ -24,6 +20,8 @@ namespace AlumnoEjemplos.MiGrupo
 
         private Mapa mapa;
         private List<Colisionador> colisionadores;
+
+        private AnimatedBoss bossAnimado;
 
         public override string getCategory()
         {
@@ -58,8 +56,10 @@ namespace AlumnoEjemplos.MiGrupo
             colisionadores = new List<Colisionador>();
             colisionadores.Add(boss);
             colisionadores.Add(personaje);
-    }
 
+            bossAnimado = new AnimatedBoss();
+            bossAnimado.init();//Esto es para probar a un boss con esqueleto
+    }
 
         public override void render(float elapsedTime)
         {
@@ -81,7 +81,8 @@ namespace AlumnoEjemplos.MiGrupo
 
             boss.update(elapsedTime);
             boss.render();
-       
+
+            bossAnimado.render();
         }
 
         public override void close()
@@ -90,6 +91,17 @@ namespace AlumnoEjemplos.MiGrupo
 
             boss.dispose();
         }
+
+
+       
+
+       
+
+
+
+
+
+
 
 
     }
