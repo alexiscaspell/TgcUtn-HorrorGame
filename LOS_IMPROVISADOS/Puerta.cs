@@ -38,7 +38,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			mesh.Position = new Vector3(posX,posY,posZ);
 			mesh.Rotation = new Vector3(0,0,0);
 			
-			mesh.Scale = new Vector3();
+			mesh.Scale = new Vector3(0.8f,0.8f,0.8f);
 		}
 		
 		public void abrirPuerta(){
@@ -57,15 +57,21 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		}
 		
 		public void update(float elapsedTime){
+			
+			//se Abre la puerta al apretar E
+			if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.E))
+            {
+                abrirPuerta();
+            }
 
 			if(abriendose == 0){
 				//No hago nada
 			}else if(abriendose == 1){
 				
-				mesh.Rotation = new Vector3(0,anguloRotacion * elapsedTime,0);
+				mesh.rotateY(anguloRotacion * elapsedTime);
 			}else if(abriendose == -1){
 				
-				mesh.Rotation = new Vector3(0,-anguloRotacion * elapsedTime,0);
+				mesh.rotateY(-anguloRotacion * elapsedTime);
 			}
 			
 			//Checkeo que no se haya pasado
@@ -77,7 +83,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			
 			if(mesh.Rotation.Y < 0){
 				
-				mesh.Rotation = new Vector3(0,0,0);;
+				mesh.Rotation = new Vector3(0,0,0);
 				abriendose = 0;
 			}
 		}

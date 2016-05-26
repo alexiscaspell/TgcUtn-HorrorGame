@@ -16,7 +16,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
     /// </summary>
     public class CamaraFramework : TgcCamera
     {
-        public bool camaraConClikActivado { get; set; } = false;
+        public bool camaraConClikActivado { get; set; }
 
 
         //Constantes de movimiento
