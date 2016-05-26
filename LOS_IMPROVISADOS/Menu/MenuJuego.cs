@@ -23,6 +23,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		Boton[] arrayBotones = new Boton[2];
 		const int cantBotones = 2;
 		int cursor = 0;
+		public bool renderizar = true;
 		
 		public void init(){
 			
@@ -54,6 +55,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		
 		public void render(){
 			
+			if(!renderizar){
+				//Si ya sali del menu no hago nada mas
+				return;
+			}
+			
 			//Cambio el cursor de posicion
 			if(GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.UpArrow))
             {
@@ -66,6 +72,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			if(GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.DownArrow))
             {
 				cursor = (cursor + 1) % cantBotones;
+            }
+			if(GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.Space))
+            {
+				arrayBotones[cursor].accionBoton(this);
             }
 			
 			//Coloreo el boton seleccionado

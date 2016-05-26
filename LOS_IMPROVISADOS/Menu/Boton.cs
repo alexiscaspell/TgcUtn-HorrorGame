@@ -23,6 +23,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 	public class Boton
 	{
 		TgcSprite spriteBoton;
+		public delegate void Del(MenuJuego menu);
+		Del delAccionBoton;
 		
 		public void botonStart(){
 			
@@ -34,6 +36,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             Size textureSize = spriteBoton.Texture.Size;
 
             spriteBoton.Position = new Vector2( (screenSize.Width - textureSize.Width)/2, 500);
+            
+            delAccionBoton = accionStart;
 		}
 		
 		public void botonExit(){
@@ -47,6 +51,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             Size textureSize = spriteBoton.Texture.Size;
 
             spriteBoton.Position = new Vector2( (screenSize.Width - textureSize.Width)/2, 600);
+            
+            delAccionBoton = accionExit;
 		}
 		
 		public void render(){
@@ -56,6 +62,20 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		
 		public void setColor(Color color){
 			this.spriteBoton.Color = color;
+		}
+		
+		//Defino las acciones de los botones
+		public void accionBoton(MenuJuego menu){
+			//Para tratar a todos los botones por igual
+			delAccionBoton(menu);
+		}
+		
+		public void accionStart(MenuJuego menu){
+			menu.renderizar = false;
+		}
+		
+		public void accionExit(MenuJuego menu){
+			return;
 		}
 	}
 }
