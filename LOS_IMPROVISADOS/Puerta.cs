@@ -68,10 +68,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 				//No hago nada
 			}else if(abriendose == 1){
 				
-				mesh.rotateY(anguloRotacion * elapsedTime);
+				mesh.Rotation += new Vector3(0,anguloRotacion*elapsedTime,0);
 			}else if(abriendose == -1){
 				
-				mesh.rotateY(-anguloRotacion * elapsedTime);
+				mesh.rotateY(anguloRotacion * elapsedTime);
 			}
 			
 			//Checkeo que no se haya pasado

@@ -22,8 +22,8 @@ namespace AlumnoEjemplos.MiGrupo
         private Mapa mapa;
         
         private List<Colisionador> colisionadores;
-        
-        //private List<Punto> mapaPuntos;
+   
+        private MenuJuego menuPrincipal = new MenuJuego();
         
         private Puerta puerta;
         
@@ -74,6 +74,7 @@ namespace AlumnoEjemplos.MiGrupo
             sonidoFondo = new TgcStaticSound();
             sonidoFondo.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\asd16.wav");
 
+            menuPrincipal.init();
         }
 
         public override void render(float elapsedTime)
@@ -104,6 +105,8 @@ namespace AlumnoEjemplos.MiGrupo
             puerta.render();
 
             sonidoFondo.play(true);
+            
+            menuPrincipal.render();
         }
 
         public override void close()
