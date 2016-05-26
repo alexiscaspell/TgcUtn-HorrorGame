@@ -55,14 +55,14 @@ namespace AlumnoEjemplos.MiGrupo
 
             camaraFPS = new CamaraFPS(new Vector3(50, 32, 200/*280f, 25f, 60f*/), new Vector3(270f, 32f, 60f));
 
-            personaje = new Personaje(mapa, camaraFPS);
+            personaje = new Personaje(mapa);
 
             //boss = new Boss(camaraFPS);
             //boss.init(40f, new Vector3(100, 10, 100));
 
             Cursor.Hide();
 
-            bossAnimado = new AnimatedBoss(camaraFPS);
+            bossAnimado = new AnimatedBoss();
             bossAnimado.init(30f, new Vector3(100, 0, 100));//Esto es para probar a un boss con esqueleto
 
             colisionadores = new List<Colisionador>();
@@ -97,7 +97,7 @@ namespace AlumnoEjemplos.MiGrupo
             //boss.update(elapsedTime);
             //boss.render();
 
-            bossAnimado.update(elapsedTime);
+            bossAnimado.update();
             bossAnimado.render();
 
             puerta.update(elapsedTime);

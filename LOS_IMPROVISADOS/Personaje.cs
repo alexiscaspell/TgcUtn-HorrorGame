@@ -28,11 +28,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         //private TgcBox cuerpo;
 
-        public Personaje(Mapa mapa, CamaraFPS camaraFPS)
+        public Personaje(Mapa mapa)
         {
             this.mapa = mapa;
             this.tgcEscena = mapa.escena;
-            this.camaraFPS = camaraFPS;
+            this.camaraFPS = CamaraFPS.Instance;
             this.posicionIluminadorActual = 0;
 
             //cuerpo = TgcBox.fromSize(new Vector3(10, camaraFPS.posicion.Y + 2, 14));

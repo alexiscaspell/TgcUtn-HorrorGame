@@ -22,6 +22,33 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public CamaraFramework camaraFramework { get; set; }
 
+        #region Singleton
+        private static volatile CamaraFPS instancia = null;
+
+        /// <summary>
+        /// Permite acceder a una instancia de la clase GuiController desde cualquier parte del codigo.
+        /// </summary>
+        public static CamaraFPS Instance
+        {
+            get
+            { return newInstance(); }
+        }
+
+        /// <summary>
+        /// Crear nueva instancia. Solo el MainForm lo hace
+        /// </summary>
+        internal static CamaraFPS newInstance()
+        {
+            if (instancia != null) { }
+            else
+            {
+                new CamaraFPS(new Vector3(50, 32, 200), new Vector3(270f, 32f, 60f));
+            }
+            return instancia;
+        }
+
+        #endregion
+
         public CamaraFPS(Vector3 posicionInicial, Vector3 direccionVistaInicial)
         {
             this.posicion = posicionInicial;
@@ -30,6 +57,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             camaraFramework = new CamaraFramework();
 
             init();
+
+            instancia = this;//Esto es para implementar el patron Singleton
         }
         
         public void update(){

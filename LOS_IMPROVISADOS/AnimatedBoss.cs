@@ -24,10 +24,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private Vector3 direccionVista;
         CamaraFPS camara;
 
-        public AnimatedBoss(CamaraFPS camara)
+        public AnimatedBoss()
         {
             crearEsqueleto();
-            this.camara = camara;
+            camara = CamaraFPS.Instance;
             selectedAnim = "Walk";//String con la animacion seleccionada
             changeMesh("CS_Arctic");//String con el mesh seleccionado (Basic Human tiene varios)
             cuerpo.AutoTransformEnable = true;
@@ -120,8 +120,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             cuerpo.animateAndRender();
         }
 
-        private void seguirPersonaje(float elapsedTime)
+        private void seguirPersonaje()
         {
+            float elapsedTime = GuiController.Instance.ElapsedTime;
+
             Vector3 movement = camara.posicion;
 
                 movement.Subtract(cuerpo.Position);
@@ -148,11 +150,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 cuerpo.move(movement);
         }
 
-        public void update(float elapsedTime)
+        public void update()
         {
             updateMemento();
 
-            seguirPersonaje(elapsedTime);
+            seguirPersonaje();
         }
 
         public void dispose()
