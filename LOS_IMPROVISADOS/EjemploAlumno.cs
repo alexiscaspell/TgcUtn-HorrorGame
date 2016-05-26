@@ -30,6 +30,7 @@ namespace AlumnoEjemplos.MiGrupo
         private TgcStaticSound sonidoFondo;
 
         private AnimatedBoss bossAnimado;
+        private PuertaHard puertaHard;
 
         public override string getCategory()
         {
@@ -70,7 +71,9 @@ namespace AlumnoEjemplos.MiGrupo
             colisionadores.Add(personaje);
 
 
-            puerta = new Puerta(630, 32, 200);
+            //puerta = new Puerta(630, 32, 200);
+
+            puertaHard = new PuertaHard(new Vector3(630, 32, 200));//Esta es una puerta medio hardcodeada
             sonidoFondo = new TgcStaticSound();
             sonidoFondo.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\asd16.wav");
 
@@ -101,8 +104,11 @@ namespace AlumnoEjemplos.MiGrupo
             bossAnimado.update();
             bossAnimado.render();
 
-            puerta.update(elapsedTime);
-            puerta.render();
+            //puerta.update(elapsedTime);
+            //puerta.render();
+
+            puertaHard.update();
+            puertaHard.render();
 
             sonidoFondo.play(true);
             
