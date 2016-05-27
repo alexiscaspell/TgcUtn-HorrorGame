@@ -11,7 +11,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Menu
     {
         public void init()
         {
-            base.init("botonStart3",new Vector2(7.8f,1.6f));
+            base.init("botonStart3",new Vector2(0.72f,0.16f));
         }
 
         public override void execute(EjemploAlumno app, GameMenu menu)

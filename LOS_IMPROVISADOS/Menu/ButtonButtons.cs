@@ -22,7 +22,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Menu
 
         public void init()
         {
-            base.init("botonTeclas", new Vector2(7.8f, 5.4f));
+            base.init("botonTeclas", new Vector2(0.72f, 0.44f));
         }
     }
 }
