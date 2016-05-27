@@ -28,8 +28,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		public void init(){
 			
 			pantallaPrincipal = new TgcSprite();
-			pantallaPrincipal.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir
-			                                                     + "Media\\Menu\\MenuPrincipal.png");
+            pantallaPrincipal.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir
+                                                                 + "Media\\Menu\\menuFondo2.png");//MenuPrincipal.png");
 
 			pantallaPrincipal.Position = new Vector2(0,0);
 			
@@ -81,10 +81,15 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			//Coloreo el boton seleccionado
 			for(int i= 0; i<cantBotones;i++){
 				arrayBotones[i].setColor(Color.White);
-			}
+                //arrayBotones[i].spriteBoton.Scaling = arrayBotones[i].normalScale;
+
+            }
 			arrayBotones[cursor].setColor(Color.Yellow);
-			
-			GuiController.Instance.Drawer2D.beginDrawSprite();
+
+            arrayBotones[cursor].spriteBoton.Scaling = 1.0001f * arrayBotones[cursor].spriteBoton.Scaling;
+
+
+            GuiController.Instance.Drawer2D.beginDrawSprite();
 
             pantallaPrincipal.render();
             for(int i = 0; i<cantBotones; i++){

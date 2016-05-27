@@ -86,12 +86,16 @@
   <ItemGroup>
     <Compile Include="LOS_IMPROVISADOS\AnimatedBoss.cs" />
     <Compile Include="LOS_IMPROVISADOS\Boss.cs" />
-    <Compile Include="LOS_IMPROVISADOS\ButtonAction.cs" />
     <Compile Include="LOS_IMPROVISADOS\Camara\CamaraFPS.cs" />
     <Compile Include="LOS_IMPROVISADOS\Camara\CamaraFramework.cs" />
-    <Compile Include="LOS_IMPROVISADOS\FactoryMenu.cs" />
-    <Compile Include="LOS_IMPROVISADOS\GameButton.cs" />
-    <Compile Include="LOS_IMPROVISADOS\GameMenu.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Menu\ButtonButtons.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Menu\ButtonExit.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Menu\ButtonObjective.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Menu\ButtonReturn.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Menu\ButtonStart.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Menu\FactoryMenu.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Menu\GameButton.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Menu\GameMenu.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\Boton.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\MenuJuego.cs" />
     <Compile Include="LOS_IMPROVISADOS\Puerta.cs" />

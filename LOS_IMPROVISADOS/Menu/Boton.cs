@@ -22,20 +22,23 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 	/// </summary>
 	public class Boton
 	{
-		TgcSprite spriteBoton;
+		public TgcSprite spriteBoton;
 		public delegate void Del(MenuJuego menu);
 		Del delAccionBoton;
-		
-		public void botonStart(){
+        internal Vector2 normalScale;
+
+        public void botonStart(){
 			
 			spriteBoton = new TgcSprite();
 			spriteBoton.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir
-			                                                     + "Media\\Menu\\botonStart.png");
+			                                                     + "Media\\Menu\\botonStart3.png");
 
 			Size screenSize = GuiController.Instance.Panel3d.Size;
             Size textureSize = spriteBoton.Texture.Size;
 
-            spriteBoton.Position = new Vector2( (screenSize.Width - textureSize.Width)/2, 500);
+            spriteBoton.Position = new Vector2( 0.75f*screenSize.Width, 0.2f*screenSize.Height);
+            normalScale = new Vector2(0.0004f * screenSize.Width, 0.0007f * screenSize.Height);
+            spriteBoton.Scaling = normalScale;
             
             delAccionBoton = accionStart;
 		}
@@ -45,7 +48,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 						
 			spriteBoton = new TgcSprite();
 			spriteBoton.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir
-			                                                     + "Media\\Menu\\botonExit.png");
+			                                                     + "Media\\Menu\\botonHelp.png");
 
 			Size screenSize = GuiController.Instance.Panel3d.Size;
             Size textureSize = spriteBoton.Texture.Size;

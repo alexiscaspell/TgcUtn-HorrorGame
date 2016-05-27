@@ -14,19 +14,20 @@ namespace AlumnoEjemplos.MiGrupo
         EjemploAlumno application;
         private TgcSprite pantalla;
         private List<GameButton> botones;
+        private int selectedButton = 0;
 
         public GameMenu(string imagenFondo)
         {
             pantalla = new TgcSprite();
             pantalla.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir
                                                                  + "Media\\Menu\\" + imagenFondo + ".png");
+
+            botones = new List<GameButton>();
         }
 
         internal void init(EjemploAlumno app)
         {
             application = app;
-
-            botones = new List<GameButton>();
 
             pantalla.Position = new Vector2(0, 0);
 
@@ -47,6 +48,8 @@ namespace AlumnoEjemplos.MiGrupo
 
         internal void render()
         {
+            update();
+
             GuiController.Instance.Drawer2D.beginDrawSprite();
             pantalla.render();
 
@@ -56,5 +59,33 @@ namespace AlumnoEjemplos.MiGrupo
             }
             GuiController.Instance.Drawer2D.endDrawSprite();
         }
+
+        private void update()
+        {
+            if (botones.Count == 0) { return; }
+
+            if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.UpArrow)&&selectedButton>0)
+            {
+                selectedButton--;
+            }
+
+            if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.DownArrow)&&selectedButton<botones.Count-1)
+            {
+                selectedButton++;
+            }
+
+            if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.Space))
+            {
+                botones[selectedButton].execute(application,this);
+            }
+
+            for (int i = 0; i < botones.Count; i++)
+            {
+                botones[i].unSelect();
+            }
+
+            botones[selectedButton].select();
+        }
+
     }
 }
