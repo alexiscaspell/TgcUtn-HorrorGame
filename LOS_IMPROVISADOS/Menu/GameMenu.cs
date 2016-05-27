@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using TgcViewer;
 using TgcViewer.Utils._2D;
+using TgcViewer.Utils.Sound;
 using TgcViewer.Utils.TgcGeometry;
 using TgcViewer.Utils.TgcSceneLoader;
 
@@ -16,6 +17,9 @@ namespace AlumnoEjemplos.MiGrupo
         private List<GameButton> botones;
         private int selectedButton = 0;
 
+        private TgcStaticSound sonidoCambio = new TgcStaticSound();
+        private TgcStaticSound sonidoAceptar = new TgcStaticSound();
+
         public GameMenu(string imagenFondo)
         {
             pantalla = new TgcSprite();
@@ -23,6 +27,10 @@ namespace AlumnoEjemplos.MiGrupo
                                                                  + "Media\\Menu\\" + imagenFondo + ".png");
 
             botones = new List<GameButton>();
+
+            //Cargo los sonidos
+            sonidoAceptar.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\SonidoAceptar.wav");
+            sonidoCambio.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\SonidoCambio.wav");
         }
 
         internal void init(EjemploAlumno app)
@@ -66,16 +74,20 @@ namespace AlumnoEjemplos.MiGrupo
 
             if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.UpArrow)&&selectedButton>0)
             {
+                sonidoCambio.play();
                 selectedButton--;
             }
 
             if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.DownArrow)&&selectedButton<botones.Count-1)
             {
+                sonidoCambio.play();
                 selectedButton++;
             }
 
             if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.Space))//por ahora cn space
             {
+                sonidoAceptar.play();
+
                 botones[selectedButton].execute(application,this);
             }
 

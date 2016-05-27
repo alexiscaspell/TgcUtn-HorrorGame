@@ -23,7 +23,7 @@ namespace AlumnoEjemplos.MiGrupo
         
         private List<Colisionador> colisionadores;
    
-        private MenuJuego menuPrincipal = new MenuJuego();
+        //private MenuJuego menuPrincipal = new MenuJuego();
         
         private Puerta puerta;
         
