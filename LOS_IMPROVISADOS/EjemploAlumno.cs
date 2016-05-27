@@ -32,6 +32,9 @@ namespace AlumnoEjemplos.MiGrupo
         private AnimatedBoss bossAnimado;
         private PuertaHard puertaHard;
 
+        public bool playing;
+        public GameMenu menuActual;
+
         public override string getCategory()
         {
             return "AlumnoEjemplos";
@@ -44,7 +47,7 @@ namespace AlumnoEjemplos.MiGrupo
         
         public override string getDescription()
         {
-            return "Juego de Terror - Juego de terror en primera persona basado en juegos famosos como Amnesia, Outlast, Penumbra, etc";
+            return "Escape from Hospital - Juego de terror en primera persona basado en juegos famosos como Amnesia, Outlast, Penumbra, etc";
         }
 
 
@@ -76,8 +79,17 @@ namespace AlumnoEjemplos.MiGrupo
             puertaHard = new PuertaHard(new Vector3(630, 32, 200));//Esta es una puerta medio hardcodeada
             sonidoFondo = new TgcStaticSound();
             sonidoFondo.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\asd16.wav");
+            sonidoFondo.play(true);
 
-            menuPrincipal.init();
+            FactoryMenu factoryMenu = new FactoryMenu();
+
+            menuActual = factoryMenu.menuPrincipal();
+            menuActual.init(this);
+
+            playing = false;
+
+            //menuPrincipal.init();
+
         }
 
         public override void render(float elapsedTime)
@@ -88,6 +100,12 @@ namespace AlumnoEjemplos.MiGrupo
             Size screenSize = GuiController.Instance.Panel3d.Size;
             Cursor.Position = new Point(screenSize.Width / 2, screenSize.Height / 2);
 
+            if (!playing)
+            {
+                menuActual.render();
+            }
+
+            else { 
             //boss.setColisiona(personaje.estasMirandoBoss(boss));//El mejor truco del mundo! (seteo q el boss colisione solo si estoy mirando)
            
             //mapa.detectarColisiones(colisionadores);
@@ -109,10 +127,9 @@ namespace AlumnoEjemplos.MiGrupo
 
             puertaHard.update();
             puertaHard.render();
-
-            sonidoFondo.play(true);
             
-            menuPrincipal.render();
+            //menuPrincipal.render();
+            }
         }
 
         public override void close()
@@ -123,18 +140,5 @@ namespace AlumnoEjemplos.MiGrupo
             bossAnimado.dispose();
         }
         
-
-
-       
-
-       
-
-
-
-
-
-
-
-
     }
 }

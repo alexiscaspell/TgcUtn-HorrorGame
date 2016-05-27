@@ -86,8 +86,14 @@
   <ItemGroup>
     <Compile Include="LOS_IMPROVISADOS\AnimatedBoss.cs" />
     <Compile Include="LOS_IMPROVISADOS\Boss.cs" />
+    <Compile Include="LOS_IMPROVISADOS\ButtonAction.cs" />
     <Compile Include="LOS_IMPROVISADOS\Camara\CamaraFPS.cs" />
     <Compile Include="LOS_IMPROVISADOS\Camara\CamaraFramework.cs" />
+    <Compile Include="LOS_IMPROVISADOS\FactoryMenu.cs" />
+    <Compile Include="LOS_IMPROVISADOS\GameButton.cs" />
+    <Compile Include="LOS_IMPROVISADOS\GameMenu.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Menu\Boton.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Menu\MenuJuego.cs" />
     <Compile Include="LOS_IMPROVISADOS\Puerta.cs" />
     <Compile Include="LOS_IMPROVISADOS\Colisionador.cs" />
     <Compile Include="LOS_IMPROVISADOS\CosasPrueba\Caja.cs" />
@@ -125,6 +131,10 @@
     <Compile Include="LOS_IMPROVISADOS\EjemploAlumno.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="LOS_IMPROVISADOS\CosasPrueba\codigoSalvado.txt" />
+    <Content Include="LOS_IMPROVISADOS\Menu\botonExit.png" />
+    <Content Include="LOS_IMPROVISADOS\Menu\botonStart.png" />
+    <Content Include="LOS_IMPROVISADOS\Menu\escalado.txt" />
+    <Content Include="LOS_IMPROVISADOS\Menu\MenuPrincipal.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TgcViewer\TgcViewer.csproj">
