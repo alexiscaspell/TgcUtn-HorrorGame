@@ -6,14 +6,33 @@ namespace AlumnoEjemplos.MiGrupo
     internal class FactoryMenu
     {
         private GameMenu menuAnterior;
+        private EjemploAlumno application;
 
-        public FactoryMenu()
+        #region Singleton
+        private static volatile FactoryMenu instancia = null;
+
+        public static FactoryMenu Instance
         {
+            get
+            { return newInstance(); }
         }
+
+        internal static FactoryMenu newInstance()
+        {
+            if (instancia != null) { }
+            else
+            {
+                new FactoryMenu();
+            }
+            return instancia;
+        }
+
+        #endregion
 
         internal GameMenu menuPrincipal()
         {
             GameMenu menu = new GameMenu("menuFondo");
+            menu.init(application);
 
             ButtonStart start = new ButtonStart();
             start.init();
@@ -48,9 +67,28 @@ namespace AlumnoEjemplos.MiGrupo
             return menu;
         }
 
+        internal GameMenu menuBotones()
+        {
+            GameMenu menu = new GameMenu("menuFondo");
+            menu.init(application);
+
+            ButtonReturn volver = new ButtonReturn();
+            volver.init();
+            volver.setMenuAnterior(menuAnterior);
+
+            menu.agregarBoton(volver);
+
+            return menu;
+        }
+
         internal void setMenuAnterior(GameMenu menu)
         {
             menuAnterior = menu;
+        }
+
+        internal void setApplication(EjemploAlumno ejemploAlumno)
+        {
+            application = ejemploAlumno;
         }
     }
 }

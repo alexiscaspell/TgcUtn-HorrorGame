@@ -82,9 +82,9 @@ namespace AlumnoEjemplos.MiGrupo
             sonidoFondo.play(true);
 
             FactoryMenu factoryMenu = new FactoryMenu();
+            factoryMenu.setApplication(this);
 
             menuActual = factoryMenu.menuPrincipal();
-            menuActual.init(this);
 
             playing = false;
 

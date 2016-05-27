@@ -11,7 +11,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Menu
     {
         public override void execute(EjemploAlumno app, GameMenu menu)
         {
-            FactoryMenu factory = new FactoryMenu();
+            FactoryMenu factory = FactoryMenu.Instance;
 
             factory.setMenuAnterior(menu);
 

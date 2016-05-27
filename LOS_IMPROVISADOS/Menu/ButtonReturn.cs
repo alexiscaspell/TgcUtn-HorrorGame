@@ -14,7 +14,7 @@ namespace AlumnoEjemplos.MiGrupo
 
         internal void init()
         {
-            base.init("botonVolver", new Vector2(8, 10));
+            base.init("botonVolver", new Vector2(7.8f, 11f));
         }
 
         public override void execute(EjemploAlumno app, GameMenu menu)
@@ -24,9 +24,5 @@ namespace AlumnoEjemplos.MiGrupo
             //habria que destruir menu
         }
 
-        internal void setMenuAnterior(object menuAnterior)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

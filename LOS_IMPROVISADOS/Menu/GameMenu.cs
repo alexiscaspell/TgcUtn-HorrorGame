@@ -74,7 +74,7 @@ namespace AlumnoEjemplos.MiGrupo
                 selectedButton++;
             }
 
-            if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.Space))
+            if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.Space))//por ahora cn space
             {
                 botones[selectedButton].execute(application,this);
             }

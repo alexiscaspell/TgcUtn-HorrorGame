@@ -39,7 +39,7 @@ namespace AlumnoEjemplos.MiGrupo
 
             if (selected)
             {
-                spriteBoton.Scaling = 1.02f * spriteBoton.Scaling;
+                spriteBoton.Scaling = 1.1f * spriteBoton.Scaling;
             }
 
             spriteBoton.render();
