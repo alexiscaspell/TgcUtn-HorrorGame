@@ -81,7 +81,7 @@ namespace AlumnoEjemplos.MiGrupo
             sonidoFondo.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\asd16.wav");
             sonidoFondo.play(true);
 
-            FactoryMenu factoryMenu = new FactoryMenu();
+            FactoryMenu factoryMenu = FactoryMenu.Instance;// new FactoryMenu();
             factoryMenu.setApplication(this);
 
             menuActual = factoryMenu.menuPrincipal();

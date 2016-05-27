@@ -22,12 +22,13 @@ namespace AlumnoEjemplos.MiGrupo
             if (instancia != null) { }
             else
             {
-                new FactoryMenu();
+                instancia = new FactoryMenu();
             }
             return instancia;
         }
 
         #endregion
+        //NUNCA USAR NEW, USAR Instance
 
         internal GameMenu menuPrincipal()
         {
@@ -57,6 +58,7 @@ namespace AlumnoEjemplos.MiGrupo
         internal GameMenu menuObjetivos()
         {
             GameMenu menu = new GameMenu("menuFondo");
+            menu.init(application);
 
             ButtonReturn volver = new ButtonReturn();
             volver.init();
