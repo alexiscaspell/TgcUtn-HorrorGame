@@ -14,6 +14,7 @@ using TgcViewer;
 using TgcViewer.Utils._2D;
 using TgcViewer.Utils.TgcSceneLoader;
 using TgcViewer.Utils.TgcGeometry;
+using TgcViewer.Utils.Sound;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
@@ -25,11 +26,14 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		int cursor = 0;
 		public bool renderizar = true;
 		
+		private TgcStaticSound sonidoCambio = new TgcStaticSound();
+		private TgcStaticSound sonidoAceptar = new TgcStaticSound();
+		
 		public void init(){
 			
 			pantallaPrincipal = new TgcSprite();
 			pantallaPrincipal.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir
-			                                                     + "Media\\Menu\\MenuPrincipal.png");
+			                                                     + "Media\\Menu\\Dark-Souls-Wallpaper-Download.png");
 
 			pantallaPrincipal.Position = new Vector2(0,0);
 			
@@ -51,6 +55,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             
             arrayBotones[0].botonStart();
             arrayBotones[1].botonExit();
+            
+            //Cargo los sonidos
+            sonidoAceptar.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\SonidoAceptar.wav");
+            sonidoCambio.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\SonidoCambio.wav");
+            
 		}
 		
 		public void render(){
@@ -68,14 +77,20 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 				}else{
 					cursor = (cursor - 1) % cantBotones;
 				}
+				
+				sonidoCambio.play();
             }
 			if(GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.DownArrow))
             {
 				cursor = (cursor + 1) % cantBotones;
+				
+				sonidoCambio.play();
             }
 			if(GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.Space))
             {
 				arrayBotones[cursor].accionBoton(this);
+				
+				sonidoAceptar.play();
             }
 			
 			//Coloreo el boton seleccionado
@@ -92,6 +107,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             }
 
             GuiController.Instance.Drawer2D.endDrawSprite();
+            
 		}
 	}
 }
