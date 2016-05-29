@@ -17,15 +17,15 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.fluors
         public override void init()
         {
             GuiController.Instance.Modifiers.addColor("fluorColor", Color.LightGreen);
-            GuiController.Instance.Modifiers.addFloat("fluorIntensidad", 0f, 150f, 8f);
-            GuiController.Instance.Modifiers.addFloat("fluorAtenuacion", 0.1f, 2f, 0.3f);
-            GuiController.Instance.Modifiers.addFloat("fluorEspecularEx", 0, 40, 20f);
+            GuiController.Instance.Modifiers.addFloat("fluorIntensidad", 0f, 150f, 70f);
+            GuiController.Instance.Modifiers.addFloat("fluorAtenuacion", 0.1f, 2f, 0.2f);
+            GuiController.Instance.Modifiers.addFloat("fluorEspecularEx", 0, 40, 6f);
 
             //Modifiers de material
             GuiController.Instance.Modifiers.addColor("fluorEmissive", Color.Black);
             GuiController.Instance.Modifiers.addColor("fluorAmbient", Color.LightGreen);
             GuiController.Instance.Modifiers.addColor("fluorDiffuse", Color.LightGreen);
-            GuiController.Instance.Modifiers.addColor("fluorSpecular", Color.White);
+            GuiController.Instance.Modifiers.addColor("fluorSpecular", Color.LightGreen);
         }
 
         public override void render()

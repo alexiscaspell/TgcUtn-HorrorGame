@@ -16,15 +16,15 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
         public override void init()
         {
             GuiController.Instance.Modifiers.addColor("farolColor", Color.LightYellow);
-            GuiController.Instance.Modifiers.addFloat("farolIntensidad", 0f, 150f, 3f);
-            GuiController.Instance.Modifiers.addFloat("farolAtenuacion", 0.1f, 2f, 0.17f);
-            GuiController.Instance.Modifiers.addFloat("farolEspecularEx", 0, 20, 1f);
+            GuiController.Instance.Modifiers.addFloat("farolIntensidad", 0f, 150f, 19f);
+            GuiController.Instance.Modifiers.addFloat("farolAtenuacion", 0.1f, 2f, 0.1f);
+            GuiController.Instance.Modifiers.addFloat("farolEspecularEx", 0, 20, 4f);
 
             //Modifiers de material
             GuiController.Instance.Modifiers.addColor("farolEmissive", Color.Black);
             GuiController.Instance.Modifiers.addColor("farolAmbient", Color.LightYellow);
             GuiController.Instance.Modifiers.addColor("farolDiffuse", Color.White);
-            GuiController.Instance.Modifiers.addColor("farolSpecular", Color.White);
+            GuiController.Instance.Modifiers.addColor("farolSpecular", Color.LightYellow);
         }
 
         public override void render()

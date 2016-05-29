@@ -57,14 +57,14 @@ namespace AlumnoEjemplos.MiGrupo
 
             mapa = new Mapa();
 
-            camaraFPS = new CamaraFPS(new Vector3(50, 32, 200/*280f, 25f, 60f*/), new Vector3(270f, 32f, 60f));
+            camaraFPS = new CamaraFPS(new Vector3(1085,320,10862/*50, 32, 200*/), new Vector3(1185,320,10862/*270f, 32f, 60f*/));
 
             personaje = new Personaje(mapa);
 
             //boss = new Boss(camaraFPS);
             //boss.init(40f, new Vector3(100, 10, 100));
 
-            Cursor.Hide();
+            //Cursor.Hide();
 
             bossAnimado = new AnimatedBoss();
             bossAnimado.init(30f, new Vector3(100, 0, 100));//Esto es para probar a un boss con esqueleto
@@ -97,8 +97,8 @@ namespace AlumnoEjemplos.MiGrupo
             TgcD3dInput d3dInput = GuiController.Instance.D3dInput;
             Device d3dDevice = GuiController.Instance.D3dDevice;
 
-            Size screenSize = GuiController.Instance.Panel3d.Size;
-            Cursor.Position = new Point(screenSize.Width / 2, screenSize.Height / 2);
+            //Size screenSize = GuiController.Instance.Panel3d.Size;
+            //Cursor.Position = new Point(screenSize.Width / 2, screenSize.Height / 2);
 
             if (!playing)
             {

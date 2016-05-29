@@ -12,7 +12,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
     {
         public BateriaFarol(): base()
         {
-            tiempoDesgaste = 1;//Gasta bateria cada 1min 40seg
+            tiempoDesgaste = 2;//Gasta bateria cada 1min 40seg
 
             cantidadDesgaste = 1;//Gasta una barra por vez
 

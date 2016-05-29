@@ -14,8 +14,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
     class Personaje : Colisionador
     {
         private TgcBoundingSphere cuerpo;
-
-        public TgcScene tgcEscena { set; get; }
+        
         public Mapa mapa;
         public CamaraFPS camaraFPS { get; set; }
 
@@ -31,7 +30,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         public Personaje(Mapa mapa)
         {
             this.mapa = mapa;
-            this.tgcEscena = mapa.escena;
             this.camaraFPS = CamaraFPS.Instance;
             this.posicionIluminadorActual = 0;
 
@@ -49,9 +47,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         /***********************ILUMINADOR/***********************/
         public void iniciarIluminadores()
         {
-            Iluminador linterna = new Iluminador(new LuzLinterna(tgcEscena, camaraFPS), new ManoLinterna(), new BateriaLinterna());
-            Iluminador farol = new Iluminador(new LuzFarol(tgcEscena, camaraFPS), new ManoFarol(), new BateriaFarol());
-            Iluminador fluor = new Iluminador(new LuzFluor(tgcEscena, camaraFPS), new ManoFluor(), new BateriaFluor());
+            Iluminador linterna = new Iluminador(new LuzLinterna(mapa.escena, camaraFPS), new ManoLinterna(), new BateriaLinterna());
+            Iluminador farol = new Iluminador(new LuzFarol(mapa.escena, camaraFPS), new ManoFarol(), new BateriaFarol());
+            Iluminador fluor = new Iluminador(new LuzFluor(mapa.escena, camaraFPS), new ManoFluor(), new BateriaFluor());
 
             iluminadores = new List<Iluminador>() { linterna, farol, fluor };
         }
@@ -83,7 +81,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         /***********************POSPROCESADO***********************/
         public void iniciarPosProcesadores()
         {
-            PosProcesadoAlarma posProcesadoAlarma = new PosProcesadoAlarma(tgcEscena);
+            PosProcesadoAlarma posProcesadoAlarma = new PosProcesadoAlarma(mapa.escena);
 
             posProcesados = new List<APosProcesado>() { posProcesadoAlarma };
         }

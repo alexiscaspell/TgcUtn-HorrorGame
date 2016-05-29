@@ -42,7 +42,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             if (instancia != null) { }
             else
             {
-                new CamaraFPS(new Vector3(50, 32, 200), new Vector3(270f, 32f, 60f));
+                //new CamaraFPS(new Vector3(50, 32, 200), new Vector3(270f, 32f, 60f));
+                new CamaraFPS(new Vector3(108, 194, 102), new Vector3(208f, 194f, 102f));
             }
             return instancia;
         }
@@ -98,7 +99,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         public void crearModificadores()
         {
             GuiController.Instance.Modifiers.addBoolean("moverCamaraConClik", "Activar", false);
-            GuiController.Instance.Modifiers.addFloat("velocidadCaminar", 0f, 400f, 100f);
+            GuiController.Instance.Modifiers.addFloat("velocidadCaminar", 0f, 1000f, 550f);
         }
 
         public void usarVariablesDeUsuarioIniciales()
