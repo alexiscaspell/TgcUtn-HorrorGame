@@ -41,7 +41,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
             return cargaActual > 0;
         }
 
-        public void gastarBateria()//int cantidad)
+        public void gastarBateria()
         {
             if (cargaActual == 0) return;
 
@@ -49,9 +49,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
 
             int tiempoTranscurridoEnSegundos = tiempoTranscurrido.Minutes * 60 + tiempoTranscurrido.Seconds;
 
-            if (/*tiempoTranscurrido.Seconds*/tiempoTranscurridoEnSegundos >= tiempoDesgaste && tenesBateria())
+            if (tiempoTranscurridoEnSegundos >= tiempoDesgaste && tenesBateria())
             {
-                cargaActual -= cantidadDesgaste;//cantidad;
+                cargaActual -= cantidadDesgaste;
                 tiempoAnterior = DateTime.Now;
             }
         }

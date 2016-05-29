@@ -12,21 +12,17 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
     {
         public BateriaFarol(): base()
         {
-            tiempoDesgaste = 2;//Gasta bateria cada 1min 40seg
+            tiempoDesgaste = 2;
 
-            cantidadDesgaste = 1;//Gasta una barra por vez
-
-            //cantidadDesgaste=1;
+            cantidadDesgaste = 1;
         }
 
         public override void init()
         {
             //farol
             sprite.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\farolIndicador.png");
-
             sprite.Scaling = new Vector2((float)0.0002 * screenSize.Width, (float)0.0002 * screenSize.Height);
-
-            sprite.Position = new Vector2(-0.015f * screenSize.Width, 0.025f * screenSize.Height);//new Vector2(0, 20);
+            sprite.Position = new Vector2(-0.015f * screenSize.Width, 0.025f * screenSize.Height);
 
             //texto
             texto.Color = Color.White;
@@ -44,11 +40,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
         public override void render()
         {
             gastarBateria();
+
             //farol
             GuiController.Instance.Drawer2D.beginDrawSprite();
             sprite.render();
             GuiController.Instance.Drawer2D.endDrawSprite();
-
 
             //texto
             texto.Text = cargaActual.ToString() + "%";

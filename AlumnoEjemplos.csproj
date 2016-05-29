@@ -96,6 +96,7 @@
     <Compile Include="LOS_IMPROVISADOS\Menu\FactoryMenu.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\GameButton.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\GameMenu.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Personajes\Configuradores\ConfigIluminador.cs" />
     <Compile Include="LOS_IMPROVISADOS\Puerta.cs" />
     <Compile Include="LOS_IMPROVISADOS\Colisionador.cs" />
     <Compile Include="LOS_IMPROVISADOS\CosasPrueba\Caja.cs" />

@@ -60,7 +60,7 @@ namespace AlumnoEjemplos.MiGrupo
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\habitacionMiedo\\");
 
 
-            camaraFPS = new CamaraFPS(new Vector3(280f, 25f, 95f), new Vector3(279f, 25f, 95f));
+            camaraFPS = CamaraFPS.Instance;
             camaraFPS.init();
 
             luzLinterna = new LuzLinterna(tgcEscena, camaraFPS);

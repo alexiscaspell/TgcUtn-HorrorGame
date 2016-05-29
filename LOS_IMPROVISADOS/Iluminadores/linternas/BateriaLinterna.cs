@@ -30,7 +30,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
         public override void init()
         {
             //bateria
-
             listaSprites = new List<TgcSprite>();
 
             for (int i = 0; i < 6; i++)
@@ -56,6 +55,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
         {
             gastarBateria();
 
+            //linterna
             sprite = listaSprites.ElementAt(cargaActual);
 
             GuiController.Instance.Drawer2D.beginDrawSprite();

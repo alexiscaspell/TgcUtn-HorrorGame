@@ -11,31 +11,19 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.fluors
     {
         public int cantidadFluors { get; set; }
 
-        public TgcSprite spriteBarra { get; set; }
-
         public BateriaFluor() : base()
         {
-            tiempoDesgaste = 2;//Gasta bateria cada 6seg
-            cantidadDesgaste = 10;//Gasta 10 barras por vez
-
-            //cantidadDesgaste = 2;
+            tiempoDesgaste = 1;
+            cantidadDesgaste = 10;
 
             cantidadFluors = 5;
-            spriteBarra = new TgcSprite();
+            sprite = new TgcSprite();
         }
 
         public override void init()
-        {   /*
-            //fluor
-            sprite.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\fluorIndicador.png");
-            sprite.Scaling = new Vector2((float)0.0004 * screenSize.Width, (float)0.0004 * screenSize.Height);
-            sprite.Position = new Vector2(20, 20);
-            //posicion del texto : texto.Position = new Point(screenSize.Width / 25, screenSize.Height / 20);
-            */
-
+        {
             //barra verde
-
-            spriteBarra.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\fluorIndicadorBarra.png");
+            sprite.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\fluorIndicadorBarra.png");
 
             //texto
             texto.Color = Color.White;
@@ -58,19 +46,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.fluors
         {
             gastarBateria();
 
-            /*
-            //fluor
+            //barra
+            sprite.Scaling = new Vector2(cargaActual * 0.000002f * screenSize.Width, 0.0002f * screenSize.Height);
+            sprite.Position = new Vector2(0.005f*screenSize.Width, 0.03f*screenSize.Height);
+
             GuiController.Instance.Drawer2D.beginDrawSprite();
             sprite.render();
-            GuiController.Instance.Drawer2D.endDrawSprite();
-            */
-
-            //barra
-            spriteBarra.Scaling = new Vector2(cargaActual * 0.000002f * screenSize.Width, 0.0002f * screenSize.Height);
-            spriteBarra.Position = new Vector2(0.005f*screenSize.Width, 0.03f*screenSize.Height);//new Vector2(10, 20);
-
-            GuiController.Instance.Drawer2D.beginDrawSprite();
-            spriteBarra.render();
             GuiController.Instance.Drawer2D.endDrawSprite();
 
             //texto

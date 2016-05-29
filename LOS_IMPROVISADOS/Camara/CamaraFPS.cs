@@ -43,14 +43,14 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             else
             {
                 //new CamaraFPS(new Vector3(50, 32, 200), new Vector3(270f, 32f, 60f));
-                new CamaraFPS(new Vector3(108, 194, 102), new Vector3(208f, 194f, 102f));
+                new CamaraFPS(new Vector3(1085, 320, 10862), new Vector3(1185, 320, 10862));
             }
             return instancia;
         }
 
         #endregion
 
-        public CamaraFPS(Vector3 posicionInicial, Vector3 direccionVistaInicial)
+        private CamaraFPS(Vector3 posicionInicial, Vector3 direccionVistaInicial)
         {
             this.posicion = posicionInicial;
             this.direccionVista = direccionVistaInicial;

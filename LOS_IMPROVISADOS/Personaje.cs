@@ -1,13 +1,9 @@
-﻿using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles;
-using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.fluors;
-using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TgcViewer;
-using TgcViewer.Utils.TgcSceneLoader;
 using TgcViewer.Utils.TgcGeometry;
 using Microsoft.DirectX;
-using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general;
 using AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado;
+using AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Configuradores;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
@@ -16,10 +12,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private TgcBoundingSphere cuerpo;
         
         public Mapa mapa;
+
         public CamaraFPS camaraFPS { get; set; }
 
-        public List<Iluminador> iluminadores { get; set; }
-        public int posicionIluminadorActual { get; set; }
+        public ConfigIluminador configIluminador { get; set; }
 
         public List<APosProcesado> posProcesados { get; set; }
 
@@ -31,7 +27,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             this.mapa = mapa;
             this.camaraFPS = CamaraFPS.Instance;
-            this.posicionIluminadorActual = 0;
 
             //cuerpo = TgcBox.fromSize(new Vector3(10, camaraFPS.posicion.Y + 2, 14));
 
@@ -39,43 +34,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             cuerpo = new TgcBoundingSphere(camaraFPS.camaraFramework.Position, 9);
 
-            iniciarIluminadores();
+            configIluminador = new ConfigIluminador(mapa.escena, camaraFPS);
 
             iniciarPosProcesadores();
-        }
-
-        /***********************ILUMINADOR/***********************/
-        public void iniciarIluminadores()
-        {
-            Iluminador linterna = new Iluminador(new LuzLinterna(mapa.escena, camaraFPS), new ManoLinterna(), new BateriaLinterna());
-            Iluminador farol = new Iluminador(new LuzFarol(mapa.escena, camaraFPS), new ManoFarol(), new BateriaFarol());
-            Iluminador fluor = new Iluminador(new LuzFluor(mapa.escena, camaraFPS), new ManoFluor(), new BateriaFluor());
-
-            iluminadores = new List<Iluminador>() { linterna, farol, fluor };
-        }
-
-        public void renderizarIluminador()
-        {
-            iluminadores[posicionIluminadorActual].render();
-
-            iluminadores[2].bateria.gastarBateria();//hago que el fluor se gaste aunque no la este usando
-        }
-
-        public void renderizarIluminador(int posicionIluminador)
-        {
-            if (posicionIluminador >= iluminadores.Count || posicionIluminador < 0)
-                return;
-
-            posicionIluminadorActual = posicionIluminador;
-            iluminadores[posicionIluminadorActual].render();
-        }
-
-        public void cambiarASiguienteIluminador()
-        {
-            posicionIluminadorActual++;
-
-            if (posicionIluminadorActual >= iluminadores.Count)
-                posicionIluminadorActual = 0;
         }
 
         /***********************POSPROCESADO***********************/
@@ -104,10 +65,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             return !TgcCollisionUtils.intersectRayPlane(rayoBoss, farPlane, out t, out ptoColision);
         }
 
-        public void recargarBateriaLinterna()
-        {
-            iluminadores[posicionIluminadorActual].bateria.recargar();
-        }
+        
 
         public override void retroceder(Vector3 vecRetroceso)
         {
@@ -122,23 +80,28 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.R))
             {
-                recargarBateriaLinterna();
+                configIluminador.recargarBateriaLinterna();
             }
 
             if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.F))
             {
-                cambiarASiguienteIluminador();
+                configIluminador.cambiarASiguienteIluminador();
+            }
+
+            if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.Q))
+            {
+                configIluminador.cambiarAIluminadorFluor();
             }
 
             //cuerpo.Position = camaraFPS.camaraFramework.LookAt;
 
             //efecto de que se esta muriendo
-            if (!iluminadores[posicionIluminadorActual].bateria.tenesBateria())
+            if (configIluminador.iluminadorActualSeQuedoSinBateria())
             {
                 renderizarPosProcesado();
             }
 
-            renderizarIluminador();
+            configIluminador.renderizarIluminador();
 
             cuerpo.setCenter(camaraFPS.camaraFramework.Position);
         }
