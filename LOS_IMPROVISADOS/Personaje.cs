@@ -21,7 +21,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private Vector3 posMemento;
 
-        //private TgcBox cuerpo;
+        private float slideFactor = 5;//Factor de slide hardcodeado
+
+        private float radius = 30;//Radio de esfera hardcodeado
 
         public Personaje(Mapa mapa)
         {
@@ -32,7 +34,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             //cuerpo.Position = camaraFPS.camaraFramework.LookAt;
 
-            cuerpo = new TgcBoundingSphere(camaraFPS.camaraFramework.Position, 9);
+            cuerpo = new TgcBoundingSphere(camaraFPS.camaraFramework.Position, radius);
 
             configIluminador = new ConfigIluminador(mapa.escena, camaraFPS);
 
@@ -130,7 +132,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
                 Vector3 desplazamiento = camaraFPS.camaraFramework.Position - posMemento;
 
-                Vector3 movement = Vector3.Dot(desplazamiento, slide) * slide;
+                desplazamiento.Normalize();
+
+                Vector3 movement = slideFactor * Vector3.Dot(desplazamiento, slide) * slide;
 
                 cuerpo.setCenter(posMemento + movement);
 
