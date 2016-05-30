@@ -73,7 +73,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
             meshes = escena.Meshes;
         }
 
-        public override void render()
+        public override void render(float elapsedTime)
         {
             Device d3dDevice = GuiController.Instance.D3dDevice;
 

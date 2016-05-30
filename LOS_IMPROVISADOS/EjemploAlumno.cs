@@ -114,7 +114,7 @@ namespace AlumnoEjemplos.MiGrupo
 
             camaraFPS.render();
 
-            personaje.update();
+            personaje.update(elapsedTime);
 
             //boss.update(elapsedTime);
             //boss.render();

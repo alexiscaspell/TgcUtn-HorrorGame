@@ -88,6 +88,7 @@
     <Compile Include="LOS_IMPROVISADOS\Boss.cs" />
     <Compile Include="LOS_IMPROVISADOS\Camara\CamaraFPS.cs" />
     <Compile Include="LOS_IMPROVISADOS\Camara\CamaraFramework.cs" />
+    <Compile Include="LOS_IMPROVISADOS\EfectosPosProcesado\EfectoHechoMierda.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\ButtonButtons.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\ButtonExit.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\ButtonObjective.cs" />

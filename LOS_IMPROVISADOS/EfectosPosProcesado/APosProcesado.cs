@@ -8,7 +8,7 @@ using TgcViewer.Utils.TgcSceneLoader;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
 {
-    abstract class APosProcesado
+    public abstract class APosProcesado
     {
         public TgcScene escena { get; set; }
 
@@ -19,6 +19,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
         public TgcTexture alarmTexture;
         public InterpoladorVaiven intVaivenAlarm;
         public List<TgcMesh> meshes;
+        
+        public APosProcesado(){
+        	
+        }
 
         public APosProcesado(TgcScene escena)
         {
@@ -26,7 +30,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
         }
 
         public abstract void init();
-        public abstract void render();
+        public abstract void render(float elapsedTime);
         public abstract void drawSceneToRenderTarget(Device d3dDevice);
         public abstract void drawPostProcess(Device d3dDevice);
         public abstract void close();

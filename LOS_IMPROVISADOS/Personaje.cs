@@ -45,14 +45,18 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         public void iniciarPosProcesadores()
         {
             PosProcesadoAlarma posProcesadoAlarma = new PosProcesadoAlarma(mapa.escena);
+            PosProcesoHechoMierda efectoHechoMierda = new PosProcesoHechoMierda(mapa.escena);
+            
+            efectoHechoMierda.init();
 
             posProcesados = new List<APosProcesado>() { posProcesadoAlarma };
+            posProcesados.Add(efectoHechoMierda);
         }
 
-        public void renderizarPosProcesado()
+        public void renderizarPosProcesado(float elapsedTime)
         {
             //por ahora lo hago solo con el primero, despues veo como implemento los demas
-            posProcesados[0].render();
+            posProcesados[1].render(elapsedTime);
         }
 
 
@@ -75,7 +79,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             //cuerpo.Position = camaraFPS.camaraFramework.LookAt;
         }
 
-        public void update()
+        public void update(float elapsedTime)
         {
             //updateMemento();
             posMemento = camaraFPS.camaraFramework.Position;
@@ -100,7 +104,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             //efecto de que se esta muriendo
             if (configIluminador.iluminadorActualSeQuedoSinBateria())
             {
-                renderizarPosProcesado();
+                renderizarPosProcesado(elapsedTime);
             }
 
             configIluminador.renderizarIluminador();
