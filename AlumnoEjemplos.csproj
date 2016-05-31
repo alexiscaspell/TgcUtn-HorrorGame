@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="LOS_IMPROVISADOS\AnimatedBoss.cs" />
     <Compile Include="LOS_IMPROVISADOS\Boss.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Cama.cs" />
     <Compile Include="LOS_IMPROVISADOS\Camara\CamaraFPS.cs" />
     <Compile Include="LOS_IMPROVISADOS\Camara\CamaraFramework.cs" />
     <Compile Include="LOS_IMPROVISADOS\EfectosPosProcesado\EfectoHechoMierda.cs" />

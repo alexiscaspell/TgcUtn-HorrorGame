@@ -61,26 +61,48 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
             effect.Technique = "HechoMierdaTechnique";
             	
             meshes = escena.Meshes;
+            
+            foreach(TgcMesh mesh in meshes){
+            	mesh.Effect = effect;
+            }
+            
+            time = 0;
 		}
 		
-		public override void render(float elapsedTime)
-		{
-			Device d3dDevice = GuiController.Instance.D3dDevice;
+//		public override void render(float elapsedTime)
+//		{
+//			Device d3dDevice = GuiController.Instance.D3dDevice;
+//			
+//			time += elapsedTime;
+//			
+//			pOldRT = d3dDevice.GetRenderTarget(0);
+//            Surface pSurf = renderTarget2D.GetSurfaceLevel(0);
+//            d3dDevice.SetRenderTarget(0, pSurf);
+//            d3dDevice.Clear(ClearFlags.Target | ClearFlags.ZBuffer, Color.Black, 1.0f, 0);
+//
+//            drawSceneToRenderTarget(d3dDevice);
+//
+//            pSurf.Dispose();
+//            
+//            d3dDevice.SetRenderTarget(0, pOldRT);
+//            
+//            drawPostProcess(d3dDevice);
+//		}
+
+		public override void render(float elapsedTime){
+			
+			Device device = GuiController.Instance.D3dDevice;
+			
+			device.Clear(ClearFlags.Target | ClearFlags.ZBuffer, Color.Black, 1.0f, 0);
+			effect.SetValue("time", time);
+			
+			foreach(TgcMesh mesh in meshes){
+				mesh.Effect = effect;
+				mesh.Technique = "HechoMierdaTechnique";
+				mesh.render();
+			}
 			
 			time += elapsedTime;
-			
-			pOldRT = d3dDevice.GetRenderTarget(0);
-            Surface pSurf = renderTarget2D.GetSurfaceLevel(0);
-            d3dDevice.SetRenderTarget(0, pSurf);
-            d3dDevice.Clear(ClearFlags.Target | ClearFlags.ZBuffer, Color.Black, 1.0f, 0);
-
-            drawSceneToRenderTarget(d3dDevice);
-
-            pSurf.Dispose();
-            
-            d3dDevice.SetRenderTarget(0, pOldRT);
-            
-            drawPostProcess(d3dDevice);
 		}
 		
 		public override void drawSceneToRenderTarget(Device d3dDevice)
@@ -91,6 +113,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
             
 			foreach (TgcMesh m in meshes)
             {
+				m.Effect = effect;
+				m.Technique = "HechoMierdaTechnique";
                 m.render();
             }
 		}

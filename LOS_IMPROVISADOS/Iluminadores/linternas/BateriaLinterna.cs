@@ -19,7 +19,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
 
         public BateriaLinterna() : base()
         {
-            tiempoDesgaste = 5;//Gasta bateria cada 10seg
+            tiempoDesgaste = 1;//Gasta bateria cada 10seg
             cantidadDesgaste = 1;//Gasta una barra por vez     
             
             cantidadBaterias = 5; //le pongo 4 para probar

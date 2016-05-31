@@ -32,6 +32,8 @@ namespace AlumnoEjemplos.MiGrupo
         private AnimatedBoss bossAnimado;
         private PuertaHard puertaHard;
 
+        private Cama cama;
+        
         public bool playing;
         public GameMenu menuActual;
 
@@ -89,6 +91,9 @@ namespace AlumnoEjemplos.MiGrupo
             playing = false;
 
             //menuPrincipal.init();
+            
+            cama = new Cama();
+            cama.init();
 
         }
 
@@ -129,6 +134,8 @@ namespace AlumnoEjemplos.MiGrupo
             puertaHard.render();
             
             //menuPrincipal.render();
+            
+            cama.render();
             }
         }
 
