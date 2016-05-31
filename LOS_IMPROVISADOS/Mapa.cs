@@ -20,41 +20,14 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\");
         }
 
-        public void detectarColisiones(List<Colisionador> colisionadores)
-        {
-            foreach (Colisionador colisionador in colisionadores)
-            {
-                if (colisiona(colisionador))
-                {
-                    colisionador.colisionar();
-                }
-            }
-
-            }
 
         internal void dispose()
         {
             escena.disposeAll();
         }
 
-        private bool colisiona(Colisionador colisionador)
-        {
-            foreach (TgcMesh mesh in escena.Meshes)
-            {
-                TgcBoundingBox obstaculo = mesh.BoundingBox;
-
-                TgcCollisionUtils.BoxBoxResult result = TgcCollisionUtils.classifyBoxBox(colisionador.getBoundingBox(), obstaculo);
-                if (result != TgcCollisionUtils.BoxBoxResult.Afuera)//result == TgcCollisionUtils.BoxBoxResult.Adentro || result == TgcCollisionUtils.BoxBoxResult.Atravesando)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
         public bool colisionaEsfera(TgcBoundingSphere esfera,ref TgcBoundingBox obstaculo)
         {
-            //obstaculo = new TgcBoundingBox();
 
             foreach (TgcMesh mesh in escena.Meshes)
             {
@@ -69,14 +42,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         }
         public bool colisionaEsfera(TgcBoundingSphere esfera)
         {
-            foreach (TgcMesh mesh in escena.Meshes)
-            {
-                if (TgcCollisionUtils.testSphereAABB(esfera, mesh.BoundingBox))
-                {
-                    return true;
-                }
-            }
-            return false;
+            TgcBoundingBox b = new TgcBoundingBox();
+            return colisionaEsfera(esfera, ref b);
         }
 
     }

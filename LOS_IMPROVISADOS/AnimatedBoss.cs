@@ -12,7 +12,7 @@ using TgcViewer.Utils.TgcSkeletalAnimation;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
-    class AnimatedBoss : Colisionador
+    class AnimatedBoss
     {
         private string selectedMesh;
         private string selectedAnim;
@@ -152,29 +152,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public void update()
         {
-            updateMemento();
-
             seguirPersonaje();
         }
 
         public void dispose()
         {
             cuerpo.dispose();
-        }
-
-        public override Vector3 getPosition()
-        {
-            return cuerpo.Position;
-        }
-
-        public override TgcBoundingBox getBoundingBox()
-        {
-            return cuerpo.BoundingBox;
-        }
-
-        public override void retroceder(Vector3 vecRetroceso)
-        {
-            cuerpo.move(-vecRetroceso);
         }
     }
 }

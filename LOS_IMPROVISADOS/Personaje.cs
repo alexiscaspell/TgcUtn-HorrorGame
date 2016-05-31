@@ -7,7 +7,7 @@ using AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Configuradores;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
-    class Personaje : Colisionador
+    class Personaje
     {
         private TgcBoundingSphere cuerpo;
         
@@ -24,15 +24,17 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private float slideFactor = 5;//Factor de slide hardcodeado
 
         private float radius = 30;//Radio de esfera hardcodeado
+        private float alturaAgachado;
+        private float alturaParado;
 
         public Personaje(Mapa mapa)
         {
             this.mapa = mapa;
             this.camaraFPS = CamaraFPS.Instance;
 
-            //cuerpo = TgcBox.fromSize(new Vector3(10, camaraFPS.posicion.Y + 2, 14));
+            alturaParado = camaraFPS.camaraFramework.Position.Y;
 
-            //cuerpo.Position = camaraFPS.camaraFramework.LookAt;
+            alturaAgachado = alturaParado / 3;
 
             cuerpo = new TgcBoundingSphere(camaraFPS.camaraFramework.Position, radius);
 
@@ -71,18 +73,22 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             return !TgcCollisionUtils.intersectRayPlane(rayoBoss, farPlane, out t, out ptoColision);
         }
 
-        
-
-        public override void retroceder(Vector3 vecRetroceso)
-        {
-            //camaraFPS.camaraFramework.setPosition(camaraFPS.camaraFramework.Position - vecRetroceso);
-            //cuerpo.Position = camaraFPS.camaraFramework.LookAt;
-        }
-
         public void update(float elapsedTime)
         {
+
+            Vector3 posActual = camaraFPS.camaraFramework.Position;
             //updateMemento();
-            posMemento = camaraFPS.camaraFramework.Position;
+            posMemento = posActual;
+
+            if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.LeftShift))
+            {
+                camaraFPS.camaraFramework.setPosition(new Vector3(posActual.X,alturaAgachado, posActual.Z));
+            }
+
+            if (GuiController.Instance.D3dInput.keyUp(Microsoft.DirectX.DirectInput.Key.LeftShift))
+            {
+                camaraFPS.camaraFramework.setPosition(new Vector3(posActual.X,alturaParado, posActual.Z));
+            }
 
             if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.R))
             {
@@ -99,8 +105,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 configIluminador.cambiarAIluminadorFluor();
             }
 
-            //cuerpo.Position = camaraFPS.camaraFramework.LookAt;
-
             //efecto de que se esta muriendo
             if (configIluminador.iluminadorActualSeQuedoSinBateria())
             {
@@ -110,16 +114,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             configIluminador.renderizarIluminador();
 
             cuerpo.setCenter(camaraFPS.camaraFramework.Position);
-        }
-
-        public override Vector3 getPosition()
-        {
-            return camaraFPS.camaraFramework.Position;
-        }
-
-        public override TgcBoundingBox getBoundingBox()
-        {
-            return new TgcBoundingBox();//cuerpo.BoundingBox;
         }
 
         public void calcularColisiones()

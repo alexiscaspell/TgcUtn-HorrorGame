@@ -19,9 +19,7 @@ namespace AlumnoEjemplos.MiGrupo
 
         private Boss boss;
 
-        private Mapa mapa;
-        
-        private List<Colisionador> colisionadores;
+        private Mapa mapa; 
    
         //private MenuJuego menuPrincipal = new MenuJuego();
         
@@ -68,11 +66,6 @@ namespace AlumnoEjemplos.MiGrupo
 
             bossAnimado = new AnimatedBoss();
             bossAnimado.init(30f, new Vector3(100, 0, 100));//Esto es para probar a un boss con esqueleto
-
-            colisionadores = new List<Colisionador>();
-            colisionadores.Add(bossAnimado);//Preubo el animado
-            colisionadores.Add(personaje);
-
 
             //puerta = new Puerta(630, 32, 200);
 

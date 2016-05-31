@@ -9,7 +9,7 @@ using TgcViewer.Utils.TgcSceneLoader;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
-    class Boss:Colisionador
+    class Boss
     {
         private TgcScene sceneBicho;
         private float velocidadMovimiento;
@@ -85,31 +85,19 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             }
         }
 
+        internal Vector3 getPosition()
+        {
+            return cuerpo.Position;
+        }
+
         public void update(float elapsedTime)
         {
-            updateMemento();
-
             seguirPersonaje(elapsedTime);//Por ahora solo tengo esto
         }
 
         public void dispose()
         {
             sceneBicho.disposeAll();
-        }
-
-        public override Vector3 getPosition()
-        {
-            return cuerpo.Position;
-        }
-
-        public override TgcBoundingBox getBoundingBox()
-        {
-            return cuerpo.BoundingBox;
-        }
-
-        public override void retroceder(Vector3 vecRetroceso)
-        {
-            cuerpo.move(-vecRetroceso);
         }
 
     }
