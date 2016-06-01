@@ -27,7 +27,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
 
         public float tiempoTranscurrido;
 
-        public bool bateriaActivada;
+        private bool bateriaActivada;
 
         public Size screenSize { get; set; }
 
@@ -63,6 +63,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
                 //tiempoAnterior = DateTime.Now;
                 tiempoTranscurrido = 0;
             }
+        }
+
+        internal void apagarOPrender()
+        {
+            bateriaActivada = !bateriaActivada;
         }
 
         public abstract void recargar();        

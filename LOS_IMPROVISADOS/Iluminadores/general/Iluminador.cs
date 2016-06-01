@@ -11,7 +11,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
 
         public ALuz oscuridad { get; set; }
 
-        internal bool iluminadorActivado;
+        private bool iluminadorActivado;
 
         public Iluminador(ALuz luz, AManoPantalla mano, ABateria bateria)
         {
@@ -33,16 +33,23 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
         }
         public void render()
         {
-            if (iluminadorActivado && bateria.tenesBateria())
+            if (!iluminadorActivado)
             {
-                luz.render();
-                mano.render();
-                bateria.render();
+                oscuridad.render();//ESTO SE VA A TENER QUE CAMBIAR
             }
             else
             {
+                if (iluminadorActivado && bateria.tenesBateria())
+                {
+                    luz.render();
+                    mano.render();
+                }
+                else
+                {
+                    oscuridad.render();
+                }
+
                 bateria.render();
-                oscuridad.render();
             }            
         }
 
@@ -51,9 +58,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
             //no se si hay que hacer el dispose de los sprites y demas
         }
 
-        internal void apagarOPrenderBateria()
+        internal void apagarOPrender()
         {
-            bateria.bateriaActivada = !bateria.bateriaActivada;
+            iluminadorActivado = !iluminadorActivado;
+            bateria.apagarOPrender();
         }
     }
 }
