@@ -11,7 +11,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
     abstract class ABateria
     {
         /*duracionTotal = cargaTotal * tiempoDesgaste / cantidadDesgaste (esta es la formula para saber cada cuanto tiempo bajar bateria 
-                                                                   y cuanto segun la cantidad que queres que dure la bateria)*/
+                          y cuanto segun la cantidad que queres que dure la bateria)*/
 
         public int cantidadDesgaste { get; set; }//Esta es la cantidad de carga que se baja pasado el tiempo de desgaste
 
@@ -23,7 +23,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
 
         public TgcSprite sprite { get; set; }
 
-        public DateTime tiempoAnterior { get; set; }
+        //public DateTime tiempoAnterior { get; set; }
+
+        public float tiempoTranscurrido;
+
+        private bool bateriaActivada;
 
         public Size screenSize { get; set; }
 
@@ -34,6 +38,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
             texto = new TgcText2d();
             sprite = new TgcSprite();
             screenSize = GuiController.Instance.Panel3d.Size;
+            tiempoTranscurrido = 0;
+            bateriaActivada = true;
         }
 
         public bool tenesBateria()
@@ -45,15 +51,23 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
         {
             if (cargaActual == 0) return;
 
-            TimeSpan tiempoTranscurrido = DateTime.Now.Subtract(tiempoAnterior);
+            if (!bateriaActivada) return;
 
-            int tiempoTranscurridoEnSegundos = tiempoTranscurrido.Minutes * 60 + tiempoTranscurrido.Seconds;
+            tiempoTranscurrido += GuiController.Instance.ElapsedTime;
 
-            if (tiempoTranscurridoEnSegundos >= tiempoDesgaste && tenesBateria())
+            //int tiempoTranscurridoEnSegundos = tiempoTranscurrido.Minutes * 60 + tiempoTranscurrido.Seconds;
+
+            if (tiempoTranscurrido >= tiempoDesgaste && tenesBateria())
             {
                 cargaActual -= cantidadDesgaste;
-                tiempoAnterior = DateTime.Now;
+                //tiempoAnterior = DateTime.Now;
+                tiempoTranscurrido = 0;
             }
+        }
+
+        internal void apagarOPrender()
+        {
+            bateriaActivada = !bateriaActivada;
         }
 
         public abstract void recargar();        
