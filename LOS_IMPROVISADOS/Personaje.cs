@@ -80,6 +80,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             //updateMemento();
             posMemento = posActual;
 
+            if (GuiController.Instance.D3dInput.buttonPressed(TgcViewer.Utils.Input.TgcD3dInput.MouseButtons.BUTTON_LEFT))
+            {
+                configIluminador.apagarOPrenderIlumniador();
+            }
+
             if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.LeftShift))
             {
                 camaraFPS.camaraFramework.setPosition(new Vector3(posActual.X,alturaAgachado, posActual.Z));
@@ -113,7 +118,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             configIluminador.renderizarIluminador();
 
-            cuerpo.setCenter(camaraFPS.camaraFramework.Position);
+            cuerpo.setCenter(posActual);
         }
 
         public void calcularColisiones()

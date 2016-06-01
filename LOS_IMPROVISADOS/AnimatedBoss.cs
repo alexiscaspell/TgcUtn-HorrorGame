@@ -37,7 +37,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         public void init(float velocidadMovimiento, Vector3 posicion)
         {
             cuerpo.Position = posicion;
-            cuerpo.Scale = new Vector3(1.2f, 1f, 1.2f);
+            cuerpo.Scale = new Vector3(10, 10, 10);
             this.velocidadMovimiento = velocidadMovimiento;
             direccionVista = new Vector3(0, 0, -1);
     }

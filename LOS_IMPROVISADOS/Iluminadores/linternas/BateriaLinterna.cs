@@ -19,12 +19,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
 
         public BateriaLinterna() : base()
         {
-            tiempoDesgaste = 5;//Gasta bateria cada 10seg
+            tiempoDesgaste = 12;//Gasta bateria cada 12seg
             cantidadDesgaste = 1;//Gasta una barra por vez     
             
             cantidadBaterias = 5; //le pongo 4 para probar
             cantidadRecarga = 2; //cada vez que recarga, le carga 2 barras
-            cargaActual = 6;
+            cargaActual = 5;//Saque el 6 porque lobezzzno lo usa cmo indice de una lista que termina en 5
         }
 
         public override void init()
@@ -62,7 +62,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
             sprite.render();
             GuiController.Instance.Drawer2D.endDrawSprite();
 
-
             //texto
             texto.Text = "x" + cantidadBaterias.ToString();
             texto.render();
@@ -76,6 +75,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
             cargarBateria(cantidadRecarga);
 
             sprite = listaSprites.ElementAt(cargaActual);
+
+            tiempoTranscurrido = 0;//Cuando cargo hago que empiece a desgastar desde 0
         }
 
         private void cargarBateria(int cantidadACargar)

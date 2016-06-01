@@ -65,7 +65,7 @@ namespace AlumnoEjemplos.MiGrupo
             Cursor.Hide();
 
             bossAnimado = new AnimatedBoss();
-            bossAnimado.init(30f, new Vector3(100, 0, 100));//Esto es para probar a un boss con esqueleto
+            bossAnimado.init(300f, new Vector3(camaraFPS.posicion.X,0,camaraFPS.posicion.Z+200));//Esto es para probar a un boss con esqueleto
 
             //puerta = new Puerta(630, 32, 200);
 
@@ -74,7 +74,7 @@ namespace AlumnoEjemplos.MiGrupo
             sonidoFondo.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\asd16.wav");
             sonidoFondo.play(true);
 
-            FactoryMenu factoryMenu = FactoryMenu.Instance;// new FactoryMenu();
+            FactoryMenu factoryMenu = FactoryMenu.Instance;
             factoryMenu.setApplication(this);
 
             menuActual = factoryMenu.menuPrincipal();

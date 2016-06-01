@@ -4,6 +4,7 @@ using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general;
 using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas;
 using System.Collections.Generic;
 using TgcViewer.Utils.TgcSceneLoader;
+using System;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Configuradores
 {
@@ -67,6 +68,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Configuradores
         public bool iluminadorActualSeQuedoSinBateria()
         {
             return !iluminadores[posicionIluminadorActual].bateria.tenesBateria();
+        }
+
+        internal void apagarOPrenderIlumniador()
+        {
+            iluminadores[posicionIluminadorActual].iluminadorActivado = !iluminadores[posicionIluminadorActual].iluminadorActivado;
+            iluminadores[posicionIluminadorActual].apagarOPrenderBateria();
         }
     }
 }
