@@ -4,6 +4,8 @@ using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general;
 using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas;
 using System.Collections.Generic;
 using TgcViewer.Utils.TgcSceneLoader;
+using TgcViewer.Utils.Sound;
+using TgcViewer;
 using System;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Configuradores
@@ -15,6 +17,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Configuradores
 
         public List<Iluminador> iluminadores { get; set; }
         public int posicionIluminadorActual { get; set; }
+        
+        private TgcStaticSound sonidoFluor;
 
         public ConfigIluminador(TgcScene escena, CamaraFPS camaraFPS)
         {
@@ -22,10 +26,24 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Configuradores
             this.camaraFPS = camaraFPS;
 
             this.posicionIluminadorActual = 0;
+            
+            TgcStaticSound sonidoLinterna = new TgcStaticSound();
+            TgcStaticSound sonidoFarol = new TgcStaticSound();
+            
+            sonidoLinterna.loadSound(GuiController.Instance.AlumnoEjemplosDir + 
+                                     "Media\\Sonidos\\clickLinterna.wav");
+            
+            sonidoFarol.loadSound(GuiController.Instance.AlumnoEjemplosDir + 
+                                     "Media\\Sonidos\\apagadoFarol.wav");
 
-            Iluminador linterna = new Iluminador(new LuzLinterna(escena, camaraFPS), new ManoLinterna(), new BateriaLinterna());
-            Iluminador farol = new Iluminador(new LuzFarol(escena, camaraFPS), new ManoFarol(), new BateriaFarol());
-            Iluminador fluor = new Iluminador(new LuzFluor(escena, camaraFPS), new ManoFluor(), new BateriaFluor());
+     		//Este es variable de instancia
+     		sonidoFluor = new TgcStaticSound();
+            sonidoFluor.loadSound(GuiController.Instance.AlumnoEjemplosDir +
+                                  "Media\\Sonidos\\sonidoFluor.wav");
+     		
+            Iluminador linterna = new Iluminador(new LuzLinterna(escena, camaraFPS), new ManoLinterna(), new BateriaLinterna(), sonidoLinterna);
+            Iluminador farol = new Iluminador(new LuzFarol(escena, camaraFPS), new ManoFarol(), new BateriaFarol(), sonidoFarol);
+            Iluminador fluor = new Iluminador(new LuzFluor(escena, camaraFPS), new ManoFluor(), new BateriaFluor(), sonidoFluor);
 
             iluminadores = new List<Iluminador>() { linterna, farol, fluor };
         }
@@ -57,6 +75,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Configuradores
 
             iluminadores[2].bateria.recargar();
             posicionIluminadorActual = 2;
+            
+            sonidoFluor.play(false);
         }
 
         public void recargarBateriaLinterna()

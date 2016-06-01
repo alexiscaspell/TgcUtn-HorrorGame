@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using TgcViewer;
 using TgcViewer.Utils.TgcGeometry;
+using TgcViewer.Utils.TgcSceneLoader;
+using TgcViewer.Utils.Sound;
 using Microsoft.DirectX;
 using AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado;
 using AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Configuradores;
@@ -24,6 +26,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private float slideFactor = 5;//Factor de slide hardcodeado
 
         private float radius = 30;//Radio de esfera hardcodeado
+        
+        private TgcStaticSound sonidoPasos;
+        
         private float alturaAgachado;
         private float alturaParado;
 
@@ -41,6 +46,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             configIluminador = new ConfigIluminador(mapa.escena, camaraFPS);
 
             iniciarPosProcesadores();
+            
+            sonidoPasos = new TgcStaticSound();
+            sonidoPasos.loadSound(GuiController.Instance.AlumnoEjemplosDir +
+                                  "Media\\Sonidos\\pasos.wav", 0);
         }
 
         /***********************POSPROCESADO***********************/
@@ -58,6 +67,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         public void renderizarPosProcesado(float elapsedTime)
         {
             //por ahora lo hago solo con el primero, despues veo como implemento los demas
+            //posProcesados[0].render(elapsedTime);
             posProcesados[1].render(elapsedTime);
         }
 
@@ -109,7 +119,35 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             {
                 configIluminador.cambiarAIluminadorFluor();
             }
-
+            
+            //Checkeo para movimiento de sonido
+            if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.W))
+            {
+            	sonidoPasos.play(true);
+            }
+			if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.A))
+            {
+            	sonidoPasos.play(true);
+            }
+			if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.S))
+            {
+            	sonidoPasos.play(true);
+            }
+			if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.D))
+            {
+            	sonidoPasos.play(true);
+            }
+			
+			//Si no esta ninguna direccion apretada, paro el sonido
+			if( !GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.W) &&
+			    !GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.A) &&
+			    !GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.S) &&
+			    !GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.D) )
+			{
+				sonidoPasos.stop();
+			}
+            //cuerpo.Position = camaraFPS.camaraFramework.LookAt;
+            
             //efecto de que se esta muriendo
             if (configIluminador.iluminadorActualSeQuedoSinBateria())
             {

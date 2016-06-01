@@ -126,23 +126,35 @@ VS_OUTPUT vs_hechoMierda( VS_INPUT Input)
 	float X = Input.Position.x;
 	float Y = Input.Position.y;
 	
-	Input.Position.x = X * cos(time) + 20;
-	Input.Position.y = Y * sin(time) - 20;
+	Input.Position.x = X * cos(time) *time;
+	Input.Position.y = Y * sin(time) *time;
 	
 	//Output.Position = mul( Input.Position, matWorldViewProj);
 	Output.Position = Input.Position;
 	
 	Output.Texcoord = Input.Texcoord;
 	
-	//color
-	//Gris = R * 0.222 + G * 0.707 + B* 0.071 (Formula para escala de grises)
-	Input.Color.x = Input.Color.x * 0.222 + cos(time);
-	Input.Color.y = Input.Color.y * 0.707 + cos(time);
-	Input.Color.z = Input.Color.z * 0.071 + cos(time);
-	
 	Output.Color = Input.Color;
 	
 	return(Output);
+}
+
+float4 ps_gris( float2 Texcoord: TEXCOORD0, float4 Color:COLOR0) : COLOR0
+{
+	//Gris = R * 0.222 + G * 0.707 + B* 0.071 (Formula para escala de grises)
+	/* Color.x = Color.x * 0.222 + cos(time);
+	Color.y = Color.y * 0.707 + cos(time);
+	Color.z = Color.z * 0.071 + cos(time); */
+
+	float4 retColor = tex2D(diffuseMap,Texcoord);
+	
+	retColor.x = retColor.x *0.222 + cos(time);
+	retColor.y = retColor.y *0.707 + cos(time);
+	retColor.z = retColor.z *0.071 + cos(time);
+	
+	retColor = float4(0,0,0,0);
+	
+	return retColor; 
 }
 
 // ------------------------------------------------------------------
@@ -162,6 +174,6 @@ technique HechoMierdaTechnique
 	pass Pass_0
 	{
 		VertexShader = compile vs_2_0 vs_hechoMierda();
-		PixelShader = compile ps_2_0 ps_nada();
+		PixelShader = compile ps_2_0 ps_gris();
 	}
 }
