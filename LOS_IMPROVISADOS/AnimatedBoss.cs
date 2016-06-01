@@ -14,15 +14,18 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
     class AnimatedBoss
     {
+        #region variablesAnimadas
         private string selectedMesh;
         private string selectedAnim;
         private TgcSkeletalBoneAttach attachment;
         private string mediaPath;
         private string[] animationsPath;
+        #endregion
         private TgcSkeletalMesh cuerpo;
         private float velocidadMovimiento;
         private Vector3 direccionVista;
         CamaraFPS camara;
+        Comportamiento comportamiento;
 
         public AnimatedBoss()
         {
@@ -40,8 +43,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             cuerpo.Scale = new Vector3(10, 10, 10);
             this.velocidadMovimiento = velocidadMovimiento;
             direccionVista = new Vector3(0, 0, -1);
-    }
+        }
 
+        #region funcionesAnimadas
         private void crearEsqueleto()
         {
             //Path para carpeta de texturas de la malla
@@ -114,6 +118,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 //GuiController.Instance.RotCamera.targetObject(mesh.BoundingBox);
             }
         }
+        #endregion
 
         public void render()
         {
@@ -124,11 +129,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             float elapsedTime = GuiController.Instance.ElapsedTime;
 
-            Vector3 movement = camara.posicion;
+            /*Vector3 movement = camara.posicion;
 
                 movement.Subtract(cuerpo.Position);
                 movement.Subtract(new Vector3(0, movement.Y, 0));
-                movement.Normalize();
+                movement.Normalize();*/
+
+            Vector3 movement = comportamiento.proximoPunto();
 
                 float angulo = FastMath.Acos(Vector3.Dot(movement, direccionVista));
 

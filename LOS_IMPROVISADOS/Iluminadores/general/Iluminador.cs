@@ -39,7 +39,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
             }
             else
             {
-                if (iluminadorActivado && bateria.tenesBateria())
+                if (bateria.tenesBateria())
                 {
                     luz.render();
                     mano.render();

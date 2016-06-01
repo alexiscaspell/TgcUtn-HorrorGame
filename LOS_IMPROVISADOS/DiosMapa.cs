@@ -14,12 +14,14 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private Vector3 vectorAvance;
 
-        List<Punto> vias;
+        private List<List<Punto>> vias;
 
-        public void init(float factorAvance)
+        public void init(float factorAvance,Mapa mapa)
         {
+            this.mapa = mapa;
             this.factorAvance = factorAvance;
-            vias = new List<Punto>();
+
+            vias = new List<List<Punto>>();
         }
 
         public void generarMatriz()
@@ -31,29 +33,30 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             vectorAvance = factorAvance*(new Vector3(medidasMapa.X, 0, medidasMapa.Z));
 
-            //Punto[,] matrizPtos = new Punto[Convert.ToInt32(medidasMapa.X / factorAvance), Convert.ToInt32(medidasMapa.Z / factorAvance)];
-
             for (float i = pMin.X; i <pMax.X; i += vectorAvance.X)
             {
+                List<Punto> fila = new List<Punto>();
+
                 for (float j = pMin.Z; j < pMax.Z; j += vectorAvance.Z)
                 {
-                    Punto punto = new Punto(i,j,true);
-                    vias.Add(punto);
+                    fila.Add(new Punto(i, j, true));
                 }
+                vias.Add(fila);
             }
 
-            foreach (Punto punto in vias)
-            {
-              bool collide = mapa.colisionaEsfera(punto.getSphere());//Por ahora lo hago cn el mapa pero despues va a ser cn mas cosas
-
-                if (collide)
-                {
-                    //punto.setActivo(false);
-                    vias.Remove(punto);
-                }
-            }
-
+            detectarColisionesVias();
         }
 
+        private void detectarColisionesVias()
+        {
+            foreach (List<Punto> filaActual in vias)
+            {
+                foreach (Punto punto in filaActual)
+                {
+                    bool collide = mapa.colisionaEsfera(punto.getSphere());
+                    punto.setActivo(!collide);//Si no colisiona entonces esta en true
+                }
+            }
+        }
     }
 }
