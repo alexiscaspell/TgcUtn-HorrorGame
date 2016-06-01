@@ -1,4 +1,5 @@
 ﻿using System;
+using TgcViewer.Utils.Sound;
 using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
@@ -10,15 +11,18 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
         public AManoPantalla mano { get; set; }
 
         public ALuz oscuridad { get; set; }
+        
+        private TgcStaticSound sonidoPrenderOApagar;
 
         private bool iluminadorActivado;
 
-        public Iluminador(ALuz luz, AManoPantalla mano, ABateria bateria)
+        public Iluminador(ALuz luz, AManoPantalla mano, ABateria bateria, TgcStaticSound sonido)
         {
             this.luz = luz;
             this.mano = mano;
             this.bateria = bateria;
-
+            this.sonidoPrenderOApagar = sonido;
+				
             oscuridad = new LuzOscura(luz.tgcEscena, luz.camaraFPS);
 
             init();
@@ -62,6 +66,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
         {
             iluminadorActivado = !iluminadorActivado;
             bateria.apagarOPrender();
+            sonidoPrenderOApagar.play(false);
         }
     }
 }
