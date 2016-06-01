@@ -86,7 +86,7 @@ namespace AlumnoEjemplos.MiGrupo
             //menuPrincipal.init();
             
             cama = new Cama();
-            cama.init();
+            //cama.init();
 
         }
 
@@ -128,7 +128,7 @@ namespace AlumnoEjemplos.MiGrupo
             
             //menuPrincipal.render();
             
-            cama.render();
+            //cama.render();
             }
         }
 
