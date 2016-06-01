@@ -8,6 +8,32 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
     class DiosMapa
     {
+        #region Singleton
+        private static volatile DiosMapa instancia = null;
+
+        public static DiosMapa Instance
+        {
+            get
+            { return newInstance(); }
+        }
+
+        internal static DiosMapa newInstance()
+        {
+            if (instancia != null) { }
+            else
+            {
+                new DiosMapa();
+            }
+            return instancia;
+        }
+
+        public DiosMapa()
+        {
+            instancia = this;
+        }
+
+        #endregion
+
         public Mapa mapa;
 
         private float factorAvance;//Es el porcentaje del mapa q se quiere ir avanzando
@@ -16,9 +42,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private List<List<Punto>> vias;
 
-        public void init(float factorAvance,Mapa mapa)
+        public void init(float factorAvance)
         {
-            this.mapa = mapa;
+            mapa = Mapa.Instance;
             this.factorAvance = factorAvance;
 
             vias = new List<List<Punto>>();

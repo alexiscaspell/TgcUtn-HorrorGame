@@ -10,6 +10,28 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
     class Mapa
     {
+
+        #region Singleton
+        private static volatile Mapa instancia = null;
+
+        public static Mapa Instance
+        {
+            get
+            { return newInstance(); }
+        }
+
+        internal static Mapa newInstance()
+        {
+            if (instancia != null) { }
+            else
+            {
+                new Mapa();
+            }
+            return instancia;
+        }
+
+        #endregion
+
         public TgcScene escena { get; set; }
 
         public Mapa()

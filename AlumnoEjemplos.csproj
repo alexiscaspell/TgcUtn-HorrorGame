@@ -89,6 +89,8 @@
     <Compile Include="LOS_IMPROVISADOS\Cama.cs" />
     <Compile Include="LOS_IMPROVISADOS\Camara\CamaraFPS.cs" />
     <Compile Include="LOS_IMPROVISADOS\Camara\CamaraFramework.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Comportamiento.cs" />
+    <Compile Include="LOS_IMPROVISADOS\DiosMapa.cs" />
     <Compile Include="LOS_IMPROVISADOS\EfectosPosProcesado\EfectoHechoMierda.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\ButtonButtons.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\ButtonExit.cs" />
@@ -98,6 +100,7 @@
     <Compile Include="LOS_IMPROVISADOS\Menu\FactoryMenu.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\GameButton.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\GameMenu.cs" />
+    <Compile Include="LOS_IMPROVISADOS\CaminarEnLineas.cs" />
     <Compile Include="LOS_IMPROVISADOS\Personajes\Configuradores\ConfigIluminador.cs" />
     <Compile Include="LOS_IMPROVISADOS\Puerta.cs" />
     <Compile Include="LOS_IMPROVISADOS\CosasPrueba\Caja.cs" />
@@ -122,6 +125,7 @@
     <Compile Include="LOS_IMPROVISADOS\Mapa.cs" />
     <Compile Include="LOS_IMPROVISADOS\Personaje.cs" />
     <Compile Include="LOS_IMPROVISADOS\PuertaHard.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Punto.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -164,6 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="LOS_IMPROVISADOS\Shaders\HechoMierda.fx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

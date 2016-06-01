@@ -31,6 +31,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			                         "Media\\CamaHospital\\hospital+bed-TgcScene.xml");
 			
 			camaMesh = escenaCama.Meshes[0];
+
+            camaMesh.Position = CamaraFPS.Instance.posicion;
 		}
 		
 		public void render(){

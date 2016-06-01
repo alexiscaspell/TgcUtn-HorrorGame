@@ -26,6 +26,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private Vector3 direccionVista;
         CamaraFPS camara;
         Comportamiento comportamiento;
+        private DiosMapa gpsBoss;
 
         public AnimatedBoss()
         {
@@ -43,6 +44,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             cuerpo.Scale = new Vector3(10, 10, 10);
             this.velocidadMovimiento = velocidadMovimiento;
             direccionVista = new Vector3(0, 0, -1);
+
+            gpsBoss = new DiosMapa();
+            gpsBoss.init(0.01f);
+
+            comportamiento = new CaminarEnLineas();//ESTO LO HARDCODEO POR AHORA
         }
 
         #region funcionesAnimadas
@@ -137,7 +143,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             Vector3 movement = comportamiento.proximoPunto();
 
-                float angulo = FastMath.Acos(Vector3.Dot(movement, direccionVista));
+                /*float angulo = FastMath.Acos(Vector3.Dot(movement, direccionVista));
 
                 Vector3 normal = Vector3.Cross(direccionVista, movement);
 
@@ -153,7 +159,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                         cuerpo.rotateY(-angulo);
                 }
 
-                movement *= velocidadMovimiento * elapsedTime;
+                movement *= velocidadMovimiento * elapsedTime;*/
                 cuerpo.move(movement);
         }
 
