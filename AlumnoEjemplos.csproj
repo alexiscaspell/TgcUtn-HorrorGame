@@ -84,14 +84,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LOS_IMPROVISADOS\AnimatedBoss.cs" />
-    <Compile Include="LOS_IMPROVISADOS\Boss.cs" />
-    <Compile Include="LOS_IMPROVISADOS\Cama.cs" />
     <Compile Include="LOS_IMPROVISADOS\Camara\CamaraFPS.cs" />
     <Compile Include="LOS_IMPROVISADOS\Camara\CamaraFramework.cs" />
-    <Compile Include="LOS_IMPROVISADOS\Comportamiento.cs" />
-    <Compile Include="LOS_IMPROVISADOS\DiosMapa.cs" />
     <Compile Include="LOS_IMPROVISADOS\EfectosPosProcesado\EfectoHechoMierda.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Mapa\DiosMapa.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Mapa\Mapa.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Mapa\ObjetosMapa\Cama.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Mapa\ObjetosMapa\Puerta.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Mapa\ObjetosMapa\PuertaHard.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Mapa\Punto.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\ButtonButtons.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\ButtonExit.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\ButtonObjective.cs" />
@@ -100,8 +101,12 @@
     <Compile Include="LOS_IMPROVISADOS\Menu\FactoryMenu.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\GameButton.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\GameMenu.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Personajes\Boss\AnimatedBoss.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Personajes\Boss\Boss.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Personajes\Boss\Comportamiento.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Personajes\Boss\SeguirPersonaje.cs" />
     <Compile Include="LOS_IMPROVISADOS\Personajes\Configuradores\ConfigIluminador.cs" />
-    <Compile Include="LOS_IMPROVISADOS\Puerta.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Personajes\Personaje.cs" />
     <Compile Include="LOS_IMPROVISADOS\CosasPrueba\Caja.cs" />
     <Compile Include="LOS_IMPROVISADOS\CosasPrueba\CajaSigue.cs" />
     <Compile Include="LOS_IMPROVISADOS\CosasPrueba\Palanca.cs" />
@@ -121,11 +126,6 @@
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\linternas\BateriaLinterna.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\linternas\LuzLinterna.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\linternas\ManoLinterna.cs" />
-    <Compile Include="LOS_IMPROVISADOS\Mapa.cs" />
-    <Compile Include="LOS_IMPROVISADOS\Personaje.cs" />
-    <Compile Include="LOS_IMPROVISADOS\PuertaHard.cs" />
-    <Compile Include="LOS_IMPROVISADOS\Punto.cs" />
-    <Compile Include="LOS_IMPROVISADOS\SeguirPersonaje.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

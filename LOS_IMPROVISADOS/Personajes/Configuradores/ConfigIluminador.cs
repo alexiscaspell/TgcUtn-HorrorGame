@@ -67,9 +67,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Configuradores
 
             if (posicionIluminadorActual >= 2)
                 posicionIluminadorActual = 0;
-            
+
             //Vuelvo a prender al iluminador
-            iluminadores[posicionIluminadorActual].iluminadorActivado = true;
+            iluminadores[posicionIluminadorActual].prender();
         }
 
         public void cambiarAIluminadorFluor()

@@ -62,6 +62,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
             //no se si hay que hacer el dispose de los sprites y demas
         }
 
+        internal void prender()
+        {
+            iluminadorActivado = true;
+            bateria.prender();
+        }
+
         internal void apagarOPrender()
         {
             iluminadorActivado = !iluminadorActivado;
