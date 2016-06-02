@@ -35,6 +35,8 @@ namespace AlumnoEjemplos.MiGrupo
         public bool playing;
         public GameMenu menuActual;
 
+        DiosMapa diosMapa;
+
         public override string getCategory()
         {
             return "AlumnoEjemplos";
@@ -66,6 +68,10 @@ namespace AlumnoEjemplos.MiGrupo
 
             Cursor.Hide();
 
+            diosMapa = new DiosMapa();//ESTO DEJARLO ANTES DE LA INSTANCIACION DEL BOSS!!!
+            diosMapa.init(0.01f);//Quiero que mapee 100x100 ptos del mapa
+            diosMapa.generarMatriz();//Genera matriz de vias del boss
+
             bossAnimado = new AnimatedBoss();
             bossAnimado.init(300f, new Vector3(camaraFPS.posicion.X,0,camaraFPS.posicion.Z+200));//Esto es para probar a un boss con esqueleto
 
@@ -87,7 +93,6 @@ namespace AlumnoEjemplos.MiGrupo
             
             cama = new Cama();
             cama.init();
-
         }
 
         public override void render(float elapsedTime)
@@ -112,7 +117,7 @@ namespace AlumnoEjemplos.MiGrupo
 
             camaraFPS.render();
 
-            personaje.update(elapsedTime);
+            personaje.update();
 
             //boss.update(elapsedTime);
             //boss.render();

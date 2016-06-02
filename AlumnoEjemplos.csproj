@@ -100,7 +100,6 @@
     <Compile Include="LOS_IMPROVISADOS\Menu\FactoryMenu.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\GameButton.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\GameMenu.cs" />
-    <Compile Include="LOS_IMPROVISADOS\CaminarEnLineas.cs" />
     <Compile Include="LOS_IMPROVISADOS\Personajes\Configuradores\ConfigIluminador.cs" />
     <Compile Include="LOS_IMPROVISADOS\Puerta.cs" />
     <Compile Include="LOS_IMPROVISADOS\CosasPrueba\Caja.cs" />
@@ -126,6 +125,7 @@
     <Compile Include="LOS_IMPROVISADOS\Personaje.cs" />
     <Compile Include="LOS_IMPROVISADOS\PuertaHard.cs" />
     <Compile Include="LOS_IMPROVISADOS\Punto.cs" />
+    <Compile Include="LOS_IMPROVISADOS\SeguirPersonaje.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

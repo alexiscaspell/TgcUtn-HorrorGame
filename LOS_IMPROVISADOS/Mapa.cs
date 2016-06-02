@@ -25,7 +25,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             if (instancia != null) { }
             else
             {
-                new Mapa();
+               new Mapa();
             }
             return instancia;
         }
@@ -40,6 +40,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             escena = loader.loadSceneFromFile(
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\mapa-TgcScene.xml",
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\");
+
+                instancia = this;
         }
 
 

@@ -10,21 +10,22 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
     class Punto
     {
-        Vector3 posicion;
+        private Vector3 posicion;
 
         private bool activo { get; set; }
 
-        private const float posY = 5;
+        private const float posY = 5;//ESTE VALOR SE VA HARDCODEANDO
 
         private const float radio = 0.001f;
 
         private TgcBoundingSphere esfera;
 
-        public Punto(float posX, float posZ, bool activo)
+        public Punto(float posX, float posZ)
         {
-            posicion = new Vector3(posX, posY, posZ);
+            posicion = new Vector3(posX,0, posZ);
             this.activo = activo;
-            esfera = new TgcBoundingSphere(posicion, radio);
+            Vector3 posicionEsfera = new Vector3(posX, posY, posZ);
+            esfera = new TgcBoundingSphere(posicionEsfera, radio);
         }
 
         internal TgcBoundingSphere getSphere()
@@ -32,9 +33,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             return esfera;
         }
 
-        internal void setActivo(bool v)
+        internal Vector3 getPosition()
         {
-            activo = v;
+            return posicion;
         }
     }
 }

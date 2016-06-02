@@ -83,8 +83,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             return !TgcCollisionUtils.intersectRayPlane(rayoBoss, farPlane, out t, out ptoColision);
         }
 
-        public void update(float elapsedTime)
+        public void update()
         {
+            float elapsedTime = GuiController.Instance.ElapsedTime;
 
             Vector3 posActual = camaraFPS.camaraFramework.Position;
             //updateMemento();
@@ -146,7 +147,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			{
 				sonidoPasos.stop();
 			}
-            //cuerpo.Position = camaraFPS.camaraFramework.LookAt;
             
             //efecto de que se esta muriendo
             if (configIluminador.iluminadorActualSeQuedoSinBateria())
@@ -192,7 +192,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             Vector3 posActual = camaraFPS.camaraFramework.Position;
 
-            Vector3 closestPoint = closestPointAABB(posActual, box);
+            Vector3 closestPoint = TgcCollisionUtils.closestPointAABB(posActual, box);
 
             if (closestPoint.X==box.PMax.X||closestPoint.X==box.PMin.X)
             {
@@ -202,56 +202,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             return new Vector3(1, 0, 0);
         }
 
-      public Vector3 closestPointAABB(Vector3 point,TgcBoundingBox box)
-      {
-            Vector3 closestPoint = new Vector3(0,0,0);
-
-            for (int i = 1; i < 4; i++)
-            {
-                float v = getComponent(point,i);
-
-                if (v < getComponent(box.PMin, i))
-                {
-                    v = getComponent(box.PMin, i);
-                }
-                if (v > getComponent(box.PMax,i))
-                {
-                    v = getComponent(box.PMax,i);
-                }
-
-                setComponent(ref closestPoint, i, v);
-            }
-            return closestPoint;
-        }
-
-        private float getComponent(Vector3 point,int i)
-        {
-            switch (i)
-            {
-                case 1: return point.X;
-                case 2: return point.Y;;
-                case 3: return point.Z;
-            }
-
-            return 0;
-        }
-
-        private void setComponent(ref Vector3 point, int i,float value)
-        {
-
-            switch (i)
-            {
-                case 1:
-                    point = new Vector3(value, point.Y, point.Z);
-                    break;
-                case 2:
-                    point = new Vector3(point.X, value, point.Z);
-                    break;
-                case 3:
-                    point = new Vector3(point.X, point.Y, value);
-                    break;
-            }
-        }
 
         }
     }

@@ -24,9 +24,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private TgcSkeletalMesh cuerpo;
         private float velocidadMovimiento;
         private Vector3 direccionVista;
-        CamaraFPS camara;
-        Comportamiento comportamiento;
-        private DiosMapa gpsBoss;
+        private CamaraFPS camara;
+        private Comportamiento comportamiento;
 
         public AnimatedBoss()
         {
@@ -45,10 +44,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             this.velocidadMovimiento = velocidadMovimiento;
             direccionVista = new Vector3(0, 0, -1);
 
-            gpsBoss = new DiosMapa();
-            gpsBoss.init(0.01f);
-
-            comportamiento = new CaminarEnLineas();//ESTO LO HARDCODEO POR AHORA
+            comportamiento = new SeguirPersonaje();//ESTO LO HARDCODEO POR AHORA
         }
 
         #region funcionesAnimadas
@@ -141,26 +137,34 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 movement.Subtract(new Vector3(0, movement.Y, 0));
                 movement.Normalize();*/
 
-            Vector3 movement = comportamiento.proximoPunto();
+            Vector3 movement = comportamiento.proximoPunto(cuerpo.Position);
+            movement -= cuerpo.Position;
+            movement.Normalize();
 
-                /*float angulo = FastMath.Acos(Vector3.Dot(movement, direccionVista));
+            girarVistaAPunto(movement);
 
-                Vector3 normal = Vector3.Cross(direccionVista, movement);
+            movement *= velocidadMovimiento * elapsedTime;
 
-                direccionVista = movement;
+            cuerpo.move(movement);
+        }
 
-                if (!float.IsNaN(angulo))
+        private void girarVistaAPunto(Vector3 pointToView)
+        {
+            float angulo = FastMath.Acos(Vector3.Dot(pointToView, direccionVista));
+
+            Vector3 normal = Vector3.Cross(direccionVista, pointToView);
+
+            direccionVista = pointToView;
+
+            if (!float.IsNaN(angulo))
+            {
+                if (normal.Y > 0)
                 {
-                    if (normal.Y > 0)
-                    {
-                        cuerpo.rotateY(angulo);
-                    }
-                    else
-                        cuerpo.rotateY(-angulo);
+                    cuerpo.rotateY(angulo);
                 }
-
-                movement *= velocidadMovimiento * elapsedTime;*/
-                cuerpo.move(movement);
+                else
+                    cuerpo.rotateY(-angulo);
+            }
         }
 
         public void update()
