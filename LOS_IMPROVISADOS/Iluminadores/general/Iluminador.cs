@@ -14,7 +14,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
         
         private TgcStaticSound sonidoPrenderOApagar;
 
-        private bool iluminadorActivado;
+        public bool iluminadorActivado;
 
         public Iluminador(ALuz luz, AManoPantalla mano, ABateria bateria, TgcStaticSound sonido)
         {

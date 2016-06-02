@@ -92,7 +92,8 @@ namespace AlumnoEjemplos.MiGrupo
             //menuPrincipal.init();
             
             cama = new Cama();
-            cama.init();
+            //cama.init();
+
         }
 
         public override void render(float elapsedTime)
@@ -133,7 +134,7 @@ namespace AlumnoEjemplos.MiGrupo
             
             //menuPrincipal.render();
             
-            cama.render();
+            //cama.render();
             }
         }
 
