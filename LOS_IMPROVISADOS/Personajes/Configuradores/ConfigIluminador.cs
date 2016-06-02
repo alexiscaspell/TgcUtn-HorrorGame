@@ -39,7 +39,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Configuradores
      		//Este es variable de instancia
      		sonidoFluor = new TgcStaticSound();
             sonidoFluor.loadSound(GuiController.Instance.AlumnoEjemplosDir +
-                                  "Media\\Sonidos\\sonidoFluor.wav");
+                                  "Media\\Sonidos\\sonidoFluor.wav", 0);
      		
             Iluminador linterna = new Iluminador(new LuzLinterna(escena, camaraFPS), new ManoLinterna(), new BateriaLinterna(), sonidoLinterna);
             Iluminador farol = new Iluminador(new LuzFarol(escena, camaraFPS), new ManoFarol(), new BateriaFarol(), sonidoFarol);
@@ -67,6 +67,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Configuradores
 
             if (posicionIluminadorActual >= 2)
                 posicionIluminadorActual = 0;
+            
+            //Vuelvo a prender al iluminador
+            iluminadores[posicionIluminadorActual].iluminadorActivado = true;
         }
 
         public void cambiarAIluminadorFluor()
