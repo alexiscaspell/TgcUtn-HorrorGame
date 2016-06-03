@@ -46,13 +46,16 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
                 instancia = this;
 
-            if (!leerDatosDeArchivo())
-            {
-                MessageBox.Show("asdasdasd");
-                cargarDatosAArchivo();
-            }
-            else
-                MessageBox.Show("gggggg");
+            /* if (!leerDatosDeArchivo())
+             {
+                 cargarDatosAArchivo();
+             }*/
+            mapearMapaALista();
+        }
+
+        private void mapearMapaALista()
+        {
+            
         }
 
         private bool leerDatosDeArchivo()
@@ -89,7 +92,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             foreach (TgcMesh item in escena.Meshes)
             {
-                writer.Add(item.UserProperties["Name"]);
+                writer.Add(item.Name);
             }
         }
 
