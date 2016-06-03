@@ -52,7 +52,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
                 mesh.Effect.SetValue("materialSpecularColor", ColorValue.FromColor((Color)GuiController.Instance.Modifiers["farolSpecular"]));
                 mesh.Effect.SetValue("materialSpecularExp", (float)GuiController.Instance.Modifiers["farolEspecularEx"]);
 
-                mesh.render();
+                if( ( (mesh.BoundingBox.PMax*0.5f - mesh.BoundingBox.PMin *0.5f) +mesh.BoundingBox.PMin - camaraFPS.posicion).Length() < 5000){
+                	
+               		 mesh.render();
+                }
             }
         }
     }

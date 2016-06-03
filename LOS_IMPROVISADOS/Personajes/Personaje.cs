@@ -20,6 +20,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         public ConfigIluminador configIluminador { get; set; }
 
         public List<APosProcesado> posProcesados { get; set; }
+        
+        public List<Agarrable> objetos {get; set;}
 
         private Vector3 posMemento;
 
@@ -50,6 +52,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             sonidoPasos = new TgcStaticSound();
             sonidoPasos.loadSound(GuiController.Instance.AlumnoEjemplosDir +
                                   "Media\\Sonidos\\pasos.wav", 0);
+            
         }
 
         /***********************POSPROCESADO***********************/
@@ -148,6 +151,15 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 				sonidoPasos.stop();
 			}
             
+			//Activar objetos
+			if(GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.E))
+			{
+			   	foreach(Agarrable a in objetos)
+			   	{
+			   		a.acciona(this.camaraFPS.camaraFramework.Position, this.camaraFPS.camaraFramework.viewDir,a.getBB());
+			   	}
+			}
+			
             //efecto de que se esta muriendo
             if (configIluminador.iluminadorActualSeQuedoSinBateria())
             {

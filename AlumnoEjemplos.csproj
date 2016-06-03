@@ -102,6 +102,8 @@
     <Compile Include="LOS_IMPROVISADOS\Menu\FactoryMenu.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\GameButton.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\GameMenu.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Objetos\Agarrable.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Objetos\Bateria.cs" />
     <Compile Include="LOS_IMPROVISADOS\Personajes\Boss\AnimatedBoss.cs" />
     <Compile Include="LOS_IMPROVISADOS\Personajes\Boss\Boss.cs" />
     <Compile Include="LOS_IMPROVISADOS\Personajes\Boss\CaminarDijkstra.cs" />
@@ -166,6 +168,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="LOS_IMPROVISADOS\Objetos" />
     <Folder Include="Media\Texturas\" />
   </ItemGroup>
   <ItemGroup>
