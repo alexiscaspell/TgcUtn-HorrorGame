@@ -1,7 +1,7 @@
 <roomsEditor-Map>
   <mapSettings width="5000" height="5000" scaleX="10" scaleY="6" scaleZ="10" />
-  <rooms count="91">
-    <room name="Room-1" x="10" y="50" width="140" length="130" height="100" floorLevel="0">
+  <rooms count="103">
+    <room name="r_11" x="10" y="50" width="140" length="130" height="100" floorLevel="0">
       <wall name="Roof" textureName="WoodPlanksClean0084_7_thumbhuge_bump.jpg" autoAdjustUv="True" uTile="6.6" vTile="6.19" />
       <wall name="Floor" textureName="broken_tiles_seamless_texture_by_spiralgraphic-d2xn6z2.jpg" autoAdjustUv="True" uTile="6.6" vTile="6.19" />
       <wall name="East" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="6.6" vTile="6.19" />
@@ -9,7 +9,7 @@
       <wall name="North" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="6.6" vTile="6.19" />
       <wall name="South" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="6.6" vTile="6.19" />
     </room>
-    <room name="Room-2" x="30" y="180" width="40" length="100" height="100" floorLevel="0">
+    <room name="r_10" x="20" y="180" width="40" length="100" height="100" floorLevel="0">
       <wall name="Roof" textureName="WoodPlanksClean0084_7_thumbhuge_bump.jpg" autoAdjustUv="True" uTile="1.9" vTile="4.76" />
       <wall name="Floor" textureName="broken_tiles_seamless_texture_by_spiralgraphic-d2xn6z2.jpg" autoAdjustUv="True" uTile="1.9" vTile="4.76" />
       <wall name="East" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="1.9" vTile="4.76" />
@@ -17,7 +17,7 @@
       <wall name="North" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="1.9" vTile="4.76" />
       <wall name="South" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="1.9" vTile="4.76" />
     </room>
-    <room name="Room-4" x="70" y="240" width="190" length="160" height="100" floorLevel="0">
+    <room name="r_7" x="70" y="240" width="190" length="160" height="100" floorLevel="0">
       <wall name="Roof" textureName="WoodPlanksClean0084_7_thumbhuge_bump.jpg" autoAdjustUv="True" uTile="9.07" vTile="7.61" />
       <wall name="Floor" textureName="9548.jpg" autoAdjustUv="True" uTile="9.07" vTile="7.61" />
       <wall name="East" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="9.07" vTile="7.61" />
@@ -25,7 +25,7 @@
       <wall name="North" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="9.07" vTile="7.61" />
       <wall name="South" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="9.07" vTile="7.61" />
     </room>
-    <room name="Room-11" x="130" y="400" width="40" length="160" height="100" floorLevel="0">
+    <room name="r_6" x="130" y="400" width="40" length="160" height="100" floorLevel="0">
       <wall name="Roof" textureName="WoodPlanksClean0084_7_thumbhuge_bump.jpg" autoAdjustUv="True" uTile="1.9" vTile="7.61" />
       <wall name="Floor" textureName="9548.jpg" autoAdjustUv="True" uTile="1.9" vTile="7.61" />
       <wall name="East" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="10" vTile="10" />
@@ -33,7 +33,7 @@
       <wall name="North" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="10" vTile="10" />
       <wall name="South" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="10" vTile="10" />
     </room>
-    <room name="Room-12" x="30" y="560" width="210" length="180" height="100" floorLevel="0">
+    <room name="r_4" x="30" y="560" width="210" length="180" height="100" floorLevel="0">
       <wall name="Roof" textureName="WoodPlanksClean0084_7_thumbhuge_bump.jpg" autoAdjustUv="True" uTile="10" vTile="8.57" />
       <wall name="Floor" textureName="9548.jpg" autoAdjustUv="True" uTile="10" vTile="8.57" />
       <wall name="East" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="10" vTile="8.57" />
@@ -41,7 +41,7 @@
       <wall name="North" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="10" vTile="8.57" />
       <wall name="South" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="10" vTile="8.57" />
     </room>
-    <room name="Room-21" x="220" y="180" width="120" length="60" height="100" floorLevel="0">
+    <room name="r_9" x="220" y="180" width="120" length="60" height="100" floorLevel="0">
       <wall name="Roof" textureName="WoodPlanksClean0084_7_thumbhuge_bump.jpg" autoAdjustUv="True" uTile="5.7" vTile="2.85" />
       <wall name="Floor" textureName="9548.jpg" autoAdjustUv="True" uTile="5.7" vTile="2.85" />
       <wall name="East" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="5.7" vTile="2.85" />
@@ -49,15 +49,15 @@
       <wall name="North" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="5.7" vTile="2.85" />
       <wall name="South" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="5.7" vTile="2.85" />
     </room>
-    <room name="Room-22" x="240" y="630" width="270" length="40" height="100" floorLevel="0">
-      <wall name="Roof" textureName="997099_detail.png" autoAdjustUv="True" uTile="6" vTile="1" />
-      <wall name="Floor" textureName="8392372a0679cec8479daa1ca6d631c132a1.jpg" autoAdjustUv="True" uTile="6" vTile="1" />
-      <wall name="East" textureName="SeamlessWallSpakling.jpg" autoAdjustUv="True" uTile="6" vTile="1" />
-      <wall name="West" textureName="SeamlessWallSpakling.jpg" autoAdjustUv="True" uTile="6" vTile="1" />
-      <wall name="North" textureName="SeamlessWallSpakling.jpg" autoAdjustUv="True" uTile="6" vTile="1" />
-      <wall name="South" textureName="SeamlessWallSpakling.jpg" autoAdjustUv="True" uTile="6" vTile="1" />
+    <room name="r_5" x="240" y="590" width="150" length="40" height="100" floorLevel="0">
+      <wall name="Roof" textureName="997099_detail.png" autoAdjustUv="True" uTile="3.46" vTile="1" />
+      <wall name="Floor" textureName="8392372a0679cec8479daa1ca6d631c132a1.jpg" autoAdjustUv="True" uTile="3.46" vTile="1" />
+      <wall name="East" textureName="18046813-Old-White-Brick-Wall-Seamless-Tileable-Texture--Stock-Photo.jpg" autoAdjustUv="True" uTile="3.46" vTile="1" />
+      <wall name="West" textureName="SeamlessWallSpakling.jpg" autoAdjustUv="True" uTile="3.46" vTile="1" />
+      <wall name="North" textureName="SeamlessWallSpakling.jpg" autoAdjustUv="True" uTile="3.46" vTile="1" />
+      <wall name="South" textureName="SeamlessWallSpakling.jpg" autoAdjustUv="True" uTile="3.46" vTile="1" />
     </room>
-    <room name="Room-29" x="260" y="290" width="160" length="40" height="100" floorLevel="0">
+    <room name="r_8" x="260" y="290" width="160" length="40" height="100" floorLevel="0">
       <wall name="Roof" textureName="WoodPlanksClean0084_7_thumbhuge_bump.jpg" autoAdjustUv="True" uTile="7.6" vTile="1.9" />
       <wall name="Floor" textureName="9548.jpg" autoAdjustUv="True" uTile="7.6" vTile="1.9" />
       <wall name="East" textureName="mifv1Yy.jpg" autoAdjustUv="True" uTile="2" vTile="4" />
@@ -65,7 +65,7 @@
       <wall name="North" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="7.6" vTile="1.9" />
       <wall name="South" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="7.6" vTile="1.9" />
     </room>
-    <room name="Room-32" x="420" y="470" width="90" length="120" height="100" floorLevel="0">
+    <room name="r_25" x="410" y="510" width="90" length="120" height="100" floorLevel="0">
       <wall name="Roof" textureName="997099_detail.png" autoAdjustUv="True" uTile="1.98" vTile="2.64" />
       <wall name="Floor" textureName="8392372a0679cec8479daa1ca6d631c132a1.jpg" autoAdjustUv="True" uTile="1.98" vTile="2.64" />
       <wall name="East" textureName="SeamlessWallSpakling.jpg" autoAdjustUv="True" uTile="1.98" vTile="2.64" />
@@ -73,7 +73,7 @@
       <wall name="North" textureName="SeamlessWallSpakling.jpg" autoAdjustUv="True" uTile="1.98" vTile="2.64" />
       <wall name="South" textureName="SeamlessWallSpakling.jpg" autoAdjustUv="True" uTile="1.98" vTile="2.64" />
     </room>
-    <room name="Room-35" x="420" y="710" width="90" length="120" height="100" floorLevel="0">
+    <room name="r_23" x="410" y="670" width="90" length="120" height="100" floorLevel="0">
       <wall name="Roof" textureName="997099_detail.png" autoAdjustUv="True" uTile="1.98" vTile="2.64" />
       <wall name="Floor" textureName="8392372a0679cec8479daa1ca6d631c132a1.jpg" autoAdjustUv="True" uTile="1.98" vTile="2.64" />
       <wall name="East" textureName="SeamlessWallSpakling.jpg" autoAdjustUv="True" uTile="1.98" vTile="2.64" />
@@ -81,7 +81,7 @@
       <wall name="North" textureName="SeamlessWallSpakling.jpg" autoAdjustUv="True" uTile="1.98" vTile="2.64" />
       <wall name="South" textureName="SeamlessWallSpakling.jpg" autoAdjustUv="True" uTile="1.98" vTile="2.64" />
     </room>
-    <room name="Room-38" x="510" y="550" width="50" length="40" height="100" floorLevel="0">
+    <room name="r_26" x="500" y="550" width="50" length="40" height="100" floorLevel="0">
       <wall name="Roof" textureName="997099_detail.png" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
       <wall name="Floor" textureName="8392372a0679cec8479daa1ca6d631c132a1.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
       <wall name="East" textureName="SeamlessWallSpakling.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
@@ -89,7 +89,7 @@
       <wall name="North" textureName="SeamlessWallSpakling.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
       <wall name="South" textureName="SeamlessWallSpakling.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
     </room>
-    <room name="Room-39" x="510" y="710" width="50" length="40" height="100" floorLevel="0">
+    <room name="r_22" x="500" y="710" width="50" length="40" height="100" floorLevel="0">
       <wall name="Roof" textureName="997099_detail.png" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
       <wall name="Floor" textureName="8392372a0679cec8479daa1ca6d631c132a1.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
       <wall name="East" textureName="SeamlessWallSpakling.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
@@ -97,7 +97,7 @@
       <wall name="North" textureName="SeamlessWallSpakling.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
       <wall name="South" textureName="SeamlessWallSpakling.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
     </room>
-    <room name="Room-40" x="560" y="500" width="330" length="410" height="100" floorLevel="0">
+    <room name="r_21" x="560" y="500" width="330" length="410" height="100" floorLevel="0">
       <wall name="Roof" textureName="Gravel0138_7_S.jpg" autoAdjustUv="True" uTile="8" vTile="9.84" />
       <wall name="Floor" textureName="asdasas.png" autoAdjustUv="True" uTile="8" vTile="9.84" />
       <wall name="East" textureName="concrete_wall_texture_11-512x512.png" autoAdjustUv="True" uTile="4" vTile="2" />
@@ -105,7 +105,7 @@
       <wall name="North" textureName="concrete_wall_texture_11-512x512.png" autoAdjustUv="True" uTile="4" vTile="2" />
       <wall name="South" textureName="concrete_wall_texture_11-512x512.png" autoAdjustUv="True" uTile="4" vTile="2" />
     </room>
-    <room name="Room-41" x="680" y="360" width="40" length="140" height="100" floorLevel="0">
+    <room name="r_27" x="680" y="370" width="40" length="130" height="100" floorLevel="0">
       <wall name="Roof" textureName="Gravel0138_7_S.jpg" autoAdjustUv="True" uTile="0.96" vTile="3.36" />
       <wall name="Floor" textureName="asdasas.png" autoAdjustUv="True" uTile="0.96" vTile="3.36" />
       <wall name="East" textureName="concrete_wall_texture_11-512x512.png" autoAdjustUv="True" uTile="0.96" vTile="3.36" />
@@ -113,7 +113,7 @@
       <wall name="North" textureName="concrete_wall_texture_11-512x512.png" autoAdjustUv="True" uTile="0.96" vTile="3.36" />
       <wall name="South" textureName="concrete_wall_texture_11-512x512.png" autoAdjustUv="True" uTile="0.96" vTile="3.36" />
     </room>
-    <room name="Room-44" x="430" y="190" width="380" length="170" height="100" floorLevel="0">
+    <room name="r_28" x="430" y="190" width="380" length="170" height="100" floorLevel="0">
       <wall name="Roof" textureName="Gravel0138_7_S.jpg" autoAdjustUv="True" uTile="9.12" vTile="4.08" />
       <wall name="Floor" textureName="asdasas.png" autoAdjustUv="True" uTile="9.12" vTile="4.08" />
       <wall name="East" textureName="concrete_wall_texture_11-512x512.png" autoAdjustUv="True" uTile="9.12" vTile="4.08" />
@@ -121,7 +121,7 @@
       <wall name="North" textureName="concrete_wall_texture_11-512x512.png" autoAdjustUv="True" uTile="9.12" vTile="4.08" />
       <wall name="South" textureName="concrete_wall_texture_11-512x512.png" autoAdjustUv="True" uTile="9.12" vTile="4.08" />
     </room>
-    <room name="Room-46" x="890" y="500" width="260" length="50" height="100" floorLevel="0">
+    <room name="r_29" x="900" y="500" width="250" length="40" height="100" floorLevel="0">
       <wall name="Roof" textureName="ribbed-metal-texture-12249128.jpg" autoAdjustUv="True" uTile="6.76" vTile="1.3" />
       <wall name="Floor" textureName="FTI28230HDPS.jpg" autoAdjustUv="True" uTile="6.76" vTile="1.3" />
       <wall name="East" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="6.76" vTile="1.3" />
@@ -129,7 +129,7 @@
       <wall name="North" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="6.76" vTile="1.3" />
       <wall name="South" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="6.76" vTile="1.3" />
     </room>
-    <room name="Room-47" x="1100" y="340" width="50" length="160" height="100" floorLevel="0">
+    <room name="r_30" x="1100" y="340" width="50" length="160" height="100" floorLevel="0">
       <wall name="Roof" textureName="ribbed-metal-texture-12249128.jpg" autoAdjustUv="True" uTile="1.3" vTile="4.16" />
       <wall name="Floor" textureName="FTI28230HDPS.jpg" autoAdjustUv="True" uTile="1.3" vTile="4.16" />
       <wall name="East" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="1.3" vTile="4.16" />
@@ -137,7 +137,7 @@
       <wall name="North" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="1.3" vTile="4.16" />
       <wall name="South" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="1.3" vTile="4.16" />
     </room>
-    <room name="Room-48" x="960" y="200" width="300" length="140" height="100" floorLevel="0">
+    <room name="r_31" x="960" y="200" width="300" length="140" height="100" floorLevel="0">
       <wall name="Roof" textureName="ribbed-metal-texture-12249128.jpg" autoAdjustUv="True" uTile="8" vTile="3.64" />
       <wall name="Floor" textureName="FTI28230HDPS.jpg" autoAdjustUv="True" uTile="8" vTile="3.64" />
       <wall name="East" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="8" vTile="3.64" />
@@ -145,7 +145,7 @@
       <wall name="North" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="8" vTile="3.64" />
       <wall name="South" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="8" vTile="3.64" />
     </room>
-    <room name="Room-49" x="1090" y="150" width="40" length="50" height="100" floorLevel="0">
+    <room name="r_32" x="1090" y="150" width="40" length="50" height="100" floorLevel="0">
       <wall name="Roof" textureName="ribbed-metal-texture-12249128.jpg" autoAdjustUv="True" uTile="1.04" vTile="1.3" />
       <wall name="Floor" textureName="FTI28230HDPS.jpg" autoAdjustUv="True" uTile="1.04" vTile="1.3" />
       <wall name="East" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="1.04" vTile="1.3" />
@@ -153,7 +153,7 @@
       <wall name="North" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="1.04" vTile="1.3" />
       <wall name="South" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="1.04" vTile="1.3" />
     </room>
-    <room name="Room-50" x="890" y="0" width="460" length="150" height="100" floorLevel="0">
+    <room name="r_34" x="890" y="0" width="460" length="150" height="100" floorLevel="0">
       <wall name="Roof" textureName="ribbed-metal-texture-12249128.jpg" autoAdjustUv="True" uTile="10" vTile="3.9" />
       <wall name="Floor" textureName="FTI28230HDPS.jpg" autoAdjustUv="True" uTile="10" vTile="3.9" />
       <wall name="East" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="10" vTile="3.9" />
@@ -161,15 +161,7 @@
       <wall name="North" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="10" vTile="3.9" />
       <wall name="South" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="10" vTile="3.9" />
     </room>
-    <room name="Room-51" x="830" y="0" width="60" length="40" height="100" floorLevel="0">
-      <wall name="Roof" textureName="ribbed-metal-texture-12249128.jpg" autoAdjustUv="True" uTile="1.56" vTile="1.04" />
-      <wall name="Floor" textureName="FTI28230HDPS.jpg" autoAdjustUv="True" uTile="1.56" vTile="1.04" />
-      <wall name="East" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="1.56" vTile="1.04" />
-      <wall name="West" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="1.56" vTile="1.04" />
-      <wall name="North" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="1.56" vTile="1.04" />
-      <wall name="South" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="1.56" vTile="1.04" />
-    </room>
-    <room name="Room-52" x="730" y="0" width="100" length="150" height="100" floorLevel="0">
+    <room name="r_33" x="780" y="0" width="100" length="150" height="100" floorLevel="0">
       <wall name="Roof" textureName="ribbed-metal-texture-12249128.jpg" autoAdjustUv="True" uTile="2.6" vTile="3.9" />
       <wall name="Floor" textureName="FTI28230HDPS.jpg" autoAdjustUv="True" uTile="2.6" vTile="3.9" />
       <wall name="East" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="2.6" vTile="3.9" />
@@ -177,15 +169,7 @@
       <wall name="North" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="2.6" vTile="3.9" />
       <wall name="South" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="2.6" vTile="3.9" />
     </room>
-    <room name="Room-54" x="1350" y="0" width="50" length="40" height="100" floorLevel="0">
-      <wall name="Roof" textureName="ribbed-metal-texture-12249128.jpg" autoAdjustUv="True" uTile="1.3" vTile="1.04" />
-      <wall name="Floor" textureName="FTI28230HDPS.jpg" autoAdjustUv="True" uTile="1.3" vTile="1.04" />
-      <wall name="East" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="1.3" vTile="1.04" />
-      <wall name="West" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="1.3" vTile="1.04" />
-      <wall name="North" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="1.3" vTile="1.04" />
-      <wall name="South" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="1.3" vTile="1.04" />
-    </room>
-    <room name="Room-55" x="1400" y="0" width="100" length="150" height="100" floorLevel="0">
+    <room name="r_35" x="1360" y="0" width="100" length="150" height="100" floorLevel="0">
       <wall name="Roof" textureName="ribbed-metal-texture-12249128.jpg" autoAdjustUv="True" uTile="2.6" vTile="3.9" />
       <wall name="Floor" textureName="FTI28230HDPS.jpg" autoAdjustUv="True" uTile="2.6" vTile="3.9" />
       <wall name="East" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="2.6" vTile="3.9" />
@@ -193,7 +177,7 @@
       <wall name="North" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="2.6" vTile="3.9" />
       <wall name="South" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="2.6" vTile="3.9" />
     </room>
-    <room name="Room-56" x="1260" y="240" width="330" length="60" height="100" floorLevel="0">
+    <room name="r_36" x="1260" y="240" width="330" length="60" height="100" floorLevel="0">
       <wall name="Roof" textureName="ribbed-metal-texture-12249128.jpg" autoAdjustUv="True" uTile="8.58" vTile="1.56" />
       <wall name="Floor" textureName="FTI28230HDPS.jpg" autoAdjustUv="True" uTile="8.58" vTile="1.56" />
       <wall name="East" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="8.58" vTile="1.56" />
@@ -201,7 +185,7 @@
       <wall name="North" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="8.58" vTile="1.56" />
       <wall name="South" textureName="be47046e22dd3a95d145d60bc7b715d5.jpg" autoAdjustUv="True" uTile="8.58" vTile="1.56" />
     </room>
-    <room name="Room-57" x="890" y="730" width="700" length="40" height="100" floorLevel="0">
+    <room name="r_58" x="900" y="730" width="680" length="40" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="10" vTile="0.88" />
       <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="10" vTile="0.88" />
       <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="10" vTile="0.88" />
@@ -209,7 +193,7 @@
       <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="10" vTile="0.88" />
       <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="10" vTile="0.88" />
     </room>
-    <room name="Room-62" x="1590" y="180" width="500" length="800" height="100" floorLevel="0">
+    <room name="r_72" x="1590" y="180" width="500" length="800" height="100" floorLevel="0">
       <wall name="Roof" textureName="Concrete garage wall pillar seamless texture 2048x2048.jpg" autoAdjustUv="True" uTile="8" vTile="10" />
       <wall name="Floor" textureName="textura-de-pisos-piso-356424.jpg" autoAdjustUv="True" uTile="8" vTile="10" />
       <wall name="East" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="8" vTile="10" />
@@ -217,15 +201,7 @@
       <wall name="North" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="8" vTile="10" />
       <wall name="South" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="8" vTile="10" />
     </room>
-    <room name="Room-64" x="1620" y="130" width="40" length="50" height="100" floorLevel="0">
-      <wall name="Roof" textureName="Concrete garage wall pillar seamless texture 2048x2048.jpg" autoAdjustUv="True" uTile="0.64" vTile="0.8" />
-      <wall name="Floor" textureName="textura-de-pisos-piso-356424.jpg" autoAdjustUv="True" uTile="0.64" vTile="0.8" />
-      <wall name="East" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="0.64" vTile="0.8" />
-      <wall name="West" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="0.64" vTile="0.8" />
-      <wall name="North" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="0.64" vTile="0.8" />
-      <wall name="South" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="0.64" vTile="0.8" />
-    </room>
-    <room name="Room-65" x="1510" y="50" width="150" length="80" height="100" floorLevel="0">
+    <room name="r_73" x="1510" y="90" width="150" length="80" height="100" floorLevel="0">
       <wall name="Roof" textureName="Concrete garage wall pillar seamless texture 2048x2048.jpg" autoAdjustUv="True" uTile="2.4" vTile="1.28" />
       <wall name="Floor" textureName="textura-de-pisos-piso-356424.jpg" autoAdjustUv="True" uTile="2.4" vTile="1.28" />
       <wall name="East" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="2.4" vTile="1.28" />
@@ -233,15 +209,7 @@
       <wall name="North" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="2.4" vTile="1.28" />
       <wall name="South" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="2.4" vTile="1.28" />
     </room>
-    <room name="Room-66" x="1720" y="130" width="40" length="50" height="100" floorLevel="0">
-      <wall name="Roof" textureName="Concrete garage wall pillar seamless texture 2048x2048.jpg" autoAdjustUv="True" uTile="0.64" vTile="0.8" />
-      <wall name="Floor" textureName="textura-de-pisos-piso-356424.jpg" autoAdjustUv="True" uTile="0.64" vTile="0.8" />
-      <wall name="East" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="0.64" vTile="0.8" />
-      <wall name="West" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="0.64" vTile="0.8" />
-      <wall name="North" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="0.64" vTile="0.8" />
-      <wall name="South" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="0.64" vTile="0.8" />
-    </room>
-    <room name="Room-67" x="1720" y="50" width="180" length="80" height="100" floorLevel="0">
+    <room name="r_74" x="1720" y="90" width="180" length="80" height="100" floorLevel="0">
       <wall name="Roof" textureName="Concrete garage wall pillar seamless texture 2048x2048.jpg" autoAdjustUv="True" uTile="2.4" vTile="1.28" />
       <wall name="Floor" textureName="textura-de-pisos-piso-356424.jpg" autoAdjustUv="True" uTile="2.4" vTile="1.28" />
       <wall name="East" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="2.4" vTile="1.28" />
@@ -249,7 +217,7 @@
       <wall name="North" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="2.4" vTile="1.28" />
       <wall name="South" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="2.4" vTile="1.28" />
     </room>
-    <room name="Room-68" x="1210" y="770" width="60" length="1000" height="100" floorLevel="0">
+    <room name="r_59" x="1210" y="770" width="60" length="1000" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="1.32" vTile="10" />
       <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="1.32" vTile="10" />
       <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="10" vTile="1.32" />
@@ -257,7 +225,7 @@
       <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="10" vTile="1.32" />
       <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="10" vTile="1.32" />
     </room>
-    <room name="Room-69" x="980" y="800" width="180" length="180" height="100" floorLevel="0">
+    <room name="r_56" x="1020" y="800" width="180" length="180" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="4" vTile="4" />
       <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="4" vTile="4" />
       <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="4" vTile="4" />
@@ -265,15 +233,7 @@
       <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="4" vTile="4" />
       <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="4" vTile="4" />
     </room>
-    <room name="Room-70" x="1160" y="800" width="50" length="40" height="100" floorLevel="0">
-      <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="1.1" vTile="1.04" />
-      <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="1.1" vTile="1.04" />
-      <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="1.04" />
-      <wall name="West" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="1.04" />
-      <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="1.04" />
-      <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="1.04" />
-    </room>
-    <room name="Room-71" x="980" y="1030" width="180" length="180" height="100" floorLevel="0">
+    <room name="r_50" x="1020" y="1030" width="180" length="180" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="3.96" vTile="3.96" />
       <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="3.96" vTile="3.96" />
       <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="3.96" vTile="3.96" />
@@ -281,7 +241,7 @@
       <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="3.96" vTile="3.96" />
       <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="3.96" vTile="3.96" />
     </room>
-    <room name="Room-74" x="1160" y="1030" width="50" length="40" height="100" floorLevel="0">
+    <room name="r_47" x="1160" y="1260" width="50" length="40" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
       <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
       <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
@@ -289,23 +249,7 @@
       <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
       <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
     </room>
-    <room name="Room-78" x="1160" y="1260" width="50" length="40" height="100" floorLevel="0">
-      <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-      <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-      <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-      <wall name="West" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-      <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-      <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-    </room>
-    <room name="Room-79" x="1160" y="1490" width="50" length="40" height="100" floorLevel="0">
-      <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-      <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-      <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-      <wall name="West" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-      <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-      <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-    </room>
-    <room name="Room-80" x="980" y="1490" width="180" length="180" height="100" floorLevel="0">
+    <room name="r_40" x="1020" y="1490" width="180" length="180" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="4" vTile="4" />
       <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="4" vTile="4" />
       <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="4" vTile="4" />
@@ -313,7 +257,7 @@
       <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="4" vTile="4" />
       <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="4" vTile="4" />
     </room>
-    <room name="Room-81" x="1500" y="1620" width="50" length="30" height="100" floorLevel="0">
+    <room name="r_42" x="1460" y="1620" width="50" length="30" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
       <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
       <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
@@ -321,7 +265,7 @@
       <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
       <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
     </room>
-    <room name="Room-82" x="930" y="1620" width="50" length="30" height="100" floorLevel="0">
+    <room name="r_38" x="970" y="1620" width="50" length="30" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
       <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
       <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
@@ -329,7 +273,7 @@
       <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
       <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
     </room>
-    <room name="Room-83" x="930" y="1160" width="50" length="30" height="100" floorLevel="0">
+    <room name="r_49" x="970" y="1160" width="50" length="30" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
       <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
       <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
@@ -337,7 +281,7 @@
       <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
       <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
     </room>
-    <room name="Room-84" x="930" y="930" width="50" length="30" height="100" floorLevel="0">
+    <room name="r_55" x="970" y="930" width="50" length="30" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
       <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
       <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
@@ -345,7 +289,7 @@
       <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
       <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
     </room>
-    <room name="Room-85" x="880" y="930" width="50" length="120" height="100" floorLevel="0">
+    <room name="r_54" x="920" y="930" width="50" length="120" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="1.1" vTile="2.69" />
       <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="1.1" vTile="2.69" />
       <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="2.69" />
@@ -353,7 +297,7 @@
       <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="2.69" />
       <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="2.69" />
     </room>
-    <room name="Room-86" x="880" y="1160" width="50" length="120" height="100" floorLevel="0">
+    <room name="r_48" x="920" y="1160" width="50" length="120" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="1.1" vTile="2.69" />
       <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="1.1" vTile="2.69" />
       <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="2.69" />
@@ -361,7 +305,7 @@
       <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="2.69" />
       <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="2.69" />
     </room>
-    <room name="Room-90" x="1550" y="1620" width="50" length="120" height="100" floorLevel="0">
+    <room name="r_43" x="1510" y="1620" width="50" length="120" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="1.1" vTile="2.69" />
       <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="1.1" vTile="2.69" />
       <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="2.69" />
@@ -369,7 +313,7 @@
       <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="2.69" />
       <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="2.69" />
     </room>
-    <room name="Room-91" x="880" y="1620" width="50" length="120" height="100" floorLevel="0">
+    <room name="r_37" x="920" y="1620" width="50" length="120" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="1.1" vTile="2.69" />
       <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="1.1" vTile="2.69" />
       <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="2.69" />
@@ -377,7 +321,7 @@
       <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="2.69" />
       <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="2.69" />
     </room>
-    <room name="Room-92" x="1210" y="1770" width="330" length="40" height="100" floorLevel="0">
+    <room name="r_60" x="1210" y="1770" width="330" length="40" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="7.32" vTile="0.88" />
       <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="7.32" vTile="0.88" />
       <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="7.32" vTile="0.88" />
@@ -385,7 +329,7 @@
       <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="7.32" vTile="0.88" />
       <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="7.32" vTile="0.88" />
     </room>
-    <room name="Room-93" x="1540" y="1770" width="240" length="200" height="100" floorLevel="0">
+    <room name="r_61" x="1540" y="1770" width="240" length="200" height="100" floorLevel="0">
       <wall name="Roof" textureName="tile_1.jpg" autoAdjustUv="True" uTile="6.48" vTile="5.4" />
       <wall name="Floor" textureName="5457701-piso-de-la-cocina-de-azulejos-de-cer-mica-sin-textura-de-Foto-de-archivo.jpg" autoAdjustUv="True" uTile="6.48" vTile="5.4" />
       <wall name="East" textureName="textura_marmol_hueso_0978529001269817105.jpg" autoAdjustUv="True" uTile="6.48" vTile="5.4" />
@@ -393,7 +337,7 @@
       <wall name="North" textureName="textura_marmol_hueso_0978529001269817105.jpg" autoAdjustUv="True" uTile="6.48" vTile="5.4" />
       <wall name="South" textureName="textura_marmol_hueso_0978529001269817105.jpg" autoAdjustUv="True" uTile="6.48" vTile="5.4" />
     </room>
-    <room name="Room-94" x="1630" y="1400" width="500" length="320" height="100" floorLevel="0">
+    <room name="r_63" x="1630" y="1400" width="500" length="320" height="100" floorLevel="0">
       <wall name="Roof" textureName="tile_1.jpg" autoAdjustUv="True" uTile="10" vTile="8.640001" />
       <wall name="Floor" textureName="5457701-piso-de-la-cocina-de-azulejos-de-cer-mica-sin-textura-de-Foto-de-archivo.jpg" autoAdjustUv="True" uTile="10" vTile="8.640001" />
       <wall name="East" textureName="textura_marmol_hueso_0978529001269817105.jpg" autoAdjustUv="True" uTile="10" vTile="8.640001" />
@@ -401,7 +345,7 @@
       <wall name="North" textureName="textura_marmol_hueso_0978529001269817105.jpg" autoAdjustUv="True" uTile="10" vTile="8.640001" />
       <wall name="South" textureName="textura_marmol_hueso_0978529001269817105.jpg" autoAdjustUv="True" uTile="10" vTile="8.640001" />
     </room>
-    <room name="Room-98" x="1630" y="980" width="40" length="50" height="100" floorLevel="0">
+    <room name="r_71" x="1630" y="990" width="40" length="50" height="100" floorLevel="0">
       <wall name="Roof" textureName="tile_1.jpg" autoAdjustUv="True" uTile="1.08" vTile="1.35" />
       <wall name="Floor" textureName="5457701-piso-de-la-cocina-de-azulejos-de-cer-mica-sin-textura-de-Foto-de-archivo.jpg" autoAdjustUv="True" uTile="1.08" vTile="1.35" />
       <wall name="East" textureName="textura_marmol_hueso_0978529001269817105.jpg" autoAdjustUv="True" uTile="1.08" vTile="1.35" />
@@ -409,7 +353,7 @@
       <wall name="North" textureName="textura_marmol_hueso_0978529001269817105.jpg" autoAdjustUv="True" uTile="1.08" vTile="1.35" />
       <wall name="South" textureName="textura_marmol_hueso_0978529001269817105.jpg" autoAdjustUv="True" uTile="1.08" vTile="1.35" />
     </room>
-    <room name="Room-99" x="1630" y="1030" width="290" length="200" height="100" floorLevel="0">
+    <room name="r_70" x="1630" y="1040" width="290" length="200" height="100" floorLevel="0">
       <wall name="Roof" textureName="tile_1.jpg" autoAdjustUv="True" uTile="8" vTile="5.4" />
       <wall name="Floor" textureName="5457701-piso-de-la-cocina-de-azulejos-de-cer-mica-sin-textura-de-Foto-de-archivo.jpg" autoAdjustUv="True" uTile="8" vTile="5.4" />
       <wall name="East" textureName="textura_marmol_hueso_0978529001269817105.jpg" autoAdjustUv="True" uTile="8" vTile="5.4" />
@@ -417,7 +361,7 @@
       <wall name="North" textureName="textura_marmol_hueso_0978529001269817105.jpg" autoAdjustUv="True" uTile="8" vTile="5.4" />
       <wall name="South" textureName="textura_marmol_hueso_0978529001269817105.jpg" autoAdjustUv="True" uTile="8" vTile="5.4" />
     </room>
-    <room name="Room-100" x="1630" y="1230" width="40" length="170" height="100" floorLevel="0">
+    <room name="r_69" x="1630" y="1240" width="40" length="160" height="100" floorLevel="0">
       <wall name="Roof" textureName="tile_1.jpg" autoAdjustUv="True" uTile="1.08" vTile="4.59" />
       <wall name="Floor" textureName="5457701-piso-de-la-cocina-de-azulejos-de-cer-mica-sin-textura-de-Foto-de-archivo.jpg" autoAdjustUv="True" uTile="1.08" vTile="4.59" />
       <wall name="East" textureName="textura_marmol_hueso_0978529001269817105.jpg" autoAdjustUv="True" uTile="1.08" vTile="4.59" />
@@ -425,7 +369,7 @@
       <wall name="North" textureName="textura_marmol_hueso_0978529001269817105.jpg" autoAdjustUv="True" uTile="1.08" vTile="4.59" />
       <wall name="South" textureName="textura_marmol_hueso_0978529001269817105.jpg" autoAdjustUv="True" uTile="1.08" vTile="4.59" />
     </room>
-    <room name="Room-101" x="1920" y="1720" width="40" length="50" height="100" floorLevel="0">
+    <room name="r_64" x="1920" y="1720" width="40" length="50" height="100" floorLevel="0">
       <wall name="Roof" textureName="tile_1.jpg" autoAdjustUv="True" uTile="1.08" vTile="1.35" />
       <wall name="Floor" textureName="5457701-piso-de-la-cocina-de-azulejos-de-cer-mica-sin-textura-de-Foto-de-archivo.jpg" autoAdjustUv="True" uTile="1.08" vTile="1.35" />
       <wall name="East" textureName="textura_marmol_hueso_0978529001269817105.jpg" autoAdjustUv="True" uTile="1.08" vTile="1.35" />
@@ -433,7 +377,7 @@
       <wall name="North" textureName="textura_marmol_hueso_0978529001269817105.jpg" autoAdjustUv="True" uTile="1.08" vTile="1.35" />
       <wall name="South" textureName="textura_marmol_hueso_0978529001269817105.jpg" autoAdjustUv="True" uTile="1.08" vTile="1.35" />
     </room>
-    <room name="Room-102" x="1920" y="1770" width="170" length="150" height="100" floorLevel="0">
+    <room name="r_65" x="1920" y="1770" width="170" length="150" height="100" floorLevel="0">
       <wall name="Roof" textureName="tile_1.jpg" autoAdjustUv="True" uTile="4.59" vTile="4.05" />
       <wall name="Floor" textureName="5457701-piso-de-la-cocina-de-azulejos-de-cer-mica-sin-textura-de-Foto-de-archivo.jpg" autoAdjustUv="True" uTile="4.59" vTile="4.05" />
       <wall name="East" textureName="textura_marmol_hueso_0978529001269817105.jpg" autoAdjustUv="True" uTile="4.59" vTile="4.05" />
@@ -441,7 +385,7 @@
       <wall name="North" textureName="textura_marmol_hueso_0978529001269817105.jpg" autoAdjustUv="True" uTile="4.59" vTile="4.05" />
       <wall name="South" textureName="textura_marmol_hueso_0978529001269817105.jpg" autoAdjustUv="True" uTile="4.59" vTile="4.05" />
     </room>
-    <room name="Room-104" x="2130" y="1660" width="190" length="40" height="100" floorLevel="0">
+    <room name="r_66" x="2130" y="1660" width="180" length="40" height="100" floorLevel="0">
       <wall name="Roof" textureName="WoodPlanksClean0084_7_thumbhuge_bump.jpg" autoAdjustUv="True" uTile="4.75" vTile="1" />
       <wall name="Floor" textureName="m1.jpg" autoAdjustUv="True" uTile="4.75" vTile="1" />
       <wall name="East" textureName="Concrete garage wall pillar seamless texture 2048x2048.jpg" autoAdjustUv="True" uTile="4.75" vTile="1" />
@@ -449,7 +393,7 @@
       <wall name="North" textureName="Concrete garage wall pillar seamless texture 2048x2048.jpg" autoAdjustUv="True" uTile="4.75" vTile="1" />
       <wall name="South" textureName="Concrete garage wall pillar seamless texture 2048x2048.jpg" autoAdjustUv="True" uTile="4.75" vTile="1" />
     </room>
-    <room name="Room-106" x="2320" y="1510" width="240" length="310" height="100" floorLevel="0">
+    <room name="r_68" x="2320" y="1510" width="240" length="310" height="100" floorLevel="0">
       <wall name="Roof" textureName="WoodPlanksClean0084_7_thumbhuge_bump.jpg" autoAdjustUv="True" uTile="6" vTile="7.75" />
       <wall name="Floor" textureName="m1.jpg" autoAdjustUv="True" uTile="6" vTile="7.75" />
       <wall name="East" textureName="Concrete garage wall pillar seamless texture 2048x2048.jpg" autoAdjustUv="True" uTile="6" vTile="7.75" />
@@ -457,15 +401,7 @@
       <wall name="North" textureName="Concrete garage wall pillar seamless texture 2048x2048.jpg" autoAdjustUv="True" uTile="6" vTile="7.75" />
       <wall name="South" textureName="Concrete garage wall pillar seamless texture 2048x2048.jpg" autoAdjustUv="True" uTile="6" vTile="7.75" />
     </room>
-    <room name="Room-107" x="2510" y="1820" width="40" length="50" height="100" floorLevel="0">
-      <wall name="Roof" textureName="WoodPlanksClean0084_7_thumbhuge_bump.jpg" autoAdjustUv="True" uTile="1" vTile="1.25" />
-      <wall name="Floor" textureName="m1.jpg" autoAdjustUv="True" uTile="1" vTile="1.25" />
-      <wall name="East" textureName="Concrete garage wall pillar seamless texture 2048x2048.jpg" autoAdjustUv="True" uTile="1" vTile="1.25" />
-      <wall name="West" textureName="Concrete garage wall pillar seamless texture 2048x2048.jpg" autoAdjustUv="True" uTile="1" vTile="1.25" />
-      <wall name="North" textureName="Concrete garage wall pillar seamless texture 2048x2048.jpg" autoAdjustUv="True" uTile="1" vTile="1.25" />
-      <wall name="South" textureName="Concrete garage wall pillar seamless texture 2048x2048.jpg" autoAdjustUv="True" uTile="1" vTile="1.25" />
-    </room>
-    <room name="Room-108" x="2320" y="1870" width="240" length="130" height="100" floorLevel="0">
+    <room name="r_67" x="2320" y="1830" width="240" length="130" height="100" floorLevel="0">
       <wall name="Roof" textureName="WoodPlanksClean0084_7_thumbhuge_bump.jpg" autoAdjustUv="True" uTile="6" vTile="3.25" />
       <wall name="Floor" textureName="m1.jpg" autoAdjustUv="True" uTile="6" vTile="3.25" />
       <wall name="East" textureName="Concrete garage wall pillar seamless texture 2048x2048.jpg" autoAdjustUv="True" uTile="6" vTile="3.25" />
@@ -473,7 +409,7 @@
       <wall name="North" textureName="Concrete garage wall pillar seamless texture 2048x2048.jpg" autoAdjustUv="True" uTile="6" vTile="3.25" />
       <wall name="South" textureName="Concrete garage wall pillar seamless texture 2048x2048.jpg" autoAdjustUv="True" uTile="6" vTile="3.25" />
     </room>
-    <room name="Room-109" x="2090" y="180" width="50" length="40" height="100" floorLevel="0">
+    <room name="r_75" x="2090" y="180" width="50" length="40" height="100" floorLevel="0">
       <wall name="Roof" textureName="Concrete garage wall pillar seamless texture 2048x2048.jpg" autoAdjustUv="True" uTile="0.8" vTile="0.64" />
       <wall name="Floor" textureName="textura-de-pisos-piso-356424.jpg" autoAdjustUv="True" uTile="0.8" vTile="0.64" />
       <wall name="East" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="0.8" vTile="0.64" />
@@ -481,7 +417,7 @@
       <wall name="North" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="0.8" vTile="0.64" />
       <wall name="South" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="0.8" vTile="0.64" />
     </room>
-    <room name="Room-110" x="2140" y="140" width="140" length="130" height="100" floorLevel="0">
+    <room name="r_76" x="2140" y="140" width="140" length="130" height="100" floorLevel="0">
       <wall name="Roof" textureName="Concrete garage wall pillar seamless texture 2048x2048.jpg" autoAdjustUv="True" uTile="2.24" vTile="1.92" />
       <wall name="Floor" textureName="textura-de-pisos-piso-356424.jpg" autoAdjustUv="True" uTile="2.24" vTile="1.92" />
       <wall name="East" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="2.24" vTile="1.92" />
@@ -489,7 +425,7 @@
       <wall name="North" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="2.24" vTile="1.92" />
       <wall name="South" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="2.24" vTile="1.92" />
     </room>
-    <room name="Room-111" x="2090" y="310" width="50" length="50" height="100" floorLevel="0">
+    <room name="r_77" x="2090" y="310" width="50" length="50" height="100" floorLevel="0">
       <wall name="Roof" textureName="Concrete garage wall pillar seamless texture 2048x2048.jpg" autoAdjustUv="True" uTile="0.8" vTile="0.64" />
       <wall name="Floor" textureName="textura-de-pisos-piso-356424.jpg" autoAdjustUv="True" uTile="0.8" vTile="0.64" />
       <wall name="East" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="0.8" vTile="0.64" />
@@ -497,7 +433,7 @@
       <wall name="North" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="0.8" vTile="0.64" />
       <wall name="South" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="0.8" vTile="0.64" />
     </room>
-    <room name="Room-112" x="2140" y="280" width="140" length="120" height="100" floorLevel="0">
+    <room name="r_78" x="2140" y="280" width="140" length="120" height="100" floorLevel="0">
       <wall name="Roof" textureName="Concrete garage wall pillar seamless texture 2048x2048.jpg" autoAdjustUv="True" uTile="2.24" vTile="1.92" />
       <wall name="Floor" textureName="textura-de-pisos-piso-356424.jpg" autoAdjustUv="True" uTile="2.24" vTile="1.92" />
       <wall name="East" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="2.24" vTile="1.92" />
@@ -505,7 +441,7 @@
       <wall name="North" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="2.24" vTile="1.92" />
       <wall name="South" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="2.24" vTile="1.92" />
     </room>
-    <room name="Room-113" x="2090" y="850" width="400" length="40" height="100" floorLevel="0">
+    <room name="r_79" x="2100" y="850" width="400" length="40" height="100" floorLevel="0">
       <wall name="Roof" textureName="Concrete garage wall pillar seamless texture 2048x2048.jpg" autoAdjustUv="True" uTile="6.4" vTile="0.64" />
       <wall name="Floor" textureName="textura-de-pisos-piso-356424.jpg" autoAdjustUv="True" uTile="6.4" vTile="0.64" />
       <wall name="East" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="6.4" vTile="0.64" />
@@ -513,7 +449,7 @@
       <wall name="North" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="6.4" vTile="0.64" />
       <wall name="South" textureName="tileable-cream-marble-floor-tile-texture.png" autoAdjustUv="True" uTile="6.4" vTile="0.64" />
     </room>
-    <room name="Room-118" x="1270" y="800" width="50" length="40" height="100" floorLevel="0">
+    <room name="r_57" x="1270" y="800" width="50" length="40" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
       <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
       <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
@@ -521,15 +457,7 @@
       <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
       <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
     </room>
-    <room name="Room-123" x="1270" y="1030" width="50" length="40" height="100" floorLevel="0">
-      <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-      <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-      <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-      <wall name="West" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-      <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-      <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-    </room>
-    <room name="Room-124" x="1320" y="1030" width="180" length="180" height="100" floorLevel="0">
+    <room name="r_51" x="1280" y="1030" width="180" length="180" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="4" vTile="4" />
       <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="4" vTile="4" />
       <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="4" vTile="4" />
@@ -537,7 +465,7 @@
       <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="4" vTile="4" />
       <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="4" vTile="4" />
     </room>
-    <room name="Room-125" x="1500" y="1160" width="50" length="30" height="100" floorLevel="0">
+    <room name="r_52" x="1460" y="1160" width="50" length="30" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
       <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
       <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
@@ -545,7 +473,7 @@
       <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
       <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
     </room>
-    <room name="Room-126" x="1550" y="1160" width="50" length="120" height="100" floorLevel="0">
+    <room name="r_53" x="1510" y="1160" width="50" length="120" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="1" vTile="2.64" />
       <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="1" vTile="2.64" />
       <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1" vTile="2.64" />
@@ -553,15 +481,7 @@
       <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1" vTile="2.64" />
       <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1" vTile="2.64" />
     </room>
-    <room name="Room-127" x="1270" y="1260" width="50" length="40" height="100" floorLevel="0">
-      <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-      <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-      <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-      <wall name="West" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-      <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-      <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-    </room>
-    <room name="Room-128" x="1320" y="1260" width="180" length="180" height="100" floorLevel="0">
+    <room name="r_44" x="1280" y="1260" width="180" length="180" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="4" vTile="4" />
       <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="4" vTile="4" />
       <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="4" vTile="4" />
@@ -569,7 +489,7 @@
       <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="4" vTile="4" />
       <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="4" vTile="4" />
     </room>
-    <room name="Room-132" x="1500" y="1390" width="50" length="30" height="100" floorLevel="0">
+    <room name="r_45" x="1460" y="1390" width="50" length="30" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
       <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
       <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
@@ -577,7 +497,7 @@
       <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
       <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.66" />
     </room>
-    <room name="Room-133" x="1550" y="1390" width="50" length="120" height="100" floorLevel="0">
+    <room name="r_46" x="1510" y="1390" width="50" length="120" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="1.1" vTile="2.69" />
       <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="1.1" vTile="2.69" />
       <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="2.69" />
@@ -585,15 +505,7 @@
       <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="2.69" />
       <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="2.69" />
     </room>
-    <room name="Room-134" x="1270" y="1490" width="50" length="40" height="100" floorLevel="0">
-      <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-      <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-      <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-      <wall name="West" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-      <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-      <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="1.1" vTile="0.88" />
-    </room>
-    <room name="Room-135" x="1320" y="1490" width="180" length="180" height="100" floorLevel="0">
+    <room name="r_41" x="1280" y="1490" width="180" length="180" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="4" vTile="4" />
       <wall name="Floor" textureName="cometstone_af2m_gi_mosaic.jpg" autoAdjustUv="True" uTile="4" vTile="4" />
       <wall name="East" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="4" vTile="4" />
@@ -601,7 +513,7 @@
       <wall name="North" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="4" vTile="4" />
       <wall name="South" textureName="Seamless wall white paint stucco plaster texture 01.jpg" autoAdjustUv="True" uTile="4" vTile="4" />
     </room>
-    <room name="Room-137" x="1630" y="1720" width="40" length="50" height="100" floorLevel="0">
+    <room name="r_62" x="1630" y="1720" width="40" length="50" height="100" floorLevel="0">
       <wall name="Roof" textureName="tile_1.jpg" autoAdjustUv="True" uTile="1.08" vTile="1.35" />
       <wall name="Floor" textureName="5457701-piso-de-la-cocina-de-azulejos-de-cer-mica-sin-textura-de-Foto-de-archivo.jpg" autoAdjustUv="True" uTile="1.08" vTile="1.35" />
       <wall name="East" textureName="textura_marmol_hueso_0978529001269817105.jpg" autoAdjustUv="True" uTile="1.08" vTile="1.35" />
@@ -609,7 +521,7 @@
       <wall name="North" textureName="textura_marmol_hueso_0978529001269817105.jpg" autoAdjustUv="True" uTile="1.08" vTile="1.35" />
       <wall name="South" textureName="textura_marmol_hueso_0978529001269817105.jpg" autoAdjustUv="True" uTile="1.08" vTile="1.35" />
     </room>
-    <room name="Room-141" x="560" y="910" width="40" length="120" height="100" floorLevel="0">
+    <room name="r_20" x="560" y="910" width="40" length="110" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="1.32" vTile="3.96" />
       <wall name="Floor" textureName="walltexture.jpgf8e1ee5c-aa56-40f9-986a-a583fbad830bLarge.jpg" autoAdjustUv="True" uTile="1.64" vTile="4.92" />
       <wall name="East" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
@@ -617,7 +529,7 @@
       <wall name="North" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
       <wall name="South" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
     </room>
-    <room name="Room-142" x="480" y="1030" width="240" length="200" height="100" floorLevel="0">
+    <room name="r_17" x="480" y="1030" width="240" length="200" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="8" vTile="6.6" />
       <wall name="Floor" textureName="walltexture.jpgf8e1ee5c-aa56-40f9-986a-a583fbad830bLarge.jpg" autoAdjustUv="True" uTile="9.84" vTile="8.2" />
       <wall name="East" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="4" vTile="3.2" />
@@ -625,7 +537,7 @@
       <wall name="North" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="4" vTile="3.2" />
       <wall name="South" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="4" vTile="3.2" />
     </room>
-    <room name="Room-143" x="100" y="740" width="40" length="170" height="100" floorLevel="0">
+    <room name="r_3" x="100" y="740" width="40" length="170" height="100" floorLevel="0">
       <wall name="Roof" textureName="WoodPlanksClean0084_7_thumbhuge_bump.jpg" autoAdjustUv="True" uTile="1.9" vTile="8.1" />
       <wall name="Floor" textureName="9548.jpg" autoAdjustUv="True" uTile="1.9" vTile="8.1" />
       <wall name="East" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="1.9" vTile="8.1" />
@@ -633,7 +545,7 @@
       <wall name="North" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="1.9" vTile="8.1" />
       <wall name="South" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="1.9" vTile="8.1" />
     </room>
-    <room name="Room-144" x="30" y="910" width="210" length="210" height="100" floorLevel="0">
+    <room name="r_2" x="30" y="910" width="210" length="210" height="100" floorLevel="0">
       <wall name="Roof" textureName="WoodPlanksClean0084_7_thumbhuge_bump.jpg" autoAdjustUv="True" uTile="10" vTile="10" />
       <wall name="Floor" textureName="9548.jpg" autoAdjustUv="True" uTile="10" vTile="10" />
       <wall name="East" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="10" vTile="10" />
@@ -641,15 +553,7 @@
       <wall name="North" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="10" vTile="10" />
       <wall name="South" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="10" vTile="10" />
     </room>
-    <room name="Room-145" x="30" y="1120" width="40" length="50" height="100" floorLevel="0">
-      <wall name="Roof" textureName="WoodPlanksClean0084_7_thumbhuge_bump.jpg" autoAdjustUv="True" uTile="2.38" vTile="1.9" />
-      <wall name="Floor" textureName="9548.jpg" autoAdjustUv="True" uTile="2.38" vTile="1.9" />
-      <wall name="East" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="9" vTile="9" />
-      <wall name="West" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="9" vTile="9" />
-      <wall name="North" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="9" vTile="9" />
-      <wall name="South" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="2.38" vTile="1.9" />
-    </room>
-    <room name="Room-146" x="30" y="1170" width="130" length="100" height="100" floorLevel="0">
+    <room name="r_1" x="30" y="1130" width="130" length="100" height="100" floorLevel="0">
       <wall name="Roof" textureName="WoodPlanksClean0084_7_thumbhuge_bump.jpg" autoAdjustUv="True" uTile="6.2" vTile="4.76" />
       <wall name="Floor" textureName="9548.jpg" autoAdjustUv="True" uTile="6.2" vTile="4.76" />
       <wall name="East" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="6.2" vTile="4.76" />
@@ -657,7 +561,7 @@
       <wall name="North" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="6.2" vTile="4.76" />
       <wall name="South" textureName="Wall white paint stucco plaster texture seamless.jpg" autoAdjustUv="True" uTile="6.2" vTile="4.76" />
     </room>
-    <room name="Room-149" x="240" y="1070" width="240" length="50" height="100" floorLevel="0">
+    <room name="r_12" x="250" y="1080" width="230" length="40" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="7.92" vTile="1.65" />
       <wall name="Floor" textureName="walltexture.jpgf8e1ee5c-aa56-40f9-986a-a583fbad830bLarge.jpg" autoAdjustUv="True" uTile="9.84" vTile="2.05" />
       <wall name="East" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="9" vTile="0.8" />
@@ -665,7 +569,7 @@
       <wall name="North" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="9" vTile="6" />
       <wall name="South" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="3.84" vTile="0.8" />
     </room>
-    <room name="Room-150" x="720" y="1030" width="50" length="50" height="100" floorLevel="0">
+    <room name="r_18" x="720" y="1030" width="50" length="50" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="1.65" vTile="1.65" />
       <wall name="Floor" textureName="walltexture.jpgf8e1ee5c-aa56-40f9-986a-a583fbad830bLarge.jpg" autoAdjustUv="True" uTile="2.05" vTile="2.05" />
       <wall name="East" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
@@ -673,7 +577,7 @@
       <wall name="North" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
       <wall name="South" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
     </room>
-    <room name="Room-151" x="770" y="1030" width="90" length="130" height="100" floorLevel="0">
+    <room name="r_19" x="770" y="1030" width="90" length="130" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="9.69" vTile="4.29" />
       <wall name="Floor" textureName="walltexture.jpgf8e1ee5c-aa56-40f9-986a-a583fbad830bLarge.jpg" autoAdjustUv="True" uTile="3.69" vTile="5.33" />
       <wall name="East" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
@@ -681,7 +585,7 @@
       <wall name="North" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
       <wall name="South" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
     </room>
-    <room name="Room-152" x="540" y="1230" width="40" length="50" height="100" floorLevel="0">
+    <room name="r_16" x="540" y="1230" width="40" length="50" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="1.32" vTile="1.65" />
       <wall name="Floor" textureName="walltexture.jpgf8e1ee5c-aa56-40f9-986a-a583fbad830bLarge.jpg" autoAdjustUv="True" uTile="1.64" vTile="2.05" />
       <wall name="East" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
@@ -689,7 +593,7 @@
       <wall name="North" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
       <wall name="South" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
     </room>
-    <room name="Room-153" x="440" y="1280" width="280" length="240" height="100" floorLevel="0">
+    <room name="r_15" x="440" y="1280" width="280" length="240" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="9.24" vTile="7.92" />
       <wall name="Floor" textureName="walltexture.jpgf8e1ee5c-aa56-40f9-986a-a583fbad830bLarge.jpg" autoAdjustUv="True" uTile="10" vTile="9.84" />
       <wall name="East" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
@@ -697,7 +601,7 @@
       <wall name="North" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
       <wall name="South" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
     </room>
-    <room name="Room-155" x="440" y="1520" width="30" length="50" height="100" floorLevel="0">
+    <room name="r_14" x="440" y="1520" width="30" length="50" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="0.99" vTile="1.65" />
       <wall name="Floor" textureName="walltexture.jpgf8e1ee5c-aa56-40f9-986a-a583fbad830bLarge.jpg" autoAdjustUv="True" uTile="1.23" vTile="2.05" />
       <wall name="East" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
@@ -705,7 +609,7 @@
       <wall name="North" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
       <wall name="South" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
     </room>
-    <room name="Room-156" x="440" y="1570" width="80" length="70" height="100" floorLevel="0">
+    <room name="r_13" x="440" y="1570" width="80" length="70" height="100" floorLevel="0">
       <wall name="Roof" textureName="white-floor-texture-a1-fub7-0aa-005---white-oak-rift-quarter-broadway-texture.jpg" autoAdjustUv="True" uTile="2.64" vTile="2.31" />
       <wall name="Floor" textureName="walltexture.jpgf8e1ee5c-aa56-40f9-986a-a583fbad830bLarge.jpg" autoAdjustUv="True" uTile="3.28" vTile="2.87" />
       <wall name="East" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
@@ -713,7 +617,7 @@
       <wall name="North" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
       <wall name="South" textureName="am_145687_4534098_213029.jpg" autoAdjustUv="True" uTile="1" vTile="1" />
     </room>
-    <room name="Room-179" x="460" y="590" width="50" length="40" height="100" floorLevel="0">
+    <room name="r_24" x="450" y="630" width="50" length="40" height="100" floorLevel="0">
       <wall name="Roof" textureName="997099_detail.png" autoAdjustUv="True" uTile="1.1" vTile="1" />
       <wall name="Floor" textureName="8392372a0679cec8479daa1ca6d631c132a1.jpg" autoAdjustUv="True" uTile="1.1" vTile="1" />
       <wall name="East" textureName="SeamlessWallSpakling.jpg" autoAdjustUv="True" uTile="1.1" vTile="1" />
@@ -721,13 +625,205 @@
       <wall name="North" textureName="SeamlessWallSpakling.jpg" autoAdjustUv="True" uTile="1.1" vTile="1" />
       <wall name="South" textureName="SeamlessWallSpakling.jpg" autoAdjustUv="True" uTile="1.1" vTile="1" />
     </room>
-    <room name="Room-180" x="460" y="670" width="50" length="40" height="100" floorLevel="0">
-      <wall name="Roof" textureName="997099_detail.png" autoAdjustUv="True" uTile="1.1" vTile="1" />
-      <wall name="Floor" textureName="8392372a0679cec8479daa1ca6d631c132a1.jpg" autoAdjustUv="True" uTile="1.1" vTile="1" />
-      <wall name="East" textureName="SeamlessWallSpakling.jpg" autoAdjustUv="True" uTile="1.1" vTile="1" />
-      <wall name="West" textureName="SeamlessWallSpakling.jpg" autoAdjustUv="True" uTile="1.1" vTile="1" />
-      <wall name="North" textureName="SeamlessWallSpakling.jpg" autoAdjustUv="True" uTile="1.1" vTile="1" />
-      <wall name="South" textureName="SeamlessWallSpakling.jpg" autoAdjustUv="True" uTile="1.1" vTile="1" />
+    <room name="p_2" x="60" y="240" width="10" length="40" height="100" floorLevel="0">
+      <wall name="Roof" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="p_1" x="30" y="1120" width="40" length="10" height="100" floorLevel="0">
+      <wall name="Roof" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="p_5" x="680" y="360" width="40" length="10" height="100" floorLevel="0">
+      <wall name="Roof" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="pz_1" x="240" y="1080" width="10" length="40" height="100" floorLevel="0">
+      <wall name="Roof" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="pz_2" x="560" y="1020" width="40" length="10" height="100" floorLevel="0">
+      <wall name="Roof" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="p_3" x="550" y="710" width="10" length="40" height="100" floorLevel="0">
+      <wall name="Roof" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="p_4" x="550" y="550" width="10" length="40" height="100" floorLevel="0">
+      <wall name="Roof" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="pz_5" x="890" y="500" width="10" length="40" height="100" floorLevel="0">
+      <wall name="Roof" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="pz_3" x="890" y="730" width="10" length="40" height="100" floorLevel="0">
+      <wall name="Roof" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="p_6" x="880" y="0" width="10" length="40" height="100" floorLevel="0">
+      <wall name="Roof" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="p_7" x="1350" y="0" width="10" length="40" height="100" floorLevel="0">
+      <wall name="Roof" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="pz_7" x="1580" y="730" width="10" length="40" height="100" floorLevel="0">
+      <wall name="Roof" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="p_8" x="1200" y="1490" width="10" length="40" height="100" floorLevel="0">
+      <wall name="Roof" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="p_9" x="1270" y="1490" width="10" length="40" height="100" floorLevel="0">
+      <wall name="Roof" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="p_10" x="1270" y="1260" width="10" length="40" height="100" floorLevel="0">
+      <wall name="Roof" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="p_11" x="1200" y="1030" width="10" length="40" height="100" floorLevel="0">
+      <wall name="Roof" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="p_12" x="1270" y="1030" width="10" length="40" height="100" floorLevel="0">
+      <wall name="Roof" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="pz_4" x="1200" y="800" width="10" length="40" height="100" floorLevel="0">
+      <wall name="Roof" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="pz_8" x="2310" y="1660" width="10" length="40" height="100" floorLevel="0">
+      <wall name="Roof" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="p_13" x="2520" y="1820" width="40" length="10" height="100" floorLevel="0">
+      <wall name="Roof" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="pz_11" x="1630" y="980" width="40" length="10" height="100" floorLevel="0">
+      <wall name="Roof" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="p_14" x="1620" y="170" width="40" length="10" height="100" floorLevel="0">
+      <wall name="Roof" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="p_15" x="1720" y="170" width="40" length="10" height="100" floorLevel="0">
+      <wall name="Roof" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="pz_9" x="2090" y="850" width="10" length="40" height="100" floorLevel="0">
+      <wall name="Roof" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+    </room>
+    <room name="pz_10" x="2500" y="850" width="10" length="40" height="100" floorLevel="0">
+      <wall name="Roof" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="Floor" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="East" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="West" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="North" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
+      <wall name="South" textureName="clr0-0-0.bmp" autoAdjustUv="True" uTile="1" vTile="1" />
     </room>
   </rooms>
 </roomsEditor-Map>
