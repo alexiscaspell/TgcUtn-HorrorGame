@@ -4,6 +4,7 @@ using TgcViewer.Utils.TgcSceneLoader;
 using Microsoft.DirectX.Direct3D;
 using System.Drawing;
 using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA;
+using TgcViewer.Utils.TgcGeometry;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
 {
@@ -13,6 +14,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
         {
         }
 
+        private TgcPlaneWall fondoNegro;
+        private const float distanciaFondo = 5000;
+        
         public override void init()
         {
             GuiController.Instance.Modifiers.addColor("farolColor", Color.LightYellow);
@@ -25,12 +29,46 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
             GuiController.Instance.Modifiers.addColor("farolAmbient", Color.LightYellow);
             GuiController.Instance.Modifiers.addColor("farolDiffuse", Color.White);
             GuiController.Instance.Modifiers.addColor("farolSpecular", Color.LightYellow);
+            
+			//Inicio el fondoNegro
+			TgcTexture texturaFondo = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir +
+			                                                   "Media\\mapa\\fondoNegro.png");
+			fondoNegro = new TgcPlaneWall(new Vector3(0,0,0),
+			                              new Vector3(100000,100000,100000),
+			                              TgcPlaneWall.Orientations.XYplane,
+			                              texturaFondo);
+            
+        }
+        
+        private void updateFondo()
+        {
+        	Vector3 dirCamara = camaraFPS.camaraFramework.viewDir;
+        	dirCamara.Y = 0;
+        	dirCamara.TransformCoordinate(Matrix.RotationY(FastMath.ToRad(400)));
+        	Vector3 posCamara = camaraFPS.camaraFramework.Position;
+        	posCamara.Y = 0;
+        	
+        	//Cambio la orientacion de la pared
+        	if(FastMath.Abs(dirCamara.X)>FastMath.Abs(dirCamara.Z))
+        	{
+        		fondoNegro.Orientation = TgcPlaneWall.Orientations.YZplane;
+        	}else{
+        		fondoNegro.Orientation = TgcPlaneWall.Orientations.XYplane;
+        	}
+        	
+        	//Cambio la posicion
+        	fondoNegro.Origin = posCamara + dirCamara * distanciaFondo;
+        	fondoNegro.updateValues();
         }
 
         public override void render()
         {
             Effect currentShader = GuiController.Instance.Shaders.TgcMeshPointLightShader;
 
+            //Dibujo el fondo para evitar el azul
+            updateFondo();
+            fondoNegro.render();
+            
             foreach (TgcMesh mesh in tgcEscena.Meshes)
             {
                 mesh.Effect = currentShader;
@@ -39,6 +77,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
             
             foreach (TgcMesh mesh in tgcEscena.Meshes)
             {
+            	//Primero dibujo un sprite negro en toda la pantalla para evitar el azul feo
+            	GuiController.Instance.Drawer2D.beginDrawSprite();
+	            fondoNegro.render();
+	            GuiController.Instance.Drawer2D.endDrawSprite();
+            	
                 //Cargar variables shader de la luz
                 mesh.Effect.SetValue("lightColor", ColorValue.FromColor((Color)GuiController.Instance.Modifiers["farolColor"]));
                 mesh.Effect.SetValue("lightPosition", TgcParserUtils.vector3ToFloat4Array(camaraFPS.posicion));
