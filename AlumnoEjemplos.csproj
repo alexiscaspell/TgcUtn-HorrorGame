@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="LOS_IMPROVISADOS\Camara\CamaraFPS.cs" />
     <Compile Include="LOS_IMPROVISADOS\Camara\CamaraFramework.cs" />
+    <Compile Include="LOS_IMPROVISADOS\ColinaAzul.cs" />
     <Compile Include="LOS_IMPROVISADOS\Dijkstra.cs" />
     <Compile Include="LOS_IMPROVISADOS\EfectosPosProcesado\EfectoHechoMierda.cs" />
     <Compile Include="LOS_IMPROVISADOS\Mapa\DiosMapa.cs" />

@@ -37,6 +37,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private Dictionary<string, List<TgcMesh>> cuartos;
 
+        private const int CANTIDAD_DE_CUARTOS = 79;
+
         public Mapa()
         {
             TgcSceneLoader loader = new TgcSceneLoader();
@@ -50,49 +52,38 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
              {
                  cargarDatosAArchivo();
              }*/
+
             mapearMapaALista();
+
+            ColinaAzul.Instance.calcularBoundingBoxes(cuartos, CANTIDAD_DE_CUARTOS);
         }
 
         private void mapearMapaALista()
         {
-            
-        }
+            cuartos = new Dictionary<string, List<TgcMesh>>();
 
-        private bool leerDatosDeArchivo()
-        {
-            string directorio = GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\archivoMapa.txt";
-
-            if (!File.Exists(directorio)) return false;
-
-            System.IO.StreamReader archivoDatos = new System.IO.StreamReader(directorio);
-            bool tieneAlgo = File.ReadAllLines(directorio).Length > 0;
-
-            if (tieneAlgo)
+            for (int i = 0; i < CANTIDAD_DE_CUARTOS; i++)
             {
-                //Aca leo el archivo
+                cuartos.Add("r_"+(i + 1).ToString(), new List<TgcMesh>());
             }
+            cuartos.Add("otros", new List<TgcMesh>());
 
-            return tieneAlgo;
-        }
-
-        private void cargarDatosAArchivo()
-        {
-            string directorio = GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\archivoMapa.txt";
-
-            List<string> writer = new List<string>();
-
-            mapearMapaATesto(writer);
-
-            //Aca mapeo las cosas y las guardo en un archivo de tesssssto
-
-            File.WriteAllLines(directorio, writer);
-        }
-
-        private void mapearMapaATesto(List<string> writer)
-        {
-            foreach (TgcMesh item in escena.Meshes)
+            foreach (TgcMesh mesh in escena.Meshes)
             {
-                writer.Add(item.Name);
+                string index = mesh.Name;
+                index = index.Split('-')[0];
+
+                List<TgcMesh> auxList = new List<TgcMesh>();
+
+                if (index[0]=='r')
+                {
+                    cuartos.TryGetValue(index, out auxList);
+                }
+                else
+                {
+                    cuartos.TryGetValue("otros", out auxList);
+                }
+                auxList.Add(mesh);
             }
         }
 
