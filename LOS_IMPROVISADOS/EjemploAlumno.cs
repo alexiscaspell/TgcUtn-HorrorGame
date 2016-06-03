@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Collections.Generic;
 using TgcViewer.Utils.Sound;
+using TgcViewer.Utils;
 
 namespace AlumnoEjemplos.MiGrupo
 {
@@ -131,11 +132,12 @@ namespace AlumnoEjemplos.MiGrupo
 
             puertaHard.update();
             puertaHard.render();
-            
-            //menuPrincipal.render();
-            
-            //cama.render();
+
+                //menuPrincipal.render();
+
+                //cama.render();
             }
+            GuiController.Instance.Text3d.drawText("FPS: " + HighResolutionTimer.Instance.FramesPerSecond, 0, 0, Color.Yellow);
         }
 
         public override void close()
