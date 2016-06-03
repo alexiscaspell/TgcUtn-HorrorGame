@@ -18,7 +18,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
         {
             ///luz
             GuiController.Instance.Modifiers.addColor("linternaColor", Color.White);
-            GuiController.Instance.Modifiers.addFloat("linternaIntensidad", 0, 400f, 180f);
+            GuiController.Instance.Modifiers.addFloat("linternaIntensidad", 0, 400f, 190f);
             GuiController.Instance.Modifiers.addFloat("linternaAtenuacion", 0.1f, 2, 0.4f);
             GuiController.Instance.Modifiers.addFloat("linternaSpecularEx", 0, 20, 15f);
             GuiController.Instance.Modifiers.addFloat("linternaAngulo", 0, 180, 45f);
