@@ -15,7 +15,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
         }
 
         private TgcPlaneWall fondoNegro;
-        private const float distanciaFondo = 5000;
+        private TgcBox cajaNegra;
+        private TgcSphere esferaNegra;
+        private const float renderDistance = 5000;
         
         public override void init()
         {
@@ -38,6 +40,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
 			                              TgcPlaneWall.Orientations.XYplane,
 			                              texturaFondo);
             
+			esferaNegra = new TgcSphere(renderDistance, texturaFondo, camaraFPS.camaraFramework.Position);
+			cajaNegra = TgcBox.fromSize(new Vector3(renderDistance,renderDistance,renderDistance), texturaFondo);
         }
         
         private void updateFondo()
@@ -57,8 +61,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
         	}
         	
         	//Cambio la posicion
-        	fondoNegro.Origin = posCamara + dirCamara * distanciaFondo;
+        	fondoNegro.Origin = posCamara + dirCamara * renderDistance;
         	fondoNegro.updateValues();
+        	
+        	//Con la caja 1000 veces mas facil
+        	esferaNegra.Position = camaraFPS.camaraFramework.Position;
+        	cajaNegra.Position =  camaraFPS.camaraFramework.Position;
         }
 
         public override void render()
@@ -67,7 +75,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
 
             //Dibujo el fondo para evitar el azul
             updateFondo();
-            fondoNegro.render();
+            //cajaNegra.render();
+            esferaNegra.render();
             
             foreach (TgcMesh mesh in tgcEscena.Meshes)
             {
@@ -95,7 +104,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
                 mesh.Effect.SetValue("materialSpecularColor", ColorValue.FromColor((Color)GuiController.Instance.Modifiers["farolSpecular"]));
                 mesh.Effect.SetValue("materialSpecularExp", (float)GuiController.Instance.Modifiers["farolEspecularEx"]);
 
-                if( ( (mesh.BoundingBox.PMax*0.5f - mesh.BoundingBox.PMin *0.5f) +mesh.BoundingBox.PMin - camaraFPS.posicion).Length() < 5000){
+                if( ( (mesh.BoundingBox.PMax*0.5f - mesh.BoundingBox.PMin *0.5f) +mesh.BoundingBox.PMin - camaraFPS.posicion).Length() < renderDistance){
                 	
                		 mesh.render();
                 }
