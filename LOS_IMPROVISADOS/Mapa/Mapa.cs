@@ -132,7 +132,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             string index = mesh.Name.Split('_')[0];
 
-            if (!relacionesCuartos.ContainsKey(index))
+            if (!relacionesCuartos.ContainsKey(index) && cuartos.ContainsKey(index))
             {
                 string[] lista = null;
 
