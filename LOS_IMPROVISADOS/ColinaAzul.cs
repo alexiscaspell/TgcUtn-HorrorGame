@@ -41,14 +41,17 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public void calcularBoundingBoxes(Dictionary<string,List<TgcMesh>> cuartos,int cantidadCuartos)
         {
+            List<TgcMesh> cuarto;
             for (int i = 1; i <= cantidadCuartos; i++)
             {
-                List<TgcMesh> cuarto = null;
-                cuartos.TryGetValue("r_" + i, out cuarto);
+                string index = "r_" + i.ToString();
 
-                if (cuarto==null)
+                cuarto = cuartos[index];
+                //cuartos.TryGetValue("r_"+i, out cuarto);
+
+                if (cuarto.Count>0)
                 {
-                    bloquesCuartos.Add("r_"+i,calcularBoundingBox(cuarto));
+                    bloquesCuartos.Add("r_"+i.ToString(),calcularBoundingBox(cuarto));
                 }
             }
         }

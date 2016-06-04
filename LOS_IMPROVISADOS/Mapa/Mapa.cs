@@ -55,8 +55,32 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             mapearMapaALista();
 
+            cargarDatosAArchivo();
+
             ColinaAzul.Instance.calcularBoundingBoxes(cuartos, CANTIDAD_DE_CUARTOS);
         }
+
+        private void cargarDatosAArchivo()
+        {
+            string directorio = GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\archivoMapa.txt";
+
+            List<string> writer = new List<string>();
+
+            mapearMapaATesto(writer);
+
+            //Aca mapeo las cosas y las guardo en un archivo de tesssssto
+
+            File.WriteAllLines(directorio, writer);
+        }
+
+        private void mapearMapaATesto(List<string> writer)
+        {
+            foreach (TgcMesh item in escena.Meshes)
+            {
+                writer.Add(item.Name);
+            }
+        }
+
 
         private void mapearMapaALista()
         {
@@ -71,18 +95,19 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             foreach (TgcMesh mesh in escena.Meshes)
             {
                 string index = mesh.Name;
-                index = index.Split('-')[0];
+                index = index.Split('[')[0];
 
                 List<TgcMesh> auxList = new List<TgcMesh>();
 
                 if (index[0]=='r')
                 {
-                    cuartos.TryGetValue(index, out auxList);
+                    auxList = cuartos[index];
                 }
                 else
                 {
-                    cuartos.TryGetValue("otros", out auxList);
+                    auxList = cuartos["otros"];
                 }
+
                 auxList.Add(mesh);
             }
         }
