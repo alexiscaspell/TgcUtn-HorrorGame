@@ -71,6 +71,32 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             return new TgcBoundingBox(pMin, pMax);
         }
 
+        internal string aQueCuartoPertenece(TgcMesh mesh)
+        {
+            TgcBoundingBox boxMesh = mesh.BoundingBox;
+
+            foreach (string nombreCuarto in bloquesCuartos.Keys)
+            {
+                if (colisionEntreCajas(boxMesh,bloquesCuartos[nombreCuarto]))
+                {
+                    return nombreCuarto;
+                }
+            }
+            return "";
+        }
+
+        private bool colisionEntreCajas(TgcBoundingBox box,TgcBoundingBox otherBox)
+        {
+            TgcCollisionUtils.BoxBoxResult result = TgcCollisionUtils.classifyBoxBox(box, otherBox);
+
+            return (result==TgcCollisionUtils.BoxBoxResult.Adentro||result==TgcCollisionUtils.BoxBoxResult.Atravesando);
+        }
+
+        public bool colisionaEsferaCaja(TgcBoundingSphere esfera,TgcBoundingBox box)
+        {
+            return TgcCollisionUtils.testSphereAABB(esfera, box);
+        }
+
         private Vector3 menoresCoordenadasDe(Vector3 point, Vector3 otherPoint)
         {
             return new Vector3(FastMath.Min(point.X, otherPoint.X),

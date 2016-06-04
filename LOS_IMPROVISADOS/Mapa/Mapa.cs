@@ -62,6 +62,23 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             mapearMapaALista();
 
             ColinaAzul.Instance.calcularBoundingBoxes(cuartos, CANTIDAD_DE_CUARTOS);
+
+            agregarObjetosMapa();
+        }
+
+        private void agregarObjetosMapa()
+        {
+            foreach (TgcMesh mesh in cuartos["otros"])
+            {
+                string cuarto = ColinaAzul.Instance.aQueCuartoPertenece(mesh);
+
+                if (cuarto!="")
+                {
+                    cuartos[cuarto].Add(mesh);
+                }
+            }
+
+            cuartos["otros"].Clear();//Me falta cargar las puertas
         }
 
         private void cargarDatosAArchivo()
@@ -151,24 +168,30 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             escena.disposeAll();
         }
 
-        public bool colisionaEsfera(TgcBoundingSphere esfera,ref TgcBoundingBox obstaculo)
+        /*ACA DEBERIA DE HABER LOGICA ENTRE RELACIONES DE LOS CUARTOS*/
+        internal bool colisionaEsfera(TgcBoundingSphere esfera,ref TgcBoundingBox obstaculo)
         {
-
             foreach (TgcMesh mesh in escena.Meshes)
             {
-                if (TgcCollisionUtils.testSphereAABB(esfera,mesh.BoundingBox))
+                if (ColinaAzul.Instance.colisionaEsferaCaja(esfera,mesh.BoundingBox))
                 {
                     obstaculo = mesh.BoundingBox;
-
                     return true;
                 }
             }
             return false;
         }
-        public bool colisionaEsfera(TgcBoundingSphere esfera)
+
+        internal bool colisionaEsfera(TgcBoundingSphere esfera)
         {
-            TgcBoundingBox b = new TgcBoundingBox();
-            return colisionaEsfera(esfera, ref b);
+            foreach (TgcMesh mesh in escena.Meshes)
+            {
+                if (ColinaAzul.Instance.colisionaEsferaCaja(esfera, mesh.BoundingBox))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
     }
