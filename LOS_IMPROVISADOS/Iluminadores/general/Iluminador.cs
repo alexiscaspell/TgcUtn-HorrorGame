@@ -39,7 +39,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
         {
             if (!iluminadorActivado)
             {
-                oscuridad.render();//ESTO SE VA A TENER QUE CAMBIAR
+                oscuridad.render();
             }
             else
             {

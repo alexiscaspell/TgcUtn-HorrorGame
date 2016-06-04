@@ -111,6 +111,7 @@
     <Compile Include="LOS_IMPROVISADOS\Personajes\Boss\Comportamiento.cs" />
     <Compile Include="LOS_IMPROVISADOS\Personajes\Boss\SeguirPersonaje.cs" />
     <Compile Include="LOS_IMPROVISADOS\Personajes\Configuradores\ConfigIluminador.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Personajes\Configuradores\ConfigPosProcesados.cs" />
     <Compile Include="LOS_IMPROVISADOS\Personajes\Personaje.cs" />
     <Compile Include="LOS_IMPROVISADOS\CosasPrueba\Caja.cs" />
     <Compile Include="LOS_IMPROVISADOS\CosasPrueba\CajaSigue.cs" />
@@ -169,7 +170,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="LOS_IMPROVISADOS\Objetos" />
     <Folder Include="Media\Texturas\" />
   </ItemGroup>
   <ItemGroup>

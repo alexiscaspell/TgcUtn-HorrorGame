@@ -14,7 +14,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
 {
     class PosProcesadoAlarma : APosProcesado
     {
-        public PosProcesadoAlarma(TgcScene escena) : base(escena)
+        public PosProcesadoAlarma(List<TgcMesh> meshes) : base(meshes)
         {
             init();
         }
@@ -67,10 +67,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
             intVaivenAlarm.Max = 1;
             intVaivenAlarm.Speed = 2;
             intVaivenAlarm.reset();
-
-
-            //Cargamos un escenario
-            meshes = escena.Meshes;
         }
 
         public override void render(float elapsedTime)

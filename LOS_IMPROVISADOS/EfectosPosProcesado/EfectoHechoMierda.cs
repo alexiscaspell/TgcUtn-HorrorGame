@@ -28,9 +28,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
 		
 		float time;
 
-		public PosProcesoHechoMierda(TgcScene tgcEscena)
+		public PosProcesoHechoMierda(List<TgcMesh> meshes):base(meshes)
 		{
-			this.escena = tgcEscena;
+			this.meshes = meshes;
 		}
 		
 		public override void init()
@@ -59,9 +59,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
             effect = TgcShaders.loadEffect(GuiController.Instance.AlumnoEjemplosDir + "\\LOS_IMPROVISADOS\\Shaders\\HechoMierda.fx");
 
             effect.Technique = "HechoMierdaTechnique";
-            	
-            meshes = escena.Meshes;
-            
+            	            
             foreach(TgcMesh mesh in meshes){
             	mesh.Effect = effect;
             }

@@ -10,23 +10,17 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
 {
     public abstract class APosProcesado
     {
-        public TgcScene escena { get; set; }
-
+        public List<TgcMesh> meshes;
         public VertexBuffer screenQuadVB;
         public Texture renderTarget2D;
         public Surface pOldRT;
         public Effect effect;
         public TgcTexture alarmTexture;
         public InterpoladorVaiven intVaivenAlarm;
-        public List<TgcMesh> meshes;
         
-        public APosProcesado(){
-        	
-        }
-
-        public APosProcesado(TgcScene escena)
+        public APosProcesado(List<TgcMesh> meshes)
         {
-            this.escena = escena;
+            this.meshes = meshes;
         }
 
         public abstract void init();
