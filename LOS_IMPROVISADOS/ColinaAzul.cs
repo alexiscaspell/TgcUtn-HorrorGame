@@ -57,6 +57,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                     bloquesCuartos.Add("r"+i.ToString(),calcularBoundingBox(cuarto));
                 }
             }
+
+            cuartoAnterior = bloquesCuartos.Keys.ElementAt(0);//Inicializo cuarto
         }
 
         private TgcBoundingBox calcularBoundingBox(List<TgcMesh> cuarto)
@@ -114,14 +116,22 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             FastMath.Max(point.Z, otherPoint.Z));
         }
 
+        private string cuartoAnterior;
+
         public string dondeEstaPesonaje()
         {
             cuerpoFicticioPersonaje.setCenter(CamaraFPS.Instance.camaraFramework.Position);
+
+            if (colisionaEsferaCaja(cuerpoFicticioPersonaje,bloquesCuartos[cuartoAnterior]))
+            {
+                return cuartoAnterior;
+            }
 
             foreach (string nombreCuarto in bloquesCuartos.Keys)
             {
                 if (colisionaEsferaCaja(cuerpoFicticioPersonaje,bloquesCuartos[nombreCuarto]))
                 {
+                    cuartoAnterior = nombreCuarto;
                     return nombreCuarto;
                 }
             }
