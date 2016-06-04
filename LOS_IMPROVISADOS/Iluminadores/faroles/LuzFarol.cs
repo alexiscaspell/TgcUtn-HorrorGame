@@ -11,7 +11,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
 {
     class LuzFarol : ALuz
     {
-        public LuzFarol(List<TgcMesh> meshes, CamaraFPS camaraFPS) : base(meshes, camaraFPS)
+        public LuzFarol(Mapa mapa, CamaraFPS camaraFPS) : base(mapa, camaraFPS)
         {
         }
 
@@ -79,13 +79,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
             //cajaNegra.render();
             esferaNegra.render();
             
-            foreach (TgcMesh mesh in meshes)
+            foreach (TgcMesh mesh in mapa.escenaFiltrada)
             {
                 mesh.Effect = currentShader;
                 mesh.Technique = GuiController.Instance.Shaders.getTgcMeshTechnique(mesh.RenderType);
             }
             
-            foreach (TgcMesh mesh in meshes)
+            foreach (TgcMesh mesh in mapa.escenaFiltrada)
             {
             	//Primero dibujo un sprite negro en toda la pantalla para evitar el azul feo
             	GuiController.Instance.Drawer2D.beginDrawSprite();
