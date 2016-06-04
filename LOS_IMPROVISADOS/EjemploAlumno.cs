@@ -115,6 +115,7 @@ namespace AlumnoEjemplos.MiGrupo
             }
 
             else { 
+                
             //boss.setColisiona(personaje.estasMirandoBoss(boss));//El mejor truco del mundo! (seteo q el boss colisione solo si estoy mirando)
            
             //mapa.detectarColisiones(colisionadores);
@@ -136,13 +137,17 @@ namespace AlumnoEjemplos.MiGrupo
 
             puertaHard.update();
             puertaHard.render();
+            
             //menuPrincipal.render();
+            
             //cama.render();
+            
             foreach(Agarrable a in agarrables)
             {
             	a.render();
             }
-                }
+            }
+
             GuiController.Instance.Text3d.drawText("FPS: " + HighResolutionTimer.Instance.FramesPerSecond, 0, 0, Color.Yellow);
         }
 
