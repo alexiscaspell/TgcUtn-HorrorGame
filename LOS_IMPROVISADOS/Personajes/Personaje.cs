@@ -142,6 +142,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 configPosProcesado.renderizarPosProcesado(elapsedTime);
             }
 
+            mapa.updateEscenaFiltrada();//Updateo en que cuarto estoy
+
             configIluminador.renderizarIluminador();
 
             cuerpo.setCenter(posActual);
