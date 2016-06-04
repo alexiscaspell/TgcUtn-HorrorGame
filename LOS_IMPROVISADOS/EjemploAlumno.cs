@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Collections.Generic;
 using TgcViewer.Utils.Sound;
+using TgcViewer.Utils;
 
 namespace AlumnoEjemplos.MiGrupo
 {
@@ -114,6 +115,7 @@ namespace AlumnoEjemplos.MiGrupo
             }
 
             else { 
+                
             //boss.setColisiona(personaje.estasMirandoBoss(boss));//El mejor truco del mundo! (seteo q el boss colisione solo si estoy mirando)
            
             //mapa.detectarColisiones(colisionadores);
@@ -144,8 +146,9 @@ namespace AlumnoEjemplos.MiGrupo
             {
             	a.render();
             }
-            
             }
+
+            GuiController.Instance.Text3d.drawText("FPS: " + HighResolutionTimer.Instance.FramesPerSecond, 0, 0, Color.Yellow);
         }
 
         public override void close()
