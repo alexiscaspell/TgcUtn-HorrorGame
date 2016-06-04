@@ -44,8 +44,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             cuerpo = new TgcBoundingSphere(camaraFPS.camaraFramework.Position, radius);
 
-            configIluminador = new ConfigIluminador(mapa.escenaFiltrada, camaraFPS);
-            configPosProcesado = new ConfigPosProcesados(mapa.escenaFiltrada);
+            configIluminador = new ConfigIluminador(mapa, camaraFPS);
+            configPosProcesado = new ConfigPosProcesados(mapa);
             
             sonidoPasos = new TgcStaticSound();
             sonidoPasos.loadSound(GuiController.Instance.AlumnoEjemplosDir +"Media\\Sonidos\\pasos.wav", 0);
@@ -141,6 +141,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             {
                 configPosProcesado.renderizarPosProcesado(elapsedTime);
             }
+
+            mapa.updateEscenaFiltrada();//Updateo en que cuarto estoy
 
             configIluminador.renderizarIluminador();
 

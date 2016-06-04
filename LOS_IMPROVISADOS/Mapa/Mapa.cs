@@ -10,7 +10,7 @@ using TgcViewer.Utils.TgcSceneLoader;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
-    class Mapa
+    public class Mapa
     {
         #region Singleton
         private static volatile Mapa instancia = null;
@@ -39,13 +39,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private Dictionary<string, string[]> relacionesCuartos = new Dictionary<string, string[]>();
 
-        public List<TgcMesh> escenaFiltrada
-        {
-            get
-            {
-                return updateEscenaFiltrada();//Actualiza la escena a renderizar
-            }
-        }
+        public List<TgcMesh> escenaFiltrada { get; set; }
 
         private const int CANTIDAD_DE_CUARTOS = 79;
         private const int CANTIDAD_DE_PUERTAS = 15;
@@ -72,6 +66,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             ColinaAzul.Instance.calcularBoundingBoxes(cuartos, CANTIDAD_DE_CUARTOS);
 
             agregarObjetosMapa();
+
+            updateEscenaFiltrada();
         }
 
         private void agregarObjetosMapa()
@@ -202,11 +198,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             return false;
         }
 
-        private List<TgcMesh> updateEscenaFiltrada()
+        public void updateEscenaFiltrada()
         {
             string nombreCuarto = ColinaAzul.Instance.dondeEstaPesonaje();
 
-            return cuartos[nombreCuarto];
+            escenaFiltrada = cuartos[nombreCuarto];
         }
 
     }

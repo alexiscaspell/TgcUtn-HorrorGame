@@ -28,13 +28,15 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
 		
 		float time;
 
-		public PosProcesoHechoMierda(List<TgcMesh> meshes):base(meshes)
+		public PosProcesoHechoMierda(Mapa mapa):base(mapa)
 		{
-			this.meshes = meshes;
+			this.mapa = mapa;
 		}
 		
 		public override void init()
 		{
+            meshes = mapa.escenaFiltrada;
+
             Device d3dDevice = GuiController.Instance.D3dDevice;
             
             GuiController.Instance.CustomRenderEnabled = true;
@@ -88,6 +90,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
 //		}
 
 		public override void render(float elapsedTime){
+
+            meshes = mapa.escenaFiltrada;
 			
 			Device device = GuiController.Instance.D3dDevice;
 			

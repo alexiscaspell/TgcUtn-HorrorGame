@@ -9,20 +9,20 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Configuradores
 {
     class ConfigPosProcesados
     {
-        public List<TgcMesh> meshes { get; set; }
+        public Mapa mapa { get; set; }
 
         public List<APosProcesado> posProcesados { get; set; }
 
-        public ConfigPosProcesados(List<TgcMesh> meshes)
+        public ConfigPosProcesados(Mapa mapa)
         {
-            this.meshes = meshes;
+            this.mapa = mapa;
             iniciarPosProcesadores();
         }
 
         public void iniciarPosProcesadores()
         {
-            PosProcesadoAlarma posProcesadoAlarma = new PosProcesadoAlarma(meshes);
-            PosProcesoHechoMierda efectoHechoMierda = new PosProcesoHechoMierda(meshes);
+            PosProcesadoAlarma posProcesadoAlarma = new PosProcesadoAlarma(mapa);
+            PosProcesoHechoMierda efectoHechoMierda = new PosProcesoHechoMierda(mapa);
 
             efectoHechoMierda.init();
 
