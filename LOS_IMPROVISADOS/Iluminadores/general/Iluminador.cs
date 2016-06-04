@@ -23,7 +23,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
             this.bateria = bateria;
             this.sonidoPrenderOApagar = sonido;
 				
-            oscuridad = new LuzOscura(luz.tgcEscena, luz.camaraFPS);
+            oscuridad = new LuzOscura(luz.meshes, luz.camaraFPS);
 
             init();
         }

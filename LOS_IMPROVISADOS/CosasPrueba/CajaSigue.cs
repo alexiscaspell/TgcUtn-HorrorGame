@@ -63,7 +63,7 @@ namespace AlumnoEjemplos.MiGrupo
             camaraFPS = CamaraFPS.Instance;
             camaraFPS.init();
 
-            luzLinterna = new LuzLinterna(tgcEscena, camaraFPS);
+            //luzLinterna = new LuzLinterna(tgcEscena, camaraFPS);
             luzLinterna.init();
 
             cajaInteraccion = new Caja();

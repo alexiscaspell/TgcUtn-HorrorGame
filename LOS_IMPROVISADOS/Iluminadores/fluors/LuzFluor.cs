@@ -5,12 +5,13 @@ using Microsoft.DirectX.Direct3D;
 using System.Drawing;
 using TgcViewer.Utils.TgcGeometry;
 using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA;
+using System.Collections.Generic;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.fluors
 {
     class LuzFluor : ALuz
     {
-        public LuzFluor(TgcScene tgcEscena, CamaraFPS camaraFPS) : base(tgcEscena, camaraFPS)
+        public LuzFluor(List<TgcMesh> meshes, CamaraFPS camaraFPS) : base(meshes, camaraFPS)
         {
         }
 
@@ -32,13 +33,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.fluors
         {
             Effect currentShader = GuiController.Instance.Shaders.TgcMeshPointLightShader;
 
-            foreach (TgcMesh mesh in tgcEscena.Meshes)
+            foreach (TgcMesh mesh in meshes)
             {
                 mesh.Effect = currentShader;
                 mesh.Technique = GuiController.Instance.Shaders.getTgcMeshTechnique(mesh.RenderType);
             }
             
-            foreach (TgcMesh mesh in tgcEscena.Meshes)
+            foreach (TgcMesh mesh in meshes)
             {
                 //Cargar variables shader de la luz
                 mesh.Effect.SetValue("lightColor", ColorValue.FromColor((Color)GuiController.Instance.Modifiers["fluorColor"]));

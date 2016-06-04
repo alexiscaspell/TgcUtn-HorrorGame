@@ -2,6 +2,7 @@
 using Microsoft.DirectX;
 using Microsoft.DirectX.Direct3D;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using TgcViewer;
 using TgcViewer.Utils.TgcSceneLoader;
@@ -10,7 +11,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
 {
     class LuzOscura : ALuz
     {
-        public LuzOscura(TgcScene tgcEscena, CamaraFPS camaraFPS) : base(tgcEscena, camaraFPS)
+        public LuzOscura(List<TgcMesh> meshes, CamaraFPS camaraFPS) : base(meshes, camaraFPS)
         {
         }
 
@@ -22,13 +23,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
         {
             Effect currentShader = GuiController.Instance.Shaders.TgcMeshPointLightShader;
 
-            foreach (TgcMesh mesh in tgcEscena.Meshes)
+            foreach (TgcMesh mesh in meshes)
             {
                 mesh.Effect = currentShader;
                 mesh.Technique = GuiController.Instance.Shaders.getTgcMeshTechnique(mesh.RenderType);
             }
             
-            foreach (TgcMesh mesh in tgcEscena.Meshes)
+            foreach (TgcMesh mesh in meshes)
             {
                 //Cargar variables shader de la luz
                 mesh.Effect.SetValue("lightColor", ColorValue.FromColor(Color.Gray));

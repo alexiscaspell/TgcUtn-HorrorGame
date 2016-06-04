@@ -5,12 +5,13 @@ using Microsoft.DirectX.Direct3D;
 using System.Drawing;
 using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA;
 using TgcViewer.Utils.TgcGeometry;
+using System.Collections.Generic;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
 {
     class LuzFarol : ALuz
     {
-        public LuzFarol(TgcScene tgcEscena, CamaraFPS camaraFPS) : base(tgcEscena, camaraFPS)
+        public LuzFarol(List<TgcMesh> meshes, CamaraFPS camaraFPS) : base(meshes, camaraFPS)
         {
         }
 
@@ -78,13 +79,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
             //cajaNegra.render();
             esferaNegra.render();
             
-            foreach (TgcMesh mesh in tgcEscena.Meshes)
+            foreach (TgcMesh mesh in meshes)
             {
                 mesh.Effect = currentShader;
                 mesh.Technique = GuiController.Instance.Shaders.getTgcMeshTechnique(mesh.RenderType);
             }
             
-            foreach (TgcMesh mesh in tgcEscena.Meshes)
+            foreach (TgcMesh mesh in meshes)
             {
             	//Primero dibujo un sprite negro en toda la pantalla para evitar el azul feo
             	GuiController.Instance.Drawer2D.beginDrawSprite();

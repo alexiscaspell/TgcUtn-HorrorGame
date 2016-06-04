@@ -9,12 +9,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
     abstract class ALuz
     {
 
-        public TgcScene tgcEscena { set; get; }
+        public List<TgcMesh> meshes { set; get; }
         public CamaraFPS camaraFPS { get; set; }
         
-        public ALuz(TgcScene tgcEscena, CamaraFPS camaraFPS)
+        public ALuz(List<TgcMesh> meshes, CamaraFPS camaraFPS)
         {
-            this.tgcEscena = tgcEscena;
+            this.meshes = meshes;
             this.camaraFPS = camaraFPS;
         }
 

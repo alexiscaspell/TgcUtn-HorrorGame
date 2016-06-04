@@ -5,12 +5,13 @@ using Microsoft.DirectX.Direct3D;
 using System.Drawing;
 using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA;
 using TgcViewer.Utils.TgcGeometry;
+using System.Collections.Generic;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
 {
     class LuzLinterna : ALuz
     {
-        public LuzLinterna(TgcScene tgcEscena, CamaraFPS camaraFPS) : base(tgcEscena, camaraFPS)
+        public LuzLinterna(List<TgcMesh> meshes, CamaraFPS camaraFPS) : base(meshes, camaraFPS)
         {
         }
 
@@ -35,7 +36,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
         public override void render()
         {
             Effect currentShader = GuiController.Instance.Shaders.TgcMeshSpotLightShader;
-            foreach (TgcMesh mesh in tgcEscena.Meshes)
+            foreach (TgcMesh mesh in meshes)
             {
                 mesh.Effect = currentShader;
                 mesh.Technique = GuiController.Instance.Shaders.getTgcMeshTechnique(mesh.RenderType);
@@ -44,7 +45,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
             Vector3 lightDir = camaraFPS.direccionVista;
             lightDir.Normalize();
 
-            foreach (TgcMesh mesh in tgcEscena.Meshes)
+            foreach (TgcMesh mesh in meshes)
             {
                 //Cargar variables shader de la luz
                 mesh.Effect.SetValue("lightPosition", TgcParserUtils.vector3ToFloat4Array(camaraFPS.posicion));

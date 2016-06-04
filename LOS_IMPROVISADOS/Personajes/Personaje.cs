@@ -45,7 +45,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             cuerpo = new TgcBoundingSphere(camaraFPS.camaraFramework.Position, radius);
 
-            configIluminador = new ConfigIluminador(mapa.escena, camaraFPS);
+            configIluminador = new ConfigIluminador(mapa.escenaFiltrada, camaraFPS);
 
             iniciarPosProcesadores();
             

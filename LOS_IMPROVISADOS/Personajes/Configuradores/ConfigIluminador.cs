@@ -20,7 +20,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Configuradores
         
         private TgcStaticSound sonidoFluor;
 
-        public ConfigIluminador(TgcScene escena, CamaraFPS camaraFPS)
+        public ConfigIluminador(List<TgcMesh> meshes, CamaraFPS camaraFPS)
         {
             this.escena = escena;
             this.camaraFPS = camaraFPS;
@@ -41,9 +41,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Configuradores
             sonidoFluor.loadSound(GuiController.Instance.AlumnoEjemplosDir +
                                   "Media\\Sonidos\\sonidoFluor.wav", 0);
      		
-            Iluminador linterna = new Iluminador(new LuzLinterna(escena, camaraFPS), new ManoLinterna(), new BateriaLinterna(), sonidoLinterna);
-            Iluminador farol = new Iluminador(new LuzFarol(escena, camaraFPS), new ManoFarol(), new BateriaFarol(), sonidoFarol);
-            Iluminador fluor = new Iluminador(new LuzFluor(escena, camaraFPS), new ManoFluor(), new BateriaFluor(), sonidoFluor);
+            Iluminador linterna = new Iluminador(new LuzLinterna(meshes, camaraFPS), new ManoLinterna(), new BateriaLinterna(), sonidoLinterna);
+            Iluminador farol = new Iluminador(new LuzFarol(meshes, camaraFPS), new ManoFarol(), new BateriaFarol(), sonidoFarol);
+            Iluminador fluor = new Iluminador(new LuzFluor(meshes, camaraFPS), new ManoFluor(), new BateriaFluor(), sonidoFluor);
 
             iluminadores = new List<Iluminador>() { linterna, farol, fluor };
         }
