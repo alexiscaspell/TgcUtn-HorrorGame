@@ -34,9 +34,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         Dictionary<string,TgcBoundingBox> bloquesCuartos;
 
+        private TgcBoundingSphere cuerpoFicticioPersonaje;
+
         private ColinaAzul()
         {
             bloquesCuartos = new Dictionary<string, TgcBoundingBox>();
+            cuerpoFicticioPersonaje = new TgcBoundingSphere(CamaraFPS.Instance.posicion, 10);
         }
 
         public void calcularBoundingBoxes(Dictionary<string,List<TgcMesh>> cuartos,int cantidadCuartos)
@@ -109,6 +112,20 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             return new Vector3(FastMath.Max(point.X, otherPoint.X),
             FastMath.Max(point.Y, otherPoint.Y),
             FastMath.Max(point.Z, otherPoint.Z));
+        }
+
+        public string dondeEstaPesonaje()
+        {
+            cuerpoFicticioPersonaje.setCenter(CamaraFPS.Instance.camaraFramework.Position);
+
+            foreach (string nombreCuarto in bloquesCuartos.Keys)
+            {
+                if (colisionaEsferaCaja(cuerpoFicticioPersonaje,bloquesCuartos[nombreCuarto]))
+                {
+                    return nombreCuarto;
+                }
+            }
+            return "";
         }
     }
 }

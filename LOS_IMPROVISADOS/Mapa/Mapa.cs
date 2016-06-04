@@ -39,6 +39,14 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private Dictionary<string, string[]> relacionesCuartos = new Dictionary<string, string[]>();
 
+        public List<TgcMesh> escenaFiltrada
+        {
+            get
+            {
+                return updateEscenaFiltrada();//Actualiza la escena a renderizar
+            }
+        }
+
         private const int CANTIDAD_DE_CUARTOS = 79;
         private const int CANTIDAD_DE_PUERTAS = 15;
         private const int CANTIDAD_DE_PUERTAS_PZ = 11;
@@ -192,6 +200,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 }
             }
             return false;
+        }
+
+        private List<TgcMesh> updateEscenaFiltrada()
+        {
+            string nombreCuarto = ColinaAzul.Instance.dondeEstaPesonaje();
+
+            return cuartos[nombreCuarto];
         }
 
     }
