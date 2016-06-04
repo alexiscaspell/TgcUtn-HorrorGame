@@ -14,13 +14,15 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
 {
     class PosProcesadoAlarma : APosProcesado
     {
-        public PosProcesadoAlarma(TgcScene escena) : base(escena)
+        public PosProcesadoAlarma(Mapa mapa) : base(mapa)
         {
             init();
         }
 
         public override void init()
         {
+            meshes = mapa.escenaFiltrada;
+
             Device d3dDevice = GuiController.Instance.D3dDevice;
 
             //Activamos el renderizado customizado. De esta forma el framework nos delega control total sobre como dibujar en pantalla
@@ -67,14 +69,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
             intVaivenAlarm.Max = 1;
             intVaivenAlarm.Speed = 2;
             intVaivenAlarm.reset();
-
-
-            //Cargamos un escenario
-            meshes = escena.Meshes;
+            
         }
 
         public override void render(float elapsedTime)
         {
+            meshes = mapa.escenaFiltrada;
+
             Device d3dDevice = GuiController.Instance.D3dDevice;
 
             //Cargamos el Render Targer al cual se va a dibujar la escena 3D. Antes nos guardamos el surface original

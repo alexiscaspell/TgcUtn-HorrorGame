@@ -11,7 +11,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.fluors
 {
     class LuzFluor : ALuz
     {
-        public LuzFluor(List<TgcMesh> meshes, CamaraFPS camaraFPS) : base(meshes, camaraFPS)
+        public LuzFluor(Mapa mapa, CamaraFPS camaraFPS) : base(mapa, camaraFPS)
         {
         }
 
@@ -33,13 +33,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.fluors
         {
             Effect currentShader = GuiController.Instance.Shaders.TgcMeshPointLightShader;
 
-            foreach (TgcMesh mesh in meshes)
+            foreach (TgcMesh mesh in mapa.escenaFiltrada)
             {
                 mesh.Effect = currentShader;
                 mesh.Technique = GuiController.Instance.Shaders.getTgcMeshTechnique(mesh.RenderType);
             }
             
-            foreach (TgcMesh mesh in meshes)
+            foreach (TgcMesh mesh in mapa.escenaFiltrada)
             {
                 //Cargar variables shader de la luz
                 mesh.Effect.SetValue("lightColor", ColorValue.FromColor((Color)GuiController.Instance.Modifiers["fluorColor"]));

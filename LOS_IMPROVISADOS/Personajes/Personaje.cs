@@ -17,9 +17,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public CamaraFPS camaraFPS { get; set; }
 
-        public ConfigIluminador configIluminador { get; set; }
-
-        public List<APosProcesado> posProcesados { get; set; }
+        public ConfigIluminador configIluminador { get; set; }   
+        
+        public ConfigPosProcesados configPosProcesado { get; set; }     
         
         public List<Agarrable> objetos {get; set;}
 
@@ -40,40 +40,16 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             this.camaraFPS = CamaraFPS.Instance;
 
             alturaParado = camaraFPS.camaraFramework.Position.Y;
-
             alturaAgachado = alturaParado / 3;
 
             cuerpo = new TgcBoundingSphere(camaraFPS.camaraFramework.Position, radius);
 
-            configIluminador = new ConfigIluminador(mapa.escenaFiltrada, camaraFPS);
-
-            iniciarPosProcesadores();
+            configIluminador = new ConfigIluminador(mapa, camaraFPS);
+            configPosProcesado = new ConfigPosProcesados(mapa);
             
             sonidoPasos = new TgcStaticSound();
-            sonidoPasos.loadSound(GuiController.Instance.AlumnoEjemplosDir +
-                                  "Media\\Sonidos\\pasos.wav", 0);
-            
+            sonidoPasos.loadSound(GuiController.Instance.AlumnoEjemplosDir +"Media\\Sonidos\\pasos.wav", 0);
         }
-
-        /***********************POSPROCESADO***********************/
-        public void iniciarPosProcesadores()
-        {
-            PosProcesadoAlarma posProcesadoAlarma = new PosProcesadoAlarma(mapa.escena);
-            PosProcesoHechoMierda efectoHechoMierda = new PosProcesoHechoMierda(mapa.escena);
-            
-            efectoHechoMierda.init();
-
-            posProcesados = new List<APosProcesado>() { posProcesadoAlarma };
-            posProcesados.Add(efectoHechoMierda);
-        }
-
-        public void renderizarPosProcesado(float elapsedTime)
-        {
-            //por ahora lo hago solo con el primero, despues veo como implemento los demas
-            //posProcesados[0].render(elapsedTime);
-            posProcesados[1].render(elapsedTime);
-        }
-
 
         internal bool estasMirandoBoss(Boss boss)
         {
@@ -160,10 +136,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			   	}
 			}
 			
-            //efecto de que se esta muriendo
+           //posprocesado
             if (configIluminador.iluminadorActualSeQuedoSinBateria())
             {
-                renderizarPosProcesado(elapsedTime);
+                configPosProcesado.renderizarPosProcesado(elapsedTime);
             }
 
             configIluminador.renderizarIluminador();

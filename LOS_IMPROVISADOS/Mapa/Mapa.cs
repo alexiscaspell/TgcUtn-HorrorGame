@@ -10,7 +10,7 @@ using TgcViewer.Utils.TgcSceneLoader;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
-    class Mapa
+    public class Mapa
     {
         #region Singleton
         private static volatile Mapa instancia = null;

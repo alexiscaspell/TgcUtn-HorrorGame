@@ -28,13 +28,15 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
 		
 		float time;
 
-		public PosProcesoHechoMierda(TgcScene tgcEscena)
+		public PosProcesoHechoMierda(Mapa mapa):base(mapa)
 		{
-			this.escena = tgcEscena;
+			this.mapa = mapa;
 		}
 		
 		public override void init()
 		{
+            meshes = mapa.escenaFiltrada;
+
             Device d3dDevice = GuiController.Instance.D3dDevice;
             
             GuiController.Instance.CustomRenderEnabled = true;
@@ -59,9 +61,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
             effect = TgcShaders.loadEffect(GuiController.Instance.AlumnoEjemplosDir + "\\LOS_IMPROVISADOS\\Shaders\\HechoMierda.fx");
 
             effect.Technique = "HechoMierdaTechnique";
-            	
-            meshes = escena.Meshes;
-            
+            	            
             foreach(TgcMesh mesh in meshes){
             	mesh.Effect = effect;
             }
@@ -90,6 +90,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
 //		}
 
 		public override void render(float elapsedTime){
+
+            meshes = mapa.escenaFiltrada;
 			
 			Device device = GuiController.Instance.D3dDevice;
 			

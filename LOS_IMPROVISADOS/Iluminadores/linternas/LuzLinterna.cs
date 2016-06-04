@@ -11,7 +11,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
 {
     class LuzLinterna : ALuz
     {
-        public LuzLinterna(List<TgcMesh> meshes, CamaraFPS camaraFPS) : base(meshes, camaraFPS)
+        public LuzLinterna(Mapa mapa, CamaraFPS camaraFPS) : base(mapa, camaraFPS)
         {
         }
 
@@ -36,7 +36,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
         public override void render()
         {
             Effect currentShader = GuiController.Instance.Shaders.TgcMeshSpotLightShader;
-            foreach (TgcMesh mesh in meshes)
+            foreach (TgcMesh mesh in mapa.escenaFiltrada)
             {
                 mesh.Effect = currentShader;
                 mesh.Technique = GuiController.Instance.Shaders.getTgcMeshTechnique(mesh.RenderType);
@@ -45,7 +45,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
             Vector3 lightDir = camaraFPS.direccionVista;
             lightDir.Normalize();
 
-            foreach (TgcMesh mesh in meshes)
+            foreach (TgcMesh mesh in mapa.escenaFiltrada)
             {
                 //Cargar variables shader de la luz
                 mesh.Effect.SetValue("lightPosition", TgcParserUtils.vector3ToFloat4Array(camaraFPS.posicion));
