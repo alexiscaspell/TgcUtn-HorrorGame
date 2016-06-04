@@ -37,7 +37,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private Dictionary<string, List<TgcMesh>> cuartos;
 
+        private Dictionary<string, string[]> relacionesCuartos = new Dictionary<string, string[]>();
+
         private const int CANTIDAD_DE_CUARTOS = 79;
+        private const int CANTIDAD_DE_PUERTAS = 15;
+        private const int CANTIDAD_DE_PUERTAS_PZ = 11;
 
         public Mapa()
         {
@@ -53,9 +57,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                  cargarDatosAArchivo();
              }*/
 
-            mapearMapaALista();
-
             cargarDatosAArchivo();
+
+            mapearMapaALista();
 
             ColinaAzul.Instance.calcularBoundingBoxes(cuartos, CANTIDAD_DE_CUARTOS);
         }
@@ -86,30 +90,60 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             cuartos = new Dictionary<string, List<TgcMesh>>();
 
-            for (int i = 0; i < CANTIDAD_DE_CUARTOS; i++)
-            {
-                cuartos.Add("r_"+(i + 1).ToString(), new List<TgcMesh>());
-            }
-            cuartos.Add("otros", new List<TgcMesh>());
+            initDiccionario();
 
             foreach (TgcMesh mesh in escena.Meshes)
             {
-                string index = mesh.Name;
-                index = index.Split('[')[0];
+                string index = parsearMesh(mesh);
 
-                List<TgcMesh> auxList = new List<TgcMesh>();
-
-                if (index[0]=='r')
+                if(cuartos.ContainsKey(index))
                 {
-                    auxList = cuartos[index];
+                    cuartos[index].Add(mesh);
                 }
                 else
                 {
-                    auxList = cuartos["otros"];
+                    cuartos["otros"].Add(mesh);
                 }
-
-                auxList.Add(mesh);
             }
+        }
+
+        private string parsearMesh(TgcMesh mesh)
+        {
+            string index = mesh.Name.Split('_')[0];
+
+            if (!relacionesCuartos.ContainsKey(index))
+            {
+                string[] lista = null;
+
+                string iterador;
+
+                iterador = mesh.Name.Split('[')[1];
+
+                iterador = iterador.Split(']')[0];
+
+                lista = iterador.Split(';');
+
+                relacionesCuartos.Add(index, lista);
+            }
+
+            return index;
+        }
+
+        private void initDiccionario()
+        {
+            for (int i = 1; i <= CANTIDAD_DE_CUARTOS; i++)
+            {
+                cuartos.Add("r" + i.ToString(), new List<TgcMesh>());
+                if (i <= CANTIDAD_DE_PUERTAS)
+                {
+                    cuartos.Add("p" + i.ToString(), new List<TgcMesh>());
+                }
+                if (i <= CANTIDAD_DE_PUERTAS_PZ)
+                {
+                    cuartos.Add("pz" + i.ToString(), new List<TgcMesh>());
+                }
+            }
+            cuartos.Add("otros", new List<TgcMesh>());
         }
 
         internal void dispose()

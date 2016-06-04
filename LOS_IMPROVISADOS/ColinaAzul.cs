@@ -44,14 +44,14 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             List<TgcMesh> cuarto;
             for (int i = 1; i <= cantidadCuartos; i++)
             {
-                string index = "r_" + i.ToString();
+                string index = "r" + i.ToString();
 
                 cuarto = cuartos[index];
                 //cuartos.TryGetValue("r_"+i, out cuarto);
 
                 if (cuarto.Count>0)
                 {
-                    bloquesCuartos.Add("r_"+i.ToString(),calcularBoundingBox(cuarto));
+                    bloquesCuartos.Add("r"+i.ToString(),calcularBoundingBox(cuarto));
                 }
             }
         }
