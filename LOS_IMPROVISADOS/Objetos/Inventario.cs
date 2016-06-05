@@ -121,19 +121,19 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		
 		public void render()
 		{
-			//if(activado)
+			if(activado)
 			{
-			update();
-
-            GuiController.Instance.Drawer2D.beginDrawSprite();
-            inventarioScreen.render();
-
-            foreach(Item item in listaItems)
-            {
-            	item.render();
-            }
-
-            GuiController.Instance.Drawer2D.endDrawSprite();
+				update();
+	
+	            GuiController.Instance.Drawer2D.beginDrawSprite();
+	            inventarioScreen.render();
+	
+	            foreach(Item item in listaItems)
+	            {
+	            	item.render();
+	            }
+	
+	            GuiController.Instance.Drawer2D.endDrawSprite();
 			}
 		}
 		
@@ -167,7 +167,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			}
 			if(GuiController.Instance.D3dInput.keyPressed(Key.I) )
 			{
-				this.activado = !this.activado;
+				if(activado){
+					activado=false;
+				}else {
+					activado = true;
+				}
 				indiceFila = 0;
 				indiceColumna = 0;
 			}

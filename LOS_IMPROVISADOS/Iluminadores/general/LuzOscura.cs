@@ -15,23 +15,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
         {
         }
 
-        public override void init()
+        public override void configInicial()
         {
         }
-
-        public override void render()
+        
+        public override void configurarEfecto(TgcMesh mesh)
         {
-            Effect currentShader = GuiController.Instance.Shaders.TgcMeshPointLightShader;
-
-            foreach (TgcMesh mesh in mapa.escenaFiltrada)
-            {
-                mesh.Effect = currentShader;
-                mesh.Technique = GuiController.Instance.Shaders.getTgcMeshTechnique(mesh.RenderType);
-            }
-            
-            foreach (TgcMesh mesh in mapa.escenaFiltrada)
-            {
-                //Cargar variables shader de la luz
+        	    //Cargar variables shader de la luz
                 mesh.Effect.SetValue("lightColor", ColorValue.FromColor(Color.Gray));
                 mesh.Effect.SetValue("lightPosition", TgcParserUtils.vector3ToFloat4Array(camaraFPS.posicion));
                 mesh.Effect.SetValue("lightIntensity", 30f);
@@ -43,8 +33,34 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
                 mesh.Effect.SetValue("materialDiffuseColor", ColorValue.FromColor(Color.White));
                 mesh.Effect.SetValue("materialSpecularColor", ColorValue.FromColor(Color.White));
 
-                mesh.render();
-            }
         }
+
+//        public override void render()
+//        {
+//            Effect currentShader = GuiController.Instance.Shaders.TgcMeshPointLightShader;
+//
+//            foreach (TgcMesh mesh in mapa.escenaFiltrada)
+//            {
+//                mesh.Effect = currentShader;
+//                mesh.Technique = GuiController.Instance.Shaders.getTgcMeshTechnique(mesh.RenderType);
+//            }
+//            
+//            foreach (TgcMesh mesh in mapa.escenaFiltrada)
+//            {
+//                //Cargar variables shader de la luz
+//                mesh.Effect.SetValue("lightColor", ColorValue.FromColor(Color.Gray));
+//                mesh.Effect.SetValue("lightPosition", TgcParserUtils.vector3ToFloat4Array(camaraFPS.posicion));
+//                mesh.Effect.SetValue("lightIntensity", 30f);
+//                mesh.Effect.SetValue("lightAttenuation", 0.17f);
+//                mesh.Effect.SetValue("materialSpecularExp", 1f);
+//
+//                mesh.Effect.SetValue("materialEmissiveColor", ColorValue.FromColor(Color.Black));
+//                mesh.Effect.SetValue("materialAmbientColor", ColorValue.FromColor(Color.DarkGray));
+//                mesh.Effect.SetValue("materialDiffuseColor", ColorValue.FromColor(Color.White));
+//                mesh.Effect.SetValue("materialSpecularColor", ColorValue.FromColor(Color.White));
+//
+//                mesh.render();
+//            }
+//        }
     }
 }
