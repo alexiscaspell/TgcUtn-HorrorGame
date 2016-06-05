@@ -19,6 +19,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
 
         public override void configInicial()
         {
+                currentShader = GuiController.Instance.Shaders.TgcMeshPointLightShader;
         }
         
         public override void configurarEfecto(TgcMesh mesh)
@@ -35,7 +36,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
                 mesh.Effect.SetValue("materialDiffuseColor", ColorValue.FromColor(Color.White));
                 mesh.Effect.SetValue("materialSpecularColor", ColorValue.FromColor(Color.White));
 
-                currentShader = GuiController.Instance.Shaders.TgcMeshPointLightShader;
         }
 
 //        public override void render()

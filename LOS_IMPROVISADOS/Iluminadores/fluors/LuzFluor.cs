@@ -35,6 +35,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.fluors
         
         public override void configurarEfecto(TgcMesh mesh)
         {
+        			
         	//Cargar variables shader de la luz
             mesh.Effect.SetValue("lightColor", ColorValue.FromColor((Color)GuiController.Instance.Modifiers["fluorColor"]));
             mesh.Effect.SetValue("lightPosition", TgcParserUtils.vector3ToFloat4Array(camaraFPS.posicion));
