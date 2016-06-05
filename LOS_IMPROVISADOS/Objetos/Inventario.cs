@@ -115,6 +115,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             		listaItems[i,j] = new Item(spriteSlotVacio);
             	}
             }
+            
+            
 		}
 		
 		public void render()
@@ -140,34 +142,34 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			//Accion de botones
 			if(GuiController.Instance.D3dInput.keyPressed(Key.RightArrow) )
 			{
-				indiceFila++;
+				indiceColumna++;
 				sonidoCambio.play();
 			}
 			if(GuiController.Instance.D3dInput.keyPressed(Key.LeftArrow) )
 			{
-				indiceFila--;
+				indiceColumna--;
 				sonidoCambio.play();
 			}
 			if(GuiController.Instance.D3dInput.keyPressed(Key.DownArrow) )
 			{
-				indiceColumna++;
+				indiceFila++;
 				sonidoCambio.play();
 			}
 			if(GuiController.Instance.D3dInput.keyPressed(Key.Up) )
 			{
-				indiceColumna--;
+				indiceFila--;
 				sonidoCambio.play();
 			}
 			if(GuiController.Instance.D3dInput.keyPressed(Key.Space) )
 			{
-				listaItems[indiceColumna,indiceFila].execute();
+				listaItems[indiceFila,indiceColumna].execute();
 				sonidoCambio.play();
 			}
 			if(GuiController.Instance.D3dInput.keyPressed(Key.I) )
 			{
 				this.activado = !this.activado;
-				indiceFila = 1;
-				indiceColumna = 1;
+				indiceFila = 0;
+				indiceColumna = 0;
 			}
 			
 			int i,j;
@@ -178,14 +180,17 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 				}
 			}
 			
-			listaItems[indiceColumna,indiceFila].select();
+			fixIndice();
+			listaItems[indiceFila,indiceColumna].select();
 
-		}
-
-		private void aumentarIndicie(int indice, int limite)
-		{
-			
 		}
 		
+		private void fixIndice()
+		{
+			if(indiceFila<0)indiceFila=0;
+			if(indiceFila>=cantFilas)indiceFila=cantFilas-1;
+			if(indiceColumna<0)indiceColumna=0;
+			if(indiceColumna>=cantColumnas)indiceColumna=cantColumnas-1;
+		}
 	}
 }
