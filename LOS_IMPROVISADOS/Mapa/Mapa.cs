@@ -202,7 +202,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             string nombreCuarto = ColinaAzul.Instance.dondeEstaPesonaje();
 
-            escenaFiltrada = cuartos[nombreCuarto];
+            //escenaFiltrada = cuartos[nombreCuarto];
+            escenaFiltrada = escena.Meshes;
         }
 
     }

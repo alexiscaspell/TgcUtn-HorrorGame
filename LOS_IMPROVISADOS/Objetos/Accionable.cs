@@ -16,20 +16,22 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 	/// <summary>
 	/// Description of Agarrable.
 	/// </summary>
-	public abstract class Agarrable
+	public abstract class Accionable
 	{
 		protected TgcMesh mesh;
-		protected int agarrado = 1; //cant de veces que se puede accionar
+		protected int agarrado; //cant de veces que se puede accionar
+		protected const float distAccion = 100f;
 		
-		public bool acciona(Vector3 pos, Vector3 dir, TgcBoundingBox box){
+		public bool acciona(Vector3 posInicial, Vector3 dir, TgcBoundingBox box){
 			
-			this.agarrado--;
-			
-			TgcRay rayo = new TgcRay(pos, dir);
 			Vector3 vectorInutil;
+			Vector3 posFinal = dir * distAccion;
 			
-			return TgcCollisionUtils.intersectRayAABB(rayo, box, out vectorInutil);
+			bool resultado = TgcCollisionUtils.intersectSegmentAABB(posInicial, posFinal, box, out vectorInutil);
 			
+			if(resultado) agarrado--;
+			
+			return resultado;
 		}
 		
 		public TgcBoundingBox getBB()

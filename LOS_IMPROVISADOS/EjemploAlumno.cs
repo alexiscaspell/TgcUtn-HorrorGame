@@ -32,7 +32,6 @@ namespace AlumnoEjemplos.MiGrupo
         private PuertaHard puertaHard;
 
         private Cama cama;
-        private List<Agarrable>agarrables = new List<Agarrable>();
         
         public bool playing;
         public GameMenu menuActual;
@@ -95,10 +94,7 @@ namespace AlumnoEjemplos.MiGrupo
             
             cama = new Cama();
             //cama.init();
-            agarrables.Add(new Bateria());
-            agarrables.Add(new Bateria());
             
-            personaje.objetos = agarrables;
         }
 
         public override void render(float elapsedTime)
@@ -142,10 +138,6 @@ namespace AlumnoEjemplos.MiGrupo
             
             //cama.render();
             
-            foreach(Agarrable a in agarrables)
-            {
-            	a.render();
-            }
             }
 
             GuiController.Instance.Text3d.drawText("FPS: " + HighResolutionTimer.Instance.FramesPerSecond, 0, 0, Color.Yellow);
