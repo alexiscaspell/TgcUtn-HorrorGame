@@ -11,8 +11,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.fluors
 {
     class LuzFluor : ALuz
     {
-        public LuzFluor(Mapa mapa, CamaraFPS camaraFPS) : base(mapa, camaraFPS)
+        public LuzFluor(Mapa mapa, CamaraFPS camaraFPS)
         {
+        	this.mapa = mapa;
+        	this.camaraFPS = camaraFPS;
         }
 
         public override void configInicial()
@@ -27,6 +29,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.fluors
             GuiController.Instance.Modifiers.addColor("fluorAmbient", Color.LightGreen);
             GuiController.Instance.Modifiers.addColor("fluorDiffuse", Color.LightGreen);
             GuiController.Instance.Modifiers.addColor("fluorSpecular", Color.LightGreen);
+            
+            currentShader = GuiController.Instance.Shaders.TgcMeshPointLightShader;
         }
         
         public override void configurarEfecto(TgcMesh mesh)

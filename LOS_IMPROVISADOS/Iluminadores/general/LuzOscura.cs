@@ -11,8 +11,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
 {
     class LuzOscura : ALuz
     {
-        public LuzOscura(Mapa mapa, CamaraFPS camaraFPS) : base(mapa, camaraFPS)
+        public LuzOscura(Mapa mapa, CamaraFPS camaraFPS)
         {
+        	this.mapa = mapa;
+        	this.camaraFPS = camaraFPS;
         }
 
         public override void configInicial()
@@ -33,6 +35,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
                 mesh.Effect.SetValue("materialDiffuseColor", ColorValue.FromColor(Color.White));
                 mesh.Effect.SetValue("materialSpecularColor", ColorValue.FromColor(Color.White));
 
+                currentShader = GuiController.Instance.Shaders.TgcMeshPointLightShader;
         }
 
 //        public override void render()

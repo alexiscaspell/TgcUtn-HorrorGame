@@ -11,8 +11,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
 {
     class LuzLinterna : ALuz
     {
-        public LuzLinterna(Mapa mapa, CamaraFPS camaraFPS) : base(mapa, camaraFPS)
+    	public LuzLinterna(Mapa mapa, CamaraFPS camaraFPS)
         {
+    		this.mapa = mapa;
+    		this.camaraFPS = camaraFPS;
         }
 
         public override void configInicial()
@@ -31,13 +33,18 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
             GuiController.Instance.Modifiers.addColor("linternaDiffuse", Color.White);
             GuiController.Instance.Modifiers.addColor("linternaSpecular", Color.White);
             
+            currentShader = GuiController.Instance.Shaders.TgcMeshSpotLightShader;
+                    
         } 
 
         public override void configurarEfecto(TgcMesh mesh)
         {
+        	mesh.Effect = currentShader;
+            mesh.Technique = GuiController.Instance.Shaders.getTgcMeshTechnique(mesh.RenderType);
+
         	//Cargar variables shader de la luz
-                mesh.Effect.SetValue("lightPosition", TgcParserUtils.vector3ToFloat4Array(camaraFPS.posicion));
-                mesh.Effect.SetValue("eyePosition", TgcParserUtils.vector3ToFloat4Array(camaraFPS.posicion));
+                mesh.Effect.SetValue("lightPosition", TgcParserUtils.vector3ToFloat4Array(camaraFPS.camaraFramework.Position));
+                mesh.Effect.SetValue("eyePosition", TgcParserUtils.vector3ToFloat4Array(camaraFPS.camaraFramework.Position));
                 mesh.Effect.SetValue("spotLightDir", TgcParserUtils.vector3ToFloat3Array(camaraFPS.camaraFramework.viewDir));
                 mesh.Effect.SetValue("lightColor", ColorValue.FromColor((Color)GuiController.Instance.Modifiers["linternaColor"]));
                 mesh.Effect.SetValue("lightIntensity", (float)GuiController.Instance.Modifiers["linternaIntensidad"]);

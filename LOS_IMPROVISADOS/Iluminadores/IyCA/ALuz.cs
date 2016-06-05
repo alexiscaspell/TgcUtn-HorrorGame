@@ -22,12 +22,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
         public CamaraFPS camaraFPS { get; set; }
         
         protected Effect currentShader;
-        
-        public ALuz(Mapa mapa, CamaraFPS camaraFPS)
-        {
-            this.mapa = mapa;
-            this.camaraFPS = camaraFPS;
-        }
 
         public void updateFondo()
         {
