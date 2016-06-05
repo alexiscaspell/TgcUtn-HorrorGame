@@ -8,7 +8,9 @@
  */
 using System;
 using System.Drawing;
+using TgcViewer;
 using TgcViewer.Utils._2D;
+using TgcViewer.Utils.TgcSceneLoader;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
@@ -17,28 +19,49 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 	/// </summary>
 	public class Item
 	{
-		private TgcSprite item = new TgcSprite();
+		public TgcSprite sprite = new TgcSprite();//La textura de los sprites debe tener exactamente el mismo tamaño
+		private TgcTexture texturaSlotVacio = Inventario.Instance.texturaSlotLibre;
+		public bool slotOcupado;
 		
-		public Item(TgcSprite sprite)
+		public Item(TgcSprite sprite, bool slotOcupado)
 		{
-			this.item = sprite;
+			this.sprite = sprite;
+			this.slotOcupado = slotOcupado;
 		}
+		
+//		public void ocuparSlot(TgcTexture textura)
+//		{
+//			sprite.Texture = textura;
+//			slotOcupado = true;
+//		}
+		
+//		public void desocuparSlot()
+//		{
+//			sprite.Texture = texturaSlotVacio;
+//			slotOcupado = false;
+//		}
+		
 		public void render()
 		{
-			item.render();
+			sprite.render();
 		}
+		
 		public void execute()
 		{
 			//Despues le agrego comportamiento
 			return;
 		}
+		
 		public void select()
 		{
-			item.Color = Color.Yellow;
+			sprite.Color = Color.Yellow;
 		}
+		
 		public void unselect()
 		{
-			item.Color = Color.White;
+			sprite.Color = Color.White;
 		}
+		
+		
 	}
 }

@@ -38,6 +38,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		
 		private bool activado = false; //Para Renderizarlo solo en el momento que debo hacerlo
 		
+		public TgcTexture texturaSlotLibre;
+		
 		#region singleton
 		private static Inventario instance;
 		
@@ -90,7 +92,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                                               "Media\\Objetos\\Inventario\\Slot Libre.png");
             
             //Hago esto para cargarla solo una vez y reusarla
-            TgcTexture texturaSlotLibre = slotVacioCalculo.Texture;
+            texturaSlotLibre = slotVacioCalculo.Texture;
             
             //Es como si tuviera una nueva pantalla con el tamaño del inventario repito todo lo anterior
             invWidth = (float)textureSize.Width * finalScaleInv;
@@ -127,7 +129,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             		spriteSlotVacio.Texture = texturaSlotLibre;
             		spriteSlotVacio.Scaling = new Vector2(finalScaleSlot,finalScaleSlot);
             		
-            		listaItems[i,j] = new Item(spriteSlotVacio);
+            		listaItems[i,j] = new Item(spriteSlotVacio, false);
             	}
             }
             
@@ -157,7 +159,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		{
 			//Accion de botones
 			if(activado)
-			{//Para no moverme cuando el inventario esta desactivado
+			{//Para no moverme cuando el inventario esta desactivado y que no haga soniditos
 				if(GuiController.Instance.D3dInput.keyPressed(Key.RightArrow) )
 				{
 					indiceColumna++;
@@ -217,5 +219,45 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			if(indiceColumna<0)indiceColumna=0;
 			if(indiceColumna>=cantColumnas)indiceColumna=cantColumnas-1;
 		}
+		
+		public void agregarItem(Item nuevoItem)
+		{
+			//Busca un slot libre y lo ocupa
+			int i,j;
+			for(i=0;i<cantFilas;i++){
+				for(j=0;j<cantColumnas;j++){
+					
+					if(!listaItems[i,j].slotOcupado)
+					{
+						//Me guardo los valores de la posicion
+						Vector2 position = listaItems[i,j].sprite.Position;
+						Vector2 scaling = listaItems[i,j].sprite.Scaling;
+						
+						nuevoItem.sprite.Position = position;
+						nuevoItem.sprite.Scaling = scaling;
+						nuevoItem.slotOcupado = true;
+						
+						listaItems[i,j] = nuevoItem;
+						
+						return;
+					}
+				}
+			}
+		}
+		
+		public void quitarItem(int i, int j)
+		{
+			TgcSprite spriteVacio = new TgcSprite();
+			
+			Vector2 position = listaItems[i,j].sprite.Position;
+			Vector2 scaling = listaItems[i,j].sprite.Scaling;
+			
+			spriteVacio.Position = position;
+			spriteVacio.Scaling = scaling;
+			spriteVacio.Texture = texturaSlotLibre;
+			
+			Item itemVacio = new Item(spriteVacio, false);
+		}
+		
 	}
 }
