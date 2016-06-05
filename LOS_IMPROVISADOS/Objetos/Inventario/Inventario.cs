@@ -257,6 +257,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			spriteVacio.Texture = texturaSlotLibre;
 			
 			Item itemVacio = new Item(spriteVacio, false);
+			
+			listaItems[i,j] = itemVacio;
 		}
 		
 		public void quitarItem()//Sobrecargo esto para poder hacer que trabaje sobre el indice actual
@@ -271,6 +273,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			spriteVacio.Texture = texturaSlotLibre;
 			
 			Item itemVacio = new Item(spriteVacio, false);
+			
+			listaItems[indiceFila,indiceColumna] = itemVacio;
 		}
 	}
 }

@@ -22,16 +22,18 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		protected int agarrado; //cant de veces que se puede accionar
 		protected const float distAccion = 100f;
 		
-		public void acciona(Vector3 posInicial, Vector3 dir, TgcBoundingBox box){
+		public void acciona(Vector3 posInicial, Vector3 dir){
 			
 			Vector3 vectorInutil;
 			Vector3 posFinal = dir * distAccion;
 			
-			bool resultado = TgcCollisionUtils.intersectSegmentAABB(posInicial, posFinal, box, out vectorInutil);
+			bool resultado = TgcCollisionUtils.intersectSegmentAABB(posInicial, posFinal, mesh.BoundingBox, out vectorInutil);
 			
-			if(resultado) agarrado--;
-			
-			execute();
+			if(resultado)
+			{
+				agarrado--;
+				execute();
+			}
 		}
 		
 		public virtual void execute()
