@@ -67,6 +67,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             agregarObjetosMapa();
 
+            escenaFiltrada = new List<TgcMesh>();
+
             updateEscenaFiltrada();
         }
 
@@ -132,7 +134,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             string index = mesh.Name.Split('_')[0];
 
-            if (!relacionesCuartos.ContainsKey(index))
+            if (!relacionesCuartos.ContainsKey(index) && cuartos.ContainsKey(index))
             {
                 string[] lista = null;
 
@@ -204,7 +206,55 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             //escenaFiltrada = cuartos[nombreCuarto];
             escenaFiltrada = escena.Meshes;
+
+//            if (escenaFiltrada.Count > 0)
+//            {
+//                escenaFiltrada.Clear();
+//            }
+//
+//            escenaFiltrada = clonarLista(cuartos[nombreCuarto]);
+//
+//            foreach (string otroCuarto in relacionesCuartos[nombreCuarto])
+//            {
+//
+//                if (cuartos.ContainsKey(otroCuarto))
+//                {
+//                    string index = otroCuarto;
+//
+//                    if (otroCuarto[0] == 'p')
+//                    {
+//                        index = relacionesCuartos[otroCuarto][0];
+//
+//                        foreach (TgcMesh mesh in cuartos[otroCuarto])
+//                        {
+//                            escenaFiltrada.Add(mesh);//Aca agrego el mesh de la puerta, esto se tiene q cambiar
+//                        }
+//
+//                        if (index==nombreCuarto)
+//                        {
+//                            index = relacionesCuartos[otroCuarto][1];
+//                        }
+//                    }
+//
+//                    foreach (TgcMesh mesh in cuartos[index])
+//                    {
+//                        escenaFiltrada.Add(mesh);
+//                    }
+//                }
+//            }
+
         }
 
+        private List<TgcMesh> clonarLista(List<TgcMesh> list)
+        {
+            List<TgcMesh> listaClon = new List<TgcMesh>();
+
+            foreach (TgcMesh mesh in list)
+            {
+                listaClon.Add(mesh);
+            }
+
+            return listaClon;
+        }
     }
 }

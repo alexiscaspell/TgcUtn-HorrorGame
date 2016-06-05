@@ -78,11 +78,16 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         internal string aQueCuartoPertenece(TgcMesh mesh)
         {
-            TgcBoundingBox boxMesh = mesh.BoundingBox;
+            //TgcBoundingBox boxMesh = mesh.BoundingBox;
+            TgcBoundingSphere esferaMesh = new TgcBoundingSphere(mesh.BoundingBox.calculateBoxCenter() , 10);
 
             foreach (string nombreCuarto in bloquesCuartos.Keys)
             {
-                if (colisionEntreCajas(boxMesh,bloquesCuartos[nombreCuarto]))
+                /*if (colisionEntreCajas(boxMesh,bloquesCuartos[nombreCuarto]))
+                {
+                    return nombreCuarto;
+                }*/
+                if (colisionaEsferaCaja(esferaMesh,bloquesCuartos[nombreCuarto]))
                 {
                     return nombreCuarto;
                 }
