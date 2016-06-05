@@ -39,9 +39,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
 
         public override void configurarEfecto(TgcMesh mesh)
         {
-        	mesh.Effect = currentShader;
-            mesh.Technique = GuiController.Instance.Shaders.getTgcMeshTechnique(mesh.RenderType);
-
+        	
         	//Cargar variables shader de la luz
                 mesh.Effect.SetValue("lightPosition", TgcParserUtils.vector3ToFloat4Array(camaraFPS.camaraFramework.Position));
                 mesh.Effect.SetValue("eyePosition", TgcParserUtils.vector3ToFloat4Array(camaraFPS.camaraFramework.Position));
