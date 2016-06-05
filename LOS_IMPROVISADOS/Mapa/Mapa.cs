@@ -227,7 +227,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                             escenaFiltrada.Add(mesh);//Aca agrego el mesh de la puerta, esto se tiene q cambiar
                         }
 
-                        if (index==nombreCuarto)
+                        if (index==nombreCuarto&&relacionesCuartos[otroCuarto].Count()>1)
                         {
                             index = relacionesCuartos[otroCuarto][1];
                         }

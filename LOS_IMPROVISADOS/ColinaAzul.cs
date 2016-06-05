@@ -140,7 +140,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                     return nombreCuarto;
                 }
             }
-            return "";
+            return cuartoAnterior;
         }
     }
 }
