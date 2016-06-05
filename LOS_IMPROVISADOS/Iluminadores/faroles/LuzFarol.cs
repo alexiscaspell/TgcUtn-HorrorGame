@@ -11,9 +11,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
 {
     class LuzFarol : ALuz
     {
-        public LuzFarol(Mapa mapa, CamaraFPS camaraFPS) : base(mapa, camaraFPS)
+        public LuzFarol(Mapa mapa, CamaraFPS camaraFPS)
         {
+        	this.mapa = mapa;
+        	this.camaraFPS = camaraFPS;
         }
+        
         
         public override void configInicial()
         {
@@ -27,6 +30,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
             GuiController.Instance.Modifiers.addColor("farolAmbient", Color.LightYellow);
             GuiController.Instance.Modifiers.addColor("farolDiffuse", Color.White);
             GuiController.Instance.Modifiers.addColor("farolSpecular", Color.LightYellow);
+            
+            currentShader = GuiController.Instance.Shaders.TgcMeshPointLightShader;
   		}
         
         public override void configurarEfecto(TgcMesh mesh)
