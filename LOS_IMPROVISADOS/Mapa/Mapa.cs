@@ -26,7 +26,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             if (instancia != null) { }
             else
             {
-               new Mapa();
+                new Mapa();
             }
             return instancia;
         }
@@ -52,7 +52,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\mapa-TgcScene.xml",
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\");
 
-                instancia = this;
+            instancia = this;
 
             /* if (!leerDatosDeArchivo())
              {
@@ -78,7 +78,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             {
                 string cuarto = ColinaAzul.Instance.aQueCuartoPertenece(mesh);
 
-                if (cuarto!="")
+                if (cuarto != "")
                 {
                     cuartos[cuarto].Add(mesh);
                 }
@@ -119,7 +119,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             {
                 string index = parsearMesh(mesh);
 
-                if(cuartos.ContainsKey(index))
+                if (cuartos.ContainsKey(index))
                 {
                     cuartos[index].Add(mesh);
                 }
@@ -175,11 +175,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         }
 
         /*ACA DEBERIA DE HABER LOGICA ENTRE RELACIONES DE LOS CUARTOS*/
-        internal bool colisionaEsfera(TgcBoundingSphere esfera,ref TgcBoundingBox obstaculo)
+        internal bool colisionaEsfera(TgcBoundingSphere esfera, ref TgcBoundingBox obstaculo)
         {
             foreach (TgcMesh mesh in escena.Meshes)
             {
-                if (ColinaAzul.Instance.colisionaEsferaCaja(esfera,mesh.BoundingBox))
+                if (ColinaAzul.Instance.colisionaEsferaCaja(esfera, mesh.BoundingBox))
                 {
                     obstaculo = mesh.BoundingBox;
                     return true;
@@ -204,44 +204,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             string nombreCuarto = ColinaAzul.Instance.dondeEstaPesonaje();
 
-            //escenaFiltrada = cuartos[nombreCuarto];
-            escenaFiltrada = escena.Meshes;
+            if (escenaFiltrada.Count > 0)
+            {
+                escenaFiltrada.Clear();
+            }
 
-//            if (escenaFiltrada.Count > 0)
-//            {
-//                escenaFiltrada.Clear();
-//            }
-//
-//            escenaFiltrada = clonarLista(cuartos[nombreCuarto]);
-//
-//            foreach (string otroCuarto in relacionesCuartos[nombreCuarto])
-//            {
-//
-//                if (cuartos.ContainsKey(otroCuarto))
-//                {
-//                    string index = otroCuarto;
-//
-//                    if (otroCuarto[0] == 'p')
-//                    {
-//                        index = relacionesCuartos[otroCuarto][0];
-//
-//                        foreach (TgcMesh mesh in cuartos[otroCuarto])
-//                        {
-//                            escenaFiltrada.Add(mesh);//Aca agrego el mesh de la puerta, esto se tiene q cambiar
-//                        }
-//
-//                        if (index==nombreCuarto)
-//                        {
-//                            index = relacionesCuartos[otroCuarto][1];
-//                        }
-//                    }
-//
-//                    foreach (TgcMesh mesh in cuartos[index])
-//                    {
-//                        escenaFiltrada.Add(mesh);
-//                    }
-//                }
-//            }
+            escenaFiltrada = clonarLista(cuartos[nombreCuarto]);
 
             foreach (string otroCuarto in relacionesCuartos[nombreCuarto])
             {
@@ -259,7 +227,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                             escenaFiltrada.Add(mesh);//Aca agrego el mesh de la puerta, esto se tiene q cambiar
                         }
 
-                        if (index==nombreCuarto&&relacionesCuartos[otroCuarto].Count()>1)
+                        if (index == nombreCuarto && relacionesCuartos[otroCuarto].Count() > 1)
                         {
                             index = relacionesCuartos[otroCuarto][1];
                         }
