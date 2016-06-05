@@ -12,7 +12,7 @@ using TgcViewer.Utils.TgcGeometry;
 using TgcViewer.Utils.TgcSceneLoader;
 using TgcViewer;
 
-namespace AlumnoEjemplos.LOS_IMPROVISADOS
+namespace AlumnoEjemplos.LOS_IMPROVISADOS.Mapa.ObjetosMapa
 {
 	/// <summary>
 	/// Description of Class2.

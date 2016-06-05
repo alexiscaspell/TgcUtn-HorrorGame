@@ -19,7 +19,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public ConfigIluminador configIluminador { get; set; }   
         
-        public ConfigPosProcesados configPosProcesado { get; set; }     
+        public ConfigPosProcesados configPosProcesado { get; set; }   
+
+        //Para checkear si puede abrir la puerta o no
+        public int llaveActual = 0; //llave 0 => no tiene ninguna llave.
 
         private Vector3 posMemento;
 
