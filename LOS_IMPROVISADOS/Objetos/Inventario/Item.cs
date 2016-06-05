@@ -20,8 +20,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 	public class Item
 	{
 		public TgcSprite sprite = new TgcSprite();//La textura de los sprites debe tener exactamente el mismo tamaño
-		private TgcTexture texturaSlotVacio = Inventario.Instance.texturaSlotLibre;
+		public static TgcTexture texturaSlotVacio {get; set;}
 		public bool slotOcupado;
+		
+		//constructor Vacio
+		public Item(){}
 		
 		public Item(TgcSprite sprite, bool slotOcupado)
 		{
@@ -46,7 +49,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			sprite.render();
 		}
 		
-		public void execute()
+		public virtual void execute()
 		{
 			//Despues le agrego comportamiento
 			return;

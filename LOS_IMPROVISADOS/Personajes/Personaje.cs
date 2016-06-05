@@ -32,23 +32,32 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private float alturaAgachado;
         private float alturaParado;
 
-        public Personaje(Mapa mapa)
+        #region singleton
+        private Personaje(){}
+        private static Personaje instance;
+        public static Personaje Instance
         {
-            this.mapa = mapa;
-            this.camaraFPS = CamaraFPS.Instance;
-
-            alturaParado = camaraFPS.camaraFramework.Position.Y;
-            alturaAgachado = alturaParado / 3;
-
-            cuerpo = new TgcBoundingSphere(camaraFPS.camaraFramework.Position, radius);
-
-            configIluminador = new ConfigIluminador(mapa, camaraFPS);
-            configPosProcesado = new ConfigPosProcesados(mapa);
-            
-            sonidoPasos = new TgcStaticSound();
-            sonidoPasos.loadSound(GuiController.Instance.AlumnoEjemplosDir +"Media\\Sonidos\\pasos.wav", 0);
+        	get{return instance;}
         }
+        public static void CrearPersonaje(Mapa mapa)
+        {
+        	instance = new Personaje();
+        	
+            Instance.mapa = mapa;
+            Instance.camaraFPS = CamaraFPS.Instance;
 
+            Instance.alturaParado = Instance.camaraFPS.camaraFramework.Position.Y;
+            Instance.alturaAgachado = Instance.alturaParado / 3;
+
+            Instance.cuerpo = new TgcBoundingSphere(Instance.camaraFPS.camaraFramework.Position, Instance.radius);
+
+            Instance.configIluminador = new ConfigIluminador(mapa, Instance.camaraFPS);
+            Instance.configPosProcesado = new ConfigPosProcesados(mapa);
+            
+            Instance.sonidoPasos = new TgcStaticSound();
+            Instance.sonidoPasos.loadSound(GuiController.Instance.AlumnoEjemplosDir +"Media\\Sonidos\\pasos.wav", 0);
+        }
+        #endregion singleton
         internal bool estasMirandoBoss(Boss boss)
         {
             Vector3 direccionBoss = cuerpo.Position - boss.getPosition();

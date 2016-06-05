@@ -65,6 +65,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			sonidoCambio.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\SonidoCambio.wav");
 			
 			init();
+			
+			Item.texturaSlotVacio = this.texturaSlotLibre;
 		}
 		#endregion singleton
 		
@@ -195,8 +197,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 				}else {
 					activado = true;
 				}
-				indiceFila = 0;
-				indiceColumna = 0;
 			}
 			
 			int i,j;
@@ -259,5 +259,18 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			Item itemVacio = new Item(spriteVacio, false);
 		}
 		
+		public void quitarItem()//Sobrecargo esto para poder hacer que trabaje sobre el indice actual
+		{
+			TgcSprite spriteVacio = new TgcSprite();
+			
+			Vector2 position = listaItems[indiceFila,indiceColumna].sprite.Position;
+			Vector2 scaling = listaItems[indiceFila,indiceColumna].sprite.Scaling;
+			
+			spriteVacio.Position = position;
+			spriteVacio.Scaling = scaling;
+			spriteVacio.Texture = texturaSlotLibre;
+			
+			Item itemVacio = new Item(spriteVacio, false);
+		}
 	}
 }

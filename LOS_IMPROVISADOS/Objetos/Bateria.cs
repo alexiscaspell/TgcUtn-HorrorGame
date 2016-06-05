@@ -17,12 +17,20 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 	/// </summary>
 	public class Bateria : Accionable
 	{
+		PilaItem item;
 		
 		public Bateria(TgcMesh mesh)
 		{
 			this.mesh = mesh;
 			agarrado = 1;
+			item = new PilaItem();
 		}
 
+		public override void execute()
+		{
+			Inventario.Instance.agregarItem(item);
+		}
+		
+		
 	}
 }
