@@ -121,9 +121,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		
 		public void render()
 		{
+			update();
+			
 			if(activado)
 			{
-				update();
 	
 	            GuiController.Instance.Drawer2D.beginDrawSprite();
 	            inventarioScreen.render();
@@ -140,31 +141,36 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		private void update()
 		{
 			//Accion de botones
-			if(GuiController.Instance.D3dInput.keyPressed(Key.RightArrow) )
-			{
-				indiceColumna++;
-				sonidoCambio.play();
+			if(activado)
+			{//Para no moverme cuando el inventario esta desactivado
+				if(GuiController.Instance.D3dInput.keyPressed(Key.RightArrow) )
+				{
+					indiceColumna++;
+					sonidoCambio.play();
+				}
+				if(GuiController.Instance.D3dInput.keyPressed(Key.LeftArrow) )
+				{
+					indiceColumna--;
+					sonidoCambio.play();
+				}
+				if(GuiController.Instance.D3dInput.keyPressed(Key.DownArrow) )
+				{
+					indiceFila++;
+					sonidoCambio.play();
+				}
+				if(GuiController.Instance.D3dInput.keyPressed(Key.Up) )
+				{
+					indiceFila--;
+					sonidoCambio.play();
+				}
+				if(GuiController.Instance.D3dInput.keyPressed(Key.Space) )
+				{
+					listaItems[indiceFila,indiceColumna].execute();
+					sonidoCambio.play();
+				}
+				
 			}
-			if(GuiController.Instance.D3dInput.keyPressed(Key.LeftArrow) )
-			{
-				indiceColumna--;
-				sonidoCambio.play();
-			}
-			if(GuiController.Instance.D3dInput.keyPressed(Key.DownArrow) )
-			{
-				indiceFila++;
-				sonidoCambio.play();
-			}
-			if(GuiController.Instance.D3dInput.keyPressed(Key.Up) )
-			{
-				indiceFila--;
-				sonidoCambio.play();
-			}
-			if(GuiController.Instance.D3dInput.keyPressed(Key.Space) )
-			{
-				listaItems[indiceFila,indiceColumna].execute();
-				sonidoCambio.play();
-			}
+
 			if(GuiController.Instance.D3dInput.keyPressed(Key.I) )
 			{
 				if(activado){
