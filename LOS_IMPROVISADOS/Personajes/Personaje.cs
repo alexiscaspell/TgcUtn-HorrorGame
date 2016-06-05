@@ -154,7 +154,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             cuerpo.setCenter(posActual);
 
-            if (mapa.colisionaEsfera(cuerpo, ref obstaculo))
+            if (mapa.colisionaPersonaje(cuerpo, ref obstaculo))
             {
                 Vector3 slide = obtenerVectorSlide(obstaculo);
 
@@ -166,7 +166,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
                 cuerpo.setCenter(posMemento + movement);
 
-                if (mapa.colisionaEsfera(cuerpo, ref obstaculo))
+                if (mapa.colisionaPersonaje(cuerpo, ref obstaculo))
                 {
                     movement = new Vector3(0, 0, 0);
                 }

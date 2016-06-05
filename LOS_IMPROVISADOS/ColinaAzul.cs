@@ -132,6 +132,18 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 return cuartoAnterior;
             }
 
+            foreach (string cuarto in Mapa.Instance.obtenerContiguos(cuartoAnterior))
+            {
+                if (bloquesCuartos.ContainsKey(cuarto))
+                {
+                    if(colisionaEsferaCaja(cuerpoFicticioPersonaje, bloquesCuartos[cuarto]))
+                    {
+                        cuartoAnterior = cuarto;
+                        return cuarto;
+                    }
+                }
+            }
+
             foreach (string nombreCuarto in bloquesCuartos.Keys)
             {
                 if (colisionaEsferaCaja(cuerpoFicticioPersonaje,bloquesCuartos[nombreCuarto]))

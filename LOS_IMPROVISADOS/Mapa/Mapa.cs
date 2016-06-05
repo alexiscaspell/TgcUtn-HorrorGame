@@ -169,17 +169,22 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             cuartos.Add("otros", new List<TgcMesh>());
         }
 
+        internal string[] obtenerContiguos(string cuarto)
+        {
+            return relacionesCuartos[cuarto];
+        }
+
         internal void dispose()
         {
             escena.disposeAll();
         }
 
         /*ACA DEBERIA DE HABER LOGICA ENTRE RELACIONES DE LOS CUARTOS*/
-        internal bool colisionaEsfera(TgcBoundingSphere esfera, ref TgcBoundingBox obstaculo)
+        internal bool colisionaPersonaje(TgcBoundingSphere cuerpoPersonaje, ref TgcBoundingBox obstaculo)
         {
-            foreach (TgcMesh mesh in escena.Meshes)
+            foreach (TgcMesh mesh in cuartos[ColinaAzul.Instance.dondeEstaPesonaje()])
             {
-                if (ColinaAzul.Instance.colisionaEsferaCaja(esfera, mesh.BoundingBox))
+                if (ColinaAzul.Instance.colisionaEsferaCaja(cuerpoPersonaje, mesh.BoundingBox))
                 {
                     obstaculo = mesh.BoundingBox;
                     return true;
