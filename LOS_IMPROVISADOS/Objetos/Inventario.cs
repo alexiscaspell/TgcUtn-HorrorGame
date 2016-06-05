@@ -38,7 +38,21 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		
 		private bool activado = false; //Para Renderizarlo solo en el momento que debo hacerlo
 		
-		public Inventario()
+		#region singleton
+		private static Inventario instance;
+		
+		public static Inventario Instance
+		{
+			get{
+				if(instance == null){
+					instance = new Inventario();
+				}
+				
+				return instance;
+			}
+		}
+		
+		private Inventario()
 		{
 			//Cargo todos los recursos
 			inventarioScreen = new TgcSprite();
@@ -50,6 +64,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			
 			init();
 		}
+		#endregion singleton
 		
 		private void init()
 		{

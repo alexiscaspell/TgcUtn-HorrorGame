@@ -57,7 +57,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
         	configInicial();
         	
         	//inicio inv
-            inv = new Inventario();
+        	inv = Inventario.Instance;
             
 			//Inicio el fondoNegro
 			TgcTexture texturaFondo = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir +

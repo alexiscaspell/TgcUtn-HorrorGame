@@ -34,7 +34,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         #endregion
 
         public TgcScene escena { get; set; }
-
+        
         private Dictionary<string, List<TgcMesh>> cuartos;
 
         private Dictionary<string, string[]> relacionesCuartos = new Dictionary<string, string[]>();
