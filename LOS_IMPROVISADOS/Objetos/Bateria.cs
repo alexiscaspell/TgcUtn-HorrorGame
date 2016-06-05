@@ -15,18 +15,14 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 	/// <summary>
 	/// Description of Baterias.
 	/// </summary>
-	public class Bateria : Agarrable
+	public class Bateria : Accionable
 	{
-		int i = 0;
 		
-		public Bateria()
+		public Bateria(TgcMesh mesh)
 		{
-			TgcSceneLoader loader = new TgcSceneLoader();
-			TgcScene escena = loader.loadSceneFromFile(GuiController.Instance.AlumnoEjemplosDir +
-			                                           "Media\\mapa\\pilaScene-TgcScene.xml");
-			
-			this.mesh = escena.Meshes[i];
+			this.mesh = mesh;
+			agarrado = 1;
 		}
-		
+
 	}
 }

@@ -20,8 +20,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         public ConfigIluminador configIluminador { get; set; }   
         
         public ConfigPosProcesados configPosProcesado { get; set; }     
-        
-        public List<Agarrable> objetos {get; set;}
 
         private Vector3 posMemento;
 
@@ -130,10 +128,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			//Activar objetos
 			if(GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.E))
 			{
-			   	foreach(Agarrable a in objetos)
-			   	{
-			   		a.acciona(this.camaraFPS.camaraFramework.Position, this.camaraFPS.camaraFramework.viewDir,a.getBB());
-			   	}
+				//Aca deberia ir el codigo
+				//mapa.activarObjetos(this);
+				//Mapa despues deberia tomar la posicion de la camara y checkear la colision
 			}
 			
            //posprocesado

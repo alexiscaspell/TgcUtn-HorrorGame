@@ -204,12 +204,44 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             string nombreCuarto = ColinaAzul.Instance.dondeEstaPesonaje();
 
-            if (escenaFiltrada.Count > 0)
-            {
-                escenaFiltrada.Clear();
-            }
+            //escenaFiltrada = cuartos[nombreCuarto];
+            escenaFiltrada = escena.Meshes;
 
-            escenaFiltrada = clonarLista(cuartos[nombreCuarto]);
+//            if (escenaFiltrada.Count > 0)
+//            {
+//                escenaFiltrada.Clear();
+//            }
+//
+//            escenaFiltrada = clonarLista(cuartos[nombreCuarto]);
+//
+//            foreach (string otroCuarto in relacionesCuartos[nombreCuarto])
+//            {
+//
+//                if (cuartos.ContainsKey(otroCuarto))
+//                {
+//                    string index = otroCuarto;
+//
+//                    if (otroCuarto[0] == 'p')
+//                    {
+//                        index = relacionesCuartos[otroCuarto][0];
+//
+//                        foreach (TgcMesh mesh in cuartos[otroCuarto])
+//                        {
+//                            escenaFiltrada.Add(mesh);//Aca agrego el mesh de la puerta, esto se tiene q cambiar
+//                        }
+//
+//                        if (index==nombreCuarto)
+//                        {
+//                            index = relacionesCuartos[otroCuarto][1];
+//                        }
+//                    }
+//
+//                    foreach (TgcMesh mesh in cuartos[index])
+//                    {
+//                        escenaFiltrada.Add(mesh);
+//                    }
+//                }
+//            }
 
             foreach (string otroCuarto in relacionesCuartos[nombreCuarto])
             {
