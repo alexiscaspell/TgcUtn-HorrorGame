@@ -21,22 +21,42 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 	/// </summary>
 	public class Puerta : Accionable
 	{
-		TgcMesh mesh;
 		const float speed = 10;
 		float anguloRotacion = 0;
 		bool abierta = false;
 		bool rotando = false;
+
+        bool seAbreConLlave;
 		
 		TgcStaticSound puertaCerrada;
 		TgcStaticSound puertaAbriendose;
-		int nroPuerta;//Para que checkee que tenga la misma llave
-		
-		//Hay que hacerle un constructor que le asigne la metadata
-		//(El agarrado deberia ir en 1000000 o algo asi exagerado para que siempre la pueda abrir/cerrar)
-		
-		public override void execute()
+        int nroPuerta;//Para que checkee que tenga la misma llave
+        private TgcScene escena;
+
+        //Hay que hacerle un constructor que le asigne la metadata
+        //(El agarrado deberia ir en 1000000 o algo asi exagerado para que siempre la pueda abrir/cerrar)
+
+        public Puerta(bool seAbreConLlave,int nroPuerta)
+        {
+            TgcSceneLoader loader = new TgcSceneLoader();
+            escena = loader.loadSceneFromFile(
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\puertaBerreta-TgcScene.xml",
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\");
+
+            this.seAbreConLlave = seAbreConLlave;
+
+            mesh = escena.Meshes[0];
+        }
+
+        public void init(Vector3 posicion, Vector3 escalado)
+        {
+            mesh.Position = posicion;
+            mesh.Scale = escalado;
+        }
+
+        public override void execute()
 		{
-			if(Personaje.Instance.llaveActual == nroPuerta || nroPuerta <= 0)
+			if(Personaje.Instance.llaveActual == nroPuerta || nroPuerta <= 0||!seAbreConLlave)
 			{
 				rotando = true;
 				nroPuerta = -1; //Para necesitar usar la llave 1 sola vez
@@ -79,5 +99,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         	update();
             mesh.render();
         }
-	}
+
+        internal TgcMesh getMesh()
+        {
+            return mesh;
+        }
+    }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.DirectX;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -41,6 +42,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public List<TgcMesh> escenaFiltrada { get; set; }
 
+        private Dictionary<string, Puerta> puertas = new Dictionary<string, Puerta>();
+
         private const int CANTIDAD_DE_CUARTOS = 79;
         private const int CANTIDAD_DE_PUERTAS = 15;
         private const int CANTIDAD_DE_PUERTAS_PZ = 11;
@@ -67,9 +70,64 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             agregarObjetosMapa();
 
+            mapearPuertas();
+
             escenaFiltrada = new List<TgcMesh>();
 
             updateEscenaFiltrada();
+        }
+
+        private void mapearPuertas()
+        {
+            foreach (string nombrePuerta in cuartos.Keys)
+            {
+                if (nombrePuerta[0]=='p')
+                {
+                    mapearPuerta(nombrePuerta);
+                }
+            }
+        }
+
+        private void mapearPuerta(string nombrePuerta)
+        {
+            if (cuartos[nombrePuerta].Count<2)
+            {
+                return;
+            }
+
+            bool seAbreConLlave = false;
+            int nroPuerta = 0;
+
+            if (nombrePuerta[1]=='z')
+            {
+                seAbreConLlave = true;
+                nroPuerta = Convert.ToInt32(nombrePuerta.Split('z')[1]);
+            }
+
+            Puerta nuevaPuerta = new Puerta(seAbreConLlave,nroPuerta);
+
+            List<TgcMesh> auxMesh = new List<TgcMesh>();
+
+            foreach (TgcMesh mesh in cuartos[nombrePuerta])
+            {
+                if (mesh.Name.Contains("Floor")|| mesh.Name.Contains("Roof"))
+                {
+                    auxMesh.Add(mesh);
+                }
+
+            }
+
+            TgcBoundingBox boxPuerta = ColinaAzul.Instance.calcularBoundingBox(auxMesh);
+
+            Vector3 difBB = boxPuerta.PMax - boxPuerta.PMin;
+
+            Vector3 difPuerta = nuevaPuerta.getBB().PMax - nuevaPuerta.getBB().PMin;
+
+            Vector3 escala = new Vector3(difBB.X / difPuerta.X, difBB.Y / difPuerta.Y, difBB.Z / difPuerta.Z);
+
+            nuevaPuerta.init(boxPuerta.calculateBoxCenter(), escala);
+
+            puertas.Add(nombrePuerta, nuevaPuerta);                  
         }
 
         private void agregarObjetosMapa()
@@ -231,6 +289,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                         {
                             escenaFiltrada.Add(mesh);//Aca agrego el mesh de la puerta, esto se tiene q cambiar
                         }
+                        escenaFiltrada.Add(puertas[otroCuarto].getMesh());
 
                         if (index == nombreCuarto && relacionesCuartos[otroCuarto].Count() > 1)
                         {

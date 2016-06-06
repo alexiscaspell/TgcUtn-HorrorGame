@@ -61,7 +61,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             cuartoAnterior = bloquesCuartos.Keys.ElementAt(0);//Inicializo cuarto
         }
 
-        private TgcBoundingBox calcularBoundingBox(List<TgcMesh> cuarto)
+        public TgcBoundingBox calcularBoundingBox(List<TgcMesh> cuarto)
         {
             Vector3 pMin = cuarto[0].BoundingBox.PMin;
             Vector3 pMax = cuarto[0].BoundingBox.PMax;
