@@ -66,7 +66,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             alturaParado = camaraFPS.camaraFramework.Position.Y;
             alturaAgachado = alturaParado / 3;
 
-            cuerpo = new TgcBoundingSphere(posActualCuerpo(), radius);
+            cuerpo = new TgcBoundingSphere(camaraFPS.camaraFramework.Position, radius);
 
             configIluminador = new ConfigIluminador(mapa, camaraFPS);
             configPosProcesado = new ConfigPosProcesados(mapa);
