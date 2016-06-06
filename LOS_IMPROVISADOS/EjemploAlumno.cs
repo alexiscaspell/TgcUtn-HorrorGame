@@ -62,8 +62,7 @@ namespace AlumnoEjemplos.MiGrupo
 
             camaraFPS = CamaraFPS.Instance;
 
-            Personaje.CrearPersonaje(mapa);
-            personaje = Personaje.Instance;
+            personaje = new Personaje();
 
             //boss = new Boss(camaraFPS);
             //boss.init(40f, new Vector3(100, 10, 100));
