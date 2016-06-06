@@ -92,7 +92,6 @@
     <Compile Include="LOS_IMPROVISADOS\Mapa\DiosMapa.cs" />
     <Compile Include="LOS_IMPROVISADOS\Mapa\Mapa.cs" />
     <Compile Include="LOS_IMPROVISADOS\Mapa\ObjetosMapa\Cama.cs" />
-    <Compile Include="LOS_IMPROVISADOS\Mapa\ObjetosMapa\Puerta.cs" />
     <Compile Include="LOS_IMPROVISADOS\Mapa\ObjetosMapa\PuertaHard.cs" />
     <Compile Include="LOS_IMPROVISADOS\Mapa\Punto.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\ButtonButtons.cs" />
@@ -105,8 +104,12 @@
     <Compile Include="LOS_IMPROVISADOS\Menu\GameMenu.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\Accionable.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\Bateria.cs" />
-    <Compile Include="LOS_IMPROVISADOS\Objetos\Inventario.cs" />
-    <Compile Include="LOS_IMPROVISADOS\Objetos\Item.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Objetos\Inventario\Inventario.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Objetos\Inventario\Item.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Objetos\Inventario\Llave.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Objetos\Inventario\MapaItem.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Objetos\Inventario\PilaItem.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Objetos\Puerta.cs" />
     <Compile Include="LOS_IMPROVISADOS\Personajes\Boss\AnimatedBoss.cs" />
     <Compile Include="LOS_IMPROVISADOS\Personajes\Boss\Boss.cs" />
     <Compile Include="LOS_IMPROVISADOS\Personajes\Boss\CaminarDijkstra.cs" />
@@ -172,6 +175,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="LOS_IMPROVISADOS\Objetos\Inventario" />
     <Folder Include="Media\Texturas\" />
   </ItemGroup>
   <ItemGroup>
