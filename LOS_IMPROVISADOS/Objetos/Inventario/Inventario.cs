@@ -25,6 +25,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 	{
 		
 		private TgcSprite inventarioScreen;
+		private TgcSprite minimap;
+		public bool minimapActivado;
         private TgcStaticSound sonidoCambio = new TgcStaticSound();
 
 		private const int cantFilas = 2;
@@ -60,6 +62,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			inventarioScreen = new TgcSprite();
 			inventarioScreen.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir +
 			                                                    "Media\\Objetos\\Inventario\\Inventario.png");
+			minimap = new TgcSprite();
+			minimap.Texture =TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir +
+			                                                    "Media\\Objetos\\Inventario\\mapaPiolaTransparenteAzul.png");
+			
 			listaItems = new Item[cantFilas,cantColumnas];
 			
 			sonidoCambio.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\SonidoCambio.wav");
@@ -67,6 +73,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			init();
 			
 			Item.texturaSlotVacio = this.texturaSlotLibre;
+			
+			agregarItem(new MapaItem());
 		}
 		#endregion singleton
 		
@@ -86,7 +94,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             inventarioScreen.Scaling = new Vector2(finalScaleInv, finalScaleInv);
             //inventarioScreen.Position = new Vector2(FastMath.Max(screenSize.Width / 2 - textureSize.Width / 2, 0), FastMath.Max(screenSize.Height / 2 - textureSize.Height / 2, 0));
 			inventarioScreen.Position = new Vector2(screenSize.Width / 2 - textureSize.Width *finalScaleInv / 2, screenSize.Height / 2 - textureSize.Height*finalScaleInv / 2);
-	
+
+			
             //Ahora creo todos los slots vacios
             //Primero necesito un sprite para hacer los calculos
             TgcSprite slotVacioCalculo = new TgcSprite();
@@ -136,7 +145,21 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             }
             
             
-		}
+			//Inicio el minimap. Hago lo mismo que con el inventario
+			minimapActivado = false;
+            textureSize = minimap.Texture.Size;
+			//Asi ocupa toda la pantalla
+            widthScale = (float)screenSize.Width / (float)textureSize.Width;
+            heightScale = (float)screenSize.Height / (float)textureSize.Height;
+            //Respeto el aspect Ratio
+            finalScaleInv = FastMath.Min(widthScale,heightScale);
+            //Ahora ajusto el tamaño relativo a la pantalla
+            finalScaleInv *= 0.75f; //un poco mas grande que el inv
+            //Lo pongo en el medio de la pantalla
+            minimap.Scaling = new Vector2(finalScaleInv, finalScaleInv);
+            minimap.Position = new Vector2(screenSize.Width / 2 - textureSize.Width *finalScaleInv / 2, screenSize.Height / 2 - textureSize.Height*finalScaleInv / 2);
+
+		}//Fin init
 		
 		public void render()
 		{
@@ -146,11 +169,18 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			{
 	
 	            GuiController.Instance.Drawer2D.beginDrawSprite();
-	            inventarioScreen.render();
-	
-	            foreach(Item item in listaItems)
+	            
+	            if(minimapActivado)
 	            {
-	            	item.render();
+	            	minimap.render();
+	            }else
+	            {           
+		            inventarioScreen.render();
+		
+		            foreach(Item item in listaItems)
+		            {
+		            	item.render();
+		            }
 	            }
 	
 	            GuiController.Instance.Drawer2D.endDrawSprite();
@@ -184,8 +214,14 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 				}
 				if(GuiController.Instance.D3dInput.keyPressed(Key.Space) )
 				{
-					listaItems[indiceFila,indiceColumna].execute();
-					sonidoCambio.play();
+					if(minimapActivado)
+					{
+						minimapActivado = false;
+					}else
+					{
+						listaItems[indiceFila,indiceColumna].execute();
+						sonidoCambio.play();
+					}
 				}
 				
 			}
