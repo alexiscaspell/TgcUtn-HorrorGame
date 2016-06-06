@@ -24,7 +24,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
             this.sonidoPrenderOApagar = sonido;
 				
             oscuridad = new LuzOscura(luz.mapa, luz.camaraFPS);
-            oscuridad.init();
+                oscuridad.init();
 
             init();
         }

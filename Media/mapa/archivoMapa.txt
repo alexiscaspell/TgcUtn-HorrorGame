@@ -370,7 +370,6 @@ r46_[r45]-West-0
 r46_[r45]-North-0
 r46_[r45]-South-0
 r41_[p9;r42]-Roof-0
-r41_[p9;r42]-Floor-0
 r41_[p9;r42]-East-0
 r41_[p9;r42]-East-1
 r41_[p9;r42]-West-0
@@ -590,4 +589,116 @@ SBHUD-96S+Forms+Surfaces+SketchUp
 moneda (1)
 moneda (1)
 ascensor
+ascensor
+A_2
+A_2
+A_2
+A_2
+COW_1
+COW_2
+Operation+bed
+WORKSTATION_8-MANS_7
+WORKSTATION_8-MANS_7
+WORKSTATION_8-MANS_7
+BELBL+AV_AO_AL_1
+BELBL+AV_AO_AL_2
+BELBL+AV_AO_AL_1
+BELBL+AV_AO_AL_2
+BELBL+AV_AO_AL_1
+BELBL+AV_AO_AL_2
+Group_231_1
+Group_231_2
+t-241
+t-241
+t-241
+t-241
+t-241
+t-241
+moneda (1)
+Upholstered+Apron+Couch
+Upholstered+Apron+Couch
+Rolling+Stand
+WORKSTATION_8-MANS_7
+C-arm
+adssad (2)_1
+adssad (2)_2
+Cama+Hospital_1
+Cama+Hospital_2
+Cama+Hospital_1
+Cama+Hospital_2
+Cama+Hospital_1
+Cama+Hospital_2
+Cama+Hospital_1
+Cama+Hospital_2
+WORKSTATION_8-MANS_7
+Cama+Hospital_1
+Cama+Hospital_2
+ascensor
+ascensor
+ascensor
+Cama+Hospital_1
+Cama+Hospital_2
+Rolling+Stand
+hospital+bed_2
+hospital+bed_4
+hospital+bed_5
+hospital+bed_4
+hospital+bed_5
+hospital+bed_2
+hospital+bed_2
+hospital+bed_2
+hospital+bed_4
+hospital+bed_5
+hospital+bed_4
+hospital+bed_5
+hospital+bed_2
+hospital+bed_2
+hospital+bed_2
+hospital+bed_2
+1000+oak+round+table+4+chairs2_1
+1000+oak+round+table+4+chairs2_18
+1000+oak+round+table+4+chairs2_19
+1000+oak+round+table+4+chairs2_18
+1000+oak+round+table+4+chairs2_1
+1000+oak+round+table+4+chairs2_18
+1000+oak+round+table+4+chairs2_19
+1000+oak+round+table+4+chairs2_1
+1000+oak+round+table+4+chairs2_1
+Bathroom+in+Old+Warehouse_1
+Bathroom+in+Old+Warehouse_2
+Bathroom+in+Old+Warehouse_1
+Bathroom+in+Old+Warehouse_2
+Bathroom+in+Old+Warehouse_1
+Bathroom+in+Old+Warehouse_2
+Hospital+Baby+Bassinette
+hospital+bed_2
+r40_[p8;r38]-Floor-0
+SILLA+DENTISTA_1
+SILLA+DENTISTA_2
+SILLA+DENTISTA_3
+Toledo+Clinic+Cart+1_1
+Fire+Extinguisher+SU8+12-10-20_1
+Fire+Extinguisher+SU8+12-10-20_2
+ventilador_1
+deadguy1
+LESS+4001+SkUp
+LESS+4001+SkUp
+LESS+4001+SkUp
+Inpeco+Input-Output+Module_1
+Inpeco+Input-Output+Module_2
+SBHUD-96S+Forms+Surfaces+SketchUp
+SBHUD-96S+Forms+Surfaces+SketchUp
+SBHUD-96S+Forms+Surfaces+SketchUp
+SBHUD-96S+Forms+Surfaces+SketchUp
+SBHUD-96S+Forms+Surfaces+SketchUp
+moneda (1)
+moneda (1)
+moneda (1)
+moneda (1)
+moneda (1)
+moneda (1)
+A_2
+Operation+bed
+A_2
+A_2
 ascensor
