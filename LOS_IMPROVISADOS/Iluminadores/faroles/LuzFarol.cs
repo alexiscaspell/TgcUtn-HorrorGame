@@ -28,7 +28,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
             //Modifiers de material
             GuiController.Instance.Modifiers.addColor("farolEmissive", Color.Black);
             GuiController.Instance.Modifiers.addColor("farolAmbient", Color.LightYellow);
-            GuiController.Instance.Modifiers.addColor("farolDiffuse", Color.White);
+            GuiController.Instance.Modifiers.addColor("farolDiffuse", Color.Gray);
             GuiController.Instance.Modifiers.addColor("farolSpecular", Color.LightYellow);
             
             currentShader = GuiController.Instance.Shaders.TgcMeshPointLightShader;

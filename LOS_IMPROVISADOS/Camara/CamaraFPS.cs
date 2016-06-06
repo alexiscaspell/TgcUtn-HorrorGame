@@ -42,7 +42,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             if (instancia != null) { }
             else
             {
-                new CamaraFPS(new Vector3(1085, 310, 10862), new Vector3(1185, 310, 10862));
+                new CamaraFPS(new Vector3(1085, 330, 10862), new Vector3(1185, 330, 10862));
             }
             return instancia;
         }

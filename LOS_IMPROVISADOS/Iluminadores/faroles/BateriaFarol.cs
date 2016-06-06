@@ -12,7 +12,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
     {
         public BateriaFarol(): base()
         {
-            tiempoDesgaste = 2;
+            tiempoDesgaste = 1;
 
             cantidadDesgaste = 1;
         }

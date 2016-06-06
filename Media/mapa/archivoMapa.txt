@@ -702,3 +702,54 @@ Operation+bed
 A_2
 A_2
 ascensor
+Xray+machine
+Xray+machine
+boxes (2)
+boxes (2)
+boxes (2)
+boxes (2)
+boxes (2)
+boxes (2)
+boxes (2)
+boxes (2)
+boxes (2)
+boxes (2)
+Toledo+Clinic+Cart+1_1
+BELBL+AV_AO_AL_1
+BELBL+AV_AO_AL_2
+WORKSTATION_8-MANS_7
+BELBL+AV_AO_AL_1
+BELBL+AV_AO_AL_2
+SBHUD-96S+Forms+Surfaces+SketchUp
+SBHUD-96S+Forms+Surfaces+SketchUp
+SBHUD-96S+Forms+Surfaces+SketchUp
+SBHUD-96S+Forms+Surfaces+SketchUp
+BELBL+AV_AO_AL_1
+BELBL+AV_AO_AL_2
+WORKSTATION_8-MANS_7
+SBHUD-96S+Forms+Surfaces+SketchUp
+SBHUD-96S+Forms+Surfaces+SketchUp
+SBHUD-96S+Forms+Surfaces+SketchUp
+SBHUD-96S+Forms+Surfaces+SketchUp
+SBHUD-96S+Forms+Surfaces+SketchUp
+Upholstered+Apron+Couch
+Rolling+Stand
+Upholstered+Apron+Couch
+ascensor
+persiana
+persiana
+persiana
+Ambulance
+Ambulance
+Ambulance
+hospital+bed_4
+hospital+bed_5
+hospital+bed_4
+hospital+bed_5
+hospital+bed_4
+hospital+bed_5
+boxes (2)
+boxes (2)
+hospital+bed_2
+ascensor
+ascensor
