@@ -33,12 +33,34 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Objetos.Inventario
 			
 			return nuevaLlave;
 		}
+		public static Llave Llave2()
+		{
+			Llave nuevaLlave = new Llave();
+			
+			nuevaLlave.sprite = new TgcSprite();
+			nuevaLlave.sprite.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir +
+			                                          "Media\\Objetos\\Inventario\\Llave2.png");
+			nuevaLlave.nroLlave = 2;
+			
+			return nuevaLlave;
+		}
+		public static Llave LlaveMano()
+		{
+			Llave nuevaLlave = new Llave();
+			
+			nuevaLlave.sprite = new TgcSprite();
+			nuevaLlave.sprite.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir +
+			                                          "Media\\Objetos\\Inventario\\LlaveMano.png");
+			nuevaLlave.nroLlave = 3;
+			
+			return nuevaLlave;
+		}
 		//n constructores para cada tipo de llave
 		#endregion constructores
 		
 		public override void execute()
 		{
-			Personaje.Instance.llaveActual = 0;
+			Personaje.Instance.llaveActual = nroLlave;
 		}
 		
 		
