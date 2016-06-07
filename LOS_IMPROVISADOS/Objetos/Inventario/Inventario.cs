@@ -27,11 +27,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		private TgcSprite inventarioScreen;
 		private TgcSprite minimap;
 		public bool minimapActivado;
-        private TgcStaticSound sonidoCambio = new TgcStaticSound();
-        
-        //Sonidos inventario
-        TgcStaticSound sonidoAbrir;
-        TgcStaticSound sonidoCerrar;
+		
+		//sonidos inventario
+        TgcStaticSound sonidoCambio = new TgcStaticSound();
+        TgcStaticSound sonidoAbrir = new TgcStaticSound();
+        TgcStaticSound sonidoCerrar = new TgcStaticSound();
 
 		private const int cantFilas = 2;
 		private const int cantColumnas = 3;//por fila
@@ -74,8 +74,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			
 			sonidoCambio.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\SonidoCambio.wav");
 			
-			sonidoAbrir.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\sonidosJuego\\inventory_open.wav");
-			sonidoCerrar.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\sonidosJuego\\inventory_close.wav");
+			sonidoAbrir.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\sonidosJuego\\ruidos inventario\\inventory_open.wav");
+			sonidoCerrar.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\sonidosJuego\\ruidos inventario\\inventory_close.wav");
 			
 			init();
 			

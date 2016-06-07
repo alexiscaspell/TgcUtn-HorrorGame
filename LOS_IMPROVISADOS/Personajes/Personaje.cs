@@ -161,6 +161,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 				//Mapa despues deberia tomar la posicion de la camara y checkear la colision
 			}
 			
+			//Activar gameOverScreen (solo p/debug)
+			if(GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.M))
+			{
+				GameOver.Instance.activar();
+			}
+			
            //posprocesado
             if (configIluminador.iluminadorActualSeQuedoSinBateria())
             {
