@@ -103,6 +103,7 @@
     <Compile Include="LOS_IMPROVISADOS\Menu\GameButton.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\GameMenu.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\Accionable.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Objetos\Barril.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\Bateria.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\Inventario\Inventario.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\Inventario\Item.cs" />
