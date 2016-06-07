@@ -38,6 +38,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public Puerta(bool seAbreConLlave,int nroPuerta)
         {
+        	this.agarrado = int.MaxValue;
+        	
             TgcSceneLoader loader = new TgcSceneLoader();
             escena = loader.loadSceneFromFile(
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\puertaBerreta-TgcScene.xml",

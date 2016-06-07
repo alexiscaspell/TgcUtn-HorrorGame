@@ -25,10 +25,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Objetos
 		
 		public Barril()
 		{
+			this.agarrado = int.MaxValue;
+			
 			TgcSceneLoader loader = new TgcSceneLoader();
 			TgcScene escena = loader.loadSceneFromFile(
-				GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\barril-TgcScene.xml",
-			    GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\");
+				GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Barril\\barril-TgcScene.xml",
+			    GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Barril\\");
 			
 			this.mesh = escena.Meshes[0];
 			

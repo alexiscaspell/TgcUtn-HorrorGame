@@ -19,7 +19,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 	public abstract class Accionable
 	{
 		protected TgcMesh mesh;
-		protected int agarrado; //cant de veces que se puede accionar
+		protected int agarrado = 1; //cant de veces que se puede accionar
 		protected const float distAccion = 100f;
 		
 		public void acciona(Vector3 posInicial, Vector3 dir){
