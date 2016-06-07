@@ -68,9 +68,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             ColinaAzul.Instance.calcularBoundingBoxes(cuartos, CANTIDAD_DE_CUARTOS);
 
-            agregarObjetosMapa();
-
             mapearPuertas();
+
+            agregarObjetosMapa();
 
             escenaFiltrada = new List<TgcMesh>();
 
@@ -79,55 +79,29 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private void mapearPuertas()
         {
-            foreach (string nombrePuerta in cuartos.Keys)
+            foreach (TgcMesh mesh in cuartos["otros"])
             {
-                if (nombrePuerta[0]=='p')
+                if (mesh.Name[0]=='q')//NINGUN MESH PUEDE EMPEZAR CON Q!!!
                 {
-                    mapearPuerta(nombrePuerta);
+                    mapearPuerta(mesh);
                 }
             }
         }
 
-        private void mapearPuerta(string nombrePuerta)
+        private void mapearPuerta(TgcMesh mesh)
         {
-            if (cuartos[nombrePuerta].Count<2)
-            {
-                return;
-            }
-
-            bool seAbreConLlave = false;
             int nroPuerta = 0;
 
-            if (nombrePuerta[1]=='z')
+            string nombrePuerta = mesh.Name;
+
+            if (nombrePuerta[1] == 'z')
             {
-                seAbreConLlave = true;
                 nroPuerta = Convert.ToInt32(nombrePuerta.Split('z')[1]);
             }
 
-            Puerta nuevaPuerta = new Puerta(seAbreConLlave,nroPuerta);
+            Puerta nuevaPuerta = new Puerta(nroPuerta,mesh);
 
-            List<TgcMesh> auxMesh = new List<TgcMesh>();
-
-            foreach (TgcMesh mesh in cuartos[nombrePuerta])
-            {
-                if (mesh.Name.Contains("Floor")|| mesh.Name.Contains("Roof"))
-                {
-                    auxMesh.Add(mesh);
-                }
-
-            }
-
-            TgcBoundingBox boxPuerta = ColinaAzul.Instance.calcularBoundingBox(auxMesh);
-
-            Vector3 difBB = boxPuerta.PMax - boxPuerta.PMin;
-
-            Vector3 difPuerta = nuevaPuerta.getBB().PMax - nuevaPuerta.getBB().PMin;
-
-            Vector3 escala = new Vector3(difBB.X / difPuerta.X, difBB.Y / difPuerta.Y, difBB.Z / difPuerta.Z);
-
-            nuevaPuerta.init(boxPuerta.calculateBoxCenter(), escala);
-
-            puertas.Add(nombrePuerta, nuevaPuerta);                  
+            puertas.Add(nombrePuerta, nuevaPuerta);
         }
 
         private void agregarObjetosMapa()
@@ -162,7 +136,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             foreach (TgcMesh item in escena.Meshes)
             {
-                writer.Add(item.Name);
+                if (item.Name[0]=='q')
+                {
+                    writer.Add(item.Name);
+                };
             }
         }
 
@@ -232,6 +209,15 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             return relacionesCuartos[cuarto];
         }
 
+        internal void activarObjetos()
+        {
+            foreach (Puerta puerta in puertas.Values)
+            {
+                puerta.execute();
+                puerta.render();
+            }
+        }
+
         internal void dispose()
         {
             escena.disposeAll();
@@ -289,7 +275,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                         {
                             escenaFiltrada.Add(mesh);//Aca agrego el mesh de la puerta, esto se tiene q cambiar
                         }
-                        escenaFiltrada.Add(puertas[otroCuarto].getMesh());
+                        //escenaFiltrada.Add(puertas[otroCuarto].getMesh());//ACA ROMPE PORQUE LAS PUERTAS QUE AGREGO TIENEN OTRA KEY!!!
 
                         if (index == nombreCuarto && relacionesCuartos[otroCuarto].Count() > 1)
                         {

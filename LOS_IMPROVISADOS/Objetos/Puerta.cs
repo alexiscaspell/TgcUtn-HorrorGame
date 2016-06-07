@@ -25,8 +25,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		float anguloRotacion = 0;
 		bool abierta = false;
 		bool rotando = false;
-
-        bool seAbreConLlave;
 		
 		TgcStaticSound puertaCerrada;
 		TgcStaticSound puertaAbriendose;
@@ -36,16 +34,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         //Hay que hacerle un constructor que le asigne la metadata
         //(El agarrado deberia ir en 1000000 o algo asi exagerado para que siempre la pueda abrir/cerrar)
 
-        public Puerta(bool seAbreConLlave,int nroPuerta)
+        public Puerta(int nroPuerta,TgcMesh mesh)
         {
-            TgcSceneLoader loader = new TgcSceneLoader();
-            escena = loader.loadSceneFromFile(
-                GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\puertaBerreta-TgcScene.xml",
-                GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\");
-
-            this.seAbreConLlave = seAbreConLlave;
-
-            mesh = escena.Meshes[0];
+            this.mesh = mesh;
+            this.nroPuerta = nroPuerta;
         }
 
         public void init(Vector3 posicion, Vector3 escalado)
@@ -56,7 +48,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public override void execute()
 		{
-			if(Personaje.Instance.llaveActual == nroPuerta || nroPuerta <= 0||!seAbreConLlave)
+			if(Personaje.Instance.llaveActual == nroPuerta || nroPuerta <= 0)
 			{
 				rotando = true;
 				nroPuerta = -1; //Para necesitar usar la llave 1 sola vez
