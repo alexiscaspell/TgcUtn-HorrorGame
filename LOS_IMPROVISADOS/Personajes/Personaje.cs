@@ -156,8 +156,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			//Activar objetos
 			if(GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.E))
 			{
-				//Aca deberia ir el codigo
-				//mapa.activarObjetos(this);
+                //Aca deberia ir el codigo
+                mapa.activarObjetos();
 				//Mapa despues deberia tomar la posicion de la camara y checkear la colision
 			}
 			
