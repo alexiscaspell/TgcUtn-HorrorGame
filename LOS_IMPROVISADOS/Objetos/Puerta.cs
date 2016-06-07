@@ -26,8 +26,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		bool abierta = false;
 		bool rotando = false;
 		
-		TgcStaticSound puertaCerrada;
-		TgcStaticSound puertaAbriendose;
+        TgcStaticSound puertaCerrada = new TgcStaticSound();
+        TgcStaticSound puertaAbriendose = new TgcStaticSound();
         int nroPuerta;//Para que checkee que tenga la misma llave
         private TgcScene escena;
 
@@ -36,6 +36,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public Puerta(int nroPuerta,TgcMesh mesh)
         {
+        	this.agarrado = int.MaxValue;
             this.mesh = mesh;
             this.nroPuerta = nroPuerta;
         }

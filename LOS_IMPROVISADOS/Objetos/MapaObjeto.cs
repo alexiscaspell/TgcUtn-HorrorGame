@@ -1,8 +1,8 @@
 ﻿/*
  * Created by SharpDevelop.
  * User: Lelouch
- * Date: 03/06/2016
- * Time: 14:18
+ * Date: 07/06/2016
+ * Time: 00:46
  * 
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
@@ -14,31 +14,29 @@ using TgcViewer.Utils.Sound;
 namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
 	/// <summary>
-	/// Description of Baterias.
+	/// Description of MapaObjeto.
 	/// </summary>
-	public class Bateria : Accionable
-	{		
+	public class MapaObjeto : Accionable
+	{
 		TgcStaticSound sonidoAgarrar;
 		
-		public Bateria()
+		public MapaObjeto()
 		{
 			TgcSceneLoader loader = new TgcSceneLoader();
 			TgcScene escena = loader.loadSceneFromFile(
-				GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Bateria\\bateria-TgcScene.xml",
-				GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Bateria");
+				GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Mapa\\mapaObjeto-TgcScene.xml",
+				GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Mapa");
 			
 			this.mesh = escena.Meshes[0];
 			
 			sonidoAgarrar = new TgcStaticSound();
 			sonidoAgarrar.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\sonidosJuego\\ruidos inventario\\inventory_click.wav");
 		}
-
+		
 		public override void execute()
 		{
-			Inventario.Instance.agregarItem(new PilaItem() );
+			Inventario.Instance.agregarItem(new MapaItem() );
 			sonidoAgarrar.play();
 		}
-		
-		
 	}
 }
