@@ -28,8 +28,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         bool seAbreConLlave;
 		
-		TgcStaticSound puertaCerrada;
-		TgcStaticSound puertaAbriendose;
+        TgcStaticSound puertaCerrada = new TgcStaticSound();
+        TgcStaticSound puertaAbriendose = new TgcStaticSound();
         int nroPuerta;//Para que checkee que tenga la misma llave
         private TgcScene escena;
 
@@ -46,6 +46,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             this.seAbreConLlave = seAbreConLlave;
 
             mesh = escena.Meshes[0];
+            
+            puertaCerrada.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\puertaCerrada.wav");
+            puertaAbriendose.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\aperturaPuerta.wav");
+            
         }
 
         public void init(Vector3 posicion, Vector3 escalado)

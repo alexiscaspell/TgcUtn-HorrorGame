@@ -34,6 +34,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
 
         public override void recargar()
         {
+        	cargaActual += 10;
             //esta objeto solo recarga cuando este cerca de un recipiente con aceite
         }
 
