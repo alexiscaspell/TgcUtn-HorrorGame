@@ -110,6 +110,8 @@
     <Compile Include="LOS_IMPROVISADOS\Objetos\Inventario\Llave.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\Inventario\MapaItem.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\Inventario\PilaItem.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Objetos\ManoObjeto.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Objetos\MapaObjeto.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\Puerta.cs" />
     <Compile Include="LOS_IMPROVISADOS\Personajes\Boss\AnimatedBoss.cs" />
     <Compile Include="LOS_IMPROVISADOS\Personajes\Boss\Boss.cs" />

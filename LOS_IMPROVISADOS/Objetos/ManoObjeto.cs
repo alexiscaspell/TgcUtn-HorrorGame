@@ -9,6 +9,7 @@
 using System;
 using TgcViewer;
 using TgcViewer.Utils.TgcSceneLoader;
+using TgcViewer.Utils.Sound;
 using AlumnoEjemplos.LOS_IMPROVISADOS.Objetos.Inventario;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS
@@ -18,6 +19,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 	/// </summary>
 	public class ManoObjeto : Accionable
 	{
+		TgcStaticSound sonidoAgarrar;
+		
 		public ManoObjeto()
 		{
 			TgcSceneLoader loader = new TgcSceneLoader();
@@ -26,11 +29,16 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 				GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Mano");
 			
 			this.mesh = escena.Meshes[0];
+			
+			sonidoAgarrar = new TgcStaticSound();
+			sonidoAgarrar.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\sonidosJuego\\ruidos inventario\\inventory_click.wav");
+
 		}
 		
 		public override void execute()
 		{
 			Inventario.Instance.agregarItem(Llave.LlaveMano() );
+			sonidoAgarrar.play();
 		}
 	}
 }

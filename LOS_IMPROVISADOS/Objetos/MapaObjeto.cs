@@ -9,6 +9,7 @@
 using System;
 using TgcViewer;
 using TgcViewer.Utils.TgcSceneLoader;
+using TgcViewer.Utils.Sound;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
@@ -17,6 +18,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 	/// </summary>
 	public class MapaObjeto : Accionable
 	{
+		TgcStaticSound sonidoAgarrar;
+		
 		public MapaObjeto()
 		{
 			TgcSceneLoader loader = new TgcSceneLoader();
@@ -25,11 +28,15 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 				GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Mapa");
 			
 			this.mesh = escena.Meshes[0];
+			
+			sonidoAgarrar = new TgcStaticSound();
+			sonidoAgarrar.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\sonidosJuego\\ruidos inventario\\inventory_click.wav");
 		}
 		
 		public override void execute()
 		{
 			Inventario.Instance.agregarItem(new MapaItem() );
+			sonidoAgarrar.play();
 		}
 	}
 }
