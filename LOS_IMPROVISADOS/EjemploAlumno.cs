@@ -67,7 +67,7 @@ namespace AlumnoEjemplos.MiGrupo
             //boss = new Boss(camaraFPS);
             //boss.init(40f, new Vector3(100, 10, 100));
 
-            //Cursor.Hide();
+            Cursor.Hide();
 
             diosMapa = new DiosMapa();//ESTO DEJARLO ANTES DE LA INSTANCIACION DEL BOSS!!!
             diosMapa.init(0.01f);//Quiero que mapee 100x100 ptos del mapa
@@ -103,7 +103,7 @@ namespace AlumnoEjemplos.MiGrupo
             Device d3dDevice = GuiController.Instance.D3dDevice;
 
             Size screenSize = GuiController.Instance.Panel3d.Size;
-            //Cursor.Position = new Point(screenSize.Width / 2, screenSize.Height / 2);
+            Cursor.Position = new Point(screenSize.Width / 2, screenSize.Height / 2);
 
             if (!playing)
             {

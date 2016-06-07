@@ -102,11 +102,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.LeftShift))
             {
                 camaraFPS.camaraFramework.setPosition(new Vector3(posActual.X,alturaAgachado, posActual.Z));
+                camaraFPS.camaraFramework.MovementSpeed /= 2; 
             }
 
             if (GuiController.Instance.D3dInput.keyUp(Microsoft.DirectX.DirectInput.Key.LeftShift))
             {
                 camaraFPS.camaraFramework.setPosition(new Vector3(posActual.X,alturaParado, posActual.Z));
+                camaraFPS.camaraFramework.MovementSpeed *= 2;
             }
 
             if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.R))
