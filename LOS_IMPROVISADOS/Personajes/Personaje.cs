@@ -177,7 +177,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             TgcBoundingBox obstaculo = new TgcBoundingBox();
 
             Vector3 posActual = camaraFPS.camaraFramework.Position;
-
+            posActual.Y = alturaAgachado;
+            
             cuerpo.setCenter(posActual);
 
             if (mapa.colisionaPersonaje(cuerpo, ref obstaculo))
