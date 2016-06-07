@@ -154,5 +154,17 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             }
             return cuartoAnterior;
         }
+
+        internal bool colisionaConAlgunCuarto(TgcBoundingSphere tgcBoundingSphere)
+        {
+            foreach (TgcBoundingBox cuarto in bloquesCuartos.Values)
+            {
+                if (colisionaEsferaCaja(tgcBoundingSphere,cuarto))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

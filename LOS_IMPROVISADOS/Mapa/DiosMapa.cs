@@ -126,9 +126,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 {
                     puntoActual = filaActual[j];
 
-                    bool collide = mapa.colisionaEsfera(puntoActual.getSphere());
+                    bool collideObjects = mapa.colisionaEsfera(puntoActual.getSphere());
+                    bool collideRoom = ColinaAzul.Instance.colisionaConAlgunCuarto(puntoActual.getSphere());
                     //punto.setActivo(!collide);//Si no colisiona entonces esta en true
-                    if (collide)
+                    if (!collideRoom||collideObjects)
                     {
                         filaActual.Remove(puntoActual);
                     }
