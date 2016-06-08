@@ -51,9 +51,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			
 			#region Puertas
 			Puerta puerta1 = new Puerta(-1,0);
-			//puerta1.cambiarVectores(new Vector3(2442.97f,303.4318f,11004.33f),new Vector3(5f,4.25f,6.5f));
-			//puerta1.cambiarVectores(new Vector3(2442.97f,303.4318f,11204.33f), new Vector3(5f,4.25f,6.5f));
-			puerta1.cambiarVectores(new Vector3(2477.25f,0.0f,11203.53f), new Vector3(1.5f,0.56f,0.87f));
+			puerta1.cambiarVectores(new Vector3(2479.43f,0.0f,11201.52f), new Vector3(1.5f,0.45f,0.7f));
 			lista.Add(puerta1);
 			#endregion Puertas
 			

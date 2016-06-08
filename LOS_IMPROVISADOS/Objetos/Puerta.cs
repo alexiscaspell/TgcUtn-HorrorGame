@@ -21,6 +21,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 	/// </summary>
 	public class Puerta : Accionable
 	{
+		CamaraFramework camara = CamaraFPS.Instance.camaraFramework;
+		
 		const float ajusteBB = 250;
 		
 		const float speed = 50;
@@ -37,9 +39,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         public Puerta(int nroPuerta, float anguloInicial)
         {
         	TgcSceneLoader loader = new TgcSceneLoader();
-            TgcScene escena = loader.loadSceneFromFile(
-                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\Puerta Derecha\\DoorRight-TgcScene.xml",
-                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\Puerta Derecha\\");
+            
+        	TgcScene escena = loader.loadSceneFromFile(
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\Puerta1\\puerta-TgcScene.xml",
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\Puerta1\\");
         	
         	mesh = escena.Meshes[0];
         	
@@ -78,6 +81,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 				}
 				
 				puertaAbriendose.play();
+				
+				camara.animar();
+				
 				return;
 			}
 			
@@ -137,6 +143,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         	update();
             mesh.render();
             mesh.BoundingBox.render();
+            camara.animacionPuerta();
         }
     }
 }

@@ -54,7 +54,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		public virtual void render()
 		{
 			if(agarrado >= 1){
-				mesh.updateBoundingBox();
 				mesh.render();
 			}
 		}

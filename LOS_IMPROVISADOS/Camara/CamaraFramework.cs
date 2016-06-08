@@ -18,7 +18,40 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
     {
         public bool camaraConClikActivado { get; set; }
 
+        private bool movActivado = true;
+        
+        #region animacionPuerta
+        const float tiempoAnimacion = 1.0f;
+        const float velMovAnimacion = 80f;
+        private float tiempoTranscurrido;
+        private bool animacionActivada;
+        public void animacionPuerta()
+        {
+        	if(animacionActivada)
+        	{
+        		//la animacion esta en un or(||) en el lugar donde se toma el input de teclado
+        		
+                tiempoTranscurrido += GuiController.Instance.ElapsedTime;
+                MovementSpeed = velMovAnimacion; //Hago mas lenta la velocidad
+                
+                //Detengo la animacion
+                if(tiempoTranscurrido > tiempoAnimacion){
+                	animacionActivada=false;
+                	movActivado = true;
+                	MovementSpeed = DEFAULT_MOVEMENT_SPEED; //Dejo la velocidad como estaba
+                }
+        	}
+        	
+        }
 
+        public void animar()
+        {
+        	movActivado = false;
+        	animacionActivada = true;
+        	tiempoTranscurrido = 0;
+        }
+        #endregion animacionPuerta
+        
         //Constantes de movimiento
         public const float DEFAULT_ROTATION_SPEED = 2f;
         public const float DEFAULT_MOVEMENT_SPEED = 100f;
@@ -669,7 +702,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             Vector3 direction = new Vector3(0.0f, 0.0f, 0.0f);
 
             //Forward
-            if (d3dInput.keyDown(Key.W))
+            if (d3dInput.keyDown(Key.W) && movActivado)
             {
                 if (!moveForwardsPressed)
                 {
@@ -685,7 +718,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             }
 
             //Backward
-            if (d3dInput.keyDown(Key.S))
+            if ( (d3dInput.keyDown(Key.S) && movActivado) || animacionActivada)
             {
                 if (!moveBackwardsPressed)
                 {
@@ -701,7 +734,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             }
 
             //Strafe right
-            if (d3dInput.keyDown(Key.D))
+            if (d3dInput.keyDown(Key.D) && movActivado)
             {
                 if (!moveRightPressed)
                 {
@@ -717,7 +750,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             }
 
             //Strafe left
-            if (d3dInput.keyDown(Key.A))
+            if (d3dInput.keyDown(Key.A) && movActivado)
             {
                 if (!moveLeftPressed)
                 {
