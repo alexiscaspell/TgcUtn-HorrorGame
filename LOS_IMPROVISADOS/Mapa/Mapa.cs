@@ -61,13 +61,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             
             instancia = this;
 
-            /* if (!leerDatosDeArchivo())
-             {
-                 cargarDatosAArchivo();
-             }*/
-
-            cargarDatosAArchivo();
-
             mapearMapaALista();
 
             ColinaAzul.Instance.calcularBoundingBoxes(cuartos, CANTIDAD_DE_CUARTOS);
@@ -83,13 +76,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private void mapearPuertas()
         {
-            foreach (TgcMesh mesh in cuartos["otros"])
-            {
-                if (mesh.Name[0]=='q')//NINGUN MESH PUEDE EMPEZAR CON Q!!!
-                {
-                    mapearPuerta(mesh);
-                }
-            }
+               //ACA YA DEBERIAN DE ESTAR CREADAS LAS PUERTAS
+               //LO UNICO QUE HARIA ES SACAR LOS MESHES Y DISTRIBUIRLOS POR EL MAPA
         }
 
         private void mapearPuerta(TgcMesh mesh)
@@ -238,6 +226,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 }
             }
             return false;
+        }
+
+        public List<TgcMesh> meshesDeCuartoEnLaPosicion(Vector3 posicion)
+        {
+            string enQueCuartoEsta = ColinaAzul.Instance.getCuartoIn(posicion);
+
+            return cuartos[enQueCuartoEsta];
         }
 
         internal bool colisionaEsfera(TgcBoundingSphere esfera)

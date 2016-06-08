@@ -166,5 +166,20 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             }
             return false;
         }
+
+        internal string getCuartoIn(Vector3 posicion)
+        {
+            TgcBoundingSphere esfera = new TgcBoundingSphere(posicion, 1);
+
+            foreach (string cuarto in bloquesCuartos.Keys)
+            {
+                if (colisionaEsferaCaja(esfera,bloquesCuartos[cuarto]))
+                {
+                    return cuarto;
+                }
+            }
+
+            return "";
+        }
     }
 }
