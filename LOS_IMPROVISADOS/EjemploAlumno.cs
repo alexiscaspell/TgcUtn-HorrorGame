@@ -68,9 +68,10 @@ namespace AlumnoEjemplos.MiGrupo
 
             Cursor.Hide();
 
-            diosMapa = new DiosMapa();//ESTO DEJARLO ANTES DE LA INSTANCIACION DEL BOSS!!!
+            diosMapa = DiosMapa.Instance;//ESTO DEJARLO ANTES DE LA INSTANCIACION DEL BOSS!!!
             diosMapa.init(0.01f);//Quiero que mapee 100x100 ptos del mapa
             diosMapa.generarMatriz();//Genera matriz de vias del boss
+            diosMapa.generarCaminos();
 
             bossAnimado = new AnimatedBoss();
             bossAnimado.init(300f, new Vector3(camaraFPS.posicion.X,0,camaraFPS.posicion.Z+200));//Esto es para probar a un boss con esqueleto
@@ -87,11 +88,6 @@ namespace AlumnoEjemplos.MiGrupo
             menuActual = factoryMenu.menuPrincipal();
 
             playing = false;
-
-            //menuPrincipal.init();
-            
-            cama = new Cama();
-            //cama.init();
             
         }
 
@@ -124,7 +120,7 @@ namespace AlumnoEjemplos.MiGrupo
             //boss.render();
 
             bossAnimado.update();
-            //bossAnimado.render();
+            bossAnimado.render();
 
             //puerta.update(elapsedTime);
             //puerta.render();

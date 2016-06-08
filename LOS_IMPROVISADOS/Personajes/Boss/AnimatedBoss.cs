@@ -1,4 +1,5 @@
-﻿using Microsoft.DirectX;
+﻿using AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Boss;
+using Microsoft.DirectX;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -44,7 +45,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             this.velocidadMovimiento = velocidadMovimiento;
             direccionVista = new Vector3(0, 0, -1);
 
-            comportamiento = new SeguirPersonaje();//ESTO LO HARDCODEO POR AHORA
+            comportamiento = new SeguirNodoCorto();//SeguirPersonaje();//ESTO LO HARDCODEO POR AHORA
         }
 
         #region funcionesAnimadas
