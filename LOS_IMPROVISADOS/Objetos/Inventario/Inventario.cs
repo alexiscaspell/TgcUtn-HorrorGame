@@ -80,8 +80,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			init();
 			
 			Item.texturaSlotVacio = this.texturaSlotLibre;
-			
-			agregarItem(new MapaItem());
 		}
 		#endregion singleton
 		
