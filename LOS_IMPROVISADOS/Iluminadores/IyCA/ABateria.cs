@@ -31,6 +31,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
 
         public Size screenSize { get; set; }
 
+        protected int cantidadFluors { get; set; }
 
         public ABateria()
         {
@@ -78,6 +79,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
         internal void apagarOPrender()
         {
             bateriaActivada = !bateriaActivada;
+        }
+        
+        public void aumentarFluor()
+        {
+        	cantidadFluors++;
         }
 
         public abstract void recargar();        

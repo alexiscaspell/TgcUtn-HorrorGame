@@ -9,7 +9,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.fluors
 {
     class BateriaFluor : ABateria
     {
-        public int cantidadFluors { get; set; }
 
         public BateriaFluor() : base()
         {
