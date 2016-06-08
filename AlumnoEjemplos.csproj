@@ -96,6 +96,10 @@
     <Compile Include="LOS_IMPROVISADOS\Mapa\ObjetosMapa\Cama.cs" />
     <Compile Include="LOS_IMPROVISADOS\Mapa\ObjetosMapa\PuertaHard.cs" />
     <Compile Include="LOS_IMPROVISADOS\Mapa\Punto.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Mapa\RoomsIluminados\ARoomLuz.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Mapa\RoomsIluminados\ConfigRoomIluminado.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Mapa\RoomsIluminados\RoomFarol.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Mapa\RoomsIluminados\RoomLinterna.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\ButtonButtons.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\ButtonExit.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\ButtonObjective.cs" />

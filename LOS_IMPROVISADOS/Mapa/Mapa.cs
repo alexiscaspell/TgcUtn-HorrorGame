@@ -46,6 +46,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private Dictionary<string, Puerta> puertas = new Dictionary<string, Puerta>();
 
+        private ConfigRoomIluminado configRoomsIluminados = new ConfigRoomIluminado();
+
         private const int CANTIDAD_DE_CUARTOS = 79;
         private const int CANTIDAD_DE_PUERTAS = 15;
         private const int CANTIDAD_DE_PUERTAS_PZ = 11;
@@ -228,11 +230,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             return false;
         }
 
-        public List<TgcMesh> meshesDeCuartoEnLaPosicion(Vector3 posicion)
+        public List<TgcMesh> meshesDeCuartoEnLaPosicion(Vector3 posicion, ref string nombreCuarto)
         {
-            string enQueCuartoEsta = ColinaAzul.Instance.getCuartoIn(posicion);
-
-            return cuartos[enQueCuartoEsta];
+            string cuarto = ColinaAzul.Instance.getCuartoIn(posicion);
+            nombreCuarto = cuarto;
+            return cuartos[cuarto];
         }
 
         internal bool colisionaEsfera(TgcBoundingSphere esfera)
