@@ -76,8 +76,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             escenaFiltrada = new List<TgcMesh>();
 
             updateEscenaFiltrada();
-        }
+
             configRoomsIluminados = new ConfigRoomIluminado();
+        }
 
         private void mapearPuertas()
         {
