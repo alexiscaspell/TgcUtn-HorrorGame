@@ -21,6 +21,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 	/// </summary>
 	public class Puerta : Accionable
 	{
+		CamaraFramework camara = CamaraFPS.Instance.camaraFramework;
+		
 		const float ajusteBB = 250;
 		
 		const float speed = 50;
@@ -79,6 +81,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 				}
 				
 				puertaAbriendose.play();
+				
+				camara.animar();
+				
 				return;
 			}
 			
@@ -138,6 +143,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         	update();
             mesh.render();
             mesh.BoundingBox.render();
+            camara.animacionPuerta();
         }
     }
 }
