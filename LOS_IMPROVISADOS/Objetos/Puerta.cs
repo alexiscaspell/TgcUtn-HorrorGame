@@ -108,6 +108,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 				
 				puertaAbriendose.play();
 				
+				//Le paso la direccion x o z, dependiendo del tipo de puerta
 				if(paraleloEjeZ)
 				{
 					camara.animar(this.mesh.Position.X, !abierta, paraleloEjeZ);
