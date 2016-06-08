@@ -16,18 +16,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public static Personaje Instance
         {
-            get
-            { return newInstance(); }
-        }
-
-        internal static Personaje newInstance()
-        {
-            if (instancia != null) { }
-            else
-            {
-                new Personaje();
-            }
-            return instancia;
+        	get{
+        		if(instancia==null)instancia = new Personaje();
+        		
+        		return instancia;
+        	}
         }
 
         #endregion
@@ -56,7 +49,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private float alturaAgachado;
         private float alturaParado;
 
-        public Personaje()
+        private Personaje()
         {
 
             mapa = Mapa.Instance;

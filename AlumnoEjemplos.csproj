@@ -91,6 +91,7 @@
     <Compile Include="LOS_IMPROVISADOS\EfectosPosProcesado\EfectoHechoMierda.cs" />
     <Compile Include="LOS_IMPROVISADOS\GameOver.cs" />
     <Compile Include="LOS_IMPROVISADOS\Mapa\DiosMapa.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Mapa\HardCodeadorObjetos.cs" />
     <Compile Include="LOS_IMPROVISADOS\Mapa\Mapa.cs" />
     <Compile Include="LOS_IMPROVISADOS\Mapa\ObjetosMapa\Cama.cs" />
     <Compile Include="LOS_IMPROVISADOS\Mapa\ObjetosMapa\PuertaHard.cs" />

@@ -24,8 +24,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		{
 			TgcSceneLoader loader = new TgcSceneLoader();
 			TgcScene escena = loader.loadSceneFromFile(
-				GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Mapa\\mapaObjeto-TgcScene.xml",
-				GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Mapa");
+				GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\MapaObjeto\\mapaObjeto-TgcScene.xml",
+				GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\MapaObjeto\\");
 			
 			this.mesh = escena.Meshes[0];
 			

@@ -19,17 +19,22 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 	public abstract class Accionable
 	{
 		protected TgcMesh mesh;
+		public TgcMesh getMesh()
+		{
+			return this.mesh;
+		}
+		
 		protected int agarrado = 1; //cant de veces que se puede accionar
-		protected const float distAccion = 100f;
+		protected const float distAccion = 300f;
 		
 		public void acciona(Vector3 posInicial, Vector3 dir){
 			
 			Vector3 vectorInutil;
-			Vector3 posFinal = dir * distAccion;
+			Vector3 posFinal = dir * distAccion + posInicial;
 			
 			bool resultado = TgcCollisionUtils.intersectSegmentAABB(posInicial, posFinal, mesh.BoundingBox, out vectorInutil);
 			
-			if(resultado)
+			if(resultado && agarrado >= 1)
 			{
 				agarrado--;
 				execute();
@@ -46,11 +51,18 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			return this.mesh.BoundingBox;
 		}
 		
-		public void render()
+		public virtual void render()
 		{
-			if(agarrado > 1){
+			if(agarrado >= 1){
+				mesh.updateBoundingBox();
 				mesh.render();
 			}
+		}
+		
+		public void cambiarVectores(Vector3 pos, Vector3 scale)
+		{
+			mesh.move(pos);
+			mesh.Scale = scale;
 		}
 	}
 }

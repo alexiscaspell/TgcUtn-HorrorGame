@@ -41,6 +41,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private Dictionary<string, string[]> relacionesCuartos = new Dictionary<string, string[]>();
 
         public List<TgcMesh> escenaFiltrada { get; set; }
+        
+        public List<Accionable> objetos {get; set;}
 
         private Dictionary<string, Puerta> puertas = new Dictionary<string, Puerta>();
 
@@ -55,6 +57,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\mapa-TgcScene.xml",
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\");
 
+            objetos = HardCodeadorObjetos.HardCodearObjetos();
+            
             instancia = this;
 
             /* if (!leerDatosDeArchivo())
@@ -211,11 +215,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         internal void activarObjetos()
         {
-            foreach (Puerta puerta in puertas.Values)
-            {
-                puerta.execute();
-                puerta.render();
-            }
+        	foreach(Accionable a in objetos)
+        	{
+        		a.acciona(Personaje.Instance.camaraFPS.camaraFramework.Position, Personaje.Instance.camaraFPS.camaraFramework.viewDir);
+        	}
         }
 
         internal void dispose()
@@ -289,6 +292,14 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                     }
                 }
             }
+            
+            //Agrego todos los accionables
+            foreach(Accionable a in objetos)
+            {
+            	escenaFiltrada.Add(a.getMesh());
+            }
+            
+            
         }
 
         private List<TgcMesh> clonarLista(List<TgcMesh> list)

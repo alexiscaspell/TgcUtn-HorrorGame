@@ -29,7 +29,6 @@ namespace AlumnoEjemplos.MiGrupo
         private TgcStaticSound sonidoFondo;
 
         private AnimatedBoss bossAnimado;
-        private PuertaHard puertaHard;
 
         private Cama cama;
         
@@ -62,7 +61,7 @@ namespace AlumnoEjemplos.MiGrupo
 
             camaraFPS = CamaraFPS.Instance;
 
-            personaje = new Personaje();
+            personaje = Personaje.Instance;
 
             //boss = new Boss(camaraFPS);
             //boss.init(40f, new Vector3(100, 10, 100));
@@ -78,7 +77,6 @@ namespace AlumnoEjemplos.MiGrupo
 
             //puerta = new Puerta(630, 32, 200);
 
-            puertaHard = new PuertaHard(new Vector3(630, 32, 200));//Esta es una puerta medio hardcodeada
             sonidoFondo = new TgcStaticSound();
             sonidoFondo.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\asd16.wav");
             sonidoFondo.play(true);
@@ -131,8 +129,6 @@ namespace AlumnoEjemplos.MiGrupo
             //puerta.update(elapsedTime);
             //puerta.render();
 
-            puertaHard.update();
-            puertaHard.render();
             
             //menuPrincipal.render();
             

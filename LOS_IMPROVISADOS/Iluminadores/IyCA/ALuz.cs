@@ -38,7 +38,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
             cajaNegra.render();
             esferaNegra.render();
             
-            foreach (TgcMesh mesh in mapa.escenaFiltrada.Union(mapa.escena.Meshes))
+            foreach (TgcMesh mesh in mapa.escena.Meshes)
 	        {
 				if( TgcCollisionUtils.testAABBAABB(mesh.BoundingBox, cajaNegra.BoundingBox))
 				{
@@ -50,6 +50,19 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
 				   	mesh.render();
                 }
         	}
+            foreach(Accionable a in mapa.objetos)
+            {
+            	if( TgcCollisionUtils.testAABBAABB(a.getMesh().BoundingBox, cajaNegra.BoundingBox))
+				{
+            		a.getMesh().Effect = currentShader;
+            		a.getMesh().Technique = GuiController.Instance.Shaders.getTgcMeshTechnique(a.getMesh().RenderType);
+
+            		configurarEfecto(a.getMesh() );
+                	
+				   	a.render();
+                }
+            }
+            
     	}
         
         virtual public void init()

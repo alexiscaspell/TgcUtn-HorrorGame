@@ -87,7 +87,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             }
         }
 
-        public void render()
+        public override void render()
         {
         	update();
             mesh.render();

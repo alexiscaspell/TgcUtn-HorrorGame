@@ -20,8 +20,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Objetos
 	{
 		int cantCargas = 5;
 		
-		TgcStaticSound sonidoRecarga;
-		TgcStaticSound sonidoVacio;
+		TgcStaticSound sonidoRecarga =new TgcStaticSound();
+		TgcStaticSound sonidoVacio = new TgcStaticSound();
 		
 		public Barril()
 		{
@@ -34,8 +34,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Objetos
 			
 			this.mesh = escena.Meshes[0];
 			
-			sonidoVacio.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\sonidoVacio.wav");
-			sonidoRecarga.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\sonidoRecarga.wav");
+			sonidoVacio.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Barril\\barrilVacio.wav");
+			sonidoRecarga.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Barril\\barrilRecarga.wav");
 		}
 		
 		public override void execute()
