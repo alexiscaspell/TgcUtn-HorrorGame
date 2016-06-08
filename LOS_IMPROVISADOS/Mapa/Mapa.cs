@@ -46,7 +46,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private Dictionary<string, Puerta> puertas = new Dictionary<string, Puerta>();
 
-        private ConfigRoomIluminado configRoomsIluminados = new ConfigRoomIluminado();
+        private ConfigRoomIluminado configRoomsIluminados;
 
         private const int CANTIDAD_DE_CUARTOS = 79;
         private const int CANTIDAD_DE_PUERTAS = 15;
@@ -65,13 +65,15 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             ColinaAzul.Instance.calcularBoundingBoxes(cuartos, CANTIDAD_DE_CUARTOS);
 
-            mapearPuertas();
+            //mapearPuertas();
 
             agregarObjetosMapa();
 
             escenaFiltrada = new List<TgcMesh>();
 
             updateEscenaFiltrada();
+            
+            configRoomsIluminados = new ConfigRoomIluminado();
         }
 
         private void mapearPuertas()

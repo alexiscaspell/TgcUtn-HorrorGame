@@ -24,7 +24,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 mesh.Position = this.posicion;
             }
 
-            init();
         }
 
         public override void render()
