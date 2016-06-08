@@ -178,7 +178,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             configIluminador.renderizarIluminador();
 
-            mapa.iluminarCuartos();
+            //mapa.iluminarCuartos();
 
             cuerpo.setCenter(posActual);
         }

@@ -83,7 +83,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		
 		public override void execute()
 		{
-			Inventario.Instance.agregarItem(Llave.LlaveMano() );
+			Inventario.Instance.agregarItem(item);
 			sonidoAgarrar.play();
 		}
 		
