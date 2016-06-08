@@ -6,6 +6,7 @@ using TgcViewer.Utils.Sound;
 using Microsoft.DirectX;
 using AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado;
 using AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Configuradores;
+using System;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
@@ -48,6 +49,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         
         private float alturaAgachado;
         private float alturaParado;
+        private bool muerto = false;
 
         private Personaje()
         {
@@ -113,11 +115,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             {
                 configIluminador.cambiarAIluminadorFluor();
             }
-
+            /*
             if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.R))
             {
                 configIluminador.recargarBateriaLinterna();
-            }
+            }*/
 
             //Checkeo para movimiento de sonido
             if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.W))
@@ -153,12 +155,18 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 mapa.activarObjetos();
 				//Mapa despues deberia tomar la posicion de la camara y checkear la colision
 			}
-			
-			//Activar gameOverScreen (solo p/debug)
-			if(GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.M))
+
+            //Activar gameOverScreen (solo p/debug)
+            /*if(GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.M))
 			{
 				GameOver.Instance.activar();
-			}
+                morir();
+			}*/
+
+            if (!muerto)
+            {
+                verificarSiMori();
+            }
 			
            //posprocesado
             if (configIluminador.iluminadorActualSeQuedoSinBateria())
@@ -170,7 +178,17 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             configIluminador.renderizarIluminador();
 
+            mapa.iluminarCuartos();
+
             cuerpo.setCenter(posActual);
+        }
+
+        private void verificarSiMori()
+        {
+            if (ColinaAzul.Instance.colisionaEsferaCaja(cuerpo,AnimatedBoss.Instance.getBoundingBox()))
+            {
+                morir();
+            }
         }
 
         public void calcularColisiones()
@@ -216,6 +234,17 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             return new Vector3(1, 0, 0);
         }
+
+        public void morir()
+        {
+            GameOver.Instance.activar();
+            camaraFPS.camaraFramework.activada = false;
+            AnimatedBoss.Instance.activado = false;
+            configIluminador.apagarBateria();
+            muerto = true;
+        }
+
+
 
 
         }

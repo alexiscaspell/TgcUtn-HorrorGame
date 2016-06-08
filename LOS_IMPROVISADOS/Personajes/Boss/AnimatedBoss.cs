@@ -15,6 +15,21 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
     class AnimatedBoss
     {
+        #region Singleton
+        private static volatile AnimatedBoss instancia = null;
+
+        public static AnimatedBoss Instance
+        {
+            get
+            {
+                if (instancia == null) instancia = new AnimatedBoss();
+
+                return instancia;
+            }
+        }
+
+        #endregion
+
         #region variablesAnimadas
         private string selectedMesh;
         private string selectedAnim;
@@ -27,8 +42,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private Vector3 direccionVista;
         private CamaraFPS camara;
         private Comportamiento comportamiento;
+        internal bool activado = true;
 
-        public AnimatedBoss()
+        private AnimatedBoss()
         {
             crearEsqueleto();
             camara = CamaraFPS.Instance;
@@ -168,9 +184,17 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             }
         }
 
+        internal TgcBoundingBox getBoundingBox()
+        {
+            return cuerpo.BoundingBox;
+        }
+
         public void update()
         {
-            seguirPersonaje();
+            if (activado)
+            {
+                seguirPersonaje();
+            }
         }
 
         public void dispose()

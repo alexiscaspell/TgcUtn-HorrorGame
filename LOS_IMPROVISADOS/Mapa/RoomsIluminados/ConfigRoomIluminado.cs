@@ -20,10 +20,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         }
         
         public void init()
-        {
+        {/*
         	foreach(ARoomLuz luz in roomsIluminados){
         		luz.init();
-        	}
+        	}*/
         }
 
         public void render()

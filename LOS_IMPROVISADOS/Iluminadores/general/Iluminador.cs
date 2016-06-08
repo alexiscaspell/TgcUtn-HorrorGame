@@ -75,5 +75,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
             bateria.apagarOPrender();
             sonidoPrenderOApagar.play(false);
         }
+
+        internal void apagarBateria()
+        {
+            bateria.apagar();
+        }
     }
 }
