@@ -41,7 +41,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			lista.Add(llave1);
 			
 			LlaveObjeto llaveMano = LlaveObjeto.ManoObjeto();
-			llaveMano.cambiarVectores(new Vector3(23695.42f,42.56f,18625.01f), new Vector3(0.5f,0.5f,0.5f));
+			llaveMano.cambiarVectores(new Vector3(23695.42f,12.56f,18625.01f), new Vector3(0.5f,0.5f,0.5f));
 			llaveMano.getMesh().rotateZ(FastMath.PI/2);
 			lista.Add(llaveMano);
 			#endregion Llaves
@@ -64,11 +64,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			lista.Add(bateria4);
 			
 			Bateria bateria5 = new Bateria();
-			bateria5.cambiarVectores(new Vector3(13628.82f,190.84f,766.8f), new Vector3(0.1f,0.1f,0.1f));
+			bateria5.cambiarVectores(new Vector3(13628.82f,180.84f,766.8f), new Vector3(0.1f,0.1f,0.1f));
 			lista.Add(bateria5);
 			
 			Bateria bateria6 = new Bateria();
-			bateria6.cambiarVectores(new Vector3(13680.95f,190.84f,855.0f), new Vector3(0.1f,0.1f,0.1f));
+			bateria6.cambiarVectores(new Vector3(13680.95f,180.84f,855.0f), new Vector3(0.1f,0.1f,0.1f));
 			lista.Add(bateria6);
 			#endregion Baterias
 			
