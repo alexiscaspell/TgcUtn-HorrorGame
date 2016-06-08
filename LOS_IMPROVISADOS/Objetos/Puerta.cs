@@ -55,6 +55,23 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         	this.paraleloEjeZ = paraleloEjeZ;
         }
         
+        public static Puerta Puerta2(int nroPuerta, bool paraleloEjeZ)
+        {
+        	TgcSceneLoader loader = new TgcSceneLoader();
+            
+        	TgcScene escena = loader.loadSceneFromFile(
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\Puerta2\\puerta2-TgcScene.xml",
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\Puerta2\\");
+        	
+        	TgcMesh nuevoMesh = escena.Meshes[0];
+        	
+        	Puerta nuevaPuerta = new Puerta(nroPuerta, paraleloEjeZ);
+        	
+        	nuevaPuerta.mesh = nuevoMesh;
+        	
+        	return nuevaPuerta;
+        }
+        
         public Puerta(int nroPuerta,TgcMesh mesh)
         {
         	this.agarrado = int.MaxValue;
@@ -75,11 +92,18 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 				rotando = true;
 				nroPuerta = -1; //Para necesitar usar la llave 1 sola vez
 				
-				if(abierta)
+				if(abierta && paraleloEjeZ)
 				{
 					mesh.BoundingBox.move(new Vector3(ajusteBB,0,-ajusteBB));
-				}else{
+				}
+				if(!abierta && paraleloEjeZ){
 					mesh.BoundingBox.move(new Vector3(-ajusteBB,0,ajusteBB));
+				}
+				if(abierta && !paraleloEjeZ){
+					mesh.BoundingBox.move(new Vector3(-ajusteBB,0,-ajusteBB));
+				}
+				if(!abierta && !paraleloEjeZ){
+					mesh.BoundingBox.move(new Vector3(ajusteBB,0,ajusteBB));
 				}
 				
 				puertaAbriendose.play();

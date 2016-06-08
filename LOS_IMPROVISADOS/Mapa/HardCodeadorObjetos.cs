@@ -41,7 +41,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			lista.Add(bateria1);
 			
 			Bateria bateria2 = new Bateria();
-			bateria2.cambiarVectores(new Vector3(5342.72f,192.2363f,10792f), new Vector3(0.1f,0.1f,0.1f));
+			bateria2.cambiarVectores(new Vector3(5342.72f,192.2363f,10692f), new Vector3(0.1f,0.1f,0.1f));
 			lista.Add(bateria2);
 			
 			Bateria bateria3 = new Bateria();
@@ -62,10 +62,14 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			puerta3.cambiarVectores(new Vector3(5583.99f,0.0f,7497.41f),new Vector3(1.5f,0.45f,0.7f));
 			lista.Add(puerta3);
 			
-			Puerta puerta4 = new Puerta(-1, false);
-			puerta4.cambiarVectores(new Vector3(2079.43f,0.0f,10201.52f), new Vector3(1.5f,0.45f,0.7f));
-			puerta4.getMesh().rotateY(FastMath.PI/2);
-			lista.Add(puerta4);
+			Puerta puerta21 = Puerta.Puerta2(-1, false);
+			puerta21.cambiarVectores(new Vector3(710.11f,0.0f,11222.56f), new Vector3(0.7f,0.45f,1.5f));
+			lista.Add(puerta21);
+			
+			Puerta puerta22 = Puerta.Puerta2(-1,false);
+			puerta22.cambiarVectores(new Vector3(6002.04f,0.0f,10220.73f), new Vector3(0.7f,0.45f,1.5f));
+			lista.Add(puerta22);
+			
 			#endregion Puertas
 			
 			return lista;
