@@ -104,11 +104,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 camaraFPS.camaraFramework.MovementSpeed *= 2;
             }
 
-            if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.R))
-            {
-                configIluminador.recargarBateriaLinterna();
-            }
-
             if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.F))
             {
                 configIluminador.cambiarASiguienteIluminador();
