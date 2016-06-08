@@ -21,7 +21,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 	/// </summary>
 	public class Puerta : Accionable
 	{
-		const float ajusteBB = 350;
+		const float ajusteBB = 250;
 		
 		const float speed = 50;
 		float anguloInicial;
@@ -38,8 +38,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
         	TgcSceneLoader loader = new TgcSceneLoader();
             TgcScene escena = loader.loadSceneFromFile(
-                GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\puertaBerreta-TgcScene.xml",
-                GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\");
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\Puerta Derecha\\DoorRight-TgcScene.xml",
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\Puerta Derecha\\");
         	
         	mesh = escena.Meshes[0];
         	
