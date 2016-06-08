@@ -11,8 +11,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
     {
         public Vector3 direccionVista { get; set; }
 
-        public RoomLinterna(Vector3 posicion, Vector3 direccionVista) : base(posicion)
+        public RoomLinterna(Vector3 posicion, Vector3 direccionVista) : base()
         {
+            this.posicion = posicion;
+            this.direccionVista = direccionVista;
+
             TgcSceneLoader loader = new TgcSceneLoader();
             escenaLampara = loader.loadSceneFromFile(
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\RoomsIluminados\\roomLinterna-TgcScene.xml",

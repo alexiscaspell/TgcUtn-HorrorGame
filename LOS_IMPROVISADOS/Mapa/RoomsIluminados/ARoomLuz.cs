@@ -15,9 +15,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public string idRoom { get; set; }
 
-        public ARoomLuz(Vector3 posicion)
+        public ARoomLuz()
         {
-            this.posicion = posicion;
         }
 
         public void init()

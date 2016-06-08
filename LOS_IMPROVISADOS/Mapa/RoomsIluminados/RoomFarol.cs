@@ -9,8 +9,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
     class RoomFarol : ARoomLuz
     {
-        public RoomFarol(Vector3 posicion) : base(posicion)
+        public RoomFarol(Vector3 posicion) : base()
         {
+            this.posicion = posicion;
+
             TgcSceneLoader loader = new TgcSceneLoader();
             escenaLampara = loader.loadSceneFromFile(
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\RoomsIluminados\\roomFarol-TgcScene.xml",

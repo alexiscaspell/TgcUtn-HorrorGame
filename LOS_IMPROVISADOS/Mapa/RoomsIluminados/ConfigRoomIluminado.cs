@@ -14,7 +14,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         public ConfigRoomIluminado()
         {
             //tendria que crear varios objetos, esto es solo para probar
-            RoomFarol r9 = new RoomFarol(new Vector3(2740, 570, 2090));
+            RoomFarol r9 = new RoomFarol(new Vector3(3298, 26, 2108));
 
             roomsIluminados = new List<ARoomLuz> {r9};
         }
