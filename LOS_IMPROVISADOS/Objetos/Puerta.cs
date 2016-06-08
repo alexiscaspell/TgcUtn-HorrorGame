@@ -91,6 +91,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			{
 				rotando = true;
 				nroPuerta = -1; //Para necesitar usar la llave 1 sola vez
+
+                //Aca hago que le diga al boss que puede pasar o no
+                DiosMapa.Instance.activarODesactivarPunto(mesh.BoundingBox.Position);
 				
 				if(abierta && paraleloEjeZ)
 				{

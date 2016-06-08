@@ -14,9 +14,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public bool activo = true;
 
-        private const float posY = 110;//5;//ESTE VALOR SE VA HARDCODEANDO
+        private const float posY = 100;//ESTE VALOR SE VA HARDCODEANDO
 
-        private const float radio = 1f;
+        private const float radio = 30f;
 
         private TgcBoundingSphere esfera;
 

@@ -231,6 +231,18 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                     return true;
                 }
             }
+
+            foreach (Accionable objeto in objetos)
+            {
+                if (typeof(Puerta).Equals(objeto.GetType()))
+                {
+                    if (ColinaAzul.Instance.colisionaEsferaCaja(cuerpoPersonaje, objeto.getMesh().BoundingBox))
+                    {
+                        obstaculo = objeto.getMesh().BoundingBox;
+                        return true;
+                    }
+                }
+            }
             return false;
         }
 
@@ -250,6 +262,18 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                     return true;
                 }
             }
+
+            foreach (Accionable objeto in objetos)
+            {
+                if (typeof(Puerta).Equals(objeto.GetType()))
+                {
+                    if (ColinaAzul.Instance.colisionaEsferaCaja(esfera, objeto.getMesh().BoundingBox))
+                    {
+                        return true;
+                    }
+                }
+            }
+
             return false;
         }
 
