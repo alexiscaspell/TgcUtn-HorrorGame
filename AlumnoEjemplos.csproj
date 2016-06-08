@@ -119,6 +119,7 @@
     <Compile Include="LOS_IMPROVISADOS\Personajes\Boss\Boss.cs" />
     <Compile Include="LOS_IMPROVISADOS\Personajes\Boss\CaminarDijkstra.cs" />
     <Compile Include="LOS_IMPROVISADOS\Personajes\Boss\Comportamiento.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Personajes\Boss\SeguirNodoCorto.cs" />
     <Compile Include="LOS_IMPROVISADOS\Personajes\Boss\SeguirPersonaje.cs" />
     <Compile Include="LOS_IMPROVISADOS\Personajes\Configuradores\ConfigIluminador.cs" />
     <Compile Include="LOS_IMPROVISADOS\Personajes\Configuradores\ConfigPosProcesados.cs" />
@@ -180,7 +181,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="LOS_IMPROVISADOS\Objetos\Inventario" />
     <Folder Include="Media\Texturas\" />
   </ItemGroup>
   <ItemGroup>

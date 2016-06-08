@@ -12,7 +12,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
     {
         private Vector3 posicion;
 
-        private bool activo { get; set; }
+        public bool activo = true;
 
         private const float posY = 100;//5;//ESTE VALOR SE VA HARDCODEANDO
 
@@ -22,7 +22,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public Punto(float posX, float posZ)
         {
-            posicion = new Vector3(posX,0, posZ);
+            posicion = new Vector3(posX, 0, posZ);
             this.activo = activo;
             Vector3 posicionEsfera = new Vector3(posX, posY, posZ);
             esfera = new TgcBoundingSphere(posicionEsfera, radio);

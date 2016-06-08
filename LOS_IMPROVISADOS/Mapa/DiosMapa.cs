@@ -56,7 +56,48 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             return TgcCollisionUtils.closestPoint(point, puntosMasCercanos.ToArray(), out d);
         }
 
-        public DiosMapa()
+        internal List<Punto> getCaminos(Vector3 closestPoint)
+        {
+            foreach (Punto pto in caminos.Keys)
+            {
+                if (pto.getPosition().Equals(closestPoint))
+                {
+                    return caminos[pto];
+                }
+            }
+
+            return new List<Punto>();
+        }
+
+        internal Dictionary<Punto, List<Punto>> getCaminos()
+        {
+            return caminos;
+        }
+
+        internal void puntoMasCercano(ref int x, ref int z, Vector3 posicion)
+        {
+            Vector3 closestPoint = puntoMasCercano(posicion);
+
+            for (int i = 0; i < vias.Count; i++)
+            {
+                for (int j = 0; j < vias[i].Count; j++)
+                {
+                    if (closestPoint.Equals(vias[i][j]))
+                    {
+                        x = i;
+                        z = j;
+                        return;
+                    }
+                }
+            }
+        }
+
+        internal void deleteMatriz()
+        {
+            //Por ahora no libero nada
+        }
+
+        private DiosMapa()
         {
             instancia = this;
         }
@@ -99,7 +140,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             vectorAvance = factorAvance * pMax;//(new Vector3(medidasMapa.X, 0, medidasMapa.Z));
 
-            for (float i = pMin.X; i <pMax.X; i += vectorAvance.X)
+            for (float i = pMin.X; i < pMax.X; i += vectorAvance.X)
             {
                 List<Punto> fila = new List<Punto>();
 
@@ -111,6 +152,25 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             }
 
             detectarColisionesVias();
+        }
+
+        /*private void generarCaminos()
+        {
+            int maximo = 0;
+
+            for (int i = 0; i < vias.Count; i++)
+            {
+                encontrarSigCamino(i,0,maximo);
+            }
+            for (int i = 0; i < vias.Count; i++)
+            {
+
+            }
+        }*/
+
+        private void encontrarSigCamino(int x, int z, int maximo)
+        {
+            throw new NotImplementedException();
         }
 
         private void detectarColisionesVias()
@@ -129,26 +189,94 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                     bool collideObjects = mapa.colisionaEsfera(puntoActual.getSphere());
                     bool collideRoom = ColinaAzul.Instance.colisionaConAlgunCuarto(puntoActual.getSphere());
                     //punto.setActivo(!collide);//Si no colisiona entonces esta en true
-                    if (!collideRoom||collideObjects)
+                    if (!collideRoom || collideObjects)
                     {
-                        filaActual.Remove(puntoActual);
+                        puntoActual.activo = false;
                     }
                 }
             }
+        }
 
-            /*
-            foreach (List<Punto> filaActual in vias)
+        Dictionary<Punto, List<Punto>> caminos = new Dictionary<Punto, List<Punto>>();
+
+        public void generarCaminos()
+        {
+            for (int i = 0; i < vias.Count; i++)
             {
-                foreach (Punto punto in filaActual)
+                for (int j = 0; j < vias.Count; j++)
                 {
-                    bool collide = mapa.colisionaEsfera(punto.getSphere());
-                    //punto.setActivo(!collide);//Si no colisiona entonces esta en true
-                    if (collide)
-                    {
-                        filaActual.Remove(punto);
-                    }
+                    caminos.Add(vias[i][j], obtenerPuntosCercanos(i, j));
                 }
-            }*/
+            }
+
+        }
+
+        private List<Punto> obtenerPuntosCercanos(int i, int j)
+        {
+            List<Punto> puntos = new List<Punto>();
+
+            int cantVias = vias.Count - 1;
+
+            if (i == 0 && j == 0)
+            {
+                puntos.Add(vias[0][1]);
+                puntos.Add(vias[1][0]);
+            }
+            else if (i == cantVias && j == cantVias)
+            {
+                puntos.Add(vias[cantVias - 1][cantVias]);
+                puntos.Add(vias[cantVias][cantVias - 1]);
+            }
+            else if (i == cantVias && j == 0)
+            {
+                puntos.Add(vias[cantVias][1]);
+                puntos.Add(vias[cantVias - 1][0]);
+            }
+            else if (i == 0 && j == cantVias)
+            {
+                puntos.Add(vias[0][cantVias - 1]);
+                puntos.Add(vias[1][cantVias]);
+            }
+
+            else if (((i > 0 && i < cantVias) && (j == 0 || j == cantVias)))
+            {
+                puntos.Add(vias[i - 1][j]);
+                puntos.Add(vias[i + 1][j]);
+
+                if (j == cantVias)
+                {
+                    puntos.Add(vias[i][j - 1]);
+                }
+                else
+                {
+                    puntos.Add(vias[i][j + 1]);
+                }
+            }
+
+            else if (((j > 0 && j < cantVias) && (i == 0 || i == cantVias)))
+            {
+                puntos.Add(vias[i][j - 1]);
+                puntos.Add(vias[i][j + 1]);
+
+                if (i == cantVias)
+                {
+                    puntos.Add(vias[i - 1][j]);
+                }
+                else
+                {
+                    puntos.Add(vias[i + 1][j]);
+                }
+            }
+
+            else
+            {
+                puntos.Add(vias[i + 1][j]);
+                puntos.Add(vias[i][j + 1]);
+                puntos.Add(vias[i - 1][j]);
+                puntos.Add(vias[i][j - 1]);
+            }
+
+            return puntos;
         }
     }
 }

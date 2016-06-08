@@ -40,7 +40,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private Vector3 posMemento;
 
-        private float slideFactor = 5;//Factor de slide hardcodeado
+        //private float slideFactor = 5;//Factor de slide hardcodeado
 
         private float radius = 30;//Radio de esfera hardcodeado
         
@@ -113,7 +113,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             {
                 configIluminador.cambiarAIluminadorFluor();
             }
-            
+
+            if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.R))
+            {
+                configIluminador.recargarBateriaLinterna();
+            }
+
             //Checkeo para movimiento de sonido
             if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.W))
             {
@@ -185,7 +190,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
                 desplazamiento.Normalize();
 
-                Vector3 movement = slideFactor * Vector3.Dot(desplazamiento, slide) * slide;
+                Vector3 movement =  Vector3.Dot(desplazamiento, slide) * slide;
 
                 cuerpo.setCenter(posMemento + movement);
 
