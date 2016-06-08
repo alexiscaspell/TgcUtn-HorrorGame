@@ -210,6 +210,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         }
 
         TgcD3dInput.MouseButtons rotateMouseButton;
+        internal bool activada = true;
+
         /// <summary>
         /// Boton del mouse que debe ser presionado para rotar la camara.
         /// Por default es boton izquierdo.
@@ -642,6 +644,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         /// </summary>
         public void updateCamera()
         {
+            if (!activada)
+            {
+                return;
+            }
             //Si la camara no está habilitada, no procesar el resto del input
             if (!enable)
             {

@@ -70,6 +70,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
             bateriaActivada = true;
         }
 
+        internal void apagar()
+        {
+            bateriaActivada = false;
+        }
+
         internal void apagarOPrender()
         {
             bateriaActivada = !bateriaActivada;

@@ -18,19 +18,11 @@ namespace AlumnoEjemplos.MiGrupo
 
         private Personaje personaje;
 
-        private Boss boss;
-
         private Mapa mapa; 
-   
-        //private MenuJuego menuPrincipal = new MenuJuego();
-        
-        private Puerta puerta;
         
         private TgcStaticSound sonidoFondo;
 
         private AnimatedBoss bossAnimado;
-
-        private Cama cama;
         
         public bool playing;
         public GameMenu menuActual;
@@ -74,8 +66,8 @@ namespace AlumnoEjemplos.MiGrupo
             diosMapa.generarMatriz();//Genera matriz de vias del boss
             diosMapa.generarCaminos();
 
-            bossAnimado = new AnimatedBoss();
-            bossAnimado.init(300f, new Vector3(camaraFPS.posicion.X,0,camaraFPS.posicion.Z+200));//Esto es para probar a un boss con esqueleto
+            bossAnimado = AnimatedBoss.Instance;
+            bossAnimado.init(300f, new Vector3(camaraFPS.posicion.X,0,camaraFPS.posicion.Z+600));//Esto es para probar a un boss con esqueleto
 
             //puerta = new Puerta(630, 32, 200);
 

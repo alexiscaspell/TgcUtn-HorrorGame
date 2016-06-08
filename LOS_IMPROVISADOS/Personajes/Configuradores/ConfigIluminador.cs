@@ -100,5 +100,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Configuradores
                 iluminadores[posicionIluminadorActual].apagarOPrender();
             }
         }
+
+        internal void apagarBateria()
+        {
+            iluminadores[posicionIluminadorActual].apagarBateria();
+        }
     }
 }
