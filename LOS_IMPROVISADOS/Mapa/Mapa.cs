@@ -52,7 +52,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private const int CANTIDAD_DE_PUERTAS = 15;
         private const int CANTIDAD_DE_PUERTAS_PZ = 11;
 
-        public Mapa()
+        private Mapa()
         {
             TgcSceneLoader loader = new TgcSceneLoader();
             escena = loader.loadSceneFromFile(

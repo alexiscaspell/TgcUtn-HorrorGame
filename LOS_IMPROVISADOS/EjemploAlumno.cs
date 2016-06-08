@@ -57,7 +57,7 @@ namespace AlumnoEjemplos.MiGrupo
         {
             Device d3dDevice = GuiController.Instance.D3dDevice;
 
-            mapa = new Mapa();
+            mapa = Mapa.Instance;
 
             camaraFPS = CamaraFPS.Instance;
 
