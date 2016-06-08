@@ -111,6 +111,7 @@
     <Compile Include="LOS_IMPROVISADOS\Objetos\Accionable.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\Barril.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\Bateria.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Objetos\CruzObjeto.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\Inventario\Inventario.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\Inventario\Item.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\Inventario\Llave.cs" />
