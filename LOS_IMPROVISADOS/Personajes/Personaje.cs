@@ -115,11 +115,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             {
                 configIluminador.cambiarAIluminadorFluor();
             }
-
+            /*
             if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.R))
             {
                 configIluminador.recargarBateriaLinterna();
-            }
+            }*/
 
             //Checkeo para movimiento de sonido
             if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.W))
