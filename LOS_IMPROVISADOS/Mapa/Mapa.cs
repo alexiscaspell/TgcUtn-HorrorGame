@@ -46,7 +46,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private Dictionary<string, Puerta> puertas = new Dictionary<string, Puerta>();
 
-        private ConfigRoomIluminado configRoomsIluminados = new ConfigRoomIluminado();
+        private ConfigRoomIluminado configRoomsIluminados;
 
         private const int CANTIDAD_DE_CUARTOS = 79;
         private const int CANTIDAD_DE_PUERTAS = 15;
@@ -60,7 +60,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\");
 
             objetos = HardCodeadorObjetos.HardCodearObjetos();
+        }
 
+
+        public void init()
+        {
             mapearMapaALista();
 
             ColinaAzul.Instance.calcularBoundingBoxes(cuartos, CANTIDAD_DE_CUARTOS);
@@ -73,6 +77,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             updateEscenaFiltrada();
         }
+    
 
         private void mapearPuertas()
         {
