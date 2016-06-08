@@ -33,8 +33,16 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			lista.Add(mapa);
 			
 			Bateria bateria1 = new Bateria();
+			bateria1.cambiarVectores(new Vector3(1060.653f,184.4886f,6661.554f), new Vector3(0.1f,0.1f,0.1f));
+			lista.Add(bateria1);
 			
+			Bateria bateria2 = new Bateria();
+			bateria2.cambiarVectores(new Vector3(), new Vector3(0.1f,0.1f,0.1f));
+			lista.Add(bateria2);
 			
+			Bateria bateria3 = new Bateria();
+			bateria3.cambiarVectores(new Vector3(), new Vector3(0.1f,0.1f,0.1f));
+			lista.Add(bateria3);
 			
 			return lista;
 		}
