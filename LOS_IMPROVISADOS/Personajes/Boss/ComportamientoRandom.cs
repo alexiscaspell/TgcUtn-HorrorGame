@@ -6,7 +6,7 @@ using Microsoft.DirectX;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Boss
 {
-    class SeguirNodoCorto : Comportamiento
+    class ComportamientoRandom:Comportamiento
     {
         private DiosMapa gps;
 
@@ -14,7 +14,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Boss
 
         private bool primeraIteracion = true;
 
-        public SeguirNodoCorto()
+        public ComportamientoRandom()
         {
             gps = DiosMapa.Instance;
         }
@@ -49,16 +49,23 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Boss
 
         private Vector3 primerActivo(List<Punto> puntos)
         {
+            List<Punto> ptosActivos = new List<Punto>();
+
             foreach (Punto item in puntos)
             {
                 if (item.activo)
                 {
-                    return item.getPosition();
+                    ptosActivos.Add(item);
                 }
             }
 
-            return new Vector3(0, 0, 0);
+            Random rnd = new Random();
+
+            int i = rnd.Next(0, ptosActivos.Count);
+
+            return ptosActivos[i].getPosition();
         }
 
     }
 }
+

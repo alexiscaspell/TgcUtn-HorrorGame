@@ -14,16 +14,15 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public bool activo = true;
 
-        private const float posY = 100;//5;//ESTE VALOR SE VA HARDCODEANDO
+        private const float posY = 110;//5;//ESTE VALOR SE VA HARDCODEANDO
 
-        private const float radio = 1;//0.001f;
+        private const float radio = 1f;
 
         private TgcBoundingSphere esfera;
 
         public Punto(float posX, float posZ)
         {
             posicion = new Vector3(posX, 0, posZ);
-            this.activo = activo;
             Vector3 posicionEsfera = new Vector3(posX, posY, posZ);
             esfera = new TgcBoundingSphere(posicionEsfera, radio);
         }

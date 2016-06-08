@@ -188,7 +188,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
                 Vector3 desplazamiento = camaraFPS.camaraFramework.Position - posMemento;
 
-                desplazamiento.Normalize();
+                //desplazamiento.Normalize();
 
                 Vector3 movement =  Vector3.Dot(desplazamiento, slide) * slide;
 
