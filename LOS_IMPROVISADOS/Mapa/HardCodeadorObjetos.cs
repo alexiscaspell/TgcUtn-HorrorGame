@@ -50,9 +50,22 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			#endregion Baterias
 			
 			#region Puertas
-			Puerta puerta1 = new Puerta(-1,0);
+			Puerta puerta1 = new Puerta(-1,true);
 			puerta1.cambiarVectores(new Vector3(2479.43f,0.0f,11201.52f), new Vector3(1.5f,0.45f,0.7f));
 			lista.Add(puerta1);
+			
+			Puerta puerta2 = new Puerta(-1, true);
+			puerta2.cambiarVectores(new Vector3(5583.99f,0.0f,5905.84f),new Vector3(1.5f,0.45f,0.7f));
+			lista.Add(puerta2);
+			
+			Puerta puerta3 = new Puerta(-1, true);
+			puerta3.cambiarVectores(new Vector3(5583.99f,0.0f,7497.41f),new Vector3(1.5f,0.45f,0.7f));
+			lista.Add(puerta3);
+			
+			Puerta puerta4 = new Puerta(-1, false);
+			puerta4.cambiarVectores(new Vector3(2079.43f,0.0f,10201.52f), new Vector3(1.5f,0.45f,0.7f));
+			puerta4.getMesh().rotateY(FastMath.PI/2);
+			lista.Add(puerta4);
 			#endregion Puertas
 			
 			return lista;

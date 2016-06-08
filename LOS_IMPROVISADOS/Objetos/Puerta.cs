@@ -26,17 +26,18 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		const float ajusteBB = 250;
 		
 		const float speed = 50;
-		float anguloInicial;
 		float anguloRotacion = 0;
 		bool abierta = false;
 		bool rotando = false;
+		
+		bool paraleloEjeZ; //para el tema de la animacion de las puertas
 		
         TgcStaticSound puertaCerrada = new TgcStaticSound();
         TgcStaticSound puertaAbriendose = new TgcStaticSound();
         int nroPuerta;//Para que checkee que tenga la misma llave
 
         //Angulo en grados
-        public Puerta(int nroPuerta, float anguloInicial)
+        public Puerta(int nroPuerta, bool paraleloEjeZ)
         {
         	TgcSceneLoader loader = new TgcSceneLoader();
             
@@ -51,6 +52,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         	
         	this.nroPuerta = nroPuerta;
         	this.agarrado = int.MaxValue;
+        	this.paraleloEjeZ = paraleloEjeZ;
         }
         
         public Puerta(int nroPuerta,TgcMesh mesh)
@@ -82,7 +84,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 				
 				puertaAbriendose.play();
 				
-				camara.animar(this.mesh.Position.X, !abierta);
+				if(paraleloEjeZ)
+				{
+					camara.animar(this.mesh.Position.X, !abierta, paraleloEjeZ);
+				}else{
+					camara.animar(this.mesh.Position.Z, !abierta, paraleloEjeZ);
+				}
 				
 				return;
 			}

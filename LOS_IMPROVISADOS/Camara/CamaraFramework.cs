@@ -27,6 +27,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private bool animacionActivada;
         private bool puertaALaDerecha;
         private bool puertaCerrada;
+        private bool paraleloEjeZ;
         public void animacionPuerta()
         {
         	if(animacionActivada)
@@ -46,13 +47,14 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         	
         }
 
-        public void animar(float posicionXPuerta, bool puertaCerrada)
+        public void animar(float posicionXPuerta, bool puertaCerrada, bool paraleloEjeZ)
         {
         	movActivado = false;
         	animacionActivada = true;
         	tiempoTranscurrido = 0;
         	puertaALaDerecha = posicionXPuerta > this.Position.X;
         	this.puertaCerrada = puertaCerrada;
+        	this.paraleloEjeZ = paraleloEjeZ;
         }
         #endregion animacionPuerta
         
@@ -707,8 +709,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             //Forward
             if ( (d3dInput.keyDown(Key.W) && movActivado) || 
-                 (animacionActivada && !puertaALaDerecha && puertaCerrada) ||
-                 (animacionActivada && puertaALaDerecha && !puertaCerrada) )
+                 (animacionActivada && !puertaALaDerecha && puertaCerrada) 					||
+                 (animacionActivada && puertaALaDerecha && !puertaCerrada)					||
+                 (animacionActivada && puertaALaDerecha && puertaCerrada &&!paraleloEjeZ) 	||
+                 (animacionActivada && !puertaALaDerecha && !puertaCerrada && !paraleloEjeZ))
             {
                 if (!moveForwardsPressed)
                 {
@@ -725,8 +729,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             //Backward
             if ( (d3dInput.keyDown(Key.S) && movActivado) || 
-                (animacionActivada && puertaALaDerecha && puertaCerrada) ||
-                (animacionActivada && !puertaALaDerecha && !puertaCerrada)  )
+                (animacionActivada && puertaALaDerecha && puertaCerrada && paraleloEjeZ) 	||
+                (animacionActivada && !puertaALaDerecha && !puertaCerrada && paraleloEjeZ)	||
+                (animacionActivada && puertaALaDerecha && !puertaCerrada &&!paraleloEjeZ) 	||
+                (animacionActivada && !puertaALaDerecha && puertaCerrada && !paraleloEjeZ) 	)
             {
                 if (!moveBackwardsPressed)
                 {
