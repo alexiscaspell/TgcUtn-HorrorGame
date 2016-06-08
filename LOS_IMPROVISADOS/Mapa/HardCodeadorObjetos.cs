@@ -62,6 +62,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			puerta3.cambiarVectores(new Vector3(5583.99f,0.0f,7497.41f),new Vector3(1.5f,0.45f,0.7f));
 			lista.Add(puerta3);
 			
+			//Puertas ejeX
 			Puerta puerta21 = Puerta.Puerta2(-1, false);
 			puerta21.cambiarVectores(new Vector3(710.11f,0.0f,11222.56f), new Vector3(0.7f,0.45f,1.5f));
 			lista.Add(puerta21);
@@ -70,6 +71,25 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			puerta22.cambiarVectores(new Vector3(6002.04f,0.0f,10220.73f), new Vector3(0.7f,0.45f,1.5f));
 			lista.Add(puerta22);
 			
+			Puerta puerta23 = Puerta.Puerta2(-1,false);
+			puerta23.cambiarVectores(new Vector3(7200.565f,0.0f,3625.022f), new Vector3(0.7f,0.45f,1.5f));
+			lista.Add(puerta23);
+			
+			Puerta puerta24 = Puerta.Puerta2(-1,false);
+			puerta24.cambiarVectores(new Vector3(17598.86f,0.0f,1725.658f), new Vector3(0.7f,0.45f,1.5f));
+			lista.Add(puerta24);
+			
+			Puerta puerta25 = Puerta.Puerta2(-1,false);
+			puerta25.cambiarVectores(new Vector3(16601.78f,0.0f,1725.658f), new Vector3(0.7f,0.45f,1.5f));
+			lista.Add(puerta25);
+			
+			Puerta puerta26 = Puerta.Puerta2(-1,false);
+			puerta26.cambiarVectores(new Vector3(16699.96f,0.0f,9827.324f), new Vector3(0.7f,0.45f,1.5f));
+			lista.Add(puerta26);
+			
+			Puerta puerta27 = Puerta.Puerta2(-1,false);
+			puerta27.cambiarVectores(new Vector3(25586.18f,0.0f,18221.57f), new Vector3(0.7f,0.45f,1.5f));
+			lista.Add(puerta27);
 			#endregion Puertas
 			
 			return lista;
