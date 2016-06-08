@@ -18,6 +18,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             roomsIluminados = new List<ARoomLuz> {r9};
         }
+        
+        public void init()
+        {
+        	foreach(ARoomLuz luz in roomsIluminados){
+        		luz.init();
+        	}
+        }
 
         public void render()
         {

@@ -69,7 +69,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             ColinaAzul.Instance.calcularBoundingBoxes(cuartos, CANTIDAD_DE_CUARTOS);
 
-            mapearPuertas();
+            //mapearPuertas();
 
             agregarObjetosMapa();
 
@@ -77,7 +77,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             updateEscenaFiltrada();
         }
-    
+            configRoomsIluminados = new ConfigRoomIluminado();
 
         private void mapearPuertas()
         {
