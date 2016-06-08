@@ -82,7 +82,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 				
 				puertaAbriendose.play();
 				
-				camara.animar();
+				camara.animar(this.mesh.Position.X, !abierta);
 				
 				return;
 			}

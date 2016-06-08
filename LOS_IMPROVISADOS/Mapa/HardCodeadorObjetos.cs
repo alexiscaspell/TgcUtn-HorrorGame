@@ -41,11 +41,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			lista.Add(bateria1);
 			
 			Bateria bateria2 = new Bateria();
-			bateria2.cambiarVectores(new Vector3(), new Vector3(0.1f,0.1f,0.1f));
+			bateria2.cambiarVectores(new Vector3(5342.72f,192.2363f,10792f), new Vector3(0.1f,0.1f,0.1f));
 			lista.Add(bateria2);
 			
 			Bateria bateria3 = new Bateria();
-			bateria3.cambiarVectores(new Vector3(), new Vector3(0.1f,0.1f,0.1f));
+			bateria3.cambiarVectores(new Vector3(5326.568f,15.2f,12911.81f), new Vector3(0.1f,0.1f,0.1f));
 			lista.Add(bateria3);
 			#endregion Baterias
 			

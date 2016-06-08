@@ -25,6 +25,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         const float velMovAnimacion = 80f;
         private float tiempoTranscurrido;
         private bool animacionActivada;
+        private bool puertaALaDerecha;
+        private bool puertaCerrada;
         public void animacionPuerta()
         {
         	if(animacionActivada)
@@ -44,11 +46,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         	
         }
 
-        public void animar()
+        public void animar(float posicionXPuerta, bool puertaCerrada)
         {
         	movActivado = false;
         	animacionActivada = true;
         	tiempoTranscurrido = 0;
+        	puertaALaDerecha = posicionXPuerta > this.Position.X;
+        	this.puertaCerrada = puertaCerrada;
         }
         #endregion animacionPuerta
         
@@ -702,7 +706,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             Vector3 direction = new Vector3(0.0f, 0.0f, 0.0f);
 
             //Forward
-            if (d3dInput.keyDown(Key.W) && movActivado)
+            if ( (d3dInput.keyDown(Key.W) && movActivado) || 
+                 (animacionActivada && !puertaALaDerecha && puertaCerrada) ||
+                 (animacionActivada && puertaALaDerecha && !puertaCerrada) )
             {
                 if (!moveForwardsPressed)
                 {
@@ -718,7 +724,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             }
 
             //Backward
-            if ( (d3dInput.keyDown(Key.S) && movActivado) || animacionActivada)
+            if ( (d3dInput.keyDown(Key.S) && movActivado) || 
+                (animacionActivada && puertaALaDerecha && puertaCerrada) ||
+                (animacionActivada && !puertaALaDerecha && !puertaCerrada)  )
             {
                 if (!moveBackwardsPressed)
                 {
