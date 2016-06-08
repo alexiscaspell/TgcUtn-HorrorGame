@@ -50,6 +50,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			#endregion Baterias
 			
 			#region Puertas
+			//Puertas Ejez
 			Puerta puerta1 = new Puerta(-1,true);
 			puerta1.cambiarVectores(new Vector3(2479.43f,0.0f,11201.52f), new Vector3(1.5f,0.45f,0.7f));
 			lista.Add(puerta1);
@@ -61,6 +62,46 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			Puerta puerta3 = new Puerta(-1, true);
 			puerta3.cambiarVectores(new Vector3(5583.99f,0.0f,7497.41f),new Vector3(1.5f,0.45f,0.7f));
 			lista.Add(puerta3);
+			
+			Puerta puerta4 = new Puerta(-1,true);
+			puerta4.cambiarVectores(new Vector3(679.77f,0.0f,2802.13f), new Vector3(1.5f,0.45f,0.7f));
+			lista.Add(puerta4);
+			
+			Puerta puerta5 = new Puerta(-1,true);
+			puerta5.cambiarVectores(new Vector3(8977.60f,0.0f,5502.11f), new Vector3(1.5f,0.45f,0.7f));
+			lista.Add(puerta5);
+			
+			Puerta puerta6 = new Puerta(-1,true);
+			puerta6.cambiarVectores(new Vector3(8977.60f,0.0f,7699.14f), new Vector3(1.5f,0.45f,0.7f));
+			lista.Add(puerta6);
+			
+			Puerta puerta7 = new Puerta(-1,true);
+			puerta7.cambiarVectores(new Vector3(12077.20f,0.0f,8399.31f), new Vector3(1.5f,0.45f,0.7f));
+			lista.Add(puerta7);
+			
+			Puerta puerta8 = new Puerta(-1,true);
+			puerta8.cambiarVectores(new Vector3(12077.20f,0.0f,10693.86f), new Vector3(1.5f,0.45f,0.7f));
+			lista.Add(puerta8);
+			
+			Puerta puerta9 = new Puerta(-1,true);
+			puerta9.cambiarVectores(new Vector3(12077.20f,0.0f,15313.91f), new Vector3(1.5f,0.45f,0.7f));
+			lista.Add(puerta9);
+			
+			Puerta puerta10 = new Puerta(-1,true);
+			puerta10.cambiarVectores(new Vector3(12776.87f,0.0f,15287.96f), new Vector3(1.5f,0.45f,0.7f));
+			lista.Add(puerta10);
+			
+			Puerta puerta11 = new Puerta(-1,true);
+			puerta11.cambiarVectores(new Vector3(12776.87f,0.0f,12984.76f), new Vector3(1.5f,0.45f,0.7f));
+			lista.Add(puerta11);
+			
+			Puerta puerta12 = new Puerta(-1,true);
+			puerta12.cambiarVectores(new Vector3(12776.87f,0.0f,10684.99f), new Vector3(1.5f,0.45f,0.7f));
+			lista.Add(puerta12);
+			
+			Puerta puerta13 = new Puerta(-1,true);
+			puerta13.cambiarVectores(new Vector3(23175.89f,0.0f,16995.78f), new Vector3(1.5f,0.45f,0.7f));
+			lista.Add(puerta13);
 			
 			//Puertas ejeX
 			Puerta puerta21 = Puerta.Puerta2(-1, false);
