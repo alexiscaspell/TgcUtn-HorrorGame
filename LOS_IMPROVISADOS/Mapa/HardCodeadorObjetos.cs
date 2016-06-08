@@ -22,16 +22,20 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		public static List<Accionable> HardCodearObjetos()
 		{
 			List<Accionable> lista = new List<Accionable>();
-			
-			Barril barril1 = new Barril();
-			barril1.cambiarVectores(new Vector3(20245.44f, 77.6337f, 9634.468f), new Vector3(1f,1f,1f));
-			lista.Add(barril1);
+
 			
 			MapaObjeto mapa = new MapaObjeto();
 			mapa.cambiarVectores(new Vector3(2179.103f,8.6139f,10272.55f), new Vector3(1,1,1));
 			mapa.getMesh().rotateY(FastMath.PI/4);
 			lista.Add(mapa);
 			
+			#region Barriles
+			Barril barril1 = new Barril();
+			barril1.cambiarVectores(new Vector3(20245.44f, 77.6337f, 9634.468f), new Vector3(1f,1f,1f));
+			lista.Add(barril1);
+			#endregion Barriles
+			
+			#region Baterias
 			Bateria bateria1 = new Bateria();
 			bateria1.cambiarVectores(new Vector3(1060.653f,184.4886f,6661.554f), new Vector3(0.1f,0.1f,0.1f));
 			lista.Add(bateria1);
@@ -43,6 +47,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			Bateria bateria3 = new Bateria();
 			bateria3.cambiarVectores(new Vector3(), new Vector3(0.1f,0.1f,0.1f));
 			lista.Add(bateria3);
+			#endregion Baterias
+			
+			#region Puertas
+			Puerta puerta1 = new Puerta(-1,0);
+			puerta1.cambiarVectores(new Vector3(2442.97f,303.4318f,11004.33f),new Vector3(5f,4.25f,6.5f));
+			lista.Add(puerta1);
+			#endregion Puertas
 			
 			return lista;
 		}

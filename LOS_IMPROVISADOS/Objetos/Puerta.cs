@@ -21,7 +21,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 	/// </summary>
 	public class Puerta : Accionable
 	{
-		const float speed = 10;
+		const float ajusteBB = 350;
+		
+		const float speed = 50;
+		float anguloInicial;
 		float anguloRotacion = 0;
 		bool abierta = false;
 		bool rotando = false;
@@ -29,11 +32,24 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         TgcStaticSound puertaCerrada = new TgcStaticSound();
         TgcStaticSound puertaAbriendose = new TgcStaticSound();
         int nroPuerta;//Para que checkee que tenga la misma llave
-        private TgcScene escena;
 
-        //Hay que hacerle un constructor que le asigne la metadata
-        //(El agarrado deberia ir en 1000000 o algo asi exagerado para que siempre la pueda abrir/cerrar)
-
+        //Angulo en grados
+        public Puerta(int nroPuerta, float anguloInicial)
+        {
+        	TgcSceneLoader loader = new TgcSceneLoader();
+            TgcScene escena = loader.loadSceneFromFile(
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\puertaBerreta-TgcScene.xml",
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\");
+        	
+        	mesh = escena.Meshes[0];
+        	
+        	puertaCerrada.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\puertaCerrada.wav");
+        	puertaAbriendose.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\aperturaPuerta.wav");
+        	
+        	this.nroPuerta = nroPuerta;
+        	this.agarrado = int.MaxValue;
+        }
+        
         public Puerta(int nroPuerta,TgcMesh mesh)
         {
         	this.agarrado = int.MaxValue;
@@ -54,6 +70,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 				rotando = true;
 				nroPuerta = -1; //Para necesitar usar la llave 1 sola vez
 				
+				if(abierta)
+				{
+					mesh.BoundingBox.move(new Vector3(ajusteBB,0,-ajusteBB));
+				}else{
+					mesh.BoundingBox.move(new Vector3(-ajusteBB,0,ajusteBB));
+				}
+				
 				puertaAbriendose.play();
 				return;
 			}
@@ -63,39 +86,57 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
 		public void update()
         {
-            if (rotando)
+//            if (rotando)
+//            {
+//                anguloRotacion += speed;
+//
+//                if (anguloRotacion <= 90)
+//                {
+//                    if (abierta)
+//                    {
+//                        mesh.rotateY(Geometry.DegreeToRadian(-speed));
+//                    }
+//                    else
+//                    {
+//                        mesh.rotateY(Geometry.DegreeToRadian(speed));
+//                    }
+//                }
+//                else
+//                {
+//                    anguloRotacion = 0;
+//                    rotando = false;
+//                    abierta = !abierta;
+//                }
+//            }
+            
+            if(rotando)
             {
-                anguloRotacion += speed;
-
-                if (anguloRotacion <= 90)
-                {
-                    if (abierta)
-                    {
-                        mesh.rotateY(Geometry.DegreeToRadian(-speed));
-                    }
-                    else
-                    {
-                        mesh.rotateY(Geometry.DegreeToRadian(speed));
-                    }
-                }
-                else
-                {
-                    anguloRotacion = 0;
-                    rotando = false;
-                    abierta = !abierta;
-                }
+            	float cambioAngulo = speed*GuiController.Instance.ElapsedTime;
+            	anguloRotacion += cambioAngulo;
+            	
+            	if(anguloRotacion <= 90)
+            	{
+            		if(abierta)
+            		{
+            			mesh.rotateY(Geometry.DegreeToRadian(-cambioAngulo));
+            		}else{
+            			mesh.rotateY(Geometry.DegreeToRadian(cambioAngulo));
+            		}
+            	}else{
+            		anguloRotacion = 0;
+            		rotando = false;
+            		abierta = !abierta;
+            	}
+            	
             }
+            
         }
 
         public override void render()
         {
         	update();
             mesh.render();
-        }
-
-        internal TgcMesh getMesh()
-        {
-            return mesh;
+            mesh.BoundingBox.render();
         }
     }
 }
