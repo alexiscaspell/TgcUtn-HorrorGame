@@ -62,10 +62,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
             GuiController.Instance.Drawer2D.beginDrawSprite();
             sprite.render();
             GuiController.Instance.Drawer2D.endDrawSprite();
-
-            //texto
-            texto.Text = "x" + cantidadBaterias.ToString();
-            texto.render();
         }
 
         public override void recargar()

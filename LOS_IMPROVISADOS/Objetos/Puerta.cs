@@ -37,9 +37,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         public Puerta(int nroPuerta, float anguloInicial)
         {
         	TgcSceneLoader loader = new TgcSceneLoader();
-            TgcScene escena = loader.loadSceneFromFile(
-                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\Puerta Derecha\\DoorRight-TgcScene.xml",
-                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\Puerta Derecha\\");
+            
+        	TgcScene escena = loader.loadSceneFromFile(
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\Puerta1\\puerta-TgcScene.xml",
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\Puerta1\\");
         	
         	mesh = escena.Meshes[0];
         	
