@@ -27,7 +27,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             if (instancia != null) { }
             else
             {
-                new Mapa();
+                instancia = new Mapa();
             }
             return instancia;
         }
@@ -60,8 +60,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\");
 
             objetos = HardCodeadorObjetos.HardCodearObjetos();
-            
-            instancia = this;
 
             mapearMapaALista();
 
