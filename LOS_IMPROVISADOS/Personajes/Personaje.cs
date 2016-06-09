@@ -52,7 +52,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private bool muerto = false;
 
         //lobo
-        private float tiempoParaDejarRastro = 0.05f;
+        private float tiempoParaDejarRastro = 0.025f;
         private float sumadorParaDejarRastro = 0;
 
         private Personaje()

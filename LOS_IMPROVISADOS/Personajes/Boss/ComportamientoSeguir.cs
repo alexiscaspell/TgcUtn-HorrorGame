@@ -13,7 +13,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Boss
         public ComportamientoSeguir(Vector3 posicionInicial)
         {
             pFinal = DiosMapa.Instance.obtenerPuntoPorPosicion(posicionInicial);
-
+            /*
             //hardcodeo punto para probar
             Punto p1 = DiosMapa.Instance.obtenerPuntoPorPosicion(new Vector3(1262,0,3120));
             p1.listaDeOrdenEnQueElPersonajePasoPorEstePunto.Add(DiosMapa.Instance.contadorSiguienteABuscar());
@@ -27,23 +27,20 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Boss
             DiosMapa.Instance.agregarPuntoAListaPersecucion(p1);
             DiosMapa.Instance.agregarPuntoAListaPersecucion(p2);
             DiosMapa.Instance.agregarPuntoAListaPersecucion(p3);
-            DiosMapa.Instance.agregarPuntoAListaPersecucion(p4);
+            DiosMapa.Instance.agregarPuntoAListaPersecucion(p4);*/
         }
 
         public Vector3 proximoPunto(Vector3 posicionActual)
         {
             Punto puntoActual = DiosMapa.Instance.obtenerPuntoPorPosicion(posicionActual);
 
-            if (!DiosMapa.Instance.listaPersecucionEstaVacia())
+            if (puntoActual == pFinal && !DiosMapa.Instance.listaPersecucionEstaVacia())
             {
-                if (puntoActual == pFinal)
-                {
-                    DiosMapa.Instance.eliminarPuntoDeListaPersecucion(puntoActual);
-                    
-                    pFinal = DiosMapa.Instance.puntoASeguirPorElBoss();
+                DiosMapa.Instance.eliminarPuntoDeListaPersecucion(puntoActual);
 
-                    actualizarListaPersecucionSiElPersonajePaso2Veces();
-                }
+                pFinal = DiosMapa.Instance.puntoASeguirPorElBoss();
+
+                actualizarListaPersecucionSiElPersonajePaso2Veces();
             }
 
             return pFinal.getPosition();
