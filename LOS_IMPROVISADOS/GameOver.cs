@@ -25,7 +25,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		TgcSprite gameOverScreen;
 		TgcStaticSound sonidoGameOver;
 		TgcStaticSound sonidoBoss;
-		
+				
 		bool activado = false;
 		
 		float timer = 0;
@@ -68,6 +68,46 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             float heightScale = (float)pantallaSize.Height / (float)gameOverSize.Height;
             //Respeto el aspect Ratio
             escaladoMax = FastMath.Min(widthScale,heightScale);
+		}
+		
+		//Hago el final(pantallaGanaste)
+		private static GameOver ganaste;
+		public static GameOver Ganaste
+		{
+			get{
+				if(ganaste==null){
+					ganaste = GameOver.GanasteScreen();
+				}
+				return ganaste;
+			}
+		}
+		
+		private static GameOver GanasteScreen()
+		{
+			GameOver pantalla = new GameOver();
+			
+			pantalla.gameOverScreen = new TgcSprite();
+			pantalla.gameOverScreen.Texture = TgcTexture.createTexture(
+				GuiController.Instance.AlumnoEjemplosDir + "Media\\GameOver\\ganaste.png");
+
+			pantalla.sonidoGameOver = new TgcStaticSound();
+			pantalla.sonidoGameOver.loadSound(
+				GuiController.Instance.AlumnoEjemplosDir + "Media\\GameOver\\ganaste.wav");
+			
+			pantalla.sonidoBoss = new TgcStaticSound();
+			pantalla.sonidoBoss.loadSound(
+				GuiController.Instance.AlumnoEjemplosDir + "Media\\GameOver\\nada.wav");
+			
+			//Calculo el escalado max
+			Size pantallaSize = GuiController.Instance.Panel3d.Size;
+			Size gameOverSize = pantalla.gameOverScreen.Texture.Size;
+			
+			float widthScale = (float)pantallaSize.Width / (float)gameOverSize.Width;
+            float heightScale = (float)pantallaSize.Height / (float)gameOverSize.Height;
+            //Respeto el aspect Ratio
+            pantalla.escaladoMax = FastMath.Min(widthScale,heightScale);
+            
+            return pantalla;
 		}
 		#endregion singleton
 		

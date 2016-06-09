@@ -45,10 +45,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         internal bool activado = true;
         private state estado;
         private state estadoAnterior;
-        private float tiempoPasadoAturdido = 0;
-        private float tiempoDeRecuperacion = 4;
 
-        enum state { PASEANDO,PERSIGUIENDO,ATURDIDO};
+        enum state { PASEANDO,PERSIGUIENDO};
+
+        private float contadorParaTeletransporte = 0f;
+        private float TIEMPO_PARA_TELETRANSPORTAR_AL_BOSS = 15f;
+        private int PORCION_DE_PUNTOS_QUE_ELIMINO_CUANDO_EL_BOSS_SE_TELETRANSPORTA = 4;
 
         private AnimatedBoss()
         {
@@ -207,23 +209,15 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private void updateEstado()
         {
-            if (estado==state.ATURDIDO)
-            {
-                updateEstadoAturdido();
-                return;
-            }
-            else
-            {
-                estadoAnterior = estado;
-            }
+            estadoAnterior = estado;
 
             Personaje pj = Personaje.Instance;
 
             ColinaAzul colina = ColinaAzul.Instance;
 
-            bool estoyConPj = colina.estoyEn(colina.dondeEstaPesonaje(), cuerpo.Position);
+            estado = state.PASEANDO;
 
-            if (pj.iluminadorEncendido()&&estoyConPj)
+            if (colina.estoyEn(colina.dondeEstaPesonaje(),cuerpo.Position))
             {
                 estado = state.PERSIGUIENDO;
             }
@@ -235,48 +229,22 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                     estado = state.PASEANDO;
                 }
             }
-
-            if (pj.fluorActivado()&&estoyCercaDePj())
-            {
-                estado = state.ATURDIDO;
-            }
-        }
-
-        private bool estoyCercaDePj()
-        {
-            //TgcBoundingSphere cuerpoTrucho = new TgcBoundingSphere(Personaje.Instance.cuerpo.Center, 300);
-
-            return (CamaraFPS.Instance.camaraFramework.Position - cuerpo.Position).Length() < 600;//ColinaAzul.Instance.colisionaEsferaCaja(cuerpoTrucho, cuerpo.BoundingBox);
-        }
-
-        private bool pjEscondido(Personaje pj)
-        {
-            return pj.iluminadorEncendido() && pj.agachado() && pjCercaDeObjeto();
-        }
-
-        private bool pjCercaDeObjeto()
-        {
-            TgcBoundingSphere cuerpoTrucho = new TgcBoundingSphere(Personaje.Instance.cuerpo.Center, 50);
-            TgcBoundingBox b = new TgcBoundingBox();
-
-            return Mapa.Instance.colisionaPersonaje(cuerpoTrucho, ref b);
-        }
-
-        private void updateEstadoAturdido()
-        {
-            tiempoPasadoAturdido += GuiController.Instance.ElapsedTime;
-
-            if (tiempoPasadoAturdido>tiempoDeRecuperacion)
-            {
-                estado = state.PASEANDO;//HARDCODEO ESTADO
-                tiempoPasadoAturdido = 0;
-            }
         }
 
         private void updateComportamiento()
         {
             if (estado==estadoAnterior)
             {
+                if (estado == state.PASEANDO)
+                {
+                    contadorParaTeletransporte += GuiController.Instance.ElapsedTime;
+                    if (contadorParaTeletransporte > TIEMPO_PARA_TELETRANSPORTAR_AL_BOSS)
+                    {
+                        contadorParaTeletransporte = 0;
+                        teletransportarAlBossAUnaPosicionPasadaPorElPersonaje();
+                    }
+                }
+
                 return;
             }
 
@@ -288,10 +256,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             {
                 comportamiento = new ComportamientoSeguir(cuerpo.Position);
             }
-            else if (estado==state.ATURDIDO)
-            {
-                comportamiento = new Aturdido();
-            }
 
         }
 
@@ -299,12 +263,15 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             cuerpo.dispose();
         }
-
-
-        public void cambiarPosicionDelBoss(Vector3 posicionNueva)
+        
+        public void teletransportarAlBossAUnaPosicionPasadaPorElPersonaje()
         {
-            cuerpo.Position = posicionNueva;
-            //hacer todo lo necesario
+            int cantidad = (DiosMapa.Instance.cantidadDeElementosDeListaPersecucion() / PORCION_DE_PUNTOS_QUE_ELIMINO_CUANDO_EL_BOSS_SE_TELETRANSPORTA);
+            DiosMapa.Instance.elminarPrimerosPuntosDePersecucion(cantidad);
+
+            Punto nuevoPunto = DiosMapa.Instance.puntoASeguirPorElBoss();
+
+            cuerpo.Position = nuevoPunto.getPosition();
         }
     }
 }
