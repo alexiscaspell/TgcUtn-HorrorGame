@@ -90,7 +90,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			if(Personaje.Instance.llaveActual == nroPuerta || nroPuerta <= 0)
 			{
 				rotando = true;
-				nroPuerta = -1; //Para necesitar usar la llave 1 sola vez
+				if(nroPuerta>0)
+				{
+					Inventario.Instance.quitarLlave(nroPuerta);
+					nroPuerta = -1; //Para necesitar usar la llave 1 sola vez
+				}
 				
 				if(abierta && paraleloEjeZ)
 				{

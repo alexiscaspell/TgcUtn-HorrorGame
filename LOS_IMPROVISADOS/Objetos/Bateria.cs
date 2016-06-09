@@ -32,6 +32,20 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			sonidoAgarrar = new TgcStaticSound();
 			sonidoAgarrar.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\sonidosJuego\\ruidos inventario\\inventory_click.wav");
 		}
+		
+		//Hago un constructor con un entero para usar el otro modelo
+		public Bateria(int a)
+		{
+			TgcSceneLoader loader = new TgcSceneLoader();
+			TgcScene escena = loader.loadSceneFromFile(
+				GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Pilas\\PilaBienUbicada\\pila-TgcScene.xml",
+				GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Pilas\\PilaBienUbicada\\");
+			
+			this.mesh = escena.Meshes[0];
+			
+			sonidoAgarrar = new TgcStaticSound();
+			sonidoAgarrar.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\sonidosJuego\\ruidos inventario\\inventory_click.wav");
+		}
 
 		public override void execute()
 		{
