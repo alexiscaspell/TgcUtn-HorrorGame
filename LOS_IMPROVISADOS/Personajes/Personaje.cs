@@ -51,6 +51,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private float alturaParado;
         private bool muerto = false;
 
+        //lobo
+        private float tiempoParaDejarRastro = 0.05f;
+        private float sumadorParaDejarRastro = 0f;
+
         private Personaje()
         {
 
@@ -181,6 +185,23 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             //mapa.iluminarCuartos();
 
             cuerpo.setCenter(posActual);
+            
+
+
+            //lobo
+            //voy dejando el rastro por donde voy pasando y lo guardo en el DiosMapa
+            //el primer if para no hacerlo en cada render, si no despues de un tiempo, es para la performance
+            sumadorParaDejarRastro += GuiController.Instance.ElapsedTime;
+            if (sumadorParaDejarRastro > tiempoParaDejarRastro)
+            {
+                sumadorParaDejarRastro = 0;
+
+                Punto puntoDondeEstoy = DiosMapa.Instance.obtenerPuntoPorPosicion(camaraFPS.camaraFramework.getPosition());
+                    puntoDondeEstoy.listaDeOrdenEnQueElPersonajePasoPorEstePunto.Add(DiosMapa.Instance.contadorSiguienteABuscar());
+
+                DiosMapa.Instance.agregarPuntoAListaPersecucion(puntoDondeEstoy);
+            }
+            
         }
 
         private void verificarSiMori()

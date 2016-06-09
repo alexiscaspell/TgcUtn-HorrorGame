@@ -20,11 +20,18 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private TgcBoundingSphere esfera;
 
+        //lobo
+        public List<int> listaDeOrdenEnQueElPersonajePasoPorEstePunto { get; set; }
+        
         public Punto(float posX, float posZ)
         {
             posicion = new Vector3(posX, 0, posZ);
             Vector3 posicionEsfera = new Vector3(posX, posY, posZ);
             esfera = new TgcBoundingSphere(posicionEsfera, radio);
+
+
+            //lobo
+            listaDeOrdenEnQueElPersonajePasoPorEstePunto = new List<int> { };
         }
 
         internal TgcBoundingSphere getSphere()
