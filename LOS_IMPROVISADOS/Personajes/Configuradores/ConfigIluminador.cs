@@ -109,7 +109,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Configuradores
 
         internal bool iluminadorEstaEncendido()
         {
-            return iluminadores[posicionIluminadorActual].iluminadorActivado;
+            return iluminadores[posicionIluminadorActual].iluminadorActivado && iluminadores[posicionIluminadorActual].iluminadorObtenido;
+        }
+
+        internal bool fluorActivado()
+        {
+            return posicionIluminadorActual == 2;
         }
     }
 }

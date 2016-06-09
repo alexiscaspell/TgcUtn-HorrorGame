@@ -45,8 +45,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         internal bool activado = true;
         private state estado;
         private state estadoAnterior;
+        private float tiempoPasadoAturdido = 0;
+        private float tiempoDeRecuperacion = 4;
 
-        enum state { PASEANDO,PERSIGUIENDO};
+        enum state { PASEANDO,PERSIGUIENDO,ATURDIDO};
 
         private AnimatedBoss()
         {
@@ -205,20 +207,69 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private void updateEstado()
         {
-            estadoAnterior = estado;
+            if (estado==state.ATURDIDO)
+            {
+                updateEstadoAturdido();
+                return;
+            }
+            else
+            {
+                estadoAnterior = estado;
+            }
 
             Personaje pj = Personaje.Instance;
 
             ColinaAzul colina = ColinaAzul.Instance;
 
-            estado = state.PASEANDO;
+            bool estoyConPj = colina.estoyEn(colina.dondeEstaPesonaje(), cuerpo.Position);
 
-            if (colina.estoyEn(colina.dondeEstaPesonaje(),cuerpo.Position))
+            if (pj.iluminadorEncendido()&&estoyConPj)
             {
-                if (pj.iluminadorEncendido())
+                estado = state.PERSIGUIENDO;
+            }
+
+            if (estado==state.PERSIGUIENDO)
+            {
+                if (pjEscondido(pj))
                 {
-                    estado = state.PERSIGUIENDO;
+                    estado = state.PASEANDO;
                 }
+            }
+
+            if (pj.fluorActivado()&&estoyCercaDePj())
+            {
+                estado = state.ATURDIDO;
+            }
+        }
+
+        private bool estoyCercaDePj()
+        {
+            //TgcBoundingSphere cuerpoTrucho = new TgcBoundingSphere(Personaje.Instance.cuerpo.Center, 300);
+
+            return (CamaraFPS.Instance.camaraFramework.Position - cuerpo.Position).Length() < 600;//ColinaAzul.Instance.colisionaEsferaCaja(cuerpoTrucho, cuerpo.BoundingBox);
+        }
+
+        private bool pjEscondido(Personaje pj)
+        {
+            return pj.iluminadorEncendido() && pj.agachado() && pjCercaDeObjeto();
+        }
+
+        private bool pjCercaDeObjeto()
+        {
+            TgcBoundingSphere cuerpoTrucho = new TgcBoundingSphere(Personaje.Instance.cuerpo.Center, 50);
+            TgcBoundingBox b = new TgcBoundingBox();
+
+            return Mapa.Instance.colisionaPersonaje(cuerpoTrucho, ref b);
+        }
+
+        private void updateEstadoAturdido()
+        {
+            tiempoPasadoAturdido += GuiController.Instance.ElapsedTime;
+
+            if (tiempoPasadoAturdido>tiempoDeRecuperacion)
+            {
+                estado = state.PASEANDO;//HARDCODEO ESTADO
+                tiempoPasadoAturdido = 0;
             }
         }
 
@@ -236,6 +287,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             else if (estado == state.PERSIGUIENDO)
             {
                 comportamiento = new ComportamientoSeguir(cuerpo.Position);
+            }
+            else if (estado==state.ATURDIDO)
+            {
+                comportamiento = new Aturdido();
             }
 
         }

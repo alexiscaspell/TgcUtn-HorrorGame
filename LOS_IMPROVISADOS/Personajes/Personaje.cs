@@ -26,7 +26,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         #endregion
 
-        private TgcBoundingSphere cuerpo;
+        public TgcBoundingSphere cuerpo;
         
         public Mapa mapa;
 
@@ -209,6 +209,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             return configIluminador.iluminadorEstaEncendido();
         }
 
+        internal bool fluorActivado()
+        {
+            return configIluminador.fluorActivado();
+        }
+
         private void verificarSiMori()
         {
             if (ColinaAzul.Instance.colisionaEsferaCaja(cuerpo,AnimatedBoss.Instance.getBoundingBox()))
@@ -245,6 +250,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
                 camaraFPS.camaraFramework.setPosition(posMemento + movement);
             }
+        }
+
+        internal bool agachado()
+        {
+            return camaraFPS.camaraFramework.Position.Y == alturaAgachado;
         }
 
         private Vector3 obtenerVectorSlide(TgcBoundingBox box)
