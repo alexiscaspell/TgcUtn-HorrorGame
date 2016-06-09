@@ -153,6 +153,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         //lobo
         private List<Punto> listaDePuntosPersecucion;
         private int contadorDePuntosQueElPersonajeVaPasando;
+        private int CANTIDAD_DE_PUNTOS_PARA_QUE_EL_BOSS_SE_TELETRANSPORTE = 40;
+        private int PORCION_DE_PUNTOS_QUE_ELIMINO_CUANDO_EL_BOSS_SE_TELETRANSPORTA = 3;
 
         public void init(float factorAvance)
         {
@@ -344,7 +346,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             return puntos;
         }
 
-        //lobo
+        /******************************************************************/
+        /***************************INTELIGENCIA***************************/
+        /******************************************************************/
+
         public void agregarPuntoAListaPersecucion(Punto puntoAAgregar)
         {
             if (!listaDePuntosPersecucion.Contains(puntoAAgregar))
@@ -365,6 +370,18 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public Punto puntoASeguirPorElBoss()
         {
+            /*if (cantidadDeElementosDeListaPersecucion() > CANTIDAD_DE_PUNTOS_PARA_QUE_EL_BOSS_SE_TELETRANSPORTE)
+            {
+                int cantidad = (cantidadDeElementosDeListaPersecucion() / PORCION_DE_PUNTOS_QUE_ELIMINO_CUANDO_EL_BOSS_SE_TELETRANSPORTA);
+                listaDePuntosPersecucion.RemoveRange(0, cantidad); 
+
+
+                //la logica esta asi porque lo teletransporto en una de las posiciones donde paso el pj
+                 //si se quiere que se teletransporte a un punto random, habria que vaciar la lista y volverla a cargar desde la posicion nueva del pj
+                 
+                AnimatedBoss.Instance.cambiarPosicionDelBoss(DiosMapa.instancia.puntoASeguirPorElBoss().getPosition());
+            }*/
+        
             return listaDePuntosPersecucion[0];
         }
 
@@ -385,13 +402,33 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             //ahora los elimino
             listaDePuntosPersecucion.RemoveAll(x => puntosAEliminar.Contains(x));
-
             /*no elimino el punto dentro del if porque no confio en borrar elementos de la misma lista que estoy recorriendo*/
         }
 
         public bool listaPersecucionEstaVacia()
         {
             return (listaDePuntosPersecucion.Count == 0);
+        }
+
+        public int cantidadDeElementosDeListaPersecucion()
+        {
+            return listaDePuntosPersecucion.Count;
+        }
+
+        public void eliminarPrimerPuntoDeListaPersecucion()
+        {
+            listaDePuntosPersecucion.RemoveAt(0);
+        }
+
+        public void reiniciarPersecucion()
+        {
+            foreach (Punto punto in listaDePuntosPersecucion)
+            {
+                punto.listaDeOrdenEnQueElPersonajePasoPorEstePunto.Clear();
+            }
+            listaDePuntosPersecucion.Clear();
+
+            contadorDePuntosQueElPersonajeVaPasando = 0;
         }
     }
 }
