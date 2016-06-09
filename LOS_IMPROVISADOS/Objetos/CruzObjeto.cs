@@ -37,6 +37,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Objetos
 		public override void execute()
 		{
 			Personaje.Instance.configIluminador.iluminadores[2].bateria.aumentarFluor();
+			sonidoAgarrar.play();
 		}
 		
 	}

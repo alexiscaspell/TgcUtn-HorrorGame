@@ -15,6 +15,7 @@ using TgcViewer.Utils._2D;
 using TgcViewer.Utils.TgcSceneLoader;
 using TgcViewer.Utils.TgcGeometry;
 using TgcViewer.Utils.Sound;
+using AlumnoEjemplos.LOS_IMPROVISADOS.Objetos.Inventario;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
@@ -319,5 +320,35 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			
 			listaItems[indiceFila,indiceColumna] = itemVacio;
 		}
+		
+		public void quitarLlave(int nroLlave)
+		{
+			//Creo slot vacio
+			TgcSprite spriteVacio = new TgcSprite();
+			
+			Vector2 position = listaItems[indiceFila,indiceColumna].sprite.Position;
+			Vector2 scaling = listaItems[indiceFila,indiceColumna].sprite.Scaling;
+			
+			spriteVacio.Position = position;
+			spriteVacio.Scaling = scaling;
+			spriteVacio.Texture = texturaSlotLibre;
+			
+			Item itemVacio = new Item(spriteVacio, false);
+			
+			//Busco la llave
+			for(int i=0;i<cantFilas;i++){
+				for(int j=0;j<cantColumnas;j++){
+					
+					if( listaItems[i,j].GetType().Equals(typeof(Llave)) ){
+						if( ((Llave)listaItems[i,j]).nroLlave == nroLlave){
+							listaItems[i,j] = itemVacio;
+						}
+					}
+				}
+			}
+			
+			
+		}
+		
 	}
 }

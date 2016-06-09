@@ -44,7 +44,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         
         public List<Accionable> objetos {get; set;}
 
-        private Dictionary<string, Puerta> puertas = new Dictionary<string, Puerta>();
+        //private Dictionary<string, Puerta> puertas = new Dictionary<string, Puerta>();
+
+        private List<Puerta> puertas = new List<Puerta>();
 
         private ConfigRoomIluminado configRoomsIluminados;
 
@@ -60,6 +62,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\");
 
             objetos = HardCodeadorObjetos.HardCodearObjetos();
+            mapearPuertas();
         }
 
 
@@ -82,11 +85,16 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private void mapearPuertas()
         {
-               //ACA YA DEBERIAN DE ESTAR CREADAS LAS PUERTAS
-               //LO UNICO QUE HARIA ES SACAR LOS MESHES Y DISTRIBUIRLOS POR EL MAPA
+            foreach (Accionable objeto in objetos)
+            {
+                if (typeof(Puerta).Equals(objeto.GetType()))
+                {
+                    puertas.Add((Puerta)objeto);
+                }
+            }
         }
 
-        private void mapearPuerta(TgcMesh mesh)
+        /*private void mapearPuerta(TgcMesh mesh)
         {
             int nroPuerta = 0;
 
@@ -100,7 +108,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             Puerta nuevaPuerta = new Puerta(nroPuerta,mesh);
 
             puertas.Add(nombrePuerta, nuevaPuerta);
-        }
+        }*/
 
         private void agregarObjetosMapa()
         {
@@ -231,6 +239,15 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                     return true;
                 }
             }
+
+            foreach (Puerta puerta in puertas)
+            {
+                    if (ColinaAzul.Instance.colisionaEsferaCaja(cuerpoPersonaje, puerta.getMesh().BoundingBox))
+                    {
+                        obstaculo = puerta.getMesh().BoundingBox;
+                        return true;
+                    }
+            }
             return false;
         }
 
@@ -250,6 +267,14 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                     return true;
                 }
             }
+            foreach (Puerta puerta in puertas)
+            {
+                if (ColinaAzul.Instance.colisionaEsferaCaja(esfera, puerta.getMesh().BoundingBox))
+                {
+                    return true;
+                }
+            }
+
             return false;
         }
 

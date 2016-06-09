@@ -18,7 +18,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Objetos.Inventario
 	/// </summary>
 	public class Llave : Item
 	{
-		int nroLlave;
+		public int nroLlave;
 
 		#region constructores
 		private Llave(){}

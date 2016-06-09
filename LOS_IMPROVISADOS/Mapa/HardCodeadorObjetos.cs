@@ -40,11 +40,21 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			llave1.cambiarVectores(new Vector3(14485.52f,190.0f,1016.86f), new Vector3(0.5f,0.5f,0.5f));
 			lista.Add(llave1);
 			
+			LlaveObjeto llave2 = LlaveObjeto.Llave2();
+			llave2.cambiarVectores(new Vector3(1379.92f,264.31f,1293.35f), new Vector3(1f,1f,1f));
+			lista.Add(llave2);
+			
 			LlaveObjeto llaveMano = LlaveObjeto.ManoObjeto();
 			llaveMano.cambiarVectores(new Vector3(23695.42f,12.56f,18625.01f), new Vector3(0.5f,0.5f,0.5f));
 			llaveMano.getMesh().rotateZ(FastMath.PI/2);
 			lista.Add(llaveMano);
 			#endregion Llaves
+			
+			#region cruces
+			CruzObjeto cruz1 = new CruzObjeto();
+			cruz1.cambiarVectores(new Vector3(821.06f,261.99f,1658.88f), new Vector3(1f,1f,1f));
+			lista.Add(cruz1);
+			#endregion cruces
 			
 			#region Baterias
 			Bateria bateria1 = new Bateria();
@@ -70,6 +80,14 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			Bateria bateria6 = new Bateria();
 			bateria6.cambiarVectores(new Vector3(13680.95f,180.84f,855.0f), new Vector3(0.1f,0.1f,0.1f));
 			lista.Add(bateria6);
+			
+			Bateria bateria7 = new Bateria(0);
+			bateria7.cambiarVectores(new Vector3(178.68f,269.13f,610.43f), new Vector3(1f,1f,1f));
+			lista.Add(bateria7);
+			
+			Bateria bateria8 = new Bateria(0);
+			bateria8.cambiarVectores(new Vector3(165.4f,185.01f,881.57f), new Vector3(1f,1f,1f));
+			lista.Add(bateria8);
 			#endregion Baterias
 			
 			#region Puertas
