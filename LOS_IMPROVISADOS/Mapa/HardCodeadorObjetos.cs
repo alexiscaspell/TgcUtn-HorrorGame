@@ -108,9 +108,17 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			puertaMarron.cambiarVectores(new Vector3(13548.04f,299.59f,400f), new Vector3(1f,1f,1f));
 			lista.Add(puertaMarron);
 			
-			Puerta puertaBlindada = Puerta.PuertaBlindada(-1,true);
+			Puerta puertaBlindada = Puerta.PuertaBlindada(3,true);
 			puertaBlindada.cambiarVectores(new Vector3(659.27f,295.06f,2997.02f), new Vector3(1f,1f,1f));
 			lista.Add(puertaBlindada);
+			
+			Puerta puertaOxidada = Puerta.PuertaOxidada(4,true);
+			puertaOxidada.cambiarVectores(new Vector3(23150.87f,297.81f,16801.77f), new Vector3(1f,1f,1f));
+			lista.Add(puertaOxidada);
+			
+			Puerta puertaExit = Puerta.PuertaExit(5,true);
+			puertaExit.cambiarVectores(new Vector3(20950.15f,276f,8902.31f), new Vector3(1f,1f,1f));
+			lista.Add(puertaExit);
 			
 			//Puertas Ejez
 			Puerta puerta1 = new Puerta(-1,true);

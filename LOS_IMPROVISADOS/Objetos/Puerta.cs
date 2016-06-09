@@ -153,6 +153,54 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         	TgcSceneLoader loader = new TgcSceneLoader();
             
         	TgcScene escena = loader.loadSceneFromFile(
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaOxidada\\puerta-TgcScene.xml",
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaOxiada\\");
+        	
+        	TgcMesh nuevoMesh = escena.Meshes[0];
+        	
+        	nuevaPuerta.mesh = nuevoMesh;
+        	
+        	nuevaPuerta.puertaCerrada.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\puertaCerrada.wav");
+        	nuevaPuerta.puertaAbriendose.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\aperturaPuerta.wav");
+        	
+        	nuevaPuerta.nroPuerta = nroPuerta;
+        	nuevaPuerta.agarrado = int.MaxValue;
+        	nuevaPuerta.paraleloEjeZ = paraleloEjeZ;
+        	
+        	return nuevaPuerta;
+        }
+        
+        public static Puerta PuertaExit(int nroPuerta, bool paraleloEjeZ)
+        {
+        	Puerta nuevaPuerta = new Puerta();
+        	
+        	TgcSceneLoader loader = new TgcSceneLoader();
+            
+        	TgcScene escena = loader.loadSceneFromFile(
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaExit\\PuertaExit-TgcScene.xml",
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaExit\\");
+        	
+        	TgcMesh nuevoMesh = escena.Meshes[0];
+        	
+        	nuevaPuerta.mesh = nuevoMesh;
+        	
+        	nuevaPuerta.puertaCerrada.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\puertaCerrada.wav");
+        	nuevaPuerta.puertaAbriendose.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\aperturaPuerta.wav");
+        	
+        	nuevaPuerta.nroPuerta = nroPuerta;
+        	nuevaPuerta.agarrado = int.MaxValue;
+        	nuevaPuerta.paraleloEjeZ = paraleloEjeZ;
+        	
+        	return nuevaPuerta;
+        }
+        
+        public static Puerta PuertaOxidada(int nroPuerta, bool paraleloEjeZ)
+        {
+        	Puerta nuevaPuerta = new Puerta();
+        	
+        	TgcSceneLoader loader = new TgcSceneLoader();
+            
+        	TgcScene escena = loader.loadSceneFromFile(
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaBlindada\\puerta-TgcScene.xml",
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaBlindada\\");
         	
