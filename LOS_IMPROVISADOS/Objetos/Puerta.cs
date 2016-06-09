@@ -37,6 +37,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         int nroPuerta;//Para que checkee que tenga la misma llave
 
         //Angulo en grados
+        public Puerta(){}
+        
         public Puerta(int nroPuerta, bool paraleloEjeZ)
         {
         	TgcSceneLoader loader = new TgcSceneLoader();
@@ -68,6 +70,150 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         	Puerta nuevaPuerta = new Puerta(nroPuerta, paraleloEjeZ);
         	
         	nuevaPuerta.mesh = nuevoMesh;
+        	
+        	return nuevaPuerta;
+        }
+//        
+//        public static Puerta Puerta3(int nroPuerta, bool paraleloEjeZ)
+//        {
+//        	Puerta nuevaPuerta = new Puerta();
+//        	
+//        	TgcSceneLoader loader = new TgcSceneLoader();
+//            
+//        	TgcScene escena = loader.loadSceneFromFile(
+//                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\Puerta3\\puerta-TgcScene.xml",
+//                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\Puerta3\\");
+//        	
+//        	TgcMesh nuevoMesh = escena.Meshes[0];
+//        	
+//        	nuevaPuerta.mesh = nuevoMesh;
+//        	
+//        	nuevaPuerta.puertaCerrada.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\puertaCerrada.wav");
+//        	nuevaPuerta.puertaAbriendose.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\aperturaPuerta.wav");
+//        	
+//        	nuevaPuerta.nroPuerta = nroPuerta;
+//        	nuevaPuerta.agarrado = int.MaxValue;
+//        	nuevaPuerta.paraleloEjeZ = paraleloEjeZ;
+//        	
+//        	return nuevaPuerta;
+//        }
+        
+        public static Puerta PuertaGris(int nroPuerta, bool paraleloEjeZ)
+        {
+        	Puerta nuevaPuerta = new Puerta();
+        	
+        	TgcSceneLoader loader = new TgcSceneLoader();
+            
+        	TgcScene escena = loader.loadSceneFromFile(
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaGris\\puerta-TgcScene.xml",
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaGris\\");
+        	
+        	TgcMesh nuevoMesh = escena.Meshes[0];
+        	
+        	nuevaPuerta.mesh = nuevoMesh;
+        	
+        	nuevaPuerta.puertaCerrada.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\puertaCerrada.wav");
+        	nuevaPuerta.puertaAbriendose.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\aperturaPuerta.wav");
+        	
+        	nuevaPuerta.nroPuerta = nroPuerta;
+        	nuevaPuerta.agarrado = int.MaxValue;
+        	nuevaPuerta.paraleloEjeZ = paraleloEjeZ;
+        	
+        	return nuevaPuerta;
+        }
+        
+        public static Puerta PuertaMarron(int nroPuerta, bool paraleloEjeZ)
+        {
+        	Puerta nuevaPuerta = new Puerta();
+        	
+        	TgcSceneLoader loader = new TgcSceneLoader();
+            
+        	TgcScene escena = loader.loadSceneFromFile(
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaMarron\\puerta-TgcScene.xml",
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaMarron\\");
+        	
+        	TgcMesh nuevoMesh = escena.Meshes[0];
+        	
+        	nuevaPuerta.mesh = nuevoMesh;
+        	
+        	nuevaPuerta.puertaCerrada.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\puertaCerrada.wav");
+        	nuevaPuerta.puertaAbriendose.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\aperturaPuerta.wav");
+        	
+        	nuevaPuerta.nroPuerta = nroPuerta;
+        	nuevaPuerta.agarrado = int.MaxValue;
+        	nuevaPuerta.paraleloEjeZ = paraleloEjeZ;
+        	
+        	return nuevaPuerta;
+        }
+        
+        public static Puerta PuertaBlindada(int nroPuerta, bool paraleloEjeZ)
+        {
+        	Puerta nuevaPuerta = new Puerta();
+        	
+        	TgcSceneLoader loader = new TgcSceneLoader();
+            
+        	TgcScene escena = loader.loadSceneFromFile(
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaOxidada\\puerta-TgcScene.xml",
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaOxidada\\");
+        	
+        	TgcMesh nuevoMesh = escena.Meshes[0];
+        	
+        	nuevaPuerta.mesh = nuevoMesh;
+        	
+        	nuevaPuerta.puertaCerrada.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\puertaCerrada.wav");
+        	nuevaPuerta.puertaAbriendose.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\aperturaPuerta.wav");
+        	
+        	nuevaPuerta.nroPuerta = nroPuerta;
+        	nuevaPuerta.agarrado = int.MaxValue;
+        	nuevaPuerta.paraleloEjeZ = paraleloEjeZ;
+        	
+        	return nuevaPuerta;
+        }
+        
+        public static Puerta PuertaExit(int nroPuerta, bool paraleloEjeZ)
+        {
+        	Puerta nuevaPuerta = new Puerta();
+        	
+        	TgcSceneLoader loader = new TgcSceneLoader();
+            
+        	TgcScene escena = loader.loadSceneFromFile(
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaExit\\PuertaExit-TgcScene.xml",
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaExit\\");
+        	
+        	TgcMesh nuevoMesh = escena.Meshes[0];
+        	
+        	nuevaPuerta.mesh = nuevoMesh;
+        	
+        	nuevaPuerta.puertaCerrada.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\puertaCerrada.wav");
+        	nuevaPuerta.puertaAbriendose.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\aperturaPuerta.wav");
+        	
+        	nuevaPuerta.nroPuerta = nroPuerta;
+        	nuevaPuerta.agarrado = int.MaxValue;
+        	nuevaPuerta.paraleloEjeZ = paraleloEjeZ;
+        	
+        	return nuevaPuerta;
+        }
+        
+        public static Puerta PuertaOxidada(int nroPuerta, bool paraleloEjeZ)
+        {
+        	Puerta nuevaPuerta = new Puerta();
+        	
+        	TgcSceneLoader loader = new TgcSceneLoader();
+            
+        	TgcScene escena = loader.loadSceneFromFile(
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaBlindada\\puerta-TgcScene.xml",
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaBlindada\\");
+        	
+        	TgcMesh nuevoMesh = escena.Meshes[0];
+        	
+        	nuevaPuerta.mesh = nuevoMesh;
+        	
+        	nuevaPuerta.puertaCerrada.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\puertaCerrada.wav");
+        	nuevaPuerta.puertaAbriendose.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\aperturaPuerta.wav");
+        	
+        	nuevaPuerta.nroPuerta = nroPuerta;
+        	nuevaPuerta.agarrado = int.MaxValue;
+        	nuevaPuerta.paraleloEjeZ = paraleloEjeZ;
         	
         	return nuevaPuerta;
         }

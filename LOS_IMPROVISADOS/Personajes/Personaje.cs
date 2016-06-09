@@ -271,3 +271,71 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         }
     }
 
+
+        private void verificarSiMori()
+        {
+            if (ColinaAzul.Instance.colisionaEsferaCaja(cuerpo,AnimatedBoss.Instance.getBoundingBox()))
+            {
+                morir();
+            }
+        }
+
+        public void calcularColisiones()
+        {
+            TgcBoundingBox obstaculo = new TgcBoundingBox();
+
+            Vector3 posActual = camaraFPS.camaraFramework.Position;
+            posActual.Y = alturaAgachado;
+            
+            cuerpo.setCenter(posActual);
+
+            if (mapa.colisionaPersonaje(cuerpo, ref obstaculo))
+            {
+                Vector3 slide = obtenerVectorSlide(obstaculo);
+
+                Vector3 desplazamiento = camaraFPS.camaraFramework.Position - posMemento;
+
+                //desplazamiento.Normalize();
+
+                Vector3 movement =  Vector3.Dot(desplazamiento, slide) * slide;
+
+                cuerpo.setCenter(posMemento + movement);
+
+                if (mapa.colisionaPersonaje(cuerpo, ref obstaculo))
+                {
+                    movement = new Vector3(0, 0, 0);
+                }
+
+                camaraFPS.camaraFramework.setPosition(posMemento + movement);
+            }
+        }
+
+        private Vector3 obtenerVectorSlide(TgcBoundingBox box)
+        {
+            Vector3 posActual = camaraFPS.camaraFramework.Position;
+
+            Vector3 closestPoint = TgcCollisionUtils.closestPointAABB(posActual, box);
+
+            if (closestPoint.X==box.PMax.X||closestPoint.X==box.PMin.X)
+            {
+                return new Vector3(0, 0, 1);
+            }
+
+            return new Vector3(1, 0, 0);
+        }
+
+        public void morir()
+        {
+//            GameOver.Instance.activar();
+//            camaraFPS.camaraFramework.activada = false;
+//            AnimatedBoss.Instance.activado = false;
+//            configIluminador.apagarBateria();
+//            muerto = true;
+        }
+
+
+
+
+        }
+    }
+

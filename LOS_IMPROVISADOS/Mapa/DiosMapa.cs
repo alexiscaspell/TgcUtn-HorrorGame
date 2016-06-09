@@ -86,6 +86,28 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             return new List<Punto>();
         }
 
+        internal List<TgcBoundingSphere> boundingSpheres()
+        {
+            List<TgcBoundingSphere> esferas = new List<TgcBoundingSphere>();
+
+            for (int i = 0; i < vias.Count; i++)
+            {
+                for (int j = 0; j < vias[i].Count; j++)
+                {
+                    if (vias[i][j].activo)
+                    {
+                        vias[i][j].getSphere().setRenderColor(System.Drawing.Color.Yellow);
+                    }
+                    else
+                    {
+                        vias[i][j].getSphere().setRenderColor(System.Drawing.Color.Red);
+                    }
+                    esferas.Add(vias[i][j].getSphere());
+                }
+            }
+            return esferas;
+        }
+
         internal Dictionary<Punto, List<Punto>> getCaminos()
         {
             return caminos;
