@@ -61,7 +61,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             this.velocidadMovimiento = velocidadMovimiento;
             direccionVista = new Vector3(0, 0, -1);
 
-            comportamiento = new ComportamientoRandom();//SeguirPersonaje();//ESTO LO HARDCODEO POR AHORA
+            comportamiento = new ComportamientoSeguir();//SeguirPersonaje();//ESTO LO HARDCODEO POR AHORA
         }
 
         #region funcionesAnimadas

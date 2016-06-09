@@ -23,7 +23,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             if (instancia != null) { }
             else
             {
-                new DiosMapa();
+                instancia = new DiosMapa();
             }
             return instancia;
         }
@@ -99,7 +99,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private DiosMapa()
         {
-            instancia = this;
         }
 
         #endregion
@@ -125,8 +124,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
 
             //lobo
-            listaDePuntosPersecucion = new List<Punto> { };
+            listaDePuntosPersecucion = new List<Punto> ();
             contadorDePuntosQueElPersonajeVaPasando = 0;
+        }
+
+        public void initPersecucion()
+        {
+            listaDePuntosPersecucion.Add(obtenerPuntoPorPosicion(CamaraFPS.Instance.camaraFramework.Position));
         }
 
         internal List<List<Punto>> getMatrix()
@@ -332,7 +336,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public Punto puntoASeguirPorElBoss()
         {
-            return listaDePuntosPersecucion.First();
+            return listaDePuntosPersecucion[0];//.First();
         }
 
         public void eliminarPuntosConPosicionesMenores(int posicion)

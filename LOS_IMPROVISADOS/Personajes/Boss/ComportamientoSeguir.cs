@@ -8,6 +8,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Boss
 {
     class ComportamientoSeguir : Comportamiento
     {
+
+        public ComportamientoSeguir()
+        {
+            DiosMapa.Instance.initPersecucion();
+        }
         public Vector3 proximoPunto(Vector3 posicionActual)
         {
             Punto puntoDondeTengoQueIr = DiosMapa.Instance.puntoASeguirPorElBoss();
