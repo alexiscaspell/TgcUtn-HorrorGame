@@ -112,6 +112,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private List<List<Punto>> vias;
 
+        //lobo
+        private List<Punto> listaDePuntosPersecucion;
+        private int contadorDePuntosQueElPersonajeVaPasando;
 
         public void init(float factorAvance)
         {
@@ -119,6 +122,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             this.factorAvance = factorAvance;
 
             vias = new List<List<Punto>>();
+
+
+            //lobo
+            listaDePuntosPersecucion = new List<Punto> { };
+            contadorDePuntosQueElPersonajeVaPasando = 0;
         }
 
         internal List<List<Punto>> getMatrix()
@@ -277,6 +285,59 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             }
 
             return puntos;
+        }
+
+
+
+
+        //lobo
+        public Punto obtenerPuntoPorPosicion(Vector3 puntoABuscar)
+        {
+            //aca es donde alexis hace magia. El return lo puse para que no me rompa las pelotas el error
+            return new Punto(puntoABuscar.X, puntoABuscar.Z);
+        }
+
+        public void agregarPuntoAListaPersecucion(Punto puntoAAgregar)
+        {
+            if (!listaDePuntosPersecucion.Contains(puntoAAgregar))
+            {
+                listaDePuntosPersecucion.Add(puntoAAgregar);
+            }
+        }
+
+        public int contadorSiguienteABuscar()
+        {
+            contadorDePuntosQueElPersonajeVaPasando++;
+            /*
+            if (contadorDePuntosQueElPersonajeVaPasando > 5000) //esto es solo para que el numero no tienda a infinito
+            {
+                contadorDePuntosQueElPersonajeVaPasando = 1;
+            }*/
+
+            return contadorDePuntosQueElPersonajeVaPasando;
+        }
+
+        public void eliminarPuntoDeListaPersecucion(Punto puntoAEliminar)
+        {
+            listaDePuntosPersecucion.Remove(puntoAEliminar);
+        }
+
+        public Punto puntoASeguirPorElBoss()
+        {
+            return listaDePuntosPersecucion.First();
+        }
+
+        public void eliminarPuntosConPosicionesMenores(int posicion)
+        {
+            foreach (Punto punto in listaDePuntosPersecucion)
+            {
+                punto.listaDeOrdenEnQueElPersonajePasoPorEstePunto.RemoveAll(x => x < posicion);
+
+                if (punto.listaDeOrdenEnQueElPersonajePasoPorEstePunto.Count == 0)
+                {
+                    eliminarPuntoDeListaPersecucion(punto);
+                }
+            }
         }
     }
 }
