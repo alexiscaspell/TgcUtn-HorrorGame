@@ -141,13 +141,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
 
             //lobo
-            listaDePuntosPersecucion = new List<Punto> ();
+            listaDePuntosPersecucion = new List<Punto> { };
             contadorDePuntosQueElPersonajeVaPasando = 0;
-        }
-
-        public void initPersecucion()
-        {
-            listaDePuntosPersecucion.Add(obtenerPuntoPorPosicion(CamaraFPS.Instance.camaraFramework.Position));
         }
 
         internal List<List<Punto>> getMatrix()
@@ -338,14 +333,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public int contadorSiguienteABuscar()
         {
-            contadorDePuntosQueElPersonajeVaPasando++;
-            /*
-            if (contadorDePuntosQueElPersonajeVaPasando > 5000) //esto es solo para que el numero no tienda a infinito
-            {
-                contadorDePuntosQueElPersonajeVaPasando = 1;
-            }*/
-
-            return contadorDePuntosQueElPersonajeVaPasando;
+            return contadorDePuntosQueElPersonajeVaPasando++;
         }
 
         public void eliminarPuntoDeListaPersecucion(Punto puntoAEliminar)
@@ -355,27 +343,33 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public Punto puntoASeguirPorElBoss()
         {
-            if (listaDePuntosPersecucion.Count == 0)
-            {
-                Punto puntoCamara = obtenerPuntoPorPosicion(CamaraFPS.Instance.camaraFramework.getPosition());
-
-                agregarPuntoAListaPersecucion(puntoCamara);
-            }
-
-            return listaDePuntosPersecucion[0];//.First();
+            return listaDePuntosPersecucion[0];
         }
 
-        public void eliminarPuntosConPosicionesMenores(int posicion)
+        public void eliminarPuntosConPosicionesMenores(int numeroMaximo)
         {
+            List<Punto> puntosAEliminar = new List<Punto> { };
+
+            //primero consigo los puntos que quiero eliminar
             foreach (Punto punto in listaDePuntosPersecucion)
             {
-                punto.listaDeOrdenEnQueElPersonajePasoPorEstePunto.RemoveAll(x => x < posicion);
+                punto.listaDeOrdenEnQueElPersonajePasoPorEstePunto.RemoveAll(x => x < numeroMaximo);
 
                 if (punto.listaDeOrdenEnQueElPersonajePasoPorEstePunto.Count == 0)
                 {
-                    eliminarPuntoDeListaPersecucion(punto);
+                    puntosAEliminar.Add(punto);
                 }
             }
+
+            //ahora los elimino
+            listaDePuntosPersecucion.RemoveAll(x => puntosAEliminar.Contains(x));
+
+            /*no elimino el punto dentro del if porque no confio en borrar elementos de la misma lista que estoy recorriendo*/
+        }
+
+        public bool listaPersecucionEstaVacia()
+        {
+            return (listaDePuntosPersecucion.Count == 0);
         }
     }
 }
