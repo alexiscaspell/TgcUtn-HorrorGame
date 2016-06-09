@@ -422,13 +422,16 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public void reiniciarPersecucion()
         {
-            foreach (Punto punto in listaDePuntosPersecucion)
+            if (listaDePuntosPersecucion.Count>0)
             {
-                punto.listaDeOrdenEnQueElPersonajePasoPorEstePunto.Clear();
-            }
-            listaDePuntosPersecucion.Clear();
+                foreach (Punto punto in listaDePuntosPersecucion)
+                {
+                    punto.listaDeOrdenEnQueElPersonajePasoPorEstePunto.Clear();
+                }
+                listaDePuntosPersecucion.Clear();
 
-            contadorDePuntosQueElPersonajeVaPasando = 0;
+                contadorDePuntosQueElPersonajeVaPasando = 0;
+            }
         }
     }
 }

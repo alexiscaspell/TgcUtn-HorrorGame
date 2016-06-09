@@ -181,5 +181,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             return "";
         }
+
+        internal bool estoyEn(string cuarto,Vector3 posicion)
+        {
+            TgcBoundingSphere esfera = new TgcBoundingSphere(posicion, 10);
+
+            return colisionaEsferaCaja(esfera, bloquesCuartos[cuarto]);
+        }
     }
 }

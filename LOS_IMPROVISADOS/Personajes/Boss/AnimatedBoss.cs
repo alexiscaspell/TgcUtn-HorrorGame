@@ -57,6 +57,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             cuerpo.AutoTransformEnable = true;
             cuerpo.AutoUpdateBoundingBox = true;
             estado = state.PASEANDO;
+            comportamiento = new ComportamientoRandom();
         } 
 
         public void init(float velocidadMovimiento, Vector3 posicion)
@@ -205,6 +206,20 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private void updateEstado()
         {
             estadoAnterior = estado;
+
+            Personaje pj = Personaje.Instance;
+
+            ColinaAzul colina = ColinaAzul.Instance;
+
+            estado = state.PASEANDO;
+
+            if (colina.estoyEn(colina.dondeEstaPesonaje(),cuerpo.Position))
+            {
+                if (pj.iluminadorEncendido())
+                {
+                    estado = state.PERSIGUIENDO;
+                }
+            }
         }
 
         private void updateComportamiento()

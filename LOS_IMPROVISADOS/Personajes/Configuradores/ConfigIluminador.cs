@@ -106,5 +106,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Configuradores
         {
             iluminadores[posicionIluminadorActual].apagarBateria();
         }
+
+        internal bool iluminadorEstaEncendido()
+        {
+            return iluminadores[posicionIluminadorActual].iluminadorActivado;
+        }
     }
 }
