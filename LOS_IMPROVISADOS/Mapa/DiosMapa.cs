@@ -304,16 +304,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             return puntos;
         }
 
-
-
-
         //lobo
-        public Punto obtenerPuntoPorPosicion(Vector3 puntoABuscar)
-        {
-            //aca es donde alexis hace magia. El return lo puse para que no me rompa las pelotas el error
-            return new Punto(puntoABuscar.X, puntoABuscar.Z);
-        }
-
         public void agregarPuntoAListaPersecucion(Punto puntoAAgregar)
         {
             if (!listaDePuntosPersecucion.Contains(puntoAAgregar))
