@@ -112,8 +112,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			puerta3.cambiarVectores(new Vector3(5583.99f,0.0f,7497.41f),new Vector3(1.5f,0.45f,0.7f));
 			lista.Add(puerta3);
 			
-			Puerta puerta4 = new Puerta(-1,true);
-			puerta4.cambiarVectores(new Vector3(679.77f,0.0f,2802.13f), new Vector3(1.5f,0.45f,0.7f));
+//			Puerta puerta4 = new Puerta(-1,true);
+//			puerta4.cambiarVectores(new Vector3(679.77f,0.0f,2802.13f), new Vector3(1.5f,0.45f,0.7f));
+//			lista.Add(puerta4);
+			Puerta puerta4 = Puerta.Puerta3(1,true);
+			puerta4.cambiarVectores(new Vector3(654.2393f,301.5963f,2598.488f),new Vector3(1f,1f,1f));
 			lista.Add(puerta4);
 			
 			Puerta puerta5 = new Puerta(-1,true);
