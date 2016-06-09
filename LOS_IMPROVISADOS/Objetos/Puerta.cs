@@ -160,8 +160,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         	
         	nuevaPuerta.mesh = nuevoMesh;
         	
-        	nuevaPuerta.puertaCerrada.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\puertaCerrada.wav");
-        	nuevaPuerta.puertaAbriendose.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\aperturaPuerta.wav");
+        	nuevaPuerta.puertaCerrada.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Sonidos\\electronicDoor.wav");
+        	nuevaPuerta.puertaAbriendose.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\EarthQuake.wav");
         	
         	nuevaPuerta.nroPuerta = nroPuerta;
         	nuevaPuerta.agarrado = int.MaxValue;
