@@ -72,7 +72,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		
 		//Hago el final(pantallaGanaste)
 		private static GameOver ganaste;
-		private static GameOver Ganaste
+		public static GameOver Ganaste
 		{
 			get{
 				if(ganaste==null)ganaste = GameOver.GanasteScreen();
