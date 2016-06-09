@@ -43,6 +43,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private CamaraFPS camara;
         private Comportamiento comportamiento;
         internal bool activado = true;
+        private state estado;
+        private state estadoAnterior;
+
+        enum state { PASEANDO,PERSIGUIENDO};
 
         private AnimatedBoss()
         {
@@ -52,6 +56,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             changeMesh("CS_Arctic");//String con el mesh seleccionado (Basic Human tiene varios)
             cuerpo.AutoTransformEnable = true;
             cuerpo.AutoUpdateBoundingBox = true;
+            estado = state.PASEANDO;
         } 
 
         public void init(float velocidadMovimiento, Vector3 posicion)
@@ -60,8 +65,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             cuerpo.Scale = new Vector3(10, 10, 10);
             this.velocidadMovimiento = velocidadMovimiento;
             direccionVista = new Vector3(0, 0, -1);
-
-            comportamiento = new ComportamientoSeguir(posicion);//SeguirPersonaje();//ESTO LO HARDCODEO POR AHORA
         }
 
         #region funcionesAnimadas
@@ -193,8 +196,33 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             if (activado)
             {
+                updateEstado();
+                updateComportamiento();
                 seguirPersonaje();
             }
+        }
+
+        private void updateEstado()
+        {
+            estadoAnterior = estado;
+        }
+
+        private void updateComportamiento()
+        {
+            if (estado==estadoAnterior)
+            {
+                return;
+            }
+
+            if (estado==state.PASEANDO)
+            {
+                comportamiento = new ComportamientoRandom();
+            }
+            else if (estado == state.PERSIGUIENDO)
+            {
+                comportamiento = new ComportamientoSeguir(cuerpo.Position);
+            }
+
         }
 
         public void dispose()
