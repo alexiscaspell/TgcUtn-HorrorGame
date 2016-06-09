@@ -271,7 +271,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         }
     }
 
-
+/*
         private void verificarSiMori()
         {
             if (ColinaAzul.Instance.colisionaEsferaCaja(cuerpo,AnimatedBoss.Instance.getBoundingBox()))
@@ -339,3 +339,4 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         }
     }
 
+*/
