@@ -201,5 +201,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             cuerpo.dispose();
         }
+
+
+        public void cambiarPosicionDelBoss(Vector3 posicionNueva)
+        {
+            cuerpo.Position = posicionNueva;
+            //hacer todo lo necesario
+        }
     }
 }
