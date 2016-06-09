@@ -37,7 +37,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Objetos
 		
 		public override void execute()
 		{
-			Personaje.Instance.configIluminador.iluminadores[0].luz = new LuzLinterna(Mapa.Instance,CamaraFPS.Instance);
 			Personaje.Instance.configIluminador.iluminadores[0].iluminadorObtenido = true;
 			Personaje.Instance.configIluminador.posicionIluminadorActual = 0;
 		}

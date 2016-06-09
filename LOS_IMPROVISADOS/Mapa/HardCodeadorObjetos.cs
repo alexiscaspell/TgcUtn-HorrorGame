@@ -33,6 +33,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			linterna.cambiarVectores(new Vector3(886.27f,189.29f,10070.98f), new Vector3(1,1,1));
 			lista.Add(linterna);
 			
+			FarolObjeto farol = new FarolObjeto();
+			farol.cambiarVectores(new Vector3(10923.17f,217.0f,16466.28f), new Vector3(1,1,1));
+			lista.Add(farol);
+			
 			#region Barriles
 			Barril barril1 = new Barril();
 			barril1.cambiarVectores(new Vector3(20245.44f, 77.6337f, 9634.468f), new Vector3(1f,1f,1f));
