@@ -336,6 +336,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public Punto puntoASeguirPorElBoss()
         {
+            if (listaDePuntosPersecucion.Count == 0)
+            {
+                Punto puntoCamara = obtenerPuntoPorPosicion(CamaraFPS.Instance.camaraFramework.getPosition());
+
+                agregarPuntoAListaPersecucion(puntoCamara);
+            }
+
             return listaDePuntosPersecucion[0];//.First();
         }
 
