@@ -433,5 +433,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 contadorDePuntosQueElPersonajeVaPasando = 0;
             }
         }
+
+        public void elminarPrimerosPuntosDePersecucion(int cantidadPuntos)
+        {
+            listaDePuntosPersecucion.RemoveRange(0, cantidadPuntos);
+        }
     }
 }

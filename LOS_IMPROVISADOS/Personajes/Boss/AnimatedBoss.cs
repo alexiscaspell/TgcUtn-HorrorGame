@@ -48,6 +48,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         enum state { PASEANDO,PERSIGUIENDO};
 
+        private float contadorParaTeletransporte = 0f;
+        private float TIEMPO_PARA_TELETRANSPORTAR_AL_BOSS = 15f;
+        private int PORCION_DE_PUNTOS_QUE_ELIMINO_CUANDO_EL_BOSS_SE_TELETRANSPORTA = 4;
+
         private AnimatedBoss()
         {
             crearEsqueleto();
@@ -226,6 +230,16 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             if (estado==estadoAnterior)
             {
+                if (estado == state.PASEANDO)
+                {
+                    contadorParaTeletransporte += GuiController.Instance.ElapsedTime;
+                    if (contadorParaTeletransporte > TIEMPO_PARA_TELETRANSPORTAR_AL_BOSS)
+                    {
+                        contadorParaTeletransporte = 0;
+                        teletransportarAlBossAUnaPosicionPasadaPorElPersonaje();
+                    }
+                }
+
                 return;
             }
 
@@ -244,12 +258,15 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             cuerpo.dispose();
         }
-
-
-        public void cambiarPosicionDelBoss(Vector3 posicionNueva)
+        
+        public void teletransportarAlBossAUnaPosicionPasadaPorElPersonaje()
         {
-            cuerpo.Position = posicionNueva;
-            //hacer todo lo necesario
+            int cantidad = (DiosMapa.Instance.cantidadDeElementosDeListaPersecucion() / PORCION_DE_PUNTOS_QUE_ELIMINO_CUANDO_EL_BOSS_SE_TELETRANSPORTA);
+            DiosMapa.Instance.elminarPrimerosPuntosDePersecucion(cantidad);
+
+            Punto nuevoPunto = DiosMapa.Instance.puntoASeguirPorElBoss();
+
+            cuerpo.Position = nuevoPunto.getPosition();
         }
     }
 }
