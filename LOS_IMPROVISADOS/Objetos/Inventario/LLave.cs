@@ -33,14 +33,14 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Objetos.Inventario
 			
 			return nuevaLlave;
 		}
-		public static Llave Llave2()
+		public static Llave LlaveExit()
 		{
 			Llave nuevaLlave = new Llave();
 			
 			nuevaLlave.sprite = new TgcSprite();
 			nuevaLlave.sprite.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir +
 			                                          "Media\\Objetos\\Inventario\\Llave2.png");
-			nuevaLlave.nroLlave = 2;
+			nuevaLlave.nroLlave = 5;
 			
 			return nuevaLlave;
 		}
@@ -52,6 +52,28 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Objetos.Inventario
 			nuevaLlave.sprite.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir +
 			                                          "Media\\Objetos\\Inventario\\LlaveMano.png");
 			nuevaLlave.nroLlave = 3;
+			
+			return nuevaLlave;
+		}
+		public static Llave LlaveOxidada()
+		{
+			Llave nuevaLlave = new Llave();
+			
+			nuevaLlave.sprite = new TgcSprite();
+			nuevaLlave.sprite.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir +
+			                                          "Media\\Objetos\\Inventario\\LlaveOxidada.png");
+			nuevaLlave.nroLlave = 4;
+			
+			return nuevaLlave;
+		}
+		public static Llave LlaveMarron()
+		{
+			Llave nuevaLlave = new Llave();
+			
+			nuevaLlave.sprite = new TgcSprite();
+			nuevaLlave.sprite.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir +
+			                                          "Media\\Objetos\\Inventario\\LlaveMarron.png");
+			nuevaLlave.nroLlave = 2;
 			
 			return nuevaLlave;
 		}

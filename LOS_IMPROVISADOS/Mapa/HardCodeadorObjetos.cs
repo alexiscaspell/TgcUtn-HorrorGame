@@ -41,14 +41,18 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			Barril barril1 = new Barril();
 			barril1.cambiarVectores(new Vector3(20245.44f, 77.6337f, 9634.468f), new Vector3(1f,1f,1f));
 			lista.Add(barril1);
+			
+			Barril barril2 = new Barril();
+			barril2.cambiarVectores(new Vector3(1139.93f,55.68f,590.56f), new Vector3(1f,1f,1f));
+			lista.Add(barril2);
 			#endregion Barriles
 			
 			#region Llaves
-			LlaveObjeto llave1 = LlaveObjeto.Llave1();
+			LlaveObjeto llave1 = LlaveObjeto.LlaveGris();
 			llave1.cambiarVectores(new Vector3(14485.52f,190.0f,1016.86f), new Vector3(0.5f,0.5f,0.5f));
 			lista.Add(llave1);
 			
-			LlaveObjeto llave2 = LlaveObjeto.Llave2();
+			LlaveObjeto llave2 = LlaveObjeto.LlaveExit();
 			llave2.cambiarVectores(new Vector3(1379.92f,264.31f,1293.35f), new Vector3(1f,1f,1f));
 			lista.Add(llave2);
 			
@@ -56,12 +60,28 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			llaveMano.cambiarVectores(new Vector3(23695.42f,12.56f,18625.01f), new Vector3(0.5f,0.5f,0.5f));
 			llaveMano.getMesh().rotateZ(FastMath.PI/2);
 			lista.Add(llaveMano);
+			
+			LlaveObjeto llaveMarron = LlaveObjeto.LlaveMarron();
+			llaveMarron.cambiarVectores(new Vector3(6116.38f,243.94f,14732.98f), new Vector3(1f,1f,1f));
+			lista.Add(llaveMarron);
+			
+			LlaveObjeto llaveOxidada = LlaveObjeto.LlaveOxidada();
+			llaveOxidada.cambiarVectores(new Vector3(22545.29f,4.02f,1609.09f), new Vector3(1f,1f,1f));
+			lista.Add(llaveOxidada);
 			#endregion Llaves
 			
 			#region cruces
 			CruzObjeto cruz1 = new CruzObjeto();
 			cruz1.cambiarVectores(new Vector3(821.06f,261.99f,1658.88f), new Vector3(1f,1f,1f));
 			lista.Add(cruz1);
+			
+			CruzObjeto cruz2 = new CruzObjeto();
+			cruz2.cambiarVectores(new Vector3(18198.37f,3.43f,1227.26f), new Vector3(1f,1f,1f));
+			lista.Add(cruz2);
+			
+			CruzObjeto cruz3 = new CruzObjeto();
+			cruz3.cambiarVectores(new Vector3(14044.40f,183.74f,10670.11f), new Vector3(1f,1f,1f));
+			lista.Add(cruz3);
 			#endregion cruces
 			
 			#region Baterias

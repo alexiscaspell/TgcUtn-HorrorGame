@@ -43,7 +43,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			return nuevaLlave;
 		}
 		
-		public static LlaveObjeto Llave1()
+		public static LlaveObjeto LlaveGris()
 		{
 			TgcSceneLoader loader = new TgcSceneLoader();
 			TgcScene escena = loader.loadSceneFromFile(
@@ -62,7 +62,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			return nuevaLlave;
 		}
 		
-		public static LlaveObjeto Llave2()
+		public static LlaveObjeto LlaveExit()
 		{
 			TgcSceneLoader loader = new TgcSceneLoader();
 			TgcScene escena = loader.loadSceneFromFile(
@@ -76,11 +76,47 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			nuevaLlave.sonidoAgarrar = new TgcStaticSound();
 			nuevaLlave.sonidoAgarrar.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\sonidosJuego\\ruidos inventario\\inventory_click.wav");
 
-			nuevaLlave.item = Llave.Llave2();
+			nuevaLlave.item = Llave.LlaveExit();
 			
 			return nuevaLlave;
 		}
 		
+		public static LlaveObjeto LlaveOxidada()
+		{
+			TgcSceneLoader loader = new TgcSceneLoader();
+			TgcScene escena = loader.loadSceneFromFile(
+				GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\LlaveOxidada\\LlaveOxidada-TgcScene.xml",
+				GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\LlaveOxidada\\");
+			
+			LlaveObjeto nuevaLlave= new LlaveObjeto();
+			
+			nuevaLlave.mesh = escena.Meshes[0];
+			
+			nuevaLlave.sonidoAgarrar = new TgcStaticSound();
+			nuevaLlave.sonidoAgarrar.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\sonidosJuego\\ruidos inventario\\inventory_click.wav");
+
+			nuevaLlave.item = Llave.LlaveOxidada();
+			
+			return nuevaLlave;
+		}
+		public static LlaveObjeto LlaveMarron()
+		{
+			TgcSceneLoader loader = new TgcSceneLoader();
+			TgcScene escena = loader.loadSceneFromFile(
+				GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\LlaveMarron\\LlaveMarron-TgcScene.xml",
+				GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\LlaveMarron\\");
+			
+			LlaveObjeto nuevaLlave= new LlaveObjeto();
+			
+			nuevaLlave.mesh = escena.Meshes[0];
+			
+			nuevaLlave.sonidoAgarrar = new TgcStaticSound();
+			nuevaLlave.sonidoAgarrar.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\sonidosJuego\\ruidos inventario\\inventory_click.wav");
+
+			nuevaLlave.item = Llave.LlaveMarron();
+			
+			return nuevaLlave;
+		}
 		public override void execute()
 		{
 			Inventario.Instance.agregarItem(item);
