@@ -112,11 +112,13 @@
     <Compile Include="LOS_IMPROVISADOS\Objetos\Barril.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\Bateria.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\CruzObjeto.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Objetos\FarolObjeto.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\Inventario\Inventario.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\Inventario\Item.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\Inventario\Llave.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\Inventario\MapaItem.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\Inventario\PilaItem.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Objetos\LinternaObjeto.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\LlaveObjeto.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\MapaObjeto.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\Puerta.cs" />

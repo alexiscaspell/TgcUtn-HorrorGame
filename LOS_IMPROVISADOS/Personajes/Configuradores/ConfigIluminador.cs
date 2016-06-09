@@ -44,7 +44,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Configuradores
             Iluminador linterna = new Iluminador(new LuzLinterna(mapa, camaraFPS), new ManoLinterna(), new BateriaLinterna(), sonidoLinterna);
             Iluminador farol = new Iluminador(new LuzFarol(mapa, camaraFPS), new ManoFarol(), new BateriaFarol(), sonidoFarol);
             Iluminador fluor = new Iluminador(new LuzFluor(mapa, camaraFPS), new ManoFluor(), new BateriaFluor(), sonidoFluor);
-
+            fluor.iluminadorObtenido = true;
+            
             iluminadores = new List<Iluminador>() { linterna, farol, fluor };
         }
 

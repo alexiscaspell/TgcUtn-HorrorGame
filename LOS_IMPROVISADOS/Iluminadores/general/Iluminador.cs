@@ -15,6 +15,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
         private TgcStaticSound sonidoPrenderOApagar;
 
         public bool iluminadorActivado;
+        public bool iluminadorObtenido = false;
 
         public Iluminador(ALuz luz, AManoPantalla mano, ABateria bateria, TgcStaticSound sonido)
         {
@@ -38,7 +39,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
         }
         public void render()
         {
-            if (!iluminadorActivado)
+            if (!iluminadorActivado && !iluminadorObtenido)
             {
                 oscuridad.render();
             }

@@ -29,6 +29,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			mapa.getMesh().rotateY(FastMath.PI/4);
 			lista.Add(mapa);
 			
+			LinternaObjeto linterna = new LinternaObjeto();
+			linterna.cambiarVectores(new Vector3(886.27f,189.29f,10070.98f), new Vector3(1,1,1));
+			lista.Add(linterna);
+			
 			#region Barriles
 			Barril barril1 = new Barril();
 			barril1.cambiarVectores(new Vector3(20245.44f, 77.6337f, 9634.468f), new Vector3(1f,1f,1f));

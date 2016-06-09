@@ -101,7 +101,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
                 //Aca hago que le diga al boss que puede pasar o no
                 DiosMapa.Instance.activarODesactivarPunto(mesh.BoundingBox.Position);
-
 				
 				if(abierta && paraleloEjeZ)
 				{
