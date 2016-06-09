@@ -62,12 +62,12 @@ namespace AlumnoEjemplos.MiGrupo
             Cursor.Hide();
 
             diosMapa = DiosMapa.Instance;//ESTO DEJARLO ANTES DE LA INSTANCIACION DEL BOSS!!!
-            diosMapa.init(0.01f);//Quiero que mapee 100x100 ptos del mapa
+            diosMapa.init(0.009f);//Quiero que mapee 100x100 ptos del mapa
             diosMapa.generarMatriz();//Genera matriz de vias del boss
             diosMapa.generarCaminos();
 
             bossAnimado = AnimatedBoss.Instance;
-            bossAnimado.init(300f, new Vector3(camaraFPS.posicion.X-600,0,camaraFPS.posicion.Z));//Esto es para probar a un boss con esqueleto
+            bossAnimado.init(100f, new Vector3(camaraFPS.posicion.X-600,0,camaraFPS.posicion.Z));//Esto es para probar a un boss con esqueleto
 
             //puerta = new Puerta(630, 32, 200);
 
