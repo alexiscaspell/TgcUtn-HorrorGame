@@ -27,7 +27,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         #endregion
 
         private TgcBoundingBox ganasteBox;
-        private TgcBoundingSphere cuerpo;
+        public TgcBoundingSphere cuerpo;
         
         public Mapa mapa;
 
@@ -281,11 +281,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public void morir()
         {
-//            GameOver.Instance.activar();
-//            camaraFPS.camaraFramework.activada = false;
-//            AnimatedBoss.Instance.activado = false;
-//            configIluminador.apagarBateria();
-//            muerto = true;
+          GameOver.Instance.activar();
+          camaraFPS.camaraFramework.activada = false;
+          AnimatedBoss.Instance.activado = false;
+          configIluminador.apagarBateria();
+          muerto = true;
         }
 
         public void ganar()

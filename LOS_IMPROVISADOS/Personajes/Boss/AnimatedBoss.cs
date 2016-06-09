@@ -45,8 +45,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         internal bool activado = true;
         private state estado;
         private state estadoAnterior;
+        private float tiempoPasadoAturdido = 0;
+        private float tiempoDeRecuperacion = 4;
 
-        enum state { PASEANDO,PERSIGUIENDO};
+        enum state { PASEANDO,PERSIGUIENDO,ATURDIDO};
 
         private float contadorParaTeletransporte = 0f;
         private float TIEMPO_PARA_TELETRANSPORTAR_AL_BOSS = 15f;
@@ -156,17 +158,14 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             float elapsedTime = GuiController.Instance.ElapsedTime;
 
-            /*Vector3 movement = camara.posicion;
-
-                movement.Subtract(cuerpo.Position);
-                movement.Subtract(new Vector3(0, movement.Y, 0));
-                movement.Normalize();*/
-
             Vector3 movement = comportamiento.proximoPunto(cuerpo.Position);
             movement -= cuerpo.Position;
             movement.Normalize();
 
-            girarVistaAPunto(movement);
+            if (movement.X!=0||movement.Z!=0)
+            {
+                girarVistaAPunto(movement);
+            }
 
             movement *= velocidadMovimiento * elapsedTime;
 
@@ -209,31 +208,75 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private void updateEstado()
         {
-            estadoAnterior = estado;
+            if (estado == state.ATURDIDO)
+            {
+                updateEstadoAturdido();
+                return;
+            }
+            else
+            {
+                estadoAnterior = estado;
+            }
 
             Personaje pj = Personaje.Instance;
 
             ColinaAzul colina = ColinaAzul.Instance;
 
-            estado = state.PASEANDO;
+            bool estoyConPj = colina.estoyEn(colina.dondeEstaPesonaje(), cuerpo.Position);
 
-            if (colina.estoyEn(colina.dondeEstaPesonaje(),cuerpo.Position))
+            if (pj.iluminadorEncendido() && estoyConPj)
             {
                 estado = state.PERSIGUIENDO;
             }
 
-            if (estado==state.PERSIGUIENDO)
+            if (estado == state.PERSIGUIENDO)
             {
                 if (pjEscondido(pj))
                 {
                     estado = state.PASEANDO;
                 }
             }
+
+            if (pj.fluorActivado() && estoyCercaDePj())
+            {
+                estado = state.ATURDIDO;
+            }
+        }
+
+        private bool estoyCercaDePj()
+        {
+            //TgcBoundingSphere cuerpoTrucho = new TgcBoundingSphere(Personaje.Instance.cuerpo.Center, 300);
+
+            return (CamaraFPS.Instance.camaraFramework.Position - cuerpo.Position).Length() < 600;//ColinaAzul.Instance.colisionaEsferaCaja(cuerpoTrucho, cuerpo.BoundingBox);
+        }
+
+        private bool pjEscondido(Personaje pj)
+        {
+            return pj.iluminadorEncendido() && pj.agachado() && pjCercaDeObjeto();
+        }
+
+        private bool pjCercaDeObjeto()
+        {
+            TgcBoundingSphere cuerpoTrucho = new TgcBoundingSphere(Personaje.Instance.cuerpo.Center,50f);
+            TgcBoundingBox b = new TgcBoundingBox();
+
+            return Mapa.Instance.colisionaPersonaje(cuerpoTrucho, ref b);
+        }
+
+        private void updateEstadoAturdido()
+        {
+            tiempoPasadoAturdido += GuiController.Instance.ElapsedTime;
+
+            if (tiempoPasadoAturdido > tiempoDeRecuperacion)
+            {
+                estado = state.PASEANDO;//HARDCODEO ESTADO
+                tiempoPasadoAturdido = 0;
+            }
         }
 
         private void updateComportamiento()
         {
-            if (estado==estadoAnterior)
+            if (estado == estadoAnterior)
             {
                 if (estado == state.PASEANDO)
                 {
@@ -245,16 +288,20 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                     }
                 }
 
-                return;
+                    return;
             }
 
-            if (estado==state.PASEANDO)
+            if (estado == state.PASEANDO)
             {
                 comportamiento = new ComportamientoRandom();
             }
             else if (estado == state.PERSIGUIENDO)
             {
                 comportamiento = new ComportamientoSeguir(cuerpo.Position);
+            }
+            else if (estado == state.ATURDIDO)
+            {
+                comportamiento = new Aturdido();
             }
 
         }

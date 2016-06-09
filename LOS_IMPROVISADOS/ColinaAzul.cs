@@ -39,7 +39,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private ColinaAzul()
         {
             bloquesCuartos = new Dictionary<string, TgcBoundingBox>();
-            cuerpoFicticioPersonaje = new TgcBoundingSphere(CamaraFPS.Instance.posicion, 10);
+            cuerpoFicticioPersonaje = new TgcBoundingSphere(CamaraFPS.Instance.posicion, 10f);
         }
 
         public void calcularBoundingBoxes(Dictionary<string,List<TgcMesh>> cuartos,int cantidadCuartos)
@@ -79,7 +79,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         internal string aQueCuartoPertenece(TgcMesh mesh)
         {
             //TgcBoundingBox boxMesh = mesh.BoundingBox;
-            TgcBoundingSphere esferaMesh = new TgcBoundingSphere(mesh.BoundingBox.calculateBoxCenter() , 10);
+            TgcBoundingSphere esferaMesh = new TgcBoundingSphere(mesh.BoundingBox.calculateBoxCenter() , 10f);
 
             foreach (string nombreCuarto in bloquesCuartos.Keys)
             {
@@ -169,7 +169,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         internal string getCuartoIn(Vector3 posicion)
         {
-            TgcBoundingSphere esfera = new TgcBoundingSphere(posicion, 1);
+            TgcBoundingSphere esfera = new TgcBoundingSphere(posicion, 1f);
 
             foreach (string cuarto in bloquesCuartos.Keys)
             {
@@ -184,7 +184,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         internal bool estoyEn(string cuarto,Vector3 posicion)
         {
-            TgcBoundingSphere esfera = new TgcBoundingSphere(posicion, 10);
+            TgcBoundingSphere esfera = new TgcBoundingSphere(posicion, 10f);
 
             return colisionaEsferaCaja(esfera, bloquesCuartos[cuarto]);
         }
