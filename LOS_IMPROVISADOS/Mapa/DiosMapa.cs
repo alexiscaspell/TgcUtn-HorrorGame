@@ -44,13 +44,30 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
                 foreach (Punto ptoActual in filaActual)
                 {
-                    vectoresDePtos.Add(ptoActual.getPosition());
+                    if (ptoActual.activo)
+                    {
+                        vectoresDePtos.Add(ptoActual.getPosition());
+                    }
                 }
 
-                Vector3 closestPoint = TgcCollisionUtils.closestPoint(point, vectoresDePtos.ToArray(), out d);
-                puntosMasCercanos.Add(closestPoint);
+                if (vectoresDePtos.Count>0)
+                {
+                    Vector3 closestPoint;
 
-                vectoresDePtos.Clear();
+                    if (vectoresDePtos.Count==1)
+                    {
+                        closestPoint = vectoresDePtos[0];
+                    }
+                    else
+                    {
+                        closestPoint = TgcCollisionUtils.closestPoint(point, vectoresDePtos.ToArray(), out d);
+                    }
+                    
+                    puntosMasCercanos.Add(closestPoint);
+
+                    vectoresDePtos.Clear();
+                }
+
             }
 
             return TgcCollisionUtils.closestPoint(point, puntosMasCercanos.ToArray(), out d);
@@ -202,6 +219,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             throw new NotImplementedException();
         }
 
+        int contadorFalse = 0;
         private void detectarColisionesVias()
         {
             List<Punto> filaActual;
@@ -221,6 +239,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                     if (!collideRoom || collideObjects)
                     {
                         puntoActual.activo = false;
+                        contadorFalse++;
                     }
                 }
             }
