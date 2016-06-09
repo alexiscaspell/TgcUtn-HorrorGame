@@ -22,7 +22,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         
         #region animacionPuerta
         const float tiempoAnimacion = 2f;
-        const float velMovAnimacion = 80f;
+        const float velMovAnimacion = 90f;
         private float tiempoTranscurrido;
         private bool animacionActivada;
         private bool puertaALaDerecha;

@@ -153,15 +153,15 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         	TgcSceneLoader loader = new TgcSceneLoader();
             
         	TgcScene escena = loader.loadSceneFromFile(
-                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaOxidada\\puerta-TgcScene.xml",
-                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaOxidada\\");
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaBlindada\\puerta-TgcScene.xml",
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaBlindada\\");
         	
         	TgcMesh nuevoMesh = escena.Meshes[0];
         	
         	nuevaPuerta.mesh = nuevoMesh;
         	
-        	nuevaPuerta.puertaCerrada.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\electronicDoor.wav");
-        	nuevaPuerta.puertaAbriendose.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\EarthQuake.wav");
+        	nuevaPuerta.puertaCerrada.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\puertaCerrada.wav");
+        	nuevaPuerta.puertaAbriendose.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\aperturaPuerta.wav");
         	
         	nuevaPuerta.nroPuerta = nroPuerta;
         	nuevaPuerta.agarrado = int.MaxValue;
@@ -201,8 +201,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         	TgcSceneLoader loader = new TgcSceneLoader();
             
         	TgcScene escena = loader.loadSceneFromFile(
-                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaBlindada\\puerta-TgcScene.xml",
-                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaBlindada\\");
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaOxidada\\puerta-TgcScene.xml",
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaOxidada\\");
         	
         	TgcMesh nuevoMesh = escena.Meshes[0];
         	

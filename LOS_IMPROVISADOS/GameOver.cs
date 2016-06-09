@@ -25,7 +25,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		TgcSprite gameOverScreen;
 		TgcStaticSound sonidoGameOver;
 		TgcStaticSound sonidoBoss;
-		
+				
 		bool activado = false;
 		
 		float timer = 0;
@@ -75,7 +75,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		public static GameOver Ganaste
 		{
 			get{
-				if(ganaste==null)ganaste = GameOver.GanasteScreen();
+				if(ganaste==null){
+					ganaste = GameOver.GanasteScreen();
+				}
 				return ganaste;
 			}
 		}

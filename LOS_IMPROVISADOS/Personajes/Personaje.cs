@@ -69,7 +69,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             cuerpo = new TgcBoundingSphere(camaraFPS.camaraFramework.Position, radius);
             
-            ganasteBox = new TgcBoundingBox(new Vector3(24000,600,8500),new Vector3(24100,600,8900));
+            ganasteBox = new TgcBoundingBox(new Vector3(24000,0,8500),new Vector3(24100,600,8900));
 
             configIluminador = new ConfigIluminador(mapa, camaraFPS);
             configPosProcesado = new ConfigPosProcesados(mapa);
@@ -179,6 +179,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             {
             	verificarSiGane();
             }
+            ganasteBox.render();
            //posprocesado
             if (configIluminador.iluminadorActualSeQuedoSinBateria())
             {
@@ -270,11 +271,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public void morir()
         {
-            GameOver.Instance.activar();
-            camaraFPS.camaraFramework.activada = false;
-            AnimatedBoss.Instance.activado = false;
-            configIluminador.apagarBateria();
-            muerto = true;
+//            GameOver.Instance.activar();
+//            camaraFPS.camaraFramework.activada = false;
+//            AnimatedBoss.Instance.activado = false;
+//            configIluminador.apagarBateria();
+//            muerto = true;
         }
 
         public void ganar()
