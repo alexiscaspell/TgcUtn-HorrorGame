@@ -82,7 +82,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             {
                 for (int j = 0; j < vias[i].Count; j++)
                 {
-                    if (closestPoint.Equals(vias[i][j]))
+                    if (closestPoint.Equals(vias[i][j].getPosition()))
                     {
                         x = i;
                         z = j;
@@ -129,6 +129,23 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         internal bool estaCerca(Vector3 posicion, Vector3 otraPosicion)
         {
             return ((otraPosicion - posicion).Length() < 100);
+        }
+
+        internal void activarODesactivarPunto(Vector3 position)
+        {
+            Punto punto = obtenerPuntoPorPosicion(position);
+            punto.activo = !punto.activo;
+        }
+
+
+        public Punto obtenerPuntoPorPosicion(Vector3 puntoABuscar)
+        {
+            int x = 0;
+            int z = 0;
+
+            puntoMasCercano(ref x, ref z, puntoABuscar);
+
+            return vias[x][z];
         }
 
         public void generarMatriz()

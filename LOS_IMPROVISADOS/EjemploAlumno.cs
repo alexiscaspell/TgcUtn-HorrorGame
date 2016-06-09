@@ -67,7 +67,7 @@ namespace AlumnoEjemplos.MiGrupo
             diosMapa.generarCaminos();
 
             bossAnimado = AnimatedBoss.Instance;
-            bossAnimado.init(300f, new Vector3(camaraFPS.posicion.X,0,camaraFPS.posicion.Z+600));//Esto es para probar a un boss con esqueleto
+            bossAnimado.init(300f, new Vector3(camaraFPS.posicion.X-600,0,camaraFPS.posicion.Z));//Esto es para probar a un boss con esqueleto
 
             //puerta = new Puerta(630, 32, 200);
 
