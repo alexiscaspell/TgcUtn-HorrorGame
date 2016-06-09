@@ -25,8 +25,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Objetos
 		{
 			TgcSceneLoader loader = new TgcSceneLoader();
 			TgcScene escena = loader.loadSceneFromFile(
-				GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Linterna\\flashlight-TgcScene.xml",
-				GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Linterna\\");
+				GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Farol\\lantern-TgcScene.xml",
+				GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Farol\\");
 			
 			this.mesh = escena.Meshes[0];
 			
