@@ -204,6 +204,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             
         }
 
+        internal bool iluminadorEncendido()
+        {
+            return configIluminador.iluminadorEstaEncendido();
+        }
+
         private void verificarSiMori()
         {
             if (ColinaAzul.Instance.colisionaEsferaCaja(cuerpo,AnimatedBoss.Instance.getBoundingBox()))
