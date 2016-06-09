@@ -154,7 +154,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             
         	TgcScene escena = loader.loadSceneFromFile(
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaOxidada\\puerta-TgcScene.xml",
-                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaOxiada\\");
+                GuiController.Instance.AlumnoEjemplosDir + "Media\\Objetos\\Puerta\\PuertaOxidada\\");
         	
         	TgcMesh nuevoMesh = escena.Meshes[0];
         	
