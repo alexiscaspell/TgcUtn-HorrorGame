@@ -247,14 +247,15 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             {
                 if (pjEscondido(pj))
                 {
-                    estado = state.ATURDIDO;
-                    aturdido.play();  
+                    estado = state.PASEANDO;
                 }
             }
 
             if (pj.fluorActivado() && estoyCercaDePj())
             {
                 estado = state.ATURDIDO;
+                aturdido.play();
+                changeAnimation("Talk");
             }
         }
 
@@ -286,6 +287,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             {
                 estado = state.PASEANDO;//HARDCODEO ESTADO
                 tiempoPasadoAturdido = 0;
+                changeAnimation("Walk");
             }
         }
 
