@@ -45,7 +45,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			Barril barril2 = new Barril();
 			barril2.cambiarVectores(new Vector3(1139.93f,55f,590.56f), new Vector3(1f,1f,1f));
 			lista.Add(barril2);
-			#endregion Barriles
+			#endregion Barriles 
 			
 			#region Llaves
 			LlaveObjeto llave1 = LlaveObjeto.LlaveGris();
