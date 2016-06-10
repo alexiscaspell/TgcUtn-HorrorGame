@@ -83,7 +83,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
         
         public void aumentarFluor()
         {
-        	cantidadFluors++;
+        	cantidadFluors+=2;
         }
 
         public abstract void recargar();        

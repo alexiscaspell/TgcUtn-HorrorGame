@@ -82,10 +82,26 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			CruzObjeto cruz3 = new CruzObjeto();
 			cruz3.cambiarVectores(new Vector3(14044.40f,183.74f,10670.11f), new Vector3(1f,1f,1f));
 			lista.Add(cruz3);
-			#endregion cruces
-			
-			#region Baterias
-			Bateria bateria1 = new Bateria();
+
+            CruzObjeto cruz4 = new CruzObjeto();
+            cruz4.cambiarVectores(new Vector3(4402f, 309f, 7293f), new Vector3(1f, 1f, 1f));
+            lista.Add(cruz4);
+
+            CruzObjeto cruz5 = new CruzObjeto();
+            cruz5.cambiarVectores(new Vector3(9495f, 144f, 10120f), new Vector3(1f, 1f, 1f));
+            lista.Add(cruz5);
+
+            CruzObjeto cruz6 = new CruzObjeto();
+            cruz6.cambiarVectores(new Vector3(13133f, 204f, 14032), new Vector3(1f, 1f, 1f));
+            lista.Add(cruz6);
+
+            CruzObjeto cruz7 = new CruzObjeto();
+            cruz7.cambiarVectores(new Vector3(17428f, 30f, 9467f), new Vector3(1f, 1f, 1f));
+            lista.Add(cruz7);
+            #endregion cruces
+
+            #region Baterias
+            Bateria bateria1 = new Bateria();
 			bateria1.cambiarVectores(new Vector3(1060.653f,184.4886f,6661.554f), new Vector3(0.1f,0.1f,0.1f));
 			lista.Add(bateria1);
 			
