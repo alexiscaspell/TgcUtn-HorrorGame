@@ -15,7 +15,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Menu
 
             factory.setMenuAnterior(menu);
 
-            GameMenu menuObjetivo = factory.menuObjetivos();
+            GameMenu menuObjetivo = factory.menuBotones();
 
             app.menuActual = menuObjetivo;
         }
