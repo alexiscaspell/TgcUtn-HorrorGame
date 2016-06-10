@@ -38,13 +38,15 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			lista.Add(farol);
 			
 			#region Barriles
-			Barril barril1 = new Barril();
-			barril1.cambiarVectores(new Vector3(20245.44f, 55f, 9634.468f), new Vector3(1f,1f,1f));
-			lista.Add(barril1);
-			
-			Barril barril2 = new Barril();
-			barril2.cambiarVectores(new Vector3(1139.93f,55f,590.56f), new Vector3(1f,1f,1f));
-			lista.Add(barril2);
+            Barril barril1 = new Barril();
+            barril1.cambiarVectores(new Vector3(20245.44f, 55f, 9634.468f), new Vector3(1f, 1f, 1f));
+            barril1.cambiarVectores(new Vector3(20245.44f, 30f, 9634.468f), new Vector3(1f, 1f, 1f));
+            lista.Add(barril1);
+
+            Barril barril2 = new Barril();
+            barril2.cambiarVectores(new Vector3(1139.93f, 55f, 590.56f), new Vector3(1f, 1f, 1f));
+            barril2.cambiarVectores(new Vector3(1139.93f, 30f, 590.56f), new Vector3(1f, 1f, 1f));
+            lista.Add(barril2); 
 			#endregion Barriles
 			
 			#region Llaves
@@ -182,10 +184,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 //			puerta4.cambiarVectores(new Vector3(654.2393f,301.5963f,2598.488f),new Vector3(1f,1f,1f));
 //			lista.Add(puerta4);
 //			
-			Puerta puerta5 = new Puerta(-1,true);//MANQUEADO...!!!!
-			puerta5.cambiarVectores(new Vector3(8977f,0f,5472f), new Vector3(1.5f,0.45f,0.7f));
-			lista.Add(puerta5);
-			
+            Puerta puerta5 = new Puerta(-1, true);//MANQUEADO...!!!! 
+            puerta5.cambiarVectores(new Vector3(8977.60f, 0.0f, 5492.11f), new Vector3(1.5f, 0.45f, 0.7f));
+            puerta5.cambiarVectores(new Vector3(8977.60f, 0.0f, 5412f), new Vector3(1.5f, 0.45f, 0.7f));
+            lista.Add(puerta5); 
+
 			Puerta puerta6 = new Puerta(-1,true);
 			puerta6.cambiarVectores(new Vector3(8977.60f,0.0f,7699.14f), new Vector3(1.5f,0.45f,0.7f));
 			lista.Add(puerta6);

@@ -57,7 +57,7 @@ namespace AlumnoEjemplos.MiGrupo
 
         internal GameMenu menuObjetivos()
         {
-            GameMenu menu = new GameMenu("menuFondo");
+            GameMenu menu = new GameMenu("menuObjetivo");
             menu.init(application);
 
             ButtonReturn volver = new ButtonReturn();
@@ -71,7 +71,7 @@ namespace AlumnoEjemplos.MiGrupo
 
         internal GameMenu menuBotones()
         {
-            GameMenu menu = new GameMenu("menuFondo");
+            GameMenu menu = new GameMenu("botonesMenu");
             menu.init(application);
 
             ButtonReturn volver = new ButtonReturn();

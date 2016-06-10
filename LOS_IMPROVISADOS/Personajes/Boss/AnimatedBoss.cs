@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using TgcViewer;
 using TgcViewer.Utils._2D;
+using TgcViewer.Utils.Sound;
 using TgcViewer.Utils.TgcGeometry;
 using TgcViewer.Utils.TgcSkeletalAnimation;
 
@@ -47,6 +48,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private state estadoAnterior;
         private float tiempoPasadoAturdido = 0;
         private float tiempoDeRecuperacion = 4;
+        private TgcStaticSound aturdido = new TgcStaticSound();
+        private Tgc3dSound respiracion = new Tgc3dSound();
+        private float timerRespiracion;  
+ 
 
         enum state { PASEANDO,PERSIGUIENDO,ATURDIDO};
 
@@ -64,6 +69,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             cuerpo.AutoUpdateBoundingBox = true;
             estado = state.PASEANDO;
             comportamiento = new ComportamientoRandom();
+            aturdido.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\zo_pain1.wav");
+            respiracion.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\slower_alert10.wav");  
         } 
 
         public void init(float velocidadMovimiento, Vector3 posicion)
@@ -200,6 +207,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             if (activado)
             {
+                if (estado == state.PASEANDO && timerRespiracion >= 15)
+                {
+                    timerRespiracion = 0;
+                    respiracion.Position = cuerpo.Position;
+                    respiracion.play();
+                }
+                timerRespiracion += GuiController.Instance.ElapsedTime;
                 updateEstado();
                 updateComportamiento();
                 seguirPersonaje();
@@ -233,7 +247,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             {
                 if (pjEscondido(pj))
                 {
-                    estado = state.PASEANDO;
+                    estado = state.ATURDIDO;
+                    aturdido.play();  
                 }
             }
 
