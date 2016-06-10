@@ -133,7 +133,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			lista.Add(puertaMarron);
 			
 			Puerta puertaBlindada = Puerta.PuertaBlindada(3,true);//MANQUEADO!!!!!!
-			puertaBlindada.cambiarVectores(new Vector3(659.27f,295.06f,2977.02f), new Vector3(1f,1f,1f));
+			puertaBlindada.cambiarVectores(new Vector3(659.27f,295.06f,2797.02f), new Vector3(1f,1f,1f));
 			lista.Add(puertaBlindada);
 			
 			Puerta puertaOxidada = Puerta.PuertaOxidada(4,true);
@@ -167,7 +167,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 //			lista.Add(puerta4);
 //			
 			Puerta puerta5 = new Puerta(-1,true);//MANQUEADO...!!!!
-			puerta5.cambiarVectores(new Vector3(8977.60f,0.0f,5492.11f), new Vector3(1.5f,0.45f,0.7f));
+			puerta5.cambiarVectores(new Vector3(8977f,0f,5472f), new Vector3(1.5f,0.45f,0.7f));
 			lista.Add(puerta5);
 			
 			Puerta puerta6 = new Puerta(-1,true);
