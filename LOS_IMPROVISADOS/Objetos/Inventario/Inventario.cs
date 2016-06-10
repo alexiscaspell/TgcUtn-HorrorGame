@@ -232,7 +232,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 				
 			}
 
-			if(GuiController.Instance.D3dInput.keyPressed(Key.I) )
+			if(GuiController.Instance.D3dInput.keyPressed(Key.Q) )
 			{
 				if(activado){
 					activado=false;

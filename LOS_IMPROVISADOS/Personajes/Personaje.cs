@@ -102,6 +102,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 configIluminador.apagarOPrenderIlumniador();
             }
 
+            if (GuiController.Instance.D3dInput.buttonPressed(TgcViewer.Utils.Input.TgcD3dInput.MouseButtons.BUTTON_RIGHT))
+            {
+                configIluminador.cambiarAIluminadorFluor();
+            }
+
             if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.LeftShift))
             {
                 camaraFPS.camaraFramework.setPosition(new Vector3(posActual.X,alturaAgachado, posActual.Z));
@@ -117,11 +122,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.F))
             {
                 configIluminador.cambiarASiguienteIluminador();
-            }
-
-            if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.Q))
-            {
-                configIluminador.cambiarAIluminadorFluor();
             }
             /*
             if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.R))
