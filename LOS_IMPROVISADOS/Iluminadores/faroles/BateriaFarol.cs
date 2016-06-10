@@ -12,7 +12,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
     {
         public BateriaFarol(): base()
         {
-            tiempoDesgaste = 1;
+            tiempoDesgaste = 2;
 
             cantidadDesgaste = 1;
         }
@@ -34,7 +34,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
 
         public override void recargar()
         {
-        	cargaActual += 10;
+            if (cargaActual >= 98) return;
+        	cargaActual = 100;
             //esta objeto solo recarga cuando este cerca de un recipiente con aceite
         }
 

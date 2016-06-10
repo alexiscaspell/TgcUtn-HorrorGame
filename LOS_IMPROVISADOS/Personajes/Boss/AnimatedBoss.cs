@@ -51,8 +51,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         enum state { PASEANDO,PERSIGUIENDO,ATURDIDO};
 
         private float contadorParaTeletransporte = 0f;
-        private float TIEMPO_PARA_TELETRANSPORTAR_AL_BOSS = 15f;
-        private int PORCION_DE_PUNTOS_QUE_ELIMINO_CUANDO_EL_BOSS_SE_TELETRANSPORTA = 4;
+        private float TIEMPO_PARA_TELETRANSPORTAR_AL_BOSS = 60f;
+        private int PORCION_DE_PUNTOS_QUE_ELIMINO_CUANDO_EL_BOSS_SE_TELETRANSPORTA = 3;
 
         private AnimatedBoss()
         {

@@ -39,11 +39,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			
 			#region Barriles
 			Barril barril1 = new Barril();
-			barril1.cambiarVectores(new Vector3(20245.44f, 77.6337f, 9634.468f), new Vector3(1f,1f,1f));
+			barril1.cambiarVectores(new Vector3(20245.44f, 55f, 9634.468f), new Vector3(1f,1f,1f));
 			lista.Add(barril1);
 			
 			Barril barril2 = new Barril();
-			barril2.cambiarVectores(new Vector3(1139.93f,55.68f,590.56f), new Vector3(1f,1f,1f));
+			barril2.cambiarVectores(new Vector3(1139.93f,55f,590.56f), new Vector3(1f,1f,1f));
 			lista.Add(barril2);
 			#endregion Barriles
 			
@@ -109,27 +109,31 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			bateria6.cambiarVectores(new Vector3(13680.95f,180.84f,855.0f), new Vector3(0.1f,0.1f,0.1f));
 			lista.Add(bateria6);
 			
-			Bateria bateria7 = new Bateria(0);
-			bateria7.cambiarVectores(new Vector3(178.68f,269.13f,610.43f), new Vector3(1f,1f,1f));
+			Bateria bateria7 = new Bateria();
+			bateria7.cambiarVectores(new Vector3(178.68f,269.13f,610.43f), new Vector3(0.1f, 0.1f, 0.1f));
 			lista.Add(bateria7);
 			
-			Bateria bateria8 = new Bateria(0);
-			bateria8.cambiarVectores(new Vector3(165.4f,185.01f,881.57f), new Vector3(1f,1f,1f));
+			Bateria bateria8 = new Bateria();
+			bateria8.cambiarVectores(new Vector3(165.4f,185.01f,881.57f), new Vector3(0.1f, 0.1f, 0.1f));
 			lista.Add(bateria8);
-			#endregion Baterias
-			
-			#region Puertas
-			//puertas con llave
-			Puerta puertaGris = Puerta.PuertaGris(1,true);
-			puertaGris.cambiarVectores(new Vector3(20949.09f,300.28f,2200.48f), new Vector3(1f,1f,1f));
+
+            Bateria bateria9 = new Bateria();
+            bateria9.cambiarVectores(new Vector3(13537f, 330f, 15165f), new Vector3(0.1f, 0.1f, 0.1f));
+            lista.Add(bateria9);
+            #endregion Baterias
+
+            #region Puertas
+            //puertas con llave
+            Puerta puertaGris = Puerta.PuertaGris(1,true);
+			puertaGris.cambiarVectores(new Vector3(20929.09f,300.28f,2200.48f), new Vector3(1f,1f,1.25f));
 			lista.Add(puertaGris);
 			
 			Puerta puertaMarron = Puerta.PuertaMarron(2,true);
 			puertaMarron.cambiarVectores(new Vector3(13548.04f,299.59f,400f), new Vector3(1f,1f,1f));
 			lista.Add(puertaMarron);
 			
-			Puerta puertaBlindada = Puerta.PuertaBlindada(3,true);
-			puertaBlindada.cambiarVectores(new Vector3(659.27f,295.06f,2997.02f), new Vector3(1f,1f,1f));
+			Puerta puertaBlindada = Puerta.PuertaBlindada(3,true);//MANQUEADO!!!!!!
+			puertaBlindada.cambiarVectores(new Vector3(659.27f,295.06f,2977.02f), new Vector3(1f,1f,1f));
 			lista.Add(puertaBlindada);
 			
 			Puerta puertaOxidada = Puerta.PuertaOxidada(4,true);
@@ -162,8 +166,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 //			puerta4.cambiarVectores(new Vector3(654.2393f,301.5963f,2598.488f),new Vector3(1f,1f,1f));
 //			lista.Add(puerta4);
 //			
-			Puerta puerta5 = new Puerta(-1,true);
-			puerta5.cambiarVectores(new Vector3(8977.60f,0.0f,5502.11f), new Vector3(1.5f,0.45f,0.7f));
+			Puerta puerta5 = new Puerta(-1,true);//MANQUEADO...!!!!
+			puerta5.cambiarVectores(new Vector3(8977.60f,0.0f,5492.11f), new Vector3(1.5f,0.45f,0.7f));
 			lista.Add(puerta5);
 			
 			Puerta puerta6 = new Puerta(-1,true);
