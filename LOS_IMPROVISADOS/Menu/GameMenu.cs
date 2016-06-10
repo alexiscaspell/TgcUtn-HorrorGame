@@ -7,6 +7,7 @@ using TgcViewer.Utils._2D;
 using TgcViewer.Utils.Sound;
 using TgcViewer.Utils.TgcGeometry;
 using TgcViewer.Utils.TgcSceneLoader;
+using AlumnoEjemplos.LOS_IMPROVISADOS;
 
 namespace AlumnoEjemplos.MiGrupo
 {
@@ -38,8 +39,9 @@ namespace AlumnoEjemplos.MiGrupo
             application = app;
 
             pantalla.Position = new Vector2(0, 0);
-
-            Size screenSize = GuiController.Instance.Panel3d.Size;
+			
+            Size screenSize = ScreenSizeClass.ScreenSize;
+            //Size screenSize = GuiController.Instance.Panel3d.Size;
             Size textureSize = pantalla.Texture.Size;
 
             float widthScale = (float)screenSize.Width / (float)textureSize.Width;

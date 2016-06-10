@@ -108,6 +108,7 @@
     <Compile Include="LOS_IMPROVISADOS\Menu\FactoryMenu.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\GameButton.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\GameMenu.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Menu\ScreenSizeClass.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\Accionable.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\Barril.cs" />
     <Compile Include="LOS_IMPROVISADOS\Objetos\Bateria.cs" />

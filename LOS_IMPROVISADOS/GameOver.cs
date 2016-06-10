@@ -92,7 +92,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
 			pantalla.sonidoGameOver = new TgcStaticSound();
 			pantalla.sonidoGameOver.loadSound(
-				GuiController.Instance.AlumnoEjemplosDir + "Media\\GameOver\\ganaste.wav");
+				GuiController.Instance.AlumnoEjemplosDir + "Media\\GameOver\\nada.wav");
 			
 			pantalla.sonidoBoss = new TgcStaticSound();
 			pantalla.sonidoBoss.loadSound(

@@ -179,7 +179,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             {
             	verificarSiGane();
             }
-            ganasteBox.render();
+            //ganasteBox.render();
            //posprocesado
             if (configIluminador.iluminadorActualSeQuedoSinBateria())
             {
