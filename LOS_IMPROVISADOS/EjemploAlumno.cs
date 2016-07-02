@@ -56,9 +56,6 @@ namespace AlumnoEjemplos.MiGrupo
 
             personaje = Personaje.Instance;
 
-            //boss = new Boss(camaraFPS);
-            //boss.init(40f, new Vector3(100, 10, 100));
-
             Cursor.Hide();
 
             diosMapa = DiosMapa.Instance;//ESTO DEJARLO ANTES DE LA INSTANCIACION DEL BOSS!!!
@@ -68,8 +65,6 @@ namespace AlumnoEjemplos.MiGrupo
 
             bossAnimado = AnimatedBoss.Instance;
             bossAnimado.init(300f, new Vector3(1062, 0, 3020));
-
-            //puerta = new Puerta(630, 32, 200);
 
             sonidoFondo = new TgcStaticSound();
             sonidoFondo.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\asd16.wav");
@@ -98,10 +93,11 @@ namespace AlumnoEjemplos.MiGrupo
             }
 
             else { 
-                
-            //boss.setColisiona(personaje.estasMirandoBoss(boss));//El mejor truco del mundo! (seteo q el boss colisione solo si estoy mirando)
-           
-            //mapa.detectarColisiones(colisionadores);
+
+             d3dDevice.Clear(ClearFlags.Target | ClearFlags.ZBuffer, Color.Black, 1.0f, 0);
+
+             d3dDevice.Transform.Projection =  Matrix.PerspectiveFovLH(Geometry.DegreeToRadian(45.0f),
+                                               TgcD3dDevice.aspectRatio, TgcD3dDevice.zNearPlaneDistance, 5000);
 
             personaje.calcularColisiones();
 
@@ -133,7 +129,6 @@ namespace AlumnoEjemplos.MiGrupo
         {
             mapa.dispose();
 
-            //boss.dispose();
             bossAnimado.dispose();
         }
         

@@ -21,7 +21,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
 
         public override void init()
         {
-            Size screenSize = GuiController.Instance.Panel3d.Size;
+            Size screenSize = ScreenSizeClass.ScreenSize; //GuiController.Instance.Panel3d.Size;
             sprite.Position = new Vector2(screenSize.Width - (screenSize.Width / 4), 0.50f * screenSize.Height);
             sprite.Scaling = new Vector2((float)0.0003 * screenSize.Width, (float)0.0005 * screenSize.Height);
         }

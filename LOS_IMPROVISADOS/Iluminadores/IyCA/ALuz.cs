@@ -25,7 +25,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
 
         public void updateFondo()
         {
-        	esferaNegra.Position = camaraFPS.camaraFramework.Position;
+        	//esferaNegra.Position = camaraFPS.camaraFramework.Position;
         	cajaNegra.Position =  camaraFPS.camaraFramework.Position + camaraFPS.camaraFramework.viewDir * (renderDistance / 2);
         }
         
@@ -35,8 +35,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
             
             //Dibujo el fondo para evitar el azul
             updateFondo();
-            cajaNegra.render();
-            esferaNegra.render();
+            //cajaNegra.render();
+            //esferaNegra.render();
             
             foreach (TgcMesh mesh in mapa.escena.Meshes)
 	        {
@@ -76,7 +76,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
 			TgcTexture texturaFondo = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir +
 			                                                   "Media\\mapa\\fondoNegro.png");
             
-			esferaNegra = new TgcSphere(renderDistance, texturaFondo, camaraFPS.camaraFramework.Position);
+			//esferaNegra = new TgcSphere(renderDistance, texturaFondo, camaraFPS.camaraFramework.Position);
 			cajaNegra = TgcBox.fromSize(new Vector3(renderDistance,renderDistance,renderDistance), texturaFondo);
         }
         abstract public void configInicial();

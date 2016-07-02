@@ -38,7 +38,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
             cargaActual = 100;
             texto = new TgcText2d();
             sprite = new TgcSprite();
-            screenSize = GuiController.Instance.Panel3d.Size;
+            screenSize = ScreenSizeClass.ScreenSize;// GuiController.Instance.Panel3d.Size;
             tiempoTranscurrido = 0;
             bateriaActivada = true;
         }
