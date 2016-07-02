@@ -15,7 +15,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.fluors
             tiempoDesgaste = 1;
             cantidadDesgaste = 10;
 
-            cantidadFluors = 5;
+            cantidadFluors = 0;
             sprite = new TgcSprite();
         }
 
