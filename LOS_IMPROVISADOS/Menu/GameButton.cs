@@ -4,6 +4,7 @@ using TgcViewer;
 using TgcViewer.Utils._2D;
 using TgcViewer.Utils.TgcSceneLoader;
 using System;
+using AlumnoEjemplos.LOS_IMPROVISADOS;
 
 namespace AlumnoEjemplos.MiGrupo
 {
@@ -19,7 +20,7 @@ namespace AlumnoEjemplos.MiGrupo
             spriteBoton.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir
                                                                  + "Media\\Menu\\"+image+".png");
 
-            Size screenSize = GuiController.Instance.Panel3d.Size;
+            Size screenSize = ScreenSizeClass.ScreenSize;
             Size textureSize = spriteBoton.Texture.Size;
 
             spriteBoton.Position = new Vector2(position.X * screenSize.Width, position.Y * screenSize.Height);

@@ -89,7 +89,7 @@ namespace AlumnoEjemplos.MiGrupo
             TgcD3dInput d3dInput = GuiController.Instance.D3dInput;
             Device d3dDevice = GuiController.Instance.D3dDevice;
 
-            Size screenSize = GuiController.Instance.Panel3d.Size;
+            Size screenSize = ScreenSizeClass.ScreenSize;
             Cursor.Position = new Point(screenSize.Width / 2, screenSize.Height / 2);
 
             if (!playing)
