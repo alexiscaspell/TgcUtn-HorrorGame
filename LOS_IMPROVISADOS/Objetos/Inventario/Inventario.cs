@@ -86,7 +86,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		
 		private void init()
 		{
-			Size screenSize = GuiController.Instance.Panel3d.Size;
+			Size screenSize = ScreenSizeClass.ScreenSize;
             Size textureSize = inventarioScreen.Texture.Size;
 
             //Asi ocupa toda la pantalla

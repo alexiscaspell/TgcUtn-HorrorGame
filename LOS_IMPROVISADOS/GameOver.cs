@@ -61,7 +61,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 				GuiController.Instance.AlumnoEjemplosDir + "Media\\GameOver\\tuAlmaEsMiaFuerte.wav");
 			
 			//Calculo el escalado max
-			Size pantallaSize = GuiController.Instance.Panel3d.Size;
+			Size pantallaSize = ScreenSizeClass.ScreenSize;
 			Size gameOverSize = gameOverScreen.Texture.Size;
 			
 			float widthScale = (float)pantallaSize.Width / (float)gameOverSize.Width;
@@ -99,7 +99,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 				GuiController.Instance.AlumnoEjemplosDir + "Media\\GameOver\\nada.wav");
 			
 			//Calculo el escalado max
-			Size pantallaSize = GuiController.Instance.Panel3d.Size;
+			Size pantallaSize = ScreenSizeClass.ScreenSize;
 			Size gameOverSize = pantalla.gameOverScreen.Texture.Size;
 			
 			float widthScale = (float)pantallaSize.Width / (float)gameOverSize.Width;
@@ -134,7 +134,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		
 		private void posicionarSprite(float elapsedTime)
 		{
-			Size pantallaSize = GuiController.Instance.Panel3d.Size;
+			Size pantallaSize = ScreenSizeClass.ScreenSize;
 			Size gameOverSize = gameOverScreen.Texture.Size;
 			
 			escalado += speed * elapsedTime;

@@ -41,7 +41,6 @@ namespace AlumnoEjemplos.MiGrupo
             pantalla.Position = new Vector2(0, 0);
 			
             Size screenSize = ScreenSizeClass.ScreenSize;
-            //Size screenSize = GuiController.Instance.Panel3d.Size;
             Size textureSize = pantalla.Texture.Size;
 
             float widthScale = (float)screenSize.Width / (float)textureSize.Width;

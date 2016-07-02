@@ -21,7 +21,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
 
         public override void init()
         {
+<<<<<<< HEAD
             Size screenSize = ScreenSizeClass.ScreenSize;//GuiController.Instance.Panel3d.Size;
+=======
+            Size screenSize = ScreenSizeClass.ScreenSize;
+>>>>>>> master
             sprite.Position = new Vector2(screenSize.Width / 2, 0.75f * screenSize.Height);
             sprite.Scaling = new Vector2((float)0.0002 * screenSize.Width, (float)0.0003 * screenSize.Height);
         }
