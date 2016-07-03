@@ -29,7 +29,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Boss
                 AnimatedBoss.Instance.comportamiento = new SeguirPersonaje();
                 return AnimatedBoss.Instance.comportamiento.proximoPunto(posicionActual);
             }
-
 //////////////////////////////////////////////////////////////////////////////////////////////////
             Punto puntoActual = DiosMapa.Instance.obtenerPuntoPorPosicion(posicionActual);
 
