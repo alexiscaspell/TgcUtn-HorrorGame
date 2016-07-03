@@ -32,7 +32,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		
 		public override void render()
 		{
-			//update();
+			update();
 			
 			mesh.render();
 		}
