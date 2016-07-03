@@ -24,6 +24,8 @@ namespace AlumnoEjemplos.MiGrupo
 
         private AnimatedBoss bossAnimado;
         
+        private Texto texto = new Texto();
+        
         public bool playing;
         public GameMenu menuActual;
 
@@ -124,6 +126,8 @@ namespace AlumnoEjemplos.MiGrupo
             //cama.render();
             
             GameOver.Instance.render(elapsedTime);
+            
+            texto.render();
             }
 
             GuiController.Instance.Text3d.drawText("FPS: " + HighResolutionTimer.Instance.FramesPerSecond, 0, 0, Color.Yellow);
