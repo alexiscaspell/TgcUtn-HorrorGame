@@ -14,6 +14,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private Vector3 posAnterior;
 
+        private int cantVecesQueQuedoAtascado = 0;
+
+        private const int cantMaxVecesAtascado = 3;
+
         public SeguirPersonaje()
         {
             diosMapa = DiosMapa.Instance;
@@ -23,6 +27,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             Vector3 posMasCercana = diosMapa.obtenerPuntoInteligente(CamaraFPS.Instance.camaraFramework.Position,posicionActual).getPosition();
 
             if(posMasCercana.Equals(posAnterior))
+            {
+                cantVecesQueQuedoAtascado++;
+            }
+
+            if (cantVecesQueQuedoAtascado>cantMaxVecesAtascado)
             {
                 AnimatedBoss.Instance.comportamiento = new ComportamientoSeguir(posicionActual);
 

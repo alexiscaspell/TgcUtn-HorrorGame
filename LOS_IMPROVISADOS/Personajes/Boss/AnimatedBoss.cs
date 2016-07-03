@@ -375,5 +375,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             cuerpo.Position = nuevoPunto.getPosition();
         }
+
+        public Vector3 getPosition()
+        {
+            return cuerpo.Position;
+        }
     }
 }

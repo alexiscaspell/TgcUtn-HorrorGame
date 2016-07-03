@@ -482,8 +482,23 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 contadorDePuntosQueElPersonajeVaPasando = 0;
             }*/
 
-            int cantidad = Convert.ToInt32((cantidadDeElementosDeListaPersecucion() / PORCION_DE_PUNTOS_QUE_ELIMINO_CUANDO_EL_BOSS_SE_TELETRANSPORTA));
-            elminarPrimerosPuntosDePersecucion(cantidad);
+            if (listaDePuntosPersecucion.Count>=2)
+            {
+                Vector3 posBoss = AnimatedBoss.Instance.getPosition();
+
+                int indexPtoMasCercano = 0;
+
+                for (int i = 0; i < listaDePuntosPersecucion.Count; i++)
+                {
+                    if ((listaDePuntosPersecucion[i].getPosition() - posBoss).Length() < (listaDePuntosPersecucion[indexPtoMasCercano].getPosition() - posBoss).Length())
+                    {
+                        indexPtoMasCercano = i;
+                    }
+                }
+
+                //Convert.ToInt32((cantidadDeElementosDeListaPersecucion() / porcionAEliminar));
+                elminarPrimerosPuntosDePersecucion(indexPtoMasCercano);
+            }
         }
 
         public void elminarPrimerosPuntosDePersecucion(int cantidadPuntos)
