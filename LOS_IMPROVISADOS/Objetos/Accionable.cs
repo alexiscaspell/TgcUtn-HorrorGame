@@ -25,7 +25,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		}
 		
 		protected int agarrado = 1; //cant de veces que se puede accionar
-		protected const float distAccion = 300f;
+		internal float distAccion = 300f;
 		
 		public void acciona(Vector3 posInicial, Vector3 dir){
 			

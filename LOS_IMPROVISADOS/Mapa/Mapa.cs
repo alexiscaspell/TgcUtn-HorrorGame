@@ -88,6 +88,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             {
                 if (typeof(Puerta).Equals(objeto.GetType()))
                 {
+                    objeto.distAccion = 600;
                     puertas.Add((Puerta)objeto);
                 }
             }
