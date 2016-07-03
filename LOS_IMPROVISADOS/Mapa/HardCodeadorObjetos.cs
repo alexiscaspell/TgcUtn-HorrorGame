@@ -251,6 +251,15 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			lista.Add(puerta27);
 			#endregion Puertas
 			
+			#region ventiladores
+			Ventilador vent1 = new Ventilador();
+			vent1.cambiarVectores(new Vector3(1337.93f,576.86f,6729.46f), new Vector3(0,0,0));
+			lista.Add(vent1);
+			
+			Ventilador vent2 = new Ventilador();
+			vent2.cambiarVectores(new Vector3(14079.95f,576.86f,902.21f), new Vector3(0,0,0));
+			lista.Add(vent2);
+			#endregion ventiladores
 			return lista;
 		}
 	}
