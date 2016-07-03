@@ -192,10 +192,15 @@ struct VS_OUTPUT_DIFFUSE_MAP
 
 
 //Vertex Shader
-VS_OUTPUT_DIFFUSE_MAP vs_DiffuseMap(VS_INPUT_DIFFUSE_MAP input)
+VS_OUTPUT_DIFFUSE_MAP vs_modificado1(VS_INPUT_DIFFUSE_MAP input)
 { 
 	VS_OUTPUT_DIFFUSE_MAP output;
-
+	
+	//Animar Posicion
+	//input.Position.x *= abs (clamp(time,1,100) * cos(time) );
+	//input.Position.y *= abs (clamp(time,1,100) * sin(time) );
+	//input.Position.z *= abs (clamp(time,1,100) * cos(time) );
+	
 	//Proyectar posicion
 	output.Position = mul(input.Position, matWorldViewProj);
 
@@ -234,7 +239,7 @@ struct PS_DIFFUSE_MAP
 };
 
 //Pixel Shader
-float4 ps_DiffuseMap(PS_DIFFUSE_MAP input) : COLOR0
+float4 ps_modificado1(PS_DIFFUSE_MAP input) : COLOR0
 {
 	//Normalizar vectores
 	float3 Nn = normalize(input.WorldNormal);
@@ -265,30 +270,23 @@ float4 ps_DiffuseMap(PS_DIFFUSE_MAP input) : COLOR0
 	   El color Alpha sale del diffuse material */
 	float4 finalColor = float4(saturate(materialEmissiveColor + ambientLight + diffuseLight) * texelColor + specularLight, materialDiffuseColor.a);
 	
+	float promedio = (finalColor.r + finalColor.g + finalColor.b) / 3;
+	
+	finalColor.rgb = promedio + 0.05*cos(time);
 	
 	return finalColor;
 }
 
 
 
-/*
-* Technique DIFFUSE_MAP
-*/
-technique DIFFUSE_MAP
-{
-   pass Pass_0
-   {
-	  VertexShader = compile vs_2_0 vs_DiffuseMap();
-	  PixelShader = compile ps_2_0 ps_DiffuseMap();
-   }
-}
+
 
 
 
 
 
 /**************************************************************************************/
-/* DIFFUSE_MAP_AND_LIGHTMAP */
+/* ShaderModificado */
 /**************************************************************************************/
 
 //Input del Vertex Shader
@@ -319,9 +317,13 @@ VS_OUTPUT_DIFFUSE_MAP_AND_LIGHTMAP vs_modificado(VS_INPUT_DIFFUSE_MAP_AND_LIGHTM
 	VS_OUTPUT_DIFFUSE_MAP_AND_LIGHTMAP output;
 	
 	//Animar Posicion
-	input.Position.x *= clamp(time,1,1000) * cos(time);
-	input.Position.y *= clamp(time,1,1000) * sin(time);
-	input.Position.z *= clamp(time,1,1000) * cos(time);
+	//input.Position.x += clamp(time,1,100) * cos(time);
+	//input.Position.y += clamp(time,1,100) * sin(time);
+	//input.Position.z += clamp(time,1,100) * cos(time);
+	
+	input.Position.x += 50 * cos(time);
+	input.Position.y += 40 * cos(time);
+	input.Position.z += 30 * sin(time);
 	
 	//Proyecto pos
 	output.Position = mul ( input.Position, matWorldViewProj);
@@ -397,9 +399,13 @@ float4 ps_modificado(PS_INPUT_DIFFUSE_MAP_AND_LIGHTMAP input) : COLOR0
 	   El color Alpha sale del diffuse material */
 	float4 finalColor = float4(saturate(materialEmissiveColor + ambientLight + diffuseLight) * (texelColor * lightmapColor) + specularLight, materialDiffuseColor.a);
 		
-	finalColor.x = finalColor.x *0.222 + 10*cos(time);
-	finalColor.y = finalColor.y *0.707 + 10*cos(time);
-	finalColor.z = finalColor.z *0.071 + 10*cos(time);
+	//finalColor.x = finalColor.x *0.222 + 0.05*cos(time);
+	//finalColor.y = finalColor.y *0.707 + 0.05*cos(time);
+	//finalColor.z = finalColor.z *0.071 + 0.05*cos(time);
+	
+	float promedio = (finalColor.r + finalColor.g + finalColor.b) / 3;
+	
+	finalColor.rgb = promedio + 0.001*cos(time);
 	
 	return finalColor;
 }
