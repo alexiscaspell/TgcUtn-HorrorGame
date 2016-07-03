@@ -38,7 +38,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
             //cajaNegra.render();
             //esferaNegra.render();
             
-            foreach (TgcMesh mesh in mapa.escenaFiltrada)//escena.Meshes)
+            foreach (TgcMesh mesh in mapa.escena.Meshes)
 	        {
 				if( TgcCollisionUtils.testAABBAABB(mesh.BoundingBox, cajaNegra.BoundingBox))
 				{

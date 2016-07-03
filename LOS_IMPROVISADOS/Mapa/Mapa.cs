@@ -40,7 +40,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private Dictionary<string, string[]> relacionesCuartos = new Dictionary<string, string[]>();
 
-        public List<TgcMesh> escenaFiltrada { get; set; }
+        //public List<TgcMesh> escenaFiltrada { get; set; }
         
         public List<Accionable> objetos {get; set;}
 
@@ -75,9 +75,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             agregarObjetosMapa();
 
-            escenaFiltrada = new List<TgcMesh>();
+            //escenaFiltrada = new List<TgcMesh>();
             
-            updateEscenaFiltrada();
+            //updateEscenaFiltrada();
 
             configRoomsIluminados = new ConfigRoomIluminado();
         }
@@ -92,30 +92,37 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 }
             }
 
-            /*for (int i = 1; i <= CANTIDAD_DE_PUERTAS; i++)
+            for (int i = 1; i <= CANTIDAD_DE_PUERTAS; i++)
             {
-                foreach (var item in relacionesCuartos[])
+                if (relacionesCuartos.ContainsKey("p"+i))
                 {
-                    
+                    foreach (string cuarto in relacionesCuartos["p" + i.ToString()])
+                    {
+                        if (cuarto[0] == 'r')
+                        {
+                            foreach (TgcMesh mesh in cuartos["p" + i.ToString()])
+                            {
+                                cuartos[cuarto].Add(mesh);
+                            }
+                        }
+                    }
                 }
-            }*/
-        }
+                if (relacionesCuartos.ContainsKey("pz" + i.ToString()))
+                {
+                    foreach (string cuarto in relacionesCuartos["pz" + i.ToString()])
+                    {
+                        if (cuarto[0] == 'r')
+                        {
+                            foreach (TgcMesh mesh in cuartos["pz" + i.ToString()])
+                            {
+                                cuartos[cuarto].Add(mesh);
+                            }
+                        }
+                    }
+                }
 
-        /*private void mapearPuerta(TgcMesh mesh)
-        {
-            int nroPuerta = 0;
-
-            string nombrePuerta = mesh.Name;
-
-            if (nombrePuerta[1] == 'z')
-            {
-                nroPuerta = Convert.ToInt32(nombrePuerta.Split('z')[1]);
             }
-
-            Puerta nuevaPuerta = new Puerta(nroPuerta,mesh);
-
-            puertas.Add(nombrePuerta, nuevaPuerta);
-        }*/
+        }
 
         private void agregarObjetosMapa()
         {
@@ -152,7 +159,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 if (item.Name[0]=='q')
                 {
                     writer.Add(item.Name);
-                };
+                }
             }
         }
 
@@ -287,7 +294,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private string cuartoAnterior = "";
 
-        public void updateEscenaFiltrada()
+        /*public void updateEscenaFiltrada()
         {
             escenaFiltrada = escena.Meshes;
             return;
@@ -342,6 +349,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             cuartoAnterior = nombreCuarto;
         }
+        */
 
         private List<TgcMesh> clonarLista(List<TgcMesh> list)
         {

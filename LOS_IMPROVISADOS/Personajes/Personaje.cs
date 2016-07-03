@@ -196,7 +196,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             	verificarSiGane();
             }
 
-            mapa.updateEscenaFiltrada();//Updateo en que cuarto estoy
+            //mapa.updateEscenaFiltrada();//Updateo en que cuarto estoy
 
             //ganasteBox.render();
             //posprocesado

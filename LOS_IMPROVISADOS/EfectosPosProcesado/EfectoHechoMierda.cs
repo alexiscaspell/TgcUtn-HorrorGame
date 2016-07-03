@@ -35,7 +35,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
 		
 		public override void init()
 		{
-            meshes = mapa.escenaFiltrada;
+            meshes = mapa.escena.Meshes;//escenaFiltrada;
 
             Device d3dDevice = GuiController.Instance.D3dDevice;
             
@@ -91,7 +91,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
 
 		public override void render(float elapsedTime){
 
-            meshes = mapa.escenaFiltrada;
+            meshes = mapa.escena.Meshes;//escenaFiltrada;
 			
 			Device device = GuiController.Instance.D3dDevice;
 			
