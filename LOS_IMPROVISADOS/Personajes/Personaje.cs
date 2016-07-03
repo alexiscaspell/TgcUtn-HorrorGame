@@ -168,9 +168,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			    !GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.S) &&
 			    !GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.D) )
 			{
-                //sonidoPasos.stop();
-                sonidoPies[0].stop();
-                sonidoPies[1].stop();
+                sonidoPasos.stop();
+                //sonidoPies[0].stop();
+                //sonidoPies[1].stop();
 			}
             
 			//Activar objetos
