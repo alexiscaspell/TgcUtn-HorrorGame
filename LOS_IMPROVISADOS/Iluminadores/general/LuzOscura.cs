@@ -7,12 +7,13 @@ using System.Drawing;
 using TgcViewer;
 using TgcViewer.Utils.TgcSceneLoader;
 using TgcViewer.Utils.TgcGeometry;
+using TgcViewer.Utils.Shaders;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
 {
     class LuzOscura : ALuz
     {
-    	private float time;
+    	private float time = 0;
     	
         public LuzOscura(Mapa mapa, CamaraFPS camaraFPS)
         {
@@ -22,7 +23,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
 
         public override void configInicial()
         {
-            currentShader = GuiController.Instance.Shaders.TgcMeshPointLightShader;
+        	currentShader = TgcShaders.loadEffect(GuiController.Instance.AlumnoEjemplosDir + 
+        	                         "LOS_IMPROVISADOS\\Shaders\\shaderTerror.fx");
         }
         
         public override void configurarEfecto(TgcMesh mesh)
@@ -40,6 +42,45 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
                 mesh.Effect.SetValue("materialSpecularColor", ColorValue.FromColor(Color.White));
         }
 
+        public override void render()
+        {
+        	inv.render();
+            
+            updateFondo();
+            
+            time += GuiController.Instance.ElapsedTime;
+            
+            foreach (TgcMesh mesh in mapa.escena.Meshes)
+	        {
+				if( TgcCollisionUtils.testAABBAABB(mesh.BoundingBox, cajaNegra.BoundingBox))
+				{
+					mesh.Effect = currentShader;
+                	mesh.Technique = "ShaderTerror";
+
+                	configurarEfecto(mesh);
+                	
+                	mesh.Effect.SetValue("time", time);
+                	
+				   	mesh.render();
+                }
+        	}
+            
+            foreach(Accionable a in mapa.objetos)
+            {
+            	if( TgcCollisionUtils.testAABBAABB(a.getMesh().BoundingBox, cajaNegra.BoundingBox))
+				{
+            		a.getMesh().Effect = currentShader;
+            		a.getMesh().Technique = "ShaderTerror";
+
+            		configurarEfecto(a.getMesh() );
+            		
+            		a.getMesh().Effect.SetValue("time", time);
+                	
+				   	a.render();
+                }
+            }
+            
+        }
 
         
     }
