@@ -62,7 +62,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 GuiController.Instance.AlumnoEjemplosDir + "Media\\mapa\\");
 
             objetos = HardCodeadorObjetos.HardCodearObjetos();
-            mapearPuertas();
         }
 
 
@@ -72,12 +71,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             ColinaAzul.Instance.calcularBoundingBoxes(cuartos, CANTIDAD_DE_CUARTOS);
 
-            //mapearPuertas();
+            mapearPuertas();
 
             agregarObjetosMapa();
 
             escenaFiltrada = new List<TgcMesh>();
-
+            
             updateEscenaFiltrada();
 
             configRoomsIluminados = new ConfigRoomIluminado();
@@ -92,6 +91,14 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                     puertas.Add((Puerta)objeto);
                 }
             }
+
+            /*for (int i = 1; i <= CANTIDAD_DE_PUERTAS; i++)
+            {
+                foreach (var item in relacionesCuartos[])
+                {
+                    
+                }
+            }*/
         }
 
         /*private void mapearPuerta(TgcMesh mesh)
@@ -278,9 +285,17 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             return false;
         }
 
+        private string cuartoAnterior = "";
+
         public void updateEscenaFiltrada()
         {
+            escenaFiltrada = escena.Meshes;
+            return;
+
             string nombreCuarto = ColinaAzul.Instance.dondeEstaPesonaje();
+
+            if (nombreCuarto == cuartoAnterior)
+                return;
 
             if (escenaFiltrada.Count > 0)
             {
@@ -324,8 +339,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             {
             	escenaFiltrada.Add(a.getMesh());
             }
-            
-            
+
+            cuartoAnterior = nombreCuarto;
         }
 
         private List<TgcMesh> clonarLista(List<TgcMesh> list)

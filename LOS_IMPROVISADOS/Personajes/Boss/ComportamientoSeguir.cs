@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.DirectX;
+using TgcViewer;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Boss
 {
     class ComportamientoSeguir : Comportamiento
     {
         public Punto pFinal;
+        private float timeElapsed = 0;
+        private const float maxTimeToChange = 5;
 
         public ComportamientoSeguir(Vector3 posicionInicial)
         {
@@ -18,6 +21,16 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Boss
 
         public Vector3 proximoPunto(Vector3 posicionActual)
         {
+///////////////////////////////////FERNILANDIA///////////////////////////////////////////////////
+            timeElapsed += GuiController.Instance.ElapsedTime;
+
+            if (timeElapsed>=maxTimeToChange)
+            {
+                AnimatedBoss.Instance.comportamiento = new SeguirPersonaje();
+                return AnimatedBoss.Instance.comportamiento.proximoPunto(posicionActual);
+            }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
             Punto puntoActual = DiosMapa.Instance.obtenerPuntoPorPosicion(posicionActual);
 
             if (puntoActual == pFinal && !DiosMapa.Instance.listaPersecucionEstaVacia())

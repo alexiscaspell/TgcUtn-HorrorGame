@@ -195,14 +195,15 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             {
             	verificarSiGane();
             }
+
+            mapa.updateEscenaFiltrada();//Updateo en que cuarto estoy
+
             //ganasteBox.render();
-           //posprocesado
+            //posprocesado
             if (configIluminador.iluminadorActualSeQuedoSinBateria())
             {
                 configPosProcesado.renderizarPosProcesado(elapsedTime);
             }
-
-            //mapa.updateEscenaFiltrada();//Updateo en que cuarto estoy
 
             configIluminador.renderizarIluminador();
 

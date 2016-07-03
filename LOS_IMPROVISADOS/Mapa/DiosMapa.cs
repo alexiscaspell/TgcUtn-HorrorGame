@@ -293,7 +293,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             Punto puntoActual = obtenerPuntoPorPosicion(posicionActual);
             Punto puntoBlanco = obtenerPuntoPorPosicion(posicionBlanco);
 
-            Punto ptoMasCercano = caminos[puntoActual][0];
+            Punto ptoMasCercano = puntoActual;//caminos[puntoActual][0];
 
             foreach (Punto item in caminos[puntoActual])
             {
