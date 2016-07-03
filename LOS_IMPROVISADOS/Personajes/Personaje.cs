@@ -54,7 +54,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private bool ganaste = false;
 
         //lobo
-        private float tiempoParaDejarRastro = 0;//0.012f;//0.025f;
+        private float tiempoParaDejarRastro = 0.012f;//0.025f;
         private float sumadorParaDejarRastro = 0;
         private TgcStaticSound sonidoPieDerecho;
         private TgcStaticSound sonidoPieIzquierdo;

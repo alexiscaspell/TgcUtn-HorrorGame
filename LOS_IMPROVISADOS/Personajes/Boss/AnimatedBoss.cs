@@ -10,6 +10,7 @@ using TgcViewer;
 using TgcViewer.Utils._2D;
 using TgcViewer.Utils.Sound;
 using TgcViewer.Utils.TgcGeometry;
+using TgcViewer.Utils.TgcSceneLoader;
 using TgcViewer.Utils.TgcSkeletalAnimation;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS
@@ -215,6 +216,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 updateVelocity();
                 updateComportamiento();
                 seguirPersonaje();
+                if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.Space))
+                {
+                    comportamiento = comportamiento;
+                    int i = 9;
+                }
             }
         }
 
@@ -273,19 +279,37 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             //TgcBoundingSphere cuerpoTrucho = new TgcBoundingSphere(Personaje.Instance.cuerpo.Center, 300);
 
-            return (CamaraFPS.Instance.camaraFramework.Position - cuerpo.Position).Length() < 600;//ColinaAzul.Instance.colisionaEsferaCaja(cuerpoTrucho, cuerpo.BoundingBox);
+            return (CamaraFPS.Instance.camaraFramework.Position - cuerpo.Position).Length() < 1000;//ColinaAzul.Instance.colisionaEsferaCaja(cuerpoTrucho, cuerpo.BoundingBox);
         }
 
         private bool pjEscondido(Personaje pj)
         {
-            return pj.iluminadorEncendido() && pj.agachado() && pjCercaDeObjeto();
+            return pj.iluminadorEncendido() && pj.agachado() && pjTapadoPorObjeto();
         }
 
-        private bool pjCercaDeObjeto()
+        private bool pjTapadoPorObjeto()
         {
+            //TgcBoundingSphere cuerpoTrucho = new TgcBoundingSphere(Personaje.Instance.cuerpo.Center,50f);
+            //TgcBoundingBox b = new TgcBoundingBox();
+            //return Mapa.Instance.colisionaPersonaje(cuerpoTrucho, ref b);
+            Vector3 vectorInutil;
+            string textoInutil = "";
+            Vector3 posFinal = CamaraFPS.Instance.camaraFramework.Position;
+            Vector3 posInicial = cuerpo.BoundingBox.calculateBoxCenter();
+            posInicial.Y = cuerpo.BoundingBox.PMax.Y;
+            bool hayObjetosEnMedio = false;
+
+            foreach (TgcMesh mesh in Mapa.Instance.meshesDeCuartoEnLaPosicion(posFinal,ref textoInutil))
+            {
+                hayObjetosEnMedio = TgcCollisionUtils.intersectSegmentAABB(posInicial, posFinal, mesh.BoundingBox, out vectorInutil);
+                if (hayObjetosEnMedio)
+                {
+                    return true;
+                }
+            }
+
             TgcBoundingSphere cuerpoTrucho = new TgcBoundingSphere(Personaje.Instance.cuerpo.Center,50f);
             TgcBoundingBox b = new TgcBoundingBox();
-
             return Mapa.Instance.colisionaPersonaje(cuerpoTrucho, ref b);
         }
 
@@ -315,7 +339,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                         teletransportarAlBossAUnaPosicionPasadaPorElPersonaje();
                     }
                 }
-
                     return;
             }
 
@@ -341,7 +364,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         
         public void teletransportarAlBossAUnaPosicionPasadaPorElPersonaje()
         {
-            int cantidad = Convert.ToInt32((DiosMapa.Instance.cantidadDeElementosDeListaPersecucion() / PORCION_DE_PUNTOS_QUE_ELIMINO_CUANDO_EL_BOSS_SE_TELETRANSPORTA));
+            int div = DiosMapa.Instance.PORCION_DE_PUNTOS_QUE_ELIMINO_CUANDO_EL_BOSS_SE_TELETRANSPORTA;
+
+            int cantidad = Convert.ToInt32((DiosMapa.Instance.cantidadDeElementosDeListaPersecucion() / div));
             DiosMapa.Instance.elminarPrimerosPuntosDePersecucion(cantidad);
 
             Punto nuevoPunto = DiosMapa.Instance.puntoASeguirPorElBoss();
