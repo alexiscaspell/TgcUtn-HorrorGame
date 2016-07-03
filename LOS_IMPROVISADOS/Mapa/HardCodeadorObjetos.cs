@@ -161,7 +161,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			
 			Puerta puertaExit = Puerta.PuertaExit(5,true);
 			//puertaExit.cambiarVectores(new Vector3(20950.15f,276f,8902.31f), new Vector3(1f,1f,1f));
-			puertaExit.cambiarVectores(new Vector3(20950.15f,276f,8702.31f), new Vector3(1f,1f,1f));
+			puertaExit.cambiarVectores(new Vector3(20950.15f,276f,8902.31f), new Vector3(1f,1f,1f));
 			lista.Add(puertaExit);
 			
 			//Puertas Ejez

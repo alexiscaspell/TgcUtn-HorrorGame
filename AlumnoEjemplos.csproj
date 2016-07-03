@@ -153,6 +153,7 @@
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\linternas\BateriaLinterna.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\linternas\LuzLinterna.cs" />
     <Compile Include="LOS_IMPROVISADOS\Iluminadores\linternas\ManoLinterna.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Texto.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
