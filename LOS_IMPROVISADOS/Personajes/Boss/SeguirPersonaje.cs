@@ -16,7 +16,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private int cantVecesQueQuedoAtascado = 0;
 
-        private const int cantMaxVecesAtascado = 3;
+        private const int cantMaxVecesAtascado = 5;//Pongo este para que el tipo no cambie tanto al algoritmo de brian
 
         public SeguirPersonaje()
         {
@@ -26,7 +26,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             Vector3 posMasCercana = diosMapa.obtenerPuntoInteligente(CamaraFPS.Instance.camaraFramework.Position,posicionActual).getPosition();
 
-            if(posMasCercana.Equals(posAnterior))
+            if(posMasCercana.Equals(posAnterior)||posMasCercana.Equals(diosMapa.obtenerPuntoPorPosicion(posicionActual)))
             {
                 cantVecesQueQuedoAtascado++;
             }
