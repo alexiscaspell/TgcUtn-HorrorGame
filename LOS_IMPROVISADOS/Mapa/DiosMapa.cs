@@ -287,6 +287,28 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             return ptoMasCercano;
         }
 
+
+        internal Punto obtenerPuntoInteligente(Vector3 posicionBlanco,Vector3 posicionActual)
+        {
+            Punto puntoActual = obtenerPuntoPorPosicion(posicionActual);
+            Punto puntoBlanco = obtenerPuntoPorPosicion(posicionBlanco);
+
+            Punto ptoMasCercano = caminos[puntoActual][0];
+
+            foreach (Punto item in caminos[puntoActual])
+            {
+                if ((puntoBlanco.getPosition() - item.getPosition()).Length() < (puntoBlanco.getPosition() - ptoMasCercano.getPosition()).Length())
+                {
+                    if (item.activo)
+                    {
+                        ptoMasCercano = item;
+                    }
+                }
+            }
+
+            return ptoMasCercano;
+        }
+
         Dictionary<Punto, List<Punto>> caminos = new Dictionary<Punto, List<Punto>>();
         private Punto puntoAnteriorPersonaje = null;
 

@@ -46,7 +46,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private float radius = 30;//Radio de esfera hardcodeado
         
-        private TgcStaticSound sonidoPasos;
+        //private TgcStaticSound sonidoPasos;
         
         private float alturaAgachado;
         private float alturaParado;
@@ -54,7 +54,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private bool ganaste = false;
 
         //lobo
-        private float tiempoParaDejarRastro = 0.012f;//0.025f;
+        private float tiempoParaDejarRastro = 0;//0.012f;//0.025f;
         private float sumadorParaDejarRastro = 0;
         private TgcStaticSound sonidoPieDerecho;
         private TgcStaticSound sonidoPieIzquierdo;
@@ -220,7 +220,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             {
                 sumadorParaDejarRastro = 0;
 
-                Punto puntoDondeEstoy = DiosMapa.Instance.obtenerPuntoInteligente(camaraFPS.camaraFramework.getPosition());
+                Punto puntoDondeEstoy = DiosMapa.Instance.obtenerPuntoPorPosicion(camaraFPS.camaraFramework.getPosition());
                     puntoDondeEstoy.listaDeOrdenEnQueElPersonajePasoPorEstePunto.Add(DiosMapa.Instance.contadorSiguienteABuscar());
 
                 DiosMapa.Instance.agregarPuntoAListaPersecucion(puntoDondeEstoy);

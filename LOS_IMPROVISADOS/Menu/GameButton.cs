@@ -19,12 +19,7 @@ namespace AlumnoEjemplos.MiGrupo
             spriteBoton = new TgcSprite();
             spriteBoton.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir
                                                                  + "Media\\Menu\\"+image+".png");
-
-<<<<<<< HEAD
-            Size screenSize = ScreenSizeClass.ScreenSize;// GuiController.Instance.Panel3d.Size;
-=======
             Size screenSize = ScreenSizeClass.ScreenSize;
->>>>>>> master
             Size textureSize = spriteBoton.Texture.Size;
 
             spriteBoton.Position = new Vector2(position.X * screenSize.Width, position.Y * screenSize.Height);

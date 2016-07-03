@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.DirectX;
+using AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Boss;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS
 {
@@ -11,15 +12,26 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
     {
         private DiosMapa diosMapa;
 
+        private Vector3 posAnterior;
+
         public SeguirPersonaje()
         {
             diosMapa = DiosMapa.Instance;
         }
         public Vector3 proximoPunto(Vector3 posicionActual)
         {
-            Vector3 ptoMasCercano = diosMapa.puntoMasCercano(CamaraFPS.Instance.camaraFramework.Position);
+            Vector3 posMasCercana = diosMapa.obtenerPuntoInteligente(CamaraFPS.Instance.camaraFramework.Position,posicionActual).getPosition();
 
-            return ptoMasCercano;
+            if(posMasCercana.Equals(posAnterior))
+            {
+                AnimatedBoss.Instance.comportamiento = new ComportamientoSeguir(posicionActual);
+
+                posMasCercana = AnimatedBoss.Instance.comportamiento.proximoPunto(posicionActual);
+            }
+
+            posAnterior = posMasCercana;
+
+            return posMasCercana;
         }
     }
 }

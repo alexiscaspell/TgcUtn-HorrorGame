@@ -42,7 +42,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private float velocidadMovimiento;
         private Vector3 direccionVista;
         private CamaraFPS camara;
-        private Comportamiento comportamiento;
+        public Comportamiento comportamiento;
         internal bool activado = true;
         private state estado;
         private state estadoAnterior;
@@ -325,7 +325,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             }
             else if (estado == state.PERSIGUIENDO)
             {
-                comportamiento = new ComportamientoSeguir(cuerpo.Position);
+                comportamiento = new SeguirPersonaje();//ComportamientoSeguir(cuerpo.Position);
             }
             else if (estado == state.ATURDIDO)
             {
