@@ -58,6 +58,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private float sumadorParaDejarRastro = 0;
         private TgcStaticSound sonidoPieDerecho;
         private TgcStaticSound sonidoPieIzquierdo;
+        private TgcStaticSound sonidoPasos;
         private List<TgcStaticSound> sonidoPies;
 
         private Personaje()
@@ -80,8 +81,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             sonidoPieDerecho = new TgcStaticSound();
             sonidoPieIzquierdo = new TgcStaticSound();
 
-            //sonidoPasos = new TgcStaticSound();
-            //sonidoPasos.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\pasos.wav", 0);
+            sonidoPasos = new TgcStaticSound();
+            sonidoPasos.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\pasos.wav", 0);
             sonidoPieDerecho.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\npc_step4.wav", 0);
             sonidoPieIzquierdo.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\npc_step3.wav", 0);
 
@@ -142,23 +143,23 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             //Checkeo para movimiento de sonido
             if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.W))
             {
-                //sonidoPasos.play(true);
-                reproducirSonidoPasos();
+                sonidoPasos.play(true);
+                //reproducirSonidoPasos();
             }
 			if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.A))
             {
-                //sonidoPasos.play(true);
-                reproducirSonidoPasos();
+                sonidoPasos.play(true);
+                //reproducirSonidoPasos();
             }
 			if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.S))
             {
-                //sonidoPasos.play(true);
-                reproducirSonidoPasos();
+                sonidoPasos.play(true);
+                //reproducirSonidoPasos();
             }
 			if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.D))
             {
-                //sonidoPasos.play(true);
-                reproducirSonidoPasos();
+                sonidoPasos.play(true);
+                //reproducirSonidoPasos();
             }
 			
 			//Si no esta ninguna direccion apretada, paro el sonido
