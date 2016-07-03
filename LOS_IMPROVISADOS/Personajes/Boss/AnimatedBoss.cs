@@ -42,22 +42,25 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private float velocidadMovimiento;
         private Vector3 direccionVista;
         private CamaraFPS camara;
-        private Comportamiento comportamiento;
+        public Comportamiento comportamiento;
         internal bool activado = true;
         private state estado;
         private state estadoAnterior;
         private float tiempoPasadoAturdido = 0;
         private float tiempoDeRecuperacion = 4;
         private TgcStaticSound aturdido = new TgcStaticSound();
-        private Tgc3dSound respiracion = new Tgc3dSound();
-        private float timerRespiracion;  
+        private TgcStaticSound respiracion = new TgcStaticSound();
+        private float timerRespiracion;
+
+        private const float aumentoVelocidad = 1.2f;//Se va hardcodeando
+        private float velocidadNormal;
  
 
         enum state { PASEANDO,PERSIGUIENDO,ATURDIDO};
 
         private float contadorParaTeletransporte = 0f;
         private float TIEMPO_PARA_TELETRANSPORTAR_AL_BOSS = 60f;
-        private int PORCION_DE_PUNTOS_QUE_ELIMINO_CUANDO_EL_BOSS_SE_TELETRANSPORTA = 3;
+        private float PORCION_DE_PUNTOS_QUE_ELIMINO_CUANDO_EL_BOSS_SE_TELETRANSPORTA = 1.6f;
 
         private AnimatedBoss()
         {
@@ -78,6 +81,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             cuerpo.Position = posicion;
             cuerpo.Scale = new Vector3(10, 10, 10);
             this.velocidadMovimiento = velocidadMovimiento;
+            velocidadNormal = velocidadMovimiento;
             direccionVista = new Vector3(0, 0, -1);
         }
 
@@ -207,16 +211,22 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             if (activado)
             {
-                if (estado == state.PASEANDO && timerRespiracion >= 15)
-                {
-                    timerRespiracion = 0;
-                    respiracion.Position = cuerpo.Position;
-                    respiracion.play();
-                }
-                timerRespiracion += GuiController.Instance.ElapsedTime;
                 updateEstado();
+                updateVelocity();
                 updateComportamiento();
                 seguirPersonaje();
+            }
+        }
+
+        private void updateVelocity()
+        {
+            if (estado==state.PERSIGUIENDO)
+            {
+                velocidadMovimiento = aumentoVelocidad * velocidadNormal;
+            }
+            else
+            {
+                velocidadMovimiento = velocidadNormal;
             }
         }
 
@@ -285,9 +295,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             if (tiempoPasadoAturdido > tiempoDeRecuperacion)
             {
-                estado = state.PASEANDO;//HARDCODEO ESTADO
+                estado = estadoAnterior;
                 tiempoPasadoAturdido = 0;
                 changeAnimation("Walk");
+                estadoAnterior = state.ATURDIDO;
             }
         }
 
@@ -314,7 +325,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             }
             else if (estado == state.PERSIGUIENDO)
             {
-                comportamiento = new ComportamientoSeguir(cuerpo.Position);
+                comportamiento = new SeguirPersonaje();//ComportamientoSeguir(cuerpo.Position);
             }
             else if (estado == state.ATURDIDO)
             {
@@ -330,10 +341,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         
         public void teletransportarAlBossAUnaPosicionPasadaPorElPersonaje()
         {
-            int cantidad = (DiosMapa.Instance.cantidadDeElementosDeListaPersecucion() / PORCION_DE_PUNTOS_QUE_ELIMINO_CUANDO_EL_BOSS_SE_TELETRANSPORTA);
+            int cantidad = Convert.ToInt32((DiosMapa.Instance.cantidadDeElementosDeListaPersecucion() / PORCION_DE_PUNTOS_QUE_ELIMINO_CUANDO_EL_BOSS_SE_TELETRANSPORTA));
             DiosMapa.Instance.elminarPrimerosPuntosDePersecucion(cantidad);
 
             Punto nuevoPunto = DiosMapa.Instance.puntoASeguirPorElBoss();
+
+            respiracion.play();
 
             cuerpo.Position = nuevoPunto.getPosition();
         }

@@ -46,16 +46,19 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private float radius = 30;//Radio de esfera hardcodeado
         
-        private TgcStaticSound sonidoPasos;
+        //private TgcStaticSound sonidoPasos;
         
         private float alturaAgachado;
         private float alturaParado;
         private bool muerto = false;
         private bool ganaste = false;
-        
+
         //lobo
-        private float tiempoParaDejarRastro = 0.025f;
+        private float tiempoParaDejarRastro = 0;//0.012f;//0.025f;
         private float sumadorParaDejarRastro = 0;
+        private TgcStaticSound sonidoPieDerecho;
+        private TgcStaticSound sonidoPieIzquierdo;
+        private List<TgcStaticSound> sonidoPies;
 
         private Personaje()
         {
@@ -68,14 +71,21 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             alturaAgachado = alturaParado / 3;
 
             cuerpo = new TgcBoundingSphere(camaraFPS.camaraFramework.Position, radius);
-            
-            ganasteBox = new TgcBoundingBox(new Vector3(24000,0,8500),new Vector3(24100,600,8900));
+
+            ganasteBox = new TgcBoundingBox(new Vector3(24000, 0, 8500), new Vector3(24100, 600, 8900));
 
             configIluminador = new ConfigIluminador(mapa, camaraFPS);
             configPosProcesado = new ConfigPosProcesados(mapa);
 
-            sonidoPasos = new TgcStaticSound();
-            sonidoPasos.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\pasos.wav", 0);
+            sonidoPieDerecho = new TgcStaticSound();
+            sonidoPieIzquierdo = new TgcStaticSound();
+
+            //sonidoPasos = new TgcStaticSound();
+            //sonidoPasos.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\pasos.wav", 0);
+            sonidoPieDerecho.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\npc_step4.wav", 0);
+            sonidoPieIzquierdo.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\npc_step3.wav", 0);
+
+            sonidoPies = new List<TgcStaticSound> { sonidoPieIzquierdo, sonidoPieDerecho };
         }
 
         internal bool estasMirandoBoss(Boss boss)
@@ -132,19 +142,23 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             //Checkeo para movimiento de sonido
             if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.W))
             {
-            	sonidoPasos.play(true);
+                //sonidoPasos.play(true);
+                reproducirSonidoPasos();
             }
 			if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.A))
             {
-            	sonidoPasos.play(true);
+                //sonidoPasos.play(true);
+                reproducirSonidoPasos();
             }
 			if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.S))
             {
-            	sonidoPasos.play(true);
+                //sonidoPasos.play(true);
+                reproducirSonidoPasos();
             }
 			if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.D))
             {
-            	sonidoPasos.play(true);
+                //sonidoPasos.play(true);
+                reproducirSonidoPasos();
             }
 			
 			//Si no esta ninguna direccion apretada, paro el sonido
@@ -153,7 +167,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			    !GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.S) &&
 			    !GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.D) )
 			{
-				sonidoPasos.stop();
+                //sonidoPasos.stop();
+                sonidoPies[0].stop();
+                sonidoPies[1].stop();
 			}
             
 			//Activar objetos
@@ -179,14 +195,15 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             {
             	verificarSiGane();
             }
+
+            mapa.updateEscenaFiltrada();//Updateo en que cuarto estoy
+
             //ganasteBox.render();
-           //posprocesado
+            //posprocesado
             if (configIluminador.iluminadorActualSeQuedoSinBateria())
             {
                 configPosProcesado.renderizarPosProcesado(elapsedTime);
             }
-
-            mapa.updateEscenaFiltrada();//Updateo en que cuarto estoy
 
             configIluminador.renderizarIluminador();
 
@@ -210,6 +227,17 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 DiosMapa.Instance.agregarPuntoAListaPersecucion(puntoDondeEstoy);
             }
             
+        }
+
+        private int pieActual = 1;
+
+        private void reproducirSonidoPasos()
+        {
+            sonidoPies[pieActual].stop();
+
+            pieActual = pieActual % 1;
+
+            sonidoPies[pieActual].play();
         }
 
         internal bool iluminadorEncendido()

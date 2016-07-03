@@ -38,7 +38,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			{
 				agarrado--;
 				execute();
-			}
+                mesh.Enabled = false;
+            }
 		}
 		
 		public virtual void execute()

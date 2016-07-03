@@ -264,7 +264,53 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             }
         }
 
+        internal Punto obtenerPuntoInteligente(Vector3 vector3)
+        {
+            if (puntoAnteriorPersonaje==null)
+            {
+                puntoAnteriorPersonaje = obtenerPuntoPorPosicion(vector3);
+                return puntoAnteriorPersonaje;
+            }
+
+            Punto ptoMasCercano = caminos[puntoAnteriorPersonaje][0];
+
+            foreach (Punto item in caminos[puntoAnteriorPersonaje])
+            {
+                if ((vector3 - item.getPosition()).Length()<(vector3-ptoMasCercano.getPosition()).Length())
+                {
+                    ptoMasCercano = item;
+                }
+            }
+
+            puntoAnteriorPersonaje = ptoMasCercano;
+
+            return ptoMasCercano;
+        }
+
+
+        internal Punto obtenerPuntoInteligente(Vector3 posicionBlanco,Vector3 posicionActual)
+        {
+            Punto puntoActual = obtenerPuntoPorPosicion(posicionActual);
+            Punto puntoBlanco = obtenerPuntoPorPosicion(posicionBlanco);
+
+            Punto ptoMasCercano = puntoActual;//caminos[puntoActual][0];
+
+            foreach (Punto item in caminos[puntoActual])
+            {
+                if ((puntoBlanco.getPosition() - item.getPosition()).Length() < (puntoBlanco.getPosition() - ptoMasCercano.getPosition()).Length())
+                {
+                    if (item.activo)
+                    {
+                        ptoMasCercano = item;
+                    }
+                }
+            }
+
+            return ptoMasCercano;
+        }
+
         Dictionary<Punto, List<Punto>> caminos = new Dictionary<Punto, List<Punto>>();
+        private Punto puntoAnteriorPersonaje = null;
 
         public void generarCaminos()
         {
@@ -282,35 +328,37 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             List<Punto> puntos = new List<Punto>();
 
-            int cantVias = vias.Count - 1;
+            int cantViasX = vias.Count - 1;
+
+            int cantViasJ = vias[i].Count - 1;
 
             if (i == 0 && j == 0)
             {
                 puntos.Add(vias[0][1]);
                 puntos.Add(vias[1][0]);
             }
-            else if (i == cantVias && j == cantVias)
+            else if (i == cantViasX && j == cantViasJ)
             {
-                puntos.Add(vias[cantVias - 1][cantVias]);
-                puntos.Add(vias[cantVias][cantVias - 1]);
+                puntos.Add(vias[cantViasX - 1][cantViasJ]);
+                puntos.Add(vias[cantViasX][cantViasJ - 1]);
             }
-            else if (i == cantVias && j == 0)
+            else if (i == cantViasX && j == 0)
             {
-                puntos.Add(vias[cantVias][1]);
-                puntos.Add(vias[cantVias - 1][0]);
+                puntos.Add(vias[cantViasX][1]);
+                puntos.Add(vias[cantViasX - 1][0]);
             }
-            else if (i == 0 && j == cantVias)
+            else if (i == 0 && j == cantViasJ)
             {
-                puntos.Add(vias[0][cantVias - 1]);
-                puntos.Add(vias[1][cantVias]);
+                puntos.Add(vias[0][cantViasJ - 1]);
+                puntos.Add(vias[1][cantViasJ]);
             }
 
-            else if (((i > 0 && i < cantVias) && (j == 0 || j == cantVias)))
+            else if (((i > 0 && i < cantViasX) && (j == 0 || j == cantViasJ)))
             {
                 puntos.Add(vias[i - 1][j]);
                 puntos.Add(vias[i + 1][j]);
 
-                if (j == cantVias)
+                if (j == cantViasJ)
                 {
                     puntos.Add(vias[i][j - 1]);
                 }
@@ -320,12 +368,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 }
             }
 
-            else if (((j > 0 && j < cantVias) && (i == 0 || i == cantVias)))
+            else if (((j > 0 && j < cantViasJ) && (i == 0 || i == cantViasX)))
             {
                 puntos.Add(vias[i][j - 1]);
                 puntos.Add(vias[i][j + 1]);
 
-                if (i == cantVias)
+                if (i == cantViasX)
                 {
                     puntos.Add(vias[i - 1][j]);
                 }
