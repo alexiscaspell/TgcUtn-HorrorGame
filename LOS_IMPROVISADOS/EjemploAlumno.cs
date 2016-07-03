@@ -92,12 +92,12 @@ namespace AlumnoEjemplos.MiGrupo
                 menuActual.render();
             }
 
-            else { 
+            else {
 
              d3dDevice.Clear(ClearFlags.Target | ClearFlags.ZBuffer, Color.Black, 1.0f, 0);
 
-             d3dDevice.Transform.Projection =  Matrix.PerspectiveFovLH(Geometry.DegreeToRadian(45.0f),
-                                               TgcD3dDevice.aspectRatio, TgcD3dDevice.zNearPlaneDistance, 5000);
+             //d3dDevice.Transform.Projection =  Matrix.PerspectiveFovLH(Geometry.DegreeToRadian(45.0f),
+               //                                TgcD3dDevice.aspectRatio, TgcD3dDevice.zNearPlaneDistance, 5000);
 
             personaje.calcularColisiones();
 
