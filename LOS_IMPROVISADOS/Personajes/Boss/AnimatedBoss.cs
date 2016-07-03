@@ -364,7 +364,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         
         public void teletransportarAlBossAUnaPosicionPasadaPorElPersonaje()
         {
-            int cantidad = Convert.ToInt32((DiosMapa.Instance.cantidadDeElementosDeListaPersecucion() / PORCION_DE_PUNTOS_QUE_ELIMINO_CUANDO_EL_BOSS_SE_TELETRANSPORTA));
+            int div = DiosMapa.Instance.PORCION_DE_PUNTOS_QUE_ELIMINO_CUANDO_EL_BOSS_SE_TELETRANSPORTA;
+
+            int cantidad = Convert.ToInt32((DiosMapa.Instance.cantidadDeElementosDeListaPersecucion() / div));
             DiosMapa.Instance.elminarPrimerosPuntosDePersecucion(cantidad);
 
             Punto nuevoPunto = DiosMapa.Instance.puntoASeguirPorElBoss();

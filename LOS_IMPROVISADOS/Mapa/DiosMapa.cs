@@ -154,7 +154,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private List<Punto> listaDePuntosPersecucion;
         private int contadorDePuntosQueElPersonajeVaPasando;
         private int CANTIDAD_DE_PUNTOS_PARA_QUE_EL_BOSS_SE_TELETRANSPORTE = 40;
-        private int PORCION_DE_PUNTOS_QUE_ELIMINO_CUANDO_EL_BOSS_SE_TELETRANSPORTA = 3;
+        public int PORCION_DE_PUNTOS_QUE_ELIMINO_CUANDO_EL_BOSS_SE_TELETRANSPORTA = 3;
 
         public void init(float factorAvance)
         {
@@ -470,6 +470,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public void reiniciarPersecucion()
         {
+            /*
             if (listaDePuntosPersecucion.Count>0)
             {
                 foreach (Punto punto in listaDePuntosPersecucion)
@@ -479,7 +480,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 listaDePuntosPersecucion.Clear();
 
                 contadorDePuntosQueElPersonajeVaPasando = 0;
-            }
+            }*/
+
+            int cantidad = Convert.ToInt32((cantidadDeElementosDeListaPersecucion() / PORCION_DE_PUNTOS_QUE_ELIMINO_CUANDO_EL_BOSS_SE_TELETRANSPORTA));
+            elminarPrimerosPuntosDePersecucion(cantidad);
         }
 
         public void elminarPrimerosPuntosDePersecucion(int cantidadPuntos)
