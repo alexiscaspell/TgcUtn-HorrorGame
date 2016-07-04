@@ -11,7 +11,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Boss
     {
         public Punto pFinal;
         private float timeElapsed = 0;
-        private const float maxTimeToChange = 2f;
+        private const float maxTimeToChange = 5f;
 
         public ComportamientoSeguir(Vector3 posicionInicial)
         {

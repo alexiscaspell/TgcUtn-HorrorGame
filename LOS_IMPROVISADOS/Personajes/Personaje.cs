@@ -291,7 +291,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         internal bool agachado()
         {
-            return camaraFPS.camaraFramework.Position.Y == alturaAgachado;
+            return camaraFPS.camaraFramework.Position.Y < alturaParado;
         }
 
         private Vector3 obtenerVectorSlide(TgcBoundingBox box)
