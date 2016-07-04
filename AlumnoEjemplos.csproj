@@ -89,6 +89,7 @@
     <Compile Include="LOS_IMPROVISADOS\ColinaAzul.cs" />
     <Compile Include="LOS_IMPROVISADOS\Dijkstra.cs" />
     <Compile Include="LOS_IMPROVISADOS\EfectosPosProcesado\EfectoHechoMierda.cs" />
+    <Compile Include="LOS_IMPROVISADOS\EfectosPosProcesado\PosProcesadoBur.cs" />
     <Compile Include="LOS_IMPROVISADOS\GameOver.cs" />
     <Compile Include="LOS_IMPROVISADOS\Ganaste.cs" />
     <Compile Include="LOS_IMPROVISADOS\Mapa\DiosMapa.cs" />
