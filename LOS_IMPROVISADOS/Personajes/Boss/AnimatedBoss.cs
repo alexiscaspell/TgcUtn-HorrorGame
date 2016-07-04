@@ -281,7 +281,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private bool pjEscondido(Personaje pj)
         {
-            return !pj.iluminadorEncendido() && pj.agachado() && pjTapadoPorObjeto();
+            if (!pj.iluminadorEncendido() && pj.agachado())
+            {
+                return pjTapadoPorObjeto();
+            }
+
+            return false;
         }
 
         private bool pjTapadoPorObjeto()
