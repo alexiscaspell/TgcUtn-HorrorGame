@@ -279,7 +279,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private bool pjEscondido(Personaje pj)
         {
-            return pj.iluminadorEncendido() && pj.agachado() && pjTapadoPorObjeto();
+            return !pj.iluminadorEncendido() && pj.agachado() && pjTapadoPorObjeto();
         }
 
         private bool pjTapadoPorObjeto()
@@ -299,7 +299,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             }
 
             return false;
-
             //TgcBoundingSphere cuerpoTrucho = new TgcBoundingSphere(Personaje.Instance.cuerpo.Center,150f);
             //TgcBoundingBox b = new TgcBoundingBox();
             //return Mapa.Instance.colisionaPersonajeConAlgunObjeto(cuerpoTrucho, ref b);
