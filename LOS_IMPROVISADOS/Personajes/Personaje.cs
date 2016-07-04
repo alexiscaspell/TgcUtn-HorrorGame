@@ -25,6 +25,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         }
 
         #endregion
+        
+        private Ganaste creditosEnd;
 
         private TgcBoundingBox ganasteBox;
         public TgcBoundingSphere cuerpo;
@@ -73,8 +75,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             cuerpo = new TgcBoundingSphere(camaraFPS.camaraFramework.Position, radius);
 
+            //Endgame
             ganasteBox = new TgcBoundingBox(new Vector3(24000, 0, 8500), new Vector3(24100, 600, 8900));
-
+            creditosEnd = new Ganaste();
+            
             configIluminador = new ConfigIluminador(mapa, camaraFPS);
             configPosProcesado = new ConfigPosProcesados(mapa);
 
@@ -228,6 +232,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 DiosMapa.Instance.agregarPuntoAListaPersecucion(puntoDondeEstoy);
             }
             
+            //Agrego el render para el final
+            creditosEnd.render();
         }
 
         private int pieActual = 1;
@@ -319,7 +325,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         public void ganar()
         {
-        	GameOver.Ganaste.activar();
+        	creditosEnd.activar();
         	camaraFPS.camaraFramework.activada = false;
         	AnimatedBoss.Instance.activado = false;
         	configIluminador.apagarBateria();
