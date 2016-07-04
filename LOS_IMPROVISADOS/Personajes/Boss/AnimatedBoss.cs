@@ -51,6 +51,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private float tiempoDeRecuperacion = 4;
         private TgcStaticSound aturdido = new TgcStaticSound();
         private TgcStaticSound respiracion = new TgcStaticSound();
+        private TgcStaticSound gritoCuandoVeAPj = new TgcStaticSound();
         private float timerRespiracion;
 
         private const float aumentoVelocidad = 1.2f;//Se va hardcodeando
@@ -74,7 +75,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             estado = state.PASEANDO;
             comportamiento = new ComportamientoRandom();
             aturdido.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\zo_pain1.wav");
-            respiracion.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\slower_alert10.wav");  
+            respiracion.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\slower_alert10.wav");
+            gritoCuandoVeAPj.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\zo_pain2.wav");
         } 
 
         public void init(float velocidadMovimiento, Vector3 posicion)
@@ -340,6 +342,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             }
             else if (estado == state.PERSIGUIENDO)
             {
+                gritoCuandoVeAPj.play();
                 comportamiento = new SeguirPersonaje();//ComportamientoSeguir(cuerpo.Position);
             }
             else if (estado == state.ATURDIDO)

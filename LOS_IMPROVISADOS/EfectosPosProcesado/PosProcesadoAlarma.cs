@@ -65,7 +65,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
 
 
             //Cargar shader con efectos de Post-Procesado
-            effect = TgcShaders.loadEffect(GuiController.Instance.ExamplesMediaDir + "Shaders\\PostProcess.fx");
+            effect = TgcShaders.loadEffect(GuiController.Instance.AlumnoEjemplosDir + "Media\\Shaders\\PostProcess.fx");
 
             //Configurar Technique dentro del shader
             effect.Technique = "AlarmaTechnique";
