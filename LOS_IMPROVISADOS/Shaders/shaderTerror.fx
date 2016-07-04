@@ -201,6 +201,10 @@ VS_OUTPUT_DIFFUSE_MAP vs_modificado1(VS_INPUT_DIFFUSE_MAP input)
 	//input.Position.y *= abs (clamp(time,1,100) * sin(time) );
 	//input.Position.z *= abs (clamp(time,1,100) * cos(time) );
 	
+	input.Position.x += 50*cos(time) + 10*sin(time)*cos(3*time);
+	input.Position.y -= 30*sin(time) + 30*cos(time)*sin(4*time);
+	input.Position.z += 35*sin(time) + 50*cos(time)*cos(2*time);
+	
 	//Proyectar posicion
 	output.Position = mul(input.Position, matWorldViewProj);
 
@@ -270,9 +274,15 @@ float4 ps_modificado1(PS_DIFFUSE_MAP input) : COLOR0
 	   El color Alpha sale del diffuse material */
 	float4 finalColor = float4(saturate(materialEmissiveColor + ambientLight + diffuseLight) * texelColor + specularLight, materialDiffuseColor.a);
 	
-	float promedio = (finalColor.r + finalColor.g + finalColor.b) / 3;
+	//Vision nocturna
+	//finalColor.x = finalColor.x *0.222 + 0.08*cos(time);
+	//finalColor.y = finalColor.y *0.707 + 0.08*cos(time);
+	//finalColor.z = finalColor.z *0.071 + 0.08*cos(time);
 	
-	finalColor.rgb = promedio + 0.05*cos(time);
+	float scaleFactor = 0.5 * abs( sin(time) );
+	
+	float value = ((finalColor.r + finalColor.g + finalColor.b) / 3) * scaleFactor;
+	finalColor.rgb = finalColor.rgb * (1 - scaleFactor) + value * scaleFactor;
 	
 	return finalColor;
 }
@@ -398,11 +408,16 @@ float4 ps_modificado(PS_INPUT_DIFFUSE_MAP_AND_LIGHTMAP input) : COLOR0
 	   El color Alpha sale del diffuse material */
 	float4 finalColor = float4(saturate(materialEmissiveColor + ambientLight + diffuseLight) * (texelColor * lightmapColor) + specularLight, materialDiffuseColor.a);
 		
-	finalColor.x = finalColor.x *0.222 + 0.05*cos(time);
-	finalColor.y = finalColor.y *0.707 + 0.05*cos(time);
-	finalColor.z = finalColor.z *0.071 + 0.05*cos(time);
+	//finalColor.x = finalColor.x *0.222 + 0.08*cos(time);
+	//finalColor.y = finalColor.y *0.707 + 0.08*cos(time);
+	//finalColor.z = finalColor.z *0.071 + 0.08*cos(time);
 	
-	float promedio = (finalColor.r + finalColor.g + finalColor.b) / 3;
+	float scaleFactor = abs( sin(time) );
+	
+	float value = ((finalColor.r + finalColor.g + finalColor.b) / 3) * scaleFactor;
+	//finalColor.rgb = finalColor.rgb * (1 - scaleFactor) + value * scaleFactor;
+	
+	//float promedio = (finalColor.r + finalColor.g + finalColor.b) / 3;
 	
 	//finalColor.rgb = promedio + 0.05*cos(time);
 	
@@ -415,8 +430,8 @@ technique ShaderTerror
 {
    pass Pass_0
    {
-	  VertexShader = compile vs_2_0 vs_modificado();
-	  PixelShader = compile ps_2_0 ps_modificado();
+	  VertexShader = compile vs_2_0 vs_modificado1();
+	  PixelShader = compile ps_2_0 ps_modificado1();
    }
 }
 
