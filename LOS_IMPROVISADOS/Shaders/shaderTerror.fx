@@ -316,9 +316,9 @@ VS_OUTPUT_DIFFUSE_MAP_AND_LIGHTMAP vs_modificado(VS_INPUT_DIFFUSE_MAP_AND_LIGHTM
 {
 	VS_OUTPUT_DIFFUSE_MAP_AND_LIGHTMAP output;
 	
-	input.Position.x += abs( 50*cos(time) );
-	input.Position.y -= abs( 30*sin(time) );
-	input.Position.z += abs( 35*sin(time) );
+	input.Position.x += 50*cos(time) + 10*sin(time)*cos(3*time);
+	input.Position.y -= 30*sin(time) + 30*cos(time)*sin(4*time);
+	input.Position.z += 35*sin(time) + 50*cos(time)*cos(2*time);
 	
 	//input.Position.x += abs( 50 * cos(time) );
 	//input.Position.y += abs( 40 * cos(time) );
@@ -398,13 +398,13 @@ float4 ps_modificado(PS_INPUT_DIFFUSE_MAP_AND_LIGHTMAP input) : COLOR0
 	   El color Alpha sale del diffuse material */
 	float4 finalColor = float4(saturate(materialEmissiveColor + ambientLight + diffuseLight) * (texelColor * lightmapColor) + specularLight, materialDiffuseColor.a);
 		
-	//finalColor.x = finalColor.x *0.222 + 0.05*cos(time);
-	//finalColor.y = finalColor.y *0.707 + 0.05*cos(time);
-	//finalColor.z = finalColor.z *0.071 + 0.05*cos(time);
+	finalColor.x = finalColor.x *0.222 + 0.05*cos(time);
+	finalColor.y = finalColor.y *0.707 + 0.05*cos(time);
+	finalColor.z = finalColor.z *0.071 + 0.05*cos(time);
 	
 	float promedio = (finalColor.r + finalColor.g + finalColor.b) / 3;
 	
-	//finalColor.rgb = promedio + 0.001*cos(time);
+	//finalColor.rgb = promedio + 0.05*cos(time);
 	
 	return finalColor;
 }

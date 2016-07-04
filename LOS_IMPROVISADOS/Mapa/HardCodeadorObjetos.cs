@@ -39,12 +39,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			
 			#region Barriles
             Barril barril1 = new Barril();
-            barril1.cambiarVectores(new Vector3(20245.44f, 55f, 9634.468f), new Vector3(1f, 1f, 1f));
+            //barril1.cambiarVectores(new Vector3(20245.44f, 55f, 9634.468f), new Vector3(1f, 1f, 1f));
             barril1.cambiarVectores(new Vector3(20245.44f, 30f, 9634.468f), new Vector3(1f, 1f, 1f));
             lista.Add(barril1);
 
             Barril barril2 = new Barril();
-            barril2.cambiarVectores(new Vector3(1139.93f, 55f, 590.56f), new Vector3(1f, 1f, 1f));
+            //barril2.cambiarVectores(new Vector3(1139.93f, 55f, 590.56f), new Vector3(1f, 1f, 1f));
             barril2.cambiarVectores(new Vector3(1139.93f, 30f, 590.56f), new Vector3(1f, 1f, 1f));
             lista.Add(barril2); 
 			#endregion Barriles

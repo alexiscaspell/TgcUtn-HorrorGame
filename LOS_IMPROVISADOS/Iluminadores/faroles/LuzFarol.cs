@@ -6,6 +6,7 @@ using System.Drawing;
 using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA;
 using TgcViewer.Utils.TgcGeometry;
 using System.Collections.Generic;
+using TgcViewer.Utils.Shaders;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
 {
@@ -32,7 +33,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
             GuiController.Instance.Modifiers.addColor("farolSpecular", Color.LightYellow);
             
             currentShader = GuiController.Instance.Shaders.TgcMeshPointLightShader;
-  		}
+      		}
         
         public override void configurarEfecto(TgcMesh mesh)
         {

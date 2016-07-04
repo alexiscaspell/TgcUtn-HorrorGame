@@ -25,6 +25,17 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
         {
         	currentShader = TgcShaders.loadEffect(GuiController.Instance.AlumnoEjemplosDir + 
         	                         "LOS_IMPROVISADOS\\Shaders\\shaderTerror.fx");
+        	
+        	//GuiController.Instance.Modifiers.addColor("luzOscuraColor", Color.LightYellow);
+            //GuiController.Instance.Modifiers.addFloat("luzOscuraIntensidad", 0f, 150f, 19f);
+            //GuiController.Instance.Modifiers.addFloat("luzOscuraAtenuacion", 0.1f, 2f, 0.1f);
+            //GuiController.Instance.Modifiers.addFloat("luzOscuraEspecularEx", 0, 20, 4f);
+
+            //Modifiers de material
+            //GuiController.Instance.Modifiers.addColor("luzOscuraEmissive", Color.Black);
+            //GuiController.Instance.Modifiers.addColor("luzOscuraAmbient", Color.LightYellow);
+            //GuiController.Instance.Modifiers.addColor("luzOscuraDiffuse", Color.Gray);
+            //GuiController.Instance.Modifiers.addColor("luzOscuraSpecular", Color.LightYellow);
         }
         
         public override void configurarEfecto(TgcMesh mesh)
@@ -32,16 +43,17 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
         	    //Cargar variables shader de la luz
                 mesh.Effect.SetValue("lightColor", ColorValue.FromColor(Color.Gray));
                 mesh.Effect.SetValue("lightPosition", TgcParserUtils.vector3ToFloat4Array(camaraFPS.posicion));
-                mesh.Effect.SetValue("lightIntensity", 9f);
+                mesh.Effect.SetValue("lightIntensity", 120f);
                 //mesh.Effect.SetValue("lightAttenuation", 0.13f);
-                mesh.Effect.SetValue("lightAttenuation", 0.015f);
-                mesh.Effect.SetValue("materialSpecularExp", 0.5f);
+                mesh.Effect.SetValue("lightAttenuation", 0.075f);
+                mesh.Effect.SetValue("materialSpecularExp", 0.1f);
 
                 mesh.Effect.SetValue("materialEmissiveColor", ColorValue.FromColor(Color.Black));
                 mesh.Effect.SetValue("materialAmbientColor", ColorValue.FromColor(Color.DarkGray));
                 mesh.Effect.SetValue("materialDiffuseColor", ColorValue.FromColor(Color.White));
                 mesh.Effect.SetValue("materialSpecularColor", ColorValue.FromColor(Color.White));
-        }
+                
+           }
 
         public override void render()
         {
