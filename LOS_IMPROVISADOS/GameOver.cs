@@ -22,8 +22,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 	/// </summary>
 	public class GameOver
 	{
-		TgcSprite gameOverScreen;
-		TgcStaticSound sonidoGameOver;
+		protected TgcSprite gameOverScreen;
+		protected TgcStaticSound sonidoGameOver;
 		TgcStaticSound sonidoBoss;
 				
 		bool activado = false;
@@ -32,9 +32,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		bool reproducido = false;
 		
 		//Para la animacion
-		float escaladoMax;
-		float escalado = 0;
-		const float speed = 0.5f;
+		protected float escaladoMax;
+		protected float escalado = 0;
+		protected const float speed = 0.5f;
 		
 		#region singleton
 		private static GameOver instance;
@@ -46,7 +46,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			}
 		}
 		
-		private GameOver()
+		protected GameOver()
 		{
 			gameOverScreen = new TgcSprite();
 			gameOverScreen.Texture = TgcTexture.createTexture(
@@ -92,7 +92,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
 			pantalla.sonidoGameOver = new TgcStaticSound();
 			pantalla.sonidoGameOver.loadSound(
-				GuiController.Instance.AlumnoEjemplosDir + "Media\\GameOver\\nada.wav");
+				GuiController.Instance.AlumnoEjemplosDir + "Media\\GameOver\\musicBox.wav");
 			
 			pantalla.sonidoBoss = new TgcStaticSound();
 			pantalla.sonidoBoss.loadSound(
