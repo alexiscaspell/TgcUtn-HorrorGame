@@ -284,9 +284,25 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private bool pjTapadoPorObjeto()
         {
-            TgcBoundingSphere cuerpoTrucho = new TgcBoundingSphere(Personaje.Instance.cuerpo.Center,150f);
-            TgcBoundingBox b = new TgcBoundingBox();
-            return Mapa.Instance.colisionaPersonajeConAlgunObjeto(cuerpoTrucho, ref b);
+            Vector3 vectorInutil;
+            Vector3 posInicial = cuerpo.Position;
+            posInicial.Y = cuerpo.BoundingBox.PMax.Y;
+            Vector3 posFinal = CamaraFPS.Instance.camaraFramework.Position;
+
+            foreach (TgcMesh mesh in Mapa.Instance.objetosDeCuarto(ColinaAzul.Instance.dondeEstaPesonaje()))
+            {
+                bool resultado = TgcCollisionUtils.intersectSegmentAABB(posInicial, posFinal, mesh.BoundingBox, out vectorInutil);
+                if (resultado)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+
+            //TgcBoundingSphere cuerpoTrucho = new TgcBoundingSphere(Personaje.Instance.cuerpo.Center,150f);
+            //TgcBoundingBox b = new TgcBoundingBox();
+            //return Mapa.Instance.colisionaPersonajeConAlgunObjeto(cuerpoTrucho, ref b);
         }
 
         private void updateEstadoAturdido()
