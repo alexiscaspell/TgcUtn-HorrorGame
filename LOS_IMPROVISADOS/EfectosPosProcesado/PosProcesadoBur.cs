@@ -58,7 +58,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
 
 
             //Cargar shader con efectos de Post-Procesado
-            effect = TgcShaders.loadEffect(GuiController.Instance.AlumnoEjemplosDir + "Media\\shader\\Blur.fx");
+            effect = TgcShaders.loadEffect(GuiController.Instance.AlumnoEjemplosDir + "\\LOS_IMPROVISADOS\\Shaders\\Blur.fx");
             effect.Technique = "BlurTechnique";
             
 
