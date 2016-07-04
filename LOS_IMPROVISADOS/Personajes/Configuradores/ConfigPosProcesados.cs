@@ -24,16 +24,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Configuradores
             PosProcesadoAlarma posProcesadoAlarma = new PosProcesadoAlarma(mapa);
             PosProcesoHechoMierda efectoHechoMierda = new PosProcesoHechoMierda(mapa);
 
-            efectoHechoMierda.init();
-
-            posProcesados = new List<APosProcesado>() { posProcesadoAlarma };
-            posProcesados.Add(efectoHechoMierda);
+            posProcesados = new List<APosProcesado>() { posProcesadoAlarma , efectoHechoMierda };
         }
 
         public void renderizarPosProcesado(float elapsedTime)
         {
-            //posProcesados[0].render(elapsedTime);
-            posProcesados[1].render(elapsedTime);
+            posProcesados[0].render(elapsedTime);
+            //posProcesados[1].render(elapsedTime);
         }
     }
 }

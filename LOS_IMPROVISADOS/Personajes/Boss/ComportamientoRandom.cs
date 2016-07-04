@@ -12,7 +12,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Boss
 
         private Vector3 proximoPto = new Vector3(0, 0, 0);
 
-        private bool primeraIteracion = true;
+        public bool primeraIteracion = true;
 
         public ComportamientoRandom()
         {
@@ -65,7 +65,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Boss
 
             return ptosActivos[i].getPosition();
         }
-
     }
 }
 

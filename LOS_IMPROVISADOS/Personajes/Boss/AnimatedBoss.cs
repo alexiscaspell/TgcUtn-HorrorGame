@@ -284,28 +284,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private bool pjTapadoPorObjeto()
         {
-            //TgcBoundingSphere cuerpoTrucho = new TgcBoundingSphere(Personaje.Instance.cuerpo.Center,50f);
-            //TgcBoundingBox b = new TgcBoundingBox();
-            //return Mapa.Instance.colisionaPersonaje(cuerpoTrucho, ref b);
-            Vector3 vectorInutil;
-            string textoInutil = "";
-            Vector3 posFinal = CamaraFPS.Instance.camaraFramework.Position;
-            Vector3 posInicial = cuerpo.BoundingBox.calculateBoxCenter();
-            posInicial.Y = cuerpo.BoundingBox.PMax.Y;
-            bool hayObjetosEnMedio = false;
-
-            foreach (TgcMesh mesh in Mapa.Instance.meshesDeCuartoEnLaPosicion(posFinal,ref textoInutil))
-            {
-                hayObjetosEnMedio = TgcCollisionUtils.intersectSegmentAABB(posInicial, posFinal, mesh.BoundingBox, out vectorInutil);
-                if (hayObjetosEnMedio)
-                {
-                    return true;
-                }
-            }
-
-            TgcBoundingSphere cuerpoTrucho = new TgcBoundingSphere(Personaje.Instance.cuerpo.Center,50f);
+            TgcBoundingSphere cuerpoTrucho = new TgcBoundingSphere(Personaje.Instance.cuerpo.Center,150f);
             TgcBoundingBox b = new TgcBoundingBox();
-            return Mapa.Instance.colisionaPersonaje(cuerpoTrucho, ref b);
+            return Mapa.Instance.colisionaPersonajeConAlgunObjeto(cuerpoTrucho, ref b);
         }
 
         private void updateEstadoAturdido()
@@ -332,6 +313,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                     {
                         contadorParaTeletransporte = 0;
                         teletransportarAlBossAUnaPosicionPasadaPorElPersonaje();
+                        comportamiento = new ComportamientoRandom();
                     }
                 }
                     return;
