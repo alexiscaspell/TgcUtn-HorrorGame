@@ -33,7 +33,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.general
                 mesh.Effect.SetValue("lightColor", ColorValue.FromColor(Color.Gray));
                 mesh.Effect.SetValue("lightPosition", TgcParserUtils.vector3ToFloat4Array(camaraFPS.posicion));
                 mesh.Effect.SetValue("lightIntensity", 9f);
-                mesh.Effect.SetValue("lightAttenuation", 0.13f);
+                //mesh.Effect.SetValue("lightAttenuation", 0.13f);
+                mesh.Effect.SetValue("lightAttenuation", 0.015f);
                 mesh.Effect.SetValue("materialSpecularExp", 0.5f);
 
                 mesh.Effect.SetValue("materialEmissiveColor", ColorValue.FromColor(Color.Black));

@@ -316,14 +316,13 @@ VS_OUTPUT_DIFFUSE_MAP_AND_LIGHTMAP vs_modificado(VS_INPUT_DIFFUSE_MAP_AND_LIGHTM
 {
 	VS_OUTPUT_DIFFUSE_MAP_AND_LIGHTMAP output;
 	
-	//Animar Posicion
-	//input.Position.x += clamp(time,1,100) * cos(time);
-	//input.Position.y += clamp(time,1,100) * sin(time);
-	//input.Position.z += clamp(time,1,100) * cos(time);
+	input.Position.x += abs( 50*cos(time) );
+	input.Position.y -= abs( 30*sin(time) );
+	input.Position.z += abs( 35*sin(time) );
 	
-	input.Position.x += 50 * cos(time);
-	input.Position.y += 40 * cos(time);
-	input.Position.z += 30 * sin(time);
+	//input.Position.x += abs( 50 * cos(time) );
+	//input.Position.y += abs( 40 * cos(time) );
+	//input.Position.z += abs( 30 * sin(time) );
 	
 	//Proyecto pos
 	output.Position = mul ( input.Position, matWorldViewProj);
@@ -405,7 +404,7 @@ float4 ps_modificado(PS_INPUT_DIFFUSE_MAP_AND_LIGHTMAP input) : COLOR0
 	
 	float promedio = (finalColor.r + finalColor.g + finalColor.b) / 3;
 	
-	finalColor.rgb = promedio + 0.001*cos(time);
+	//finalColor.rgb = promedio + 0.001*cos(time);
 	
 	return finalColor;
 }
