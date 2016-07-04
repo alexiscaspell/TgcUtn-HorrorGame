@@ -186,6 +186,31 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             }
         }
 
+        public List<TgcMesh> objetosDeCuarto(string cuarto)
+        {
+            List<TgcMesh> objetos = new List<TgcMesh>();
+
+            List<string> nombresProhibidos = new List<string> { "Floor", "East", "West", "North", "South" };
+
+            foreach (TgcMesh mesh in cuartos[cuarto])
+            {
+                string nombreMesh = mesh.Name;
+
+                bool esParteDePared = false;
+
+                foreach (string nombreProhibido in nombresProhibidos)
+                {
+                    esParteDePared = esParteDePared || nombreMesh.Contains(nombreProhibido);
+                }
+
+                if (!esParteDePared)
+                {
+                    objetos.Add(mesh);
+                }
+            }
+            return objetos;
+        }
+
         private string parsearMesh(TgcMesh mesh)
         {
             string index = mesh.Name.Split('_')[0];
@@ -293,7 +318,20 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             return false;
         }
 
-        private string cuartoAnterior = "";
+        //private string cuartoAnterior = "";
+
+        internal bool colisionaPersonajeConAlgunObjeto(TgcBoundingSphere cuerpoPersonaje, ref TgcBoundingBox b)
+        {
+            foreach (TgcMesh mesh in objetosDeCuarto(ColinaAzul.Instance.dondeEstaPesonaje()))
+            {
+                if (ColinaAzul.Instance.colisionaEsferaCaja(cuerpoPersonaje,mesh.BoundingBox))
+                {
+                    b = mesh.BoundingBox;
+                    return true;
+                }
+            }
+            return false;
+        }
 
         /*public void updateEscenaFiltrada()
         {
