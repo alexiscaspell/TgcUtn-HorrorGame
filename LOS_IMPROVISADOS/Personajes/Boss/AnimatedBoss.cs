@@ -216,11 +216,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 updateVelocity();
                 updateComportamiento();
                 seguirPersonaje();
-                if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.Space))
-                {
-                    comportamiento = comportamiento;
-                    int i = 9;
-                }
             }
         }
 
@@ -364,7 +359,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         
         public void teletransportarAlBossAUnaPosicionPasadaPorElPersonaje()
         {
-            int div = DiosMapa.Instance.PORCION_DE_PUNTOS_QUE_ELIMINO_CUANDO_EL_BOSS_SE_TELETRANSPORTA;
+            float div = /*DiosMapa.Instance.*/PORCION_DE_PUNTOS_QUE_ELIMINO_CUANDO_EL_BOSS_SE_TELETRANSPORTA;
 
             int cantidad = Convert.ToInt32((DiosMapa.Instance.cantidadDeElementosDeListaPersecucion() / div));
             DiosMapa.Instance.elminarPrimerosPuntosDePersecucion(cantidad);
