@@ -9,11 +9,16 @@ using TgcViewer.Utils.TgcSceneLoader;
 using TgcViewer.Utils.Interpolation;
 using System.Drawing;
 using TgcViewer.Utils;
+using TgcViewer.Utils.TgcGeometry;
+using AlumnoEjemplos.LOS_IMPROVISADOS;
+using Microsoft.DirectX;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
 {
     class PosProcesadoAlarma : APosProcesado
     {
+        protected const float renderDistance = 5000;
+
         public PosProcesadoAlarma(Mapa mapa) : base(mapa)
         {
             init();
@@ -21,7 +26,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
 
         public override void init()
         {
-            meshes = mapa.escena.Meshes;//escenaFiltrada;
+            //Inicio el fondoNegro
+            TgcTexture texturaFondo = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir +
+                                                               "Media\\mapa\\fondoNegro.png");
+
+            cajaNegra = TgcBox.fromSize(new Vector3(renderDistance, renderDistance, renderDistance), texturaFondo);
+
+            meshes = new List<TgcMesh>();
 
             Device d3dDevice = GuiController.Instance.D3dDevice;
 
@@ -74,7 +85,24 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
 
         public override void render(float elapsedTime)
         {
-            meshes = mapa.escena.Meshes;//escenaFiltrada;
+            meshes.Clear();
+
+            updateFondo();
+
+            foreach (TgcMesh mesh in mapa.escena.Meshes)
+            {
+                if (TgcCollisionUtils.testAABBAABB(mesh.BoundingBox, cajaNegra.BoundingBox))
+                {
+                    meshes.Add(mesh);
+                }
+            }
+            foreach (Accionable a in mapa.objetos)
+            {
+                if (TgcCollisionUtils.testAABBAABB(a.getMesh().BoundingBox, cajaNegra.BoundingBox))
+                {
+                    meshes.Add(a.getMesh());
+                }
+            }
 
             Device d3dDevice = GuiController.Instance.D3dDevice;
 
@@ -163,6 +191,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
             alarmTexture.dispose();
             screenQuadVB.Dispose();
             renderTarget2D.Dispose();
+        }
+
+        public TgcBox cajaNegra;
+
+        public void updateFondo()
+        {
+            cajaNegra.Position = CamaraFPS.Instance.camaraFramework.Position + CamaraFPS.Instance.camaraFramework.viewDir * (renderDistance / 2);
         }
     }
 }
