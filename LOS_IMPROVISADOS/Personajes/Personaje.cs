@@ -263,6 +263,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             }
         }
 
+        internal void calmate()
+        {
+            estado = state.ESCONDIDO;
+        }
+
         /*private int pieActual = 1;
 
         private void reproducirSonidoPasos()

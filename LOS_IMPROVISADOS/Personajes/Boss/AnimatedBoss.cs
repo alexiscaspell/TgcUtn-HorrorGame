@@ -261,6 +261,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 if (pjEscondido(pj))
                 {
                     estado = state.PASEANDO;
+                    Personaje.Instance.calmate();
                 }
             }
 

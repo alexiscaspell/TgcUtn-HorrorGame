@@ -200,10 +200,12 @@ VS_OUTPUT_DIFFUSE_MAP vs_modificado1(VS_INPUT_DIFFUSE_MAP input)
 	//input.Position.x *= abs (clamp(time,1,100) * cos(time) );
 	//input.Position.y *= abs (clamp(time,1,100) * sin(time) );
 	//input.Position.z *= abs (clamp(time,1,100) * cos(time) );
+
+	float constante = 7;
 	
-	input.Position.x += 50*cos(time) + 10*sin(time)*cos(3*time);
-	input.Position.y -= 30*sin(time) + 30*cos(time)*sin(4*time);
-	input.Position.z += 35*sin(time) + 50*cos(time)*cos(2*time);
+	input.Position.x += constante*(cos(time) + sin(time)*cos(3*time));
+	input.Position.y -= constante*(sin(time) + cos(time)*sin(4*time));
+	input.Position.z += constante*(sin(time) + cos(time)*cos(2*time));
 	
 	//Proyectar posicion
 	output.Position = mul(input.Position, matWorldViewProj);
