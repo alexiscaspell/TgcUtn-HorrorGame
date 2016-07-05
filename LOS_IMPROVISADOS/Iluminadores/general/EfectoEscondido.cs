@@ -45,10 +45,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
             //Cargar variables shader de la luz
             mesh.Effect.SetValue("lightColor", ColorValue.FromColor(Color.Gray));
             mesh.Effect.SetValue("lightPosition", TgcParserUtils.vector3ToFloat4Array(camaraFPS.posicion));
-            mesh.Effect.SetValue("lightIntensity", 50f);
+            mesh.Effect.SetValue("lightIntensity", 9f);
             //mesh.Effect.SetValue("lightAttenuation", 0.13f);
-            mesh.Effect.SetValue("lightAttenuation", 0.075f);
-            mesh.Effect.SetValue("materialSpecularExp", 0.1f);
+            mesh.Effect.SetValue("lightAttenuation", 0.015f);
+            mesh.Effect.SetValue("materialSpecularExp", 0.2f);
 
             mesh.Effect.SetValue("materialEmissiveColor", ColorValue.FromColor(Color.Black));
             mesh.Effect.SetValue("materialAmbientColor", ColorValue.FromColor(Color.DarkGray));

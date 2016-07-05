@@ -34,7 +34,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			lista.Add(linterna);
 			
 			FarolObjeto farol = new FarolObjeto();
-			farol.cambiarVectores(new Vector3(10923.17f,217.0f,16466.28f), new Vector3(1,1,1));
+			farol.cambiarVectores(new Vector3(10923.17f,195f,16466.28f), new Vector3(0.75f,0.75f,0.75f));
 			lista.Add(farol);
 			
 			#region Barriles
