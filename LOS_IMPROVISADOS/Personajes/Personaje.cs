@@ -239,9 +239,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             
             //Agrego el render para el final
             creditosEnd.render();
-            
-            //Aumento el timer
-            timerRetrasoPostProcesadoYEscondido += GuiController.Instance.ElapsedTime;
         }
 
         private void renderizarLoQueVeo()
@@ -258,7 +255,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             if (estado==state.ESCONDIDO)
             {
+                timerRetrasoPostProcesadoYEscondido += GuiController.Instance.ElapsedTime;
+
             	bool yaTermino = false;
+
+                sonidoRespiracion.play();
             	
             	if(timerRetrasoPostProcesadoYEscondido < 4)//4 me parece mejor
             	{
@@ -267,16 +268,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 else
                 {            		            	
                 	yaTermino = configPosProcesado.renderizarEfectoEscondido() || !agachado();
-                	
-                	sonidoRespiracion.play();
-
-                    timerRetrasoPostProcesadoYEscondido = 0;
             	}
 
                 if (yaTermino)
                 {
                     estado = state.PASEANDO;
-                    sonidoRespiracion.stop();
+                    timerRetrasoPostProcesadoYEscondido = 0;
+                    //sonidoRespiracion.stop();
                 }
             }
 
