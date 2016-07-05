@@ -54,7 +54,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private TgcStaticSound gritoCuandoVeAPj = new TgcStaticSound();
         //private float timerRespiracion;
 
-        private const float aumentoVelocidad = 1.2f;//Se va hardcodeando
+        private const float aumentoVelocidad = 1.5f;//Se va hardcodeando
         private float velocidadNormal;
  
 
@@ -62,7 +62,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private float contadorParaTeletransporte = 0f;
         private float TIEMPO_PARA_TELETRANSPORTAR_AL_BOSS = 60f;
-        private float PORCION_DE_PUNTOS_QUE_ELIMINO_CUANDO_EL_BOSS_SE_TELETRANSPORTA = 1.6f;
+        private float PORCION_DE_PUNTOS_QUE_ELIMINO_CUANDO_EL_BOSS_SE_TELETRANSPORTA = 1.65f;
 
         private AnimatedBoss()
         {
