@@ -16,10 +16,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
 
         private float blur_intensity = 0.01f;
         private float tiempo = 0f;
-        private float signo = 1f;
+        private float signo = 1f; 
 
-        protected const float TIEMPO_EJECUCION_EFECTO = 0.5f;
-        protected const float INTENSIDAD_MAX = 0.025f;
+        protected const float TIEMPO_EJECUCION_EFECTO = 0.12f;
+        protected const float INTENSIDAD_MAX = 0.020f;
         protected const float INTENSIDAD_MIN = 0.001f;
         protected const float AUMENTO = 0.001f;
         //private Surface depthStencil;
