@@ -61,6 +61,7 @@ namespace AlumnoEjemplos.MiGrupo
             menu.init(application);
 
             ButtonReturn volver = new ButtonReturn();
+            volver.posicionBoton.Y = 0.8f;
             volver.init();
             volver.setMenuAnterior(menuAnterior);
 
@@ -91,6 +92,19 @@ namespace AlumnoEjemplos.MiGrupo
         internal void setApplication(EjemploAlumno ejemploAlumno)
         {
             application = ejemploAlumno;
+        }
+
+        internal GameMenu menuPausa()
+        {
+            GameMenu menu = new GameMenu("menuFondo");
+            menu.init(application);
+
+            ButtonBackToPlay volver = new ButtonBackToPlay();
+            volver.init();
+
+            menu.agregarBoton(volver);
+
+            return menu;
         }
     }
 }

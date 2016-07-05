@@ -28,6 +28,8 @@ namespace AlumnoEjemplos.MiGrupo
         public GameMenu menuActual;
 
         DiosMapa diosMapa;
+        private FactoryMenu factoryMenu;
+        private GameMenu menuPausa;
 
         public override string getCategory()
         {
@@ -70,10 +72,12 @@ namespace AlumnoEjemplos.MiGrupo
             sonidoFondo.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\asd16.wav");
             sonidoFondo.play(true);
 
-            FactoryMenu factoryMenu = FactoryMenu.Instance;
+            factoryMenu = FactoryMenu.Instance;
             factoryMenu.setApplication(this);
 
             menuActual = factoryMenu.menuPrincipal();
+
+            menuPausa = factoryMenu.menuPausa();
 
             playing = false;
             
@@ -93,6 +97,13 @@ namespace AlumnoEjemplos.MiGrupo
             }
 
             else {
+
+                if (d3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.P))//Menu de pausa, tiene error de que podes seguir caminando
+                {
+                    playing = false;
+                    menuActual = menuPausa;
+                    return;
+                }
 
              d3dDevice.Clear(ClearFlags.Target | ClearFlags.ZBuffer, Color.Black, 1.0f, 0);
 

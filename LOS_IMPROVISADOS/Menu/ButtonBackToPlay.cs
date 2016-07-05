@@ -2,17 +2,16 @@
 
 namespace AlumnoEjemplos.MiGrupo
 {
-    internal class ButtonExit : GameButton
+    internal class ButtonBackToPlay:GameButton
     {
         public void init()
         {
-            base.init("botonExit2", new Vector2(0.72f, 0.58f));
+            base.init("botonVolver", new Vector2(0.77f, 0.8f));
         }
 
         public override void execute(EjemploAlumno app, GameMenu menu)
         {
-            //Por ahora nada
-            //SendKeys.Send("{esc}");
+            app.playing = true;
         }
     }
 }
