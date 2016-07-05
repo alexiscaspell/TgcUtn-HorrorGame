@@ -68,6 +68,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private TgcStaticSound sonidoRespiracion;
 
         //private List<TgcStaticSound> sonidoPies;
+        
+        //timer para que no sea tan brusco el cambio de estado
+        float timer = 0;
 
         private Personaje()
         {
@@ -236,6 +239,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             
             //Agrego el render para el final
             creditosEnd.render();
+            
+            //Aumento el timer
+            timer += GuiController.Instance.ElapsedTime;
         }
 
         private void renderizarLoQueVeo()
@@ -252,9 +258,17 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             if (estado==state.ESCONDIDO)
             {
-                bool yaTermino = configPosProcesado.renderizarEfectoEscondido() || !agachado();
-
-                sonidoRespiracion.play();
+            	bool yaTermino = false;
+            	
+            	if(timer < 7)
+            	{
+            		configPosProcesado.renderizarPosProcesado(GuiController.Instance.ElapsedTime,2);
+            	}else{            		            	
+                	//yaTermino = configPosProcesado.renderizarEfectoEscondido() || !agachado();
+                	yaTermino = configPosProcesado.renderizarEfectoEscondido();
+                	
+                	sonidoRespiracion.play();
+            	}
 
                 if (yaTermino)
                 {
@@ -276,6 +290,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         internal void calmate()
         {
             estado = state.ESCONDIDO;
+            
+            Random r = new Random();
+            timer = r.Next() % 5;
         }
 
         /*private int pieActual = 1;
