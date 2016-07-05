@@ -14,16 +14,16 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.fluors
             sprite = new TgcSprite();
             sprite.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\manoFluor.png");
 
-            posX = 0.205f;
-            posY = 0.1f;
-            escX = 0.0004f;
-            escY = 0.0004f;
+            posX = 0.79f;
+            posY = 0.2f;
+            escX = 0.00053f;
+            escY = 0.00053f;
         }
 
         public override void init()
         {
             Size screenSize = ScreenSizeClass.ScreenSize;
-            sprite.Position = new Vector2(screenSize.Width - (screenSize.Width * posX), posY * screenSize.Height);
+            sprite.Position = new Vector2(screenSize.Width * posX, posY * screenSize.Height);
             sprite.Scaling = new Vector2(escX * screenSize.Width, escY * screenSize.Height);
         }
 

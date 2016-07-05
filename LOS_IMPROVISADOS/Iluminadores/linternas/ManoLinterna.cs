@@ -12,18 +12,18 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
         public ManoLinterna()
         {
             sprite = new TgcSprite();
-            sprite.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\manoLinterna.png");
+            sprite.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\manoFarol.png");//manoLinterna.png");
 
-            posX = 0.55f;
-            posY = 0.75f;
-            escX = 0.0003f;
-            escY = 0.0005f;
+            posX = 0.45f;
+            posY = 0.7f;
+            escX = 0.0004f;
+            escY = 0.0007f;
         }
 
         public override void init()
         {
             Size screenSize = ScreenSizeClass.ScreenSize;
-            sprite.Position = new Vector2(screenSize.Width - (screenSize.Width * posX), posY * screenSize.Height);
+            sprite.Position = new Vector2(screenSize.Width * posX, posY * screenSize.Height);
             sprite.Scaling = new Vector2(escX * screenSize.Width, escY * screenSize.Height); ;
         }
 
