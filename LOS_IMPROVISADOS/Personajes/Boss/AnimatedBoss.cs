@@ -260,6 +260,20 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
                 if (!estoyConPj)
                 {
+                    Puerta puertaCercana = Mapa.Instance.encontrarPuertaPersecucionCercana(cuerpo.Position);
+
+                    if (puertaCercana!=null)
+                    {
+                        //if (!puertaCercana.abierta)
+                        {
+                            puertaCercana.animacionCamaraActivada = false;
+                            puertaCercana.execute();//acciona(cuerpo.Position, direccionVista);
+                            puertaCercana.animacionCamaraActivada = true;
+                        }
+
+                        Mapa.Instance.quitarPuertaDePersecucion(puertaCercana);
+                    }
+
                     if (pjEscondido(pj))
                     {
                         estado = state.PASEANDO;

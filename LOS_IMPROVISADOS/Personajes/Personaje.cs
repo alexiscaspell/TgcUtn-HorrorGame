@@ -241,6 +241,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             creditosEnd.render();
         }
 
+        internal bool estaSiendoPerseguido()
+        {
+            return estado == state.ASUSTADO;
+        }
+
         private void renderizarLoQueVeo()
         {
             if (estado==state.ASUSTADO)

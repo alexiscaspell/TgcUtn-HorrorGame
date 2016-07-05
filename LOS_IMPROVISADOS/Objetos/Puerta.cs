@@ -27,7 +27,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		
 		const float speed = 50;
 		float anguloRotacion = 0;
-		bool abierta = false;
+		public bool abierta = false;
 		bool rotando = false;
 		
 		bool paraleloEjeZ; //para el tema de la animacion de las puertas
@@ -35,6 +35,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         TgcStaticSound puertaCerrada = new TgcStaticSound();
         TgcStaticSound puertaAbriendose = new TgcStaticSound();
         int nroPuerta;//Para que checkee que tenga la misma llave
+        public bool animacionCamaraActivada = true;
 
         //Angulo en grados
         public Puerta(){}
@@ -251,7 +252,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 				nroPuerta = -1; //Para necesitar usar la llave 1 sola vez
 
                 //Aca hago que le diga al boss que puede pasar o no
-                DiosMapa.Instance.activarODesactivarPunto(mesh.BoundingBox.Position);
+                //DiosMapa.Instance.activarODesactivarPunto(mesh.BoundingBox.Position);
 				
 				if(abierta && paraleloEjeZ)
 				{
@@ -268,6 +269,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 				}
 				
 				puertaAbriendose.play();
+
+                if(animacionCamaraActivada)
+                { 
 				
 				//Le paso la direccion x o z, dependiendo del tipo de puerta
 				if(paraleloEjeZ)
@@ -276,8 +280,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 				}else{
 					camara.animar(this.mesh.Position.Z, !abierta, paraleloEjeZ);
 				}
-				
-				return;
+
+                }
+
+                return;
 			}
 			
 			puertaCerrada.play();
