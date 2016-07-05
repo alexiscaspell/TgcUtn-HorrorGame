@@ -266,13 +266,14 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
                 sonidoRespiracion.play();
             	
-            	if(timerRetrasoPostProcesadoYEscondido < 5)//4 me parece mejor
+            	if(timerRetrasoPostProcesadoYEscondido < 7)//4 me parece mejor
             	{
             		configPosProcesado.renderizarPosProcesado(GuiController.Instance.ElapsedTime,2);
             	}
                 else
                 {            		            	
-                	yaTermino = configPosProcesado.renderizarEfectoEscondido() || !agachado();
+                	//yaTermino = configPosProcesado.renderizarEfectoEscondido() || !agachado();
+                	yaTermino = configPosProcesado.renderizarEfectoEscondido();
             	}
 
                 if (yaTermino)
