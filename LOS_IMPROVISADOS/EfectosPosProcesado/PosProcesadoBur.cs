@@ -22,7 +22,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
         protected const float INTENSIDAD_MAX = 0.025f;
         protected const float INTENSIDAD_MIN = 0.001f;
         protected const float AUMENTO = 0.001f;
-
+        //private Surface depthStencil;
+        //private Surface stencilAnterior;
 
         public PosProcesadoBur(Mapa mapa) : base(mapa)
         {
@@ -32,14 +33,14 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
         public override void init()
         {
             //Inicio el fondoNegro
-            TgcTexture texturaFondo = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir +"Media\\mapa\\fondoNegro.png");
-            cajaNegra = TgcBox.fromSize(new Vector3(renderDistance, renderDistance, renderDistance), texturaFondo);
-            meshes = new List<TgcMesh>();
+            //TgcTexture texturaFondo = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir +"Media\\mapa\\fondoNegro.png");
+            //cajaNegra = TgcBox.fromSize(new Vector3(renderDistance, renderDistance, renderDistance), texturaFondo);
+            //meshes = new List<TgcMesh>();
 
             Device d3dDevice = GuiController.Instance.D3dDevice;
 
             GuiController.Instance.CustomRenderEnabled = true;
-
+            
             CustomVertex.PositionTextured[] screenQuadVertices = new CustomVertex.PositionTextured[]
             {
                 new CustomVertex.PositionTextured( -1, 1, 1, 0,0),
@@ -55,8 +56,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
             renderTarget2D = new Texture(d3dDevice, d3dDevice.PresentationParameters.BackBufferWidth
                     , d3dDevice.PresentationParameters.BackBufferHeight, 1, Usage.RenderTarget,
                         Format.X8R8G8B8, Pool.Default);
+                        
+            //int pantallaWidth = ScreenSizeClass.ScreenSize.Width;
+            //int pantallaHeight = ScreenSizeClass.ScreenSize.Height;
+            //renderTarget2D = new Texture(d3dDevice, pantallaWidth, pantallaHeight, 1, Usage.RenderTarget, Format.X8R8G8B8, Pool.Default);
 
-
+            //depthStencil = d3dDevice.CreateDepthStencilSurface(pantallaWidth, pantallaHeight, DepthFormat.D24S8, MultiSampleType.None, 0, true);
             //Cargar shader con efectos de Post-Procesado
             effect = TgcShaders.loadEffect(GuiController.Instance.AlumnoEjemplosDir + "Media\\Shaders\\PostProcess.fx");
             effect.Technique = "BlurTechnique";
@@ -67,6 +72,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
             intVaivenAlarm.Max = 1;
             intVaivenAlarm.Speed = 2;
             intVaivenAlarm.reset();
+
+            //stencilAnterior = d3dDevice.DepthStencilSurface;
             
         }
 
@@ -85,7 +92,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
                 }
             }
 
-            meshes.Clear();
+            /*meshes.Clear();
             updateFondo();
 
             foreach (TgcMesh mesh in mapa.escena.Meshes)
@@ -101,32 +108,36 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
                 {
                     meshes.Add(a.getMesh());
                 }
-            }
+            }*/
 
             Device d3dDevice = GuiController.Instance.D3dDevice;
 
             pOldRT = d3dDevice.GetRenderTarget(0);
             Surface pSurf = renderTarget2D.GetSurfaceLevel(0);
             d3dDevice.SetRenderTarget(0, pSurf);
+                
             d3dDevice.Clear(ClearFlags.Target | ClearFlags.ZBuffer, Color.Black, 1.0f, 0);
-
 
             drawSceneToRenderTarget(d3dDevice);
 
             pSurf.Dispose();
 
             d3dDevice.SetRenderTarget(0, pOldRT);
-            
+
             drawPostProcess(d3dDevice);
+
+            //d3dDevice.DepthStencilSurface = stencilAnterior;//adasdads
         }
 
         public override void drawSceneToRenderTarget(Device d3dDevice)
         {
             d3dDevice.BeginScene();
-            foreach (TgcMesh m in meshes)
+            /*foreach (TgcMesh m in meshes)
             {
                 m.render();
-            }
+            }*/
+            Personaje.Instance.configIluminador.renderizarIluminador();
+            AnimatedBoss.Instance.render();
         }
 
 
@@ -167,11 +178,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
             renderTarget2D.Dispose();
         }
 
-        public TgcBox cajaNegra;
+        //public TgcBox cajaNegra;
 
-        public void updateFondo()
+        /*public void updateFondo()
         {
             cajaNegra.Position = CamaraFPS.Instance.camaraFramework.Position + CamaraFPS.Instance.camaraFramework.viewDir * (renderDistance / 2);
-        }
+        }*/
     }
 }

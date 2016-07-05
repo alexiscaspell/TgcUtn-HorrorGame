@@ -103,21 +103,12 @@ namespace AlumnoEjemplos.MiGrupo
 
             camaraFPS.render();
 
-            personaje.update();
-
-            //boss.update(elapsedTime);
-            //boss.render();
-
             bossAnimado.update();
             bossAnimado.render();
 
-            //puerta.update(elapsedTime);
-            //puerta.render();
+            personaje.update();
 
-            
-            //menuPrincipal.render();
-            
-            //cama.render();
+            //personaje.configPosProcesado.renderizarPosProcesado(elapsedTime, 2);
             
             GameOver.Instance.render(elapsedTime);
             

@@ -7,6 +7,7 @@ using TgcViewer.Utils.TgcSceneLoader;
 using TgcViewer.Utils.Sound;
 using TgcViewer;
 using System;
+using AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Configuradores
 {

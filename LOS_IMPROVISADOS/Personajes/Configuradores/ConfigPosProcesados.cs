@@ -1,10 +1,13 @@
 ﻿using AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado;
 using System.Collections.Generic;
+using System;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Configuradores
 {
     class ConfigPosProcesados
     {
+        private EfectoEscondido escondidoLight;
+
         public Mapa mapa { get; set; }
 
         public List<APosProcesado> posProcesados { get; set; }
@@ -20,6 +23,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Configuradores
             PosProcesadoAlarma posProcesadoAlarma = new PosProcesadoAlarma(mapa);
             PosProcesoHechoMierda efectoHechoMierda = new PosProcesoHechoMierda(mapa);
             PosProcesadoBur posProcesadoBur = new PosProcesadoBur(mapa);
+            escondidoLight = new EfectoEscondido(mapa, CamaraFPS.Instance);
+            escondidoLight.init();
 
             posProcesados = new List<APosProcesado>() { posProcesadoAlarma , efectoHechoMierda , posProcesadoBur};
         }
@@ -34,6 +39,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Personajes.Configuradores
         {
             if (posicionPosProcesado >= posProcesados.Count || posicionPosProcesado < 0) return;
             posProcesados[posicionPosProcesado].render(elapsedTime);
+        }
+
+        internal bool renderizarEfectoEscondido()
+        {
+            escondidoLight.render();
+            return escondidoLight.terminoEfecto;
         }
     }
 }

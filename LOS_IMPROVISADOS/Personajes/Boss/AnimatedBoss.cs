@@ -349,6 +349,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             {
                 gritoCuandoVeAPj.play();
                 comportamiento = new SeguirPersonaje();//ComportamientoSeguir(cuerpo.Position);
+                Personaje.Instance.asustate();
             }
             else if (estado == state.ATURDIDO)
             {

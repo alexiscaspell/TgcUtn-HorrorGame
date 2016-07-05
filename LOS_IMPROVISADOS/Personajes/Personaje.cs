@@ -44,6 +44,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         private Vector3 posMemento;
 
+        enum state { PASEANDO, ASUSTADO, ESCONDIDO };
+
+        state estado;
+
         //private float slideFactor = 5;//Factor de slide hardcodeado
 
         private float radius = 30;//Radio de esfera hardcodeado
@@ -61,7 +65,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private TgcStaticSound sonidoPieDerecho;
         private TgcStaticSound sonidoPieIzquierdo;
         private TgcStaticSound sonidoPasos;
-        private List<TgcStaticSound> sonidoPies;
+        //private List<TgcStaticSound> sonidoPies;
 
         private Personaje()
         {
@@ -87,10 +91,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             sonidoPasos = new TgcStaticSound();
             sonidoPasos.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\pasos.wav", 0);
-            sonidoPieDerecho.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\npc_step4.wav", 0);
-            sonidoPieIzquierdo.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\npc_step3.wav", 0);
 
-            sonidoPies = new List<TgcStaticSound> { sonidoPieIzquierdo, sonidoPieDerecho };
+             estado = state.PASEANDO;
         }
 
         internal bool estasMirandoBoss(Boss boss)
@@ -201,16 +203,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             	verificarSiGane();
             }
 
-            //mapa.updateEscenaFiltrada();//Updateo en que cuarto estoy
+            updateEstado();
 
-            //ganasteBox.render();
-            //posprocesado
-            if (configIluminador.iluminadorActualSeQuedoSinBateria())
-            {
-                configPosProcesado.renderizarPosProcesado(elapsedTime);
-            }
-
-            configIluminador.renderizarIluminador();
+            renderizarLoQueVeo();
 
             //mapa.iluminarCuartos();
 
@@ -236,7 +231,39 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             creditosEnd.render();
         }
 
-        private int pieActual = 1;
+        private void renderizarLoQueVeo()
+        {
+            if (estado==state.ASUSTADO)
+            {
+                configPosProcesado.renderizarPosProcesado(GuiController.Instance.ElapsedTime,2);
+                //configIluminador.renderizarIluminador();
+            }
+            if (estado==state.PASEANDO)
+            {
+                configIluminador.renderizarIluminador();
+            }
+
+            if (estado==state.ESCONDIDO)
+            {
+                bool yaTermino = configPosProcesado.renderizarEfectoEscondido() || !agachado();
+
+                if (yaTermino)
+                {
+                    estado = state.PASEANDO;
+                }
+            }
+
+        }
+
+        private void updateEstado()
+        {
+            if (estado==state.ESCONDIDO)
+            {
+                //respiracionHon
+            }
+        }
+
+        /*private int pieActual = 1;
 
         private void reproducirSonidoPasos()
         {
@@ -245,7 +272,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             pieActual = pieActual % 1;
 
             sonidoPies[pieActual].play();
-        }
+        }*/
 
         internal bool iluminadorEncendido()
         {
@@ -339,9 +366,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             }
         }
 
-
+        internal void asustate()
+        {
+            estado = state.ASUSTADO;
         }
     }
+}
 
 /*
         private void verificarSiMori()

@@ -15,6 +15,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
     class EfectoEscondido:ALuz
     {
         private float time = 0;
+        private const float tiempoDeRenderizado = 30;
+        public bool terminoEfecto = false;
 
         public EfectoEscondido(Mapa mapa, CamaraFPS camaraFPS)
         {
@@ -24,8 +26,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
 
         public override void configInicial()
         {
-            currentShader = TgcShaders.loadEffect(GuiController.Instance.AlumnoEjemplosDir +
-                                     "LOS_IMPROVISADOS\\Shaders\\shaderTerror.fx");
+            currentShader = TgcShaders.loadEffect(GuiController.Instance.AlumnoEjemplosDir + "Media\\Shaders\\shaderTerror.fx");
 
             //GuiController.Instance.Modifiers.addColor("luzOscuraColor", Color.LightYellow);
             //GuiController.Instance.Modifiers.addFloat("luzOscuraIntensidad", 0f, 150f, 19f);
@@ -93,6 +94,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
                     a.render();
                 }
             }
+
+            terminoEfecto = time > tiempoDeRenderizado;
 
         }
     }
