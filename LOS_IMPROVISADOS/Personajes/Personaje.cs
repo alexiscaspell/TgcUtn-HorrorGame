@@ -62,9 +62,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         //lobo
         private float tiempoParaDejarRastro = 0.012f;//0.025f;
         private float sumadorParaDejarRastro = 0;
-        private TgcStaticSound sonidoPieDerecho;
-        private TgcStaticSound sonidoPieIzquierdo;
+        //private TgcStaticSound sonidoPieDerecho;
+        //private TgcStaticSound sonidoPieIzquierdo;
         private TgcStaticSound sonidoPasos;
+        private TgcStaticSound sonidoRespiracion;
+
         //private List<TgcStaticSound> sonidoPies;
 
         private Personaje()
@@ -86,11 +88,16 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             configIluminador = new ConfigIluminador(mapa, camaraFPS);
             configPosProcesado = new ConfigPosProcesados(mapa);
 
-            sonidoPieDerecho = new TgcStaticSound();
-            sonidoPieIzquierdo = new TgcStaticSound();
+            //sonidoPieDerecho = new TgcStaticSound();
+            //sonidoPieIzquierdo = new TgcStaticSound();
 
             sonidoPasos = new TgcStaticSound();
             sonidoPasos.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\pasos.wav", 0);
+
+            sonidoRespiracion = new TgcStaticSound();
+            sonidoRespiracion.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\respiracion.wav", 0);
+
+            
 
              estado = state.PASEANDO;
         }
@@ -203,7 +210,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             	verificarSiGane();
             }
 
-            updateEstado();
+            //updateEstado();
 
             renderizarLoQueVeo();
 
@@ -247,9 +254,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             {
                 bool yaTermino = configPosProcesado.renderizarEfectoEscondido() || !agachado();
 
+                sonidoRespiracion.play();
+
                 if (yaTermino)
                 {
                     estado = state.PASEANDO;
+                    sonidoRespiracion.stop();
                 }
             }
 

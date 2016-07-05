@@ -12,7 +12,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
         public ManoLinterna()
         {
             sprite = new TgcSprite();
-            sprite.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\manoFarol.png");//manoLinterna.png");
+            sprite.Texture = TgcTexture.createTexture(GuiController.Instance.AlumnoEjemplosDir + "Media\\Texturas\\manoLinterna.png");
 
             posX = 0.45f;
             posY = 0.7f;
