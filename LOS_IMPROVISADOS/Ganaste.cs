@@ -25,7 +25,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		TgcSprite creditos;
 		TgcStaticSound musicaCreditos;
 		
-		bool activado = true;
+		bool activado = false;
 		
 		float speed = 100;
 		
@@ -56,7 +56,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             //calculo el speed(dur aprox:47 seg)
             speed = (screenSize.Height / 2 + creditosSize.Height * escalado) / 47;
             
-           	}
+        }
 		
 		public void render()
 		{
@@ -79,8 +79,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		private void update(float elapsedTime)
 		{
 			creditos.Position -= new Vector2(0, speed * elapsedTime);
-			
-			musicaCreditos.play();
 		}
 	}
 }
