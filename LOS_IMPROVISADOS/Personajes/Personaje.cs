@@ -266,7 +266,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
                 sonidoRespiracion.play();
             	
-            	if(timerRetrasoPostProcesadoYEscondido < 4)//4 me parece mejor
+            	if(timerRetrasoPostProcesadoYEscondido < 5)//4 me parece mejor
             	{
             		configPosProcesado.renderizarPosProcesado(GuiController.Instance.ElapsedTime,2);
             	}
@@ -279,6 +279,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 {
                     estado = state.PASEANDO;
                     timerRetrasoPostProcesadoYEscondido = 0;
+                    ((PosProcesadoBur)configPosProcesado.posProcesados[2]).initRedAndBlur();
                     //sonidoRespiracion.stop();
                 }
             }
