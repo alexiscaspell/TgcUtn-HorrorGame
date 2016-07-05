@@ -102,7 +102,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
              estado = state.PASEANDO;
         }
 
-        internal bool estasMirandoBoss(Boss boss)
+        internal bool estasMirandoBoss(AnimatedBoss boss)
         {
             Vector3 direccionBoss = cuerpo.Position - boss.getPosition();
 

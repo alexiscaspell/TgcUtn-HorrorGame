@@ -52,7 +52,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private TgcStaticSound aturdido = new TgcStaticSound();
         private TgcStaticSound respiracion = new TgcStaticSound();
         private TgcStaticSound gritoCuandoVeAPj = new TgcStaticSound();
-        private float timerRespiracion;
+        //private float timerRespiracion;
 
         private const float aumentoVelocidad = 1.2f;//Se va hardcodeando
         private float velocidadNormal;
@@ -249,19 +249,22 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             ColinaAzul colina = ColinaAzul.Instance;
 
-            bool estoyConPj = colina.estoyEn(colina.dondeEstaPesonaje(), cuerpo.Position);
-
-            if (pj.iluminadorEncendido() && estoyConPj)
+            if (pj.iluminadorEncendido() && pjMeEstaMirando())
             {
                 estado = state.PERSIGUIENDO;
             }
 
             if (estado == state.PERSIGUIENDO)
             {
-                if (pjEscondido(pj))
+                bool estoyConPj = colina.estoyEn(colina.dondeEstaPesonaje(), cuerpo.Position);
+
+                if (!estoyConPj)
                 {
-                    estado = state.PASEANDO;
-                    Personaje.Instance.calmate();
+                    if (pjEscondido(pj))
+                    {
+                        estado = state.PASEANDO;
+                        Personaje.Instance.calmate();
+                    }
                 }
             }
 
@@ -271,6 +274,22 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 aturdido.play();
                 changeAnimation("Talk");
             }
+        }
+
+        private bool pjMeEstaMirando()
+        {
+            string cuartoPj = ColinaAzul.Instance.dondeEstaPesonaje();
+
+            string cuartoBoss = ColinaAzul.Instance.getCuartoIn(cuerpo.Position);
+
+            if (cuartoPj==cuartoBoss)
+            {
+                return true;
+            }
+
+            string[] cuartosCercanos = Mapa.Instance.obtenerContiguos(cuartoPj);
+
+            return cuartosCercanos.Contains(cuartoBoss) && Personaje.Instance.estasMirandoBoss(this);
         }
 
         private bool estoyCercaDePj()
