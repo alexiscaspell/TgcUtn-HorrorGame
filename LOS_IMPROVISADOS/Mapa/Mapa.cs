@@ -260,13 +260,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
         	foreach(Accionable a in objetos)
         	{
-                if (Personaje.Instance.estaSiendoPerseguido()&& typeof(Puerta).Equals(a.GetType()))
+                /*if (Personaje.Instance.estaSiendoPerseguido()&& typeof(Puerta).Equals(a.GetType()))
                 {
                     if (((Puerta)a).abierta)
                     {
                         listaPuertasDePersecucion.Add((Puerta)a);
                     }
-                }
+                }*/
         		a.acciona(Personaje.Instance.camaraFPS.camaraFramework.Position, Personaje.Instance.camaraFPS.camaraFramework.viewDir);
         	}
         }
@@ -362,6 +362,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 }
             }
             return false;
+        }
+
+        internal void agregarPuertaAPuertasDePersecucion(Puerta puerta)
+        {
+            listaPuertasDePersecucion.Add(puerta);
         }
 
         /*public void updateEscenaFiltrada()

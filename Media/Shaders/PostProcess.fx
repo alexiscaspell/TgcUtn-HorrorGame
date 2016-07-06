@@ -197,7 +197,7 @@ float4 ps_blur( PS_INPUT_DEFAULT Input ) : COLOR0
 	//Promediar todos
 	color = color / 5;
 
-	color.r = red_intensity * color.r;//Variar red intensity para hacerlo mas rojizo
+	color.r = saturate(red_intensity * color.r);//Variar red intensity para hacerlo mas rojizo
 
 	return color;
 }

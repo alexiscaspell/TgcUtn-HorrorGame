@@ -280,6 +280,10 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 				}else{
 					camara.animar(this.mesh.Position.Z, !abierta, paraleloEjeZ);
 				}
+                    if (Personaje.Instance.estaSiendoPerseguido()&&abierta)
+                    {
+                        Mapa.Instance.agregarPuertaAPuertasDePersecucion(this);
+                    }
 
                 }
 
