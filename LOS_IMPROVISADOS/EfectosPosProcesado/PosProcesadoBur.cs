@@ -153,7 +153,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
                 m.render();
             }*/
             Personaje.Instance.configIluminador.renderizarIluminador();
-            AnimatedBoss.Instance.render();
+            //AnimatedBoss.Instance.render();
         }
 
 
