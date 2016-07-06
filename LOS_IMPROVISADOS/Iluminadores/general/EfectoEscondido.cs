@@ -15,7 +15,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
     class EfectoEscondido:ALuz
     {
         private float time = 0;
-        private const float tiempoDeRenderizado = 10;
+        private const float tiempoDeRenderizado = 20;
         public bool terminoEfecto = false;
 
         public EfectoEscondido(Mapa mapa, CamaraFPS camaraFPS)

@@ -107,13 +107,41 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         internal bool estasMirandoBoss(AnimatedBoss boss)
         {
-            Vector3 direccionBoss = cuerpo.Position - boss.getPosition();
+
+            /*Vector3 direccionBoss = cuerpo.Position - boss.getPosition();
 
             TgcRay rayoBoss = new TgcRay(boss.getPosition(), direccionBoss);
             Plane farPlane = GuiController.Instance.Frustum.FarPlane;
             float t;//= GuiController.Instance.ElapsedTime;
             Vector3 ptoColision;
-            return !TgcCollisionUtils.intersectRayPlane(rayoBoss, farPlane, out t, out ptoColision);
+
+            if(TgcCollisionUtils.intersectRayPlane(rayoBoss, farPlane, out t, out ptoColision))
+            {
+                return false;
+            }*/
+
+            TgcRay rayoBoss = new TgcRay(cuerpo.Position, camaraFPS.camaraFramework.viewDir);
+            Vector3 vectorInutil;
+
+            if (!TgcCollisionUtils.intersectRayAABB(rayoBoss,boss.getBoundingBox(),out vectorInutil))
+            {
+                return false;
+            }
+
+            string testoInutil = "";
+            Vector3 posInicial = cuerpo.Position;
+            Vector3 posFinal = boss.getPosition();
+
+            foreach (TgcMesh mesh in Mapa.Instance.meshesDeCuartoEnLaPosicion(cuerpo.Position,ref testoInutil))
+            {
+                bool resultado = TgcCollisionUtils.intersectSegmentAABB(posInicial, posFinal, mesh.BoundingBox, out vectorInutil);
+                if (resultado)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         public void update()
