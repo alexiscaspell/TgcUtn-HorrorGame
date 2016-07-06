@@ -6,6 +6,7 @@ using System.Drawing;
 using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA;
 using TgcViewer.Utils.TgcGeometry;
 using System.Collections.Generic;
+using TgcViewer.Utils.TgcSkeletalAnimation;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
 {
@@ -59,6 +60,20 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.linternas
 
         }
 
+        public override void configurarSkeletal(TgcSkeletalMesh mesh)
+        {
+        	mesh.Effect.SetValue("lightColor", ColorValue.FromColor(Color.White));
+            mesh.Effect.SetValue("lightPosition", TgcParserUtils.vector3ToFloat4Array(camaraFPS.posicion));
+            mesh.Effect.SetValue("lightIntensity", 190f);
+            mesh.Effect.SetValue("lightAttenuation", 0.4f);
+            mesh.Effect.SetValue("materialSpecularExp", 15f);
+
+            mesh.Effect.SetValue("materialEmissiveColor", ColorValue.FromColor(Color.Black));
+            mesh.Effect.SetValue("materialAmbientColor", ColorValue.FromColor(Color.White));
+            mesh.Effect.SetValue("materialDiffuseColor", ColorValue.FromColor(Color.White));
+            mesh.Effect.SetValue("materialSpecularColor", ColorValue.FromColor(Color.White));
+
+        }
         //public override void render()
         //{
         //    Effect currentShader = GuiController.Instance.Shaders.TgcMeshSpotLightShader;

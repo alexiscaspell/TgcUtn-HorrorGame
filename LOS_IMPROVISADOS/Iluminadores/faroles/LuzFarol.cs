@@ -7,6 +7,7 @@ using AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA;
 using TgcViewer.Utils.TgcGeometry;
 using System.Collections.Generic;
 using TgcViewer.Utils.Shaders;
+using TgcViewer.Utils.TgcSkeletalAnimation;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
 {
@@ -36,6 +37,22 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.faroles
       		}
         
         public override void configurarEfecto(TgcMesh mesh)
+        {
+			//Cargar variables shader de la luz
+			mesh.Effect.SetValue("lightColor", ColorValue.FromColor((Color)GuiController.Instance.Modifiers["farolColor"]));
+			mesh.Effect.SetValue("lightPosition", TgcParserUtils.vector3ToFloat4Array(camaraFPS.posicion));
+			mesh.Effect.SetValue("lightIntensity", (float)GuiController.Instance.Modifiers["farolIntensidad"]);
+			mesh.Effect.SetValue("lightAttenuation", (float)GuiController.Instance.Modifiers["farolAtenuacion"]);
+			
+			//Cargar variables de shader de Material. El Material en realidad deberia ser propio de cada mesh. Pero en este ejemplo se simplifica con uno comun para todos
+			mesh.Effect.SetValue("materialEmissiveColor", ColorValue.FromColor((Color)GuiController.Instance.Modifiers["farolEmissive"]));
+			mesh.Effect.SetValue("materialAmbientColor", ColorValue.FromColor((Color)GuiController.Instance.Modifiers["farolAmbient"]));
+			mesh.Effect.SetValue("materialDiffuseColor", ColorValue.FromColor((Color)GuiController.Instance.Modifiers["farolDiffuse"]));
+			mesh.Effect.SetValue("materialSpecularColor", ColorValue.FromColor((Color)GuiController.Instance.Modifiers["farolSpecular"]));
+			mesh.Effect.SetValue("materialSpecularExp", (float)GuiController.Instance.Modifiers["farolEspecularEx"]);
+        }
+        
+        public override void configurarSkeletal(TgcSkeletalMesh mesh)
         {
 			//Cargar variables shader de la luz
 			mesh.Effect.SetValue("lightColor", ColorValue.FromColor((Color)GuiController.Instance.Modifiers["farolColor"]));

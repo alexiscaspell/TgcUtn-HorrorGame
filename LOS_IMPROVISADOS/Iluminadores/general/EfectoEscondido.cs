@@ -9,6 +9,7 @@ using TgcViewer;
 using TgcViewer.Utils.Shaders;
 using TgcViewer.Utils.TgcGeometry;
 using TgcViewer.Utils.TgcSceneLoader;
+using TgcViewer.Utils.TgcSkeletalAnimation;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
 {
@@ -41,6 +42,23 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
         }
 
         public override void configurarEfecto(TgcMesh mesh)
+        {
+            //Cargar variables shader de la luz
+            mesh.Effect.SetValue("lightColor", ColorValue.FromColor(Color.Gray));
+            mesh.Effect.SetValue("lightPosition", TgcParserUtils.vector3ToFloat4Array(camaraFPS.posicion));
+            mesh.Effect.SetValue("lightIntensity", 8f);
+            //mesh.Effect.SetValue("lightAttenuation", 0.13f);
+            mesh.Effect.SetValue("lightAttenuation", 0.1f);
+            mesh.Effect.SetValue("materialSpecularExp", 0.2f);
+
+            mesh.Effect.SetValue("materialEmissiveColor", ColorValue.FromColor(Color.Black));
+            mesh.Effect.SetValue("materialAmbientColor", ColorValue.FromColor(Color.DarkGray));
+            mesh.Effect.SetValue("materialDiffuseColor", ColorValue.FromColor(Color.White));
+            mesh.Effect.SetValue("materialSpecularColor", ColorValue.FromColor(Color.White));
+
+        }
+        
+        public override void configurarSkeletal(TgcSkeletalMesh mesh)
         {
             //Cargar variables shader de la luz
             mesh.Effect.SetValue("lightColor", ColorValue.FromColor(Color.Gray));
@@ -93,6 +111,23 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
 
                     a.render();
                 }
+            }
+            
+            //renderizo el boss
+            AnimatedBoss.Instance.update();
+            if( TgcCollisionUtils.testAABBAABB(cajaNegra.BoundingBox, AnimatedBoss.Instance.getBoundingBox() ))
+            {
+            	AnimatedBoss.Instance.cuerpo.Effect = skeletalShader;
+            	AnimatedBoss.Instance.cuerpo.Technique = GuiController.Instance.Shaders.getTgcSkeletalMeshTechnique(
+            		AnimatedBoss.Instance.cuerpo.RenderType);
+            	//AnimatedBoss.Instance.cuerpo.Technique = GuiController.Instance.Shaders.getTgcMeshTechnique(
+            	//	((TgcMesh.MeshRenderType)AnimatedBoss.Instance.cuerpo.RenderType) );
+            	
+            	configurarSkeletal(AnimatedBoss.Instance.cuerpo);
+            	
+            	//AnimatedBoss.Instance.cuerpo.Effect.SetValue("time",time);
+            	
+            	AnimatedBoss.Instance.render();
             }
 
             terminoEfecto = time > tiempoDeRenderizado;

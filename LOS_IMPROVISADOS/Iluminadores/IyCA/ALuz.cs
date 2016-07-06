@@ -7,6 +7,8 @@ using Microsoft.DirectX;
 using TgcViewer;
 using TgcViewer.Utils.TgcSceneLoader;
 using TgcViewer.Utils.TgcGeometry;
+using TgcViewer.Utils.TgcSkeletalAnimation;
+using TgcViewer.Utils.Shaders;
 
 namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
 {
@@ -22,6 +24,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
         public CamaraFPS camaraFPS { get; set; }
         
         protected Effect currentShader;
+        
+        protected Effect skeletalShader = GuiController.Instance.Shaders.TgcSkeletalMeshPointLightShader;
 
         public void updateFondo()
         {
@@ -63,6 +67,21 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
                 }
             }
             
+            //Renderizo el boss aca
+            AnimatedBoss.Instance.update();
+            if( TgcCollisionUtils.testAABBAABB(cajaNegra.BoundingBox, AnimatedBoss.Instance.getBoundingBox() ))
+            {
+            	AnimatedBoss.Instance.cuerpo.Effect = skeletalShader;
+            	AnimatedBoss.Instance.cuerpo.Technique = GuiController.Instance.Shaders.getTgcSkeletalMeshTechnique(
+            		AnimatedBoss.Instance.cuerpo.RenderType);
+            	//AnimatedBoss.Instance.cuerpo.Technique = GuiController.Instance.Shaders.getTgcMeshTechnique(
+            	//	((TgcMesh.MeshRenderType)AnimatedBoss.Instance.cuerpo.RenderType) );
+            	
+            	configurarSkeletal(AnimatedBoss.Instance.cuerpo);
+            	
+            	AnimatedBoss.Instance.render();
+            }
+            
     	}
         
         virtual public void init()
@@ -81,5 +100,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.Iluminadores.IyCA
         }
         abstract public void configInicial();
         abstract public void configurarEfecto(TgcMesh mesh);
+        abstract public void configurarSkeletal(TgcSkeletalMesh mesh);
     }
 }

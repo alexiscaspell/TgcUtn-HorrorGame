@@ -39,7 +39,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private string mediaPath;
         private string[] animationsPath;
         #endregion
-        private TgcSkeletalMesh cuerpo;
+        public TgcSkeletalMesh cuerpo;
         private float velocidadMovimiento;
         private Vector3 direccionVista;
         private CamaraFPS camara;
