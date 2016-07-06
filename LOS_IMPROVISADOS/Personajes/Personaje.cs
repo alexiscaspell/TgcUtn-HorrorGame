@@ -317,7 +317,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 	yaTermino = configPosProcesado.renderizarEfectoEscondido();
             	}
 
-                if (yaTermino)
+                if (yaTermino || configIluminador.iluminadorEstaEncendido() )
                 {
                     estado = state.PASEANDO;
                     timerRetrasoPostProcesadoYEscondido = 0;
