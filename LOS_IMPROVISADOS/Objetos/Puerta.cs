@@ -7,6 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Collections.Generic;
 using Microsoft.DirectX;
 using Microsoft.DirectX.Direct3D;
 using TgcViewer.Utils.TgcGeometry;
@@ -28,7 +29,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		const float speed = 50;
 		float anguloRotacion = 0;
 		public bool abierta = false;
-		bool rotando = false;
+		bool colaActivada = false;
+		
+		Queue<bool> colaRotando = new Queue<bool>();
 		
 		bool paraleloEjeZ; //para el tema de la animacion de las puertas
 		
@@ -40,6 +43,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         //Angulo en grados
         public Puerta(){}
         
+       	#region constructores
         public Puerta(int nroPuerta, bool paraleloEjeZ)
         {
         	TgcSceneLoader loader = new TgcSceneLoader();
@@ -230,6 +234,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             this.mesh = mesh;
             this.nroPuerta = nroPuerta;
         }
+        #endregion constructores
 
         public void init(Vector3 posicion, Vector3 escalado)
         {
@@ -241,7 +246,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		{
 			if(Personaje.Instance.llaveActual == nroPuerta || nroPuerta <= 0)
 			{
-				rotando = true;
+				colaRotando.Enqueue(true);
 
 				if(nroPuerta>0)
 				{
@@ -254,21 +259,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 //Aca hago que le diga al boss que puede pasar o no
                 //DiosMapa.Instance.activarODesactivarPunto(mesh.BoundingBox.Position);
 				
-				if(abierta && paraleloEjeZ)
-				{
-					mesh.BoundingBox.move(new Vector3(ajusteBB,0,-ajusteBB));
-				}
-				if(!abierta && paraleloEjeZ){
-					mesh.BoundingBox.move(new Vector3(-ajusteBB,0,ajusteBB));
-				}
-				if(abierta && !paraleloEjeZ){
-					mesh.BoundingBox.move(new Vector3(-ajusteBB,0,-ajusteBB));
-				}
-				if(!abierta && !paraleloEjeZ){
-					mesh.BoundingBox.move(new Vector3(ajusteBB,0,ajusteBB));
-				}
-				
-				puertaAbriendose.play();
+				//puertaAbriendose.play();
 
                 if(animacionCamaraActivada)
                 { 
@@ -294,50 +285,76 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 		}
 
 		public void update()
-        {
-//            if (rotando)
+        {            
+//            if(rotando)
 //            {
-//                anguloRotacion += speed;
-//
-//                if (anguloRotacion <= 90)
-//                {
-//                    if (abierta)
-//                    {
-//                        mesh.rotateY(Geometry.DegreeToRadian(-speed));
-//                    }
-//                    else
-//                    {
-//                        mesh.rotateY(Geometry.DegreeToRadian(speed));
-//                    }
-//                }
-//                else
-//                {
-//                    anguloRotacion = 0;
-//                    rotando = false;
-//                    abierta = !abierta;
-//                }
+//            	float cambioAngulo = speed*GuiController.Instance.ElapsedTime;
+//            	anguloRotacion += cambioAngulo;
+//            	
+//            	if(anguloRotacion <= 90)
+//            	{
+//            		if(abierta)
+//            		{
+//            			mesh.rotateY(Geometry.DegreeToRadian(-cambioAngulo));
+//            		}else{
+//            			mesh.rotateY(Geometry.DegreeToRadian(cambioAngulo));
+//            		}
+//            	}else{
+//            		anguloRotacion = 0;
+//            		rotando = false;
+//            		abierta = !abierta;
+//            	}
+//            	
 //            }
-            
-            if(rotando)
-            {
-            	float cambioAngulo = speed*GuiController.Instance.ElapsedTime;
-            	anguloRotacion += cambioAngulo;
-            	
-            	if(anguloRotacion <= 90)
-            	{
-            		if(abierta)
-            		{
-            			mesh.rotateY(Geometry.DegreeToRadian(-cambioAngulo));
-            		}else{
-            			mesh.rotateY(Geometry.DegreeToRadian(cambioAngulo));
-            		}
-            	}else{
-            		anguloRotacion = 0;
-            		rotando = false;
-            		abierta = !abierta;
-            	}
-            	
-            }
+
+			if(!colaActivada)
+			{
+				if(colaRotando.Count > 0)
+				{
+					colaRotando.Dequeue();
+					colaActivada = true;
+					
+					puertaAbriendose.play();
+				}
+								
+			}
+
+			if(colaActivada)
+			{
+		            	float cambioAngulo = speed*GuiController.Instance.ElapsedTime;
+		            	anguloRotacion += cambioAngulo;
+		            	
+		            	if(anguloRotacion <= 90)
+		            	{
+		            		if(abierta)
+		            		{
+		            			mesh.rotateY(Geometry.DegreeToRadian(-cambioAngulo));
+		            		}else{
+		            			mesh.rotateY(Geometry.DegreeToRadian(cambioAngulo));
+		            		}
+		            	}else{
+		            		//Ajuste de BB
+							if(abierta && paraleloEjeZ)
+							{
+								mesh.BoundingBox.move(new Vector3(ajusteBB,0,-ajusteBB));
+							}
+							if(!abierta && paraleloEjeZ){
+								mesh.BoundingBox.move(new Vector3(-ajusteBB,0,ajusteBB));
+							}
+							if(abierta && !paraleloEjeZ){
+								mesh.BoundingBox.move(new Vector3(-ajusteBB,0,-ajusteBB));
+							}
+							if(!abierta && !paraleloEjeZ){
+								mesh.BoundingBox.move(new Vector3(ajusteBB,0,ajusteBB));
+							}
+							
+		            		anguloRotacion = 0;
+		            		colaActivada = false;
+		            		abierta = !abierta;
+		            		
+		            	}
+			}
+           
             
         }
 
@@ -345,6 +362,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
         	update();
             mesh.render();
+            mesh.BoundingBox.render();
             camara.animacionPuerta();
         }
     }
