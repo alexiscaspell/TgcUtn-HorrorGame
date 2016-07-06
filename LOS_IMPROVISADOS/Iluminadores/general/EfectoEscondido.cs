@@ -48,7 +48,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
             mesh.Effect.SetValue("lightPosition", TgcParserUtils.vector3ToFloat4Array(camaraFPS.posicion));
             mesh.Effect.SetValue("lightIntensity", 8f);
             //mesh.Effect.SetValue("lightAttenuation", 0.13f);
-            mesh.Effect.SetValue("lightAttenuation", 0.1f);
+            mesh.Effect.SetValue("lightAttenuation", 0.025f);
             mesh.Effect.SetValue("materialSpecularExp", 0.2f);
 
             mesh.Effect.SetValue("materialEmissiveColor", ColorValue.FromColor(Color.Black));
@@ -131,6 +131,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
             }
 
             terminoEfecto = time > tiempoDeRenderizado;
+
+            if (terminoEfecto)
+            {
+                time = 0;
+            }
 
         }
     }

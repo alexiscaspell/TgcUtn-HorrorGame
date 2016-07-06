@@ -53,6 +53,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private TgcStaticSound respiracion = new TgcStaticSound();
         private TgcStaticSound gritoCuandoVeAPj = new TgcStaticSound();
         //private float timerRespiracion;
+        private float timerAbriendoPuerta = 0;
+        private const float retrasoPorAbrirPuerta = 2;
+        private bool estoyAbriendoPuerta = false;
 
         private const float aumentoVelocidad = 1.5f;//Se va hardcodeando
         private float velocidadNormal;
@@ -214,10 +217,25 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             if (activado)
             {
-                updateEstado();
-                updateVelocity();
-                updateComportamiento();
-                seguirPersonaje();
+                if (estoyAbriendoPuerta)
+                {
+                    timerAbriendoPuerta += GuiController.Instance.ElapsedTime;
+
+                    if(timerAbriendoPuerta >= retrasoPorAbrirPuerta)
+                    {
+                        estoyAbriendoPuerta = false;
+                        timerAbriendoPuerta = 0;
+                    }
+
+                }
+
+                if (!estoyAbriendoPuerta)
+                {
+                    updateEstado();
+                    updateVelocity();
+                    updateComportamiento();
+                    seguirPersonaje();
+                }
             }
         }
 
@@ -264,6 +282,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
                     if (puertaCercana!=null)
                     {
+                        estoyAbriendoPuerta = true;
                         //if (!puertaCercana.abierta)
                         {
                             puertaCercana.animacionCamaraActivada = false;
