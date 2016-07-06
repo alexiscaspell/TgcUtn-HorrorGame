@@ -362,7 +362,6 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
         	update();
             mesh.render();
-            mesh.BoundingBox.render();
             camara.animacionPuerta();
         }
     }
