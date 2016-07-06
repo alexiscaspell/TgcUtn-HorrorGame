@@ -430,7 +430,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 AnimatedBoss.Instance.cambiarPosicionDelBoss(DiosMapa.instancia.puntoASeguirPorElBoss().getPosition());
             }*/
         
-            return listaDePuntosPersecucion[0];
+            return (listaDePuntosPersecucion.Count==0) ? obtenerPuntoPorPosicion(CamaraFPS.Instance.camaraFramework.Position) : listaDePuntosPersecucion[0];
         }
 
         public void eliminarPuntosConPosicionesMenores(int numeroMaximo)
