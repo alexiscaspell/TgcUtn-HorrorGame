@@ -6,6 +6,7 @@ namespace AlumnoEjemplos.MiGrupo
     internal class ButtonReturn:GameButton
     {
         private GameMenu menuAnterior;
+        public Vector2 posicionBoton = new Vector2(0.77f, 0.6f);
 
         internal void setMenuAnterior(GameMenu menuAnterior)
         {
@@ -14,7 +15,7 @@ namespace AlumnoEjemplos.MiGrupo
 
         internal void init()
         {
-            base.init("botonVolver", new Vector2(0.77f, 0.6f));
+            base.init("botonVolver", posicionBoton);
         }
 
         public override void execute(EjemploAlumno app, GameMenu menu)

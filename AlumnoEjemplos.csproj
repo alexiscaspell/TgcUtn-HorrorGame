@@ -103,6 +103,7 @@
     <Compile Include="LOS_IMPROVISADOS\Mapa\RoomsIluminados\ConfigRoomIluminado.cs" />
     <Compile Include="LOS_IMPROVISADOS\Mapa\RoomsIluminados\RoomFarol.cs" />
     <Compile Include="LOS_IMPROVISADOS\Mapa\RoomsIluminados\RoomLinterna.cs" />
+    <Compile Include="LOS_IMPROVISADOS\Menu\ButtonBackToPlay.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\ButtonButtons.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\ButtonExit.cs" />
     <Compile Include="LOS_IMPROVISADOS\Menu\ButtonObjective.cs" />

@@ -14,7 +14,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
     {
         protected const float renderDistance = 5000;
 
-        private float blur_intensity = 0.01f;
+        private const float valorPredefinidoBlur = 0.01f;
+        private const float valorPredefinidoRed = 1.5f;
+
+        private float blur_intensity;
+        private float red_intensity;
         private float tiempo = 0f;
         private float signo = 1f; 
 
@@ -73,8 +77,18 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
             intVaivenAlarm.Speed = 2;
             intVaivenAlarm.reset();
 
+            initRedAndBlur();
+
             //stencilAnterior = d3dDevice.DepthStencilSurface;
             
+        }
+
+        public void initRedAndBlur()
+        {
+            blur_intensity = valorPredefinidoBlur;
+            red_intensity = valorPredefinidoRed;
+            tiempo = 0;
+            signo = 1;
         }
 
         public override void render(float elapsedTime)
@@ -91,6 +105,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
                     signo *= -1;
                 }
             }
+
+            red_intensity += 0.3f*elapsedTime;
 
             /*meshes.Clear();
             updateFondo();
@@ -154,6 +170,16 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
             //Cargamos parametros en el shader de Post-Procesado
             effect.SetValue("render_target2D", renderTarget2D);
             effect.SetValue("blur_intensity", blur_intensity);
+
+            if (Personaje.Instance.fluorActivado())
+            {
+                effect.SetValue("red_intensity", 0);//Esto es para que se muestre solo blur cuando tenes la bengala
+                initRedAndBlur();//esto es para que el tipo se sienta un cacho a salvo
+            }
+            else
+            {
+                effect.SetValue("red_intensity", red_intensity);
+            }
 
             d3dDevice.Clear(ClearFlags.Target | ClearFlags.ZBuffer, Color.Black, 1.0f, 0);
             effect.Begin(FX.None);

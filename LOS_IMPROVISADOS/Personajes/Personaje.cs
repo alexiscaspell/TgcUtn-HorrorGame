@@ -70,7 +70,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         //private List<TgcStaticSound> sonidoPies;
         
         //timer para que no sea tan brusco el cambio de estado
-        float timer = 0;
+        float timerRetrasoPostProcesadoYEscondido = 0;
+        private TgcStaticSound sonidoLatidos;
+        private TgcStaticSound sonidoRespiracionAgitada;
 
         private Personaje()
         {
@@ -100,20 +102,52 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             sonidoRespiracion = new TgcStaticSound();
             sonidoRespiracion.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\respiracion.wav", 0);
 
-            
+            sonidoLatidos = new TgcStaticSound();
+            sonidoLatidos.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\latidos.wav", 0);
 
-             estado = state.PASEANDO;
+            sonidoRespiracionAgitada = new TgcStaticSound();
+            sonidoRespiracionAgitada.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\respiracionReverb.wav", 0);
+
+            estado = state.PASEANDO;
         }
 
-        internal bool estasMirandoBoss(Boss boss)
+        internal bool estasMirandoBoss(AnimatedBoss boss)
         {
-            Vector3 direccionBoss = cuerpo.Position - boss.getPosition();
+
+            /*Vector3 direccionBoss = cuerpo.Position - boss.getPosition();
 
             TgcRay rayoBoss = new TgcRay(boss.getPosition(), direccionBoss);
             Plane farPlane = GuiController.Instance.Frustum.FarPlane;
             float t;//= GuiController.Instance.ElapsedTime;
             Vector3 ptoColision;
-            return !TgcCollisionUtils.intersectRayPlane(rayoBoss, farPlane, out t, out ptoColision);
+
+            if(TgcCollisionUtils.intersectRayPlane(rayoBoss, farPlane, out t, out ptoColision))
+            {
+                return false;
+            }*/
+
+            TgcRay rayoBoss = new TgcRay(cuerpo.Position, camaraFPS.camaraFramework.viewDir);
+            Vector3 vectorInutil;
+
+            if (!TgcCollisionUtils.intersectRayAABB(rayoBoss,boss.getBoundingBox(),out vectorInutil))
+            {
+                return false;
+            }
+
+            string testoInutil = "";
+            Vector3 posInicial = cuerpo.Position;
+            Vector3 posFinal = boss.getPosition();
+
+            foreach (TgcMesh mesh in Mapa.Instance.meshesDeCuartoEnLaPosicion(cuerpo.Position,ref testoInutil))
+            {
+                bool resultado = TgcCollisionUtils.intersectSegmentAABB(posInicial, posFinal, mesh.BoundingBox, out vectorInutil);
+                if (resultado)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         public void update()
@@ -239,9 +273,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             
             //Agrego el render para el final
             creditosEnd.render();
-            
-            //Aumento el timer
-            timer += GuiController.Instance.ElapsedTime;
+        }
+
+        internal bool estaSiendoPerseguido()
+        {
+            return estado == state.ASUSTADO;
         }
 
         private void renderizarLoQueVeo()
@@ -249,6 +285,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             if (estado==state.ASUSTADO)
             {
                 configPosProcesado.renderizarPosProcesado(GuiController.Instance.ElapsedTime,2);
+
+                if (!muerto)
+                {
+                    sonidoLatidos.play();
+                    sonidoRespiracionAgitada.play();
+                }
                 //configIluminador.renderizarIluminador();
             }
             if (estado==state.PASEANDO)
@@ -258,41 +300,48 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
             if (estado==state.ESCONDIDO)
             {
+                timerRetrasoPostProcesadoYEscondido += GuiController.Instance.ElapsedTime;
+
             	bool yaTermino = false;
+
+                sonidoRespiracion.play();
             	
-            	if(timer < 7)
+            	if(timerRetrasoPostProcesadoYEscondido < 7)//4 me parece mejor
             	{
-            		configPosProcesado.renderizarPosProcesado(GuiController.Instance.ElapsedTime,2);
-            	}else{            		            	
+                    ((PosProcesadoBur)configPosProcesado.posProcesados[2]).initRedAndBlur();
+                    configPosProcesado.renderizarPosProcesado(GuiController.Instance.ElapsedTime,2);
+            	}
+                else
+                {            		            	
                 	//yaTermino = configPosProcesado.renderizarEfectoEscondido() || !agachado();
                 	yaTermino = configPosProcesado.renderizarEfectoEscondido();
-                	
-                	sonidoRespiracion.play();
             	}
 
                 if (yaTermino)
                 {
                     estado = state.PASEANDO;
-                    sonidoRespiracion.stop();
+                    timerRetrasoPostProcesadoYEscondido = 0;
+                    ((PosProcesadoBur)configPosProcesado.posProcesados[2]).initRedAndBlur();
+                    //sonidoRespiracion.stop();
                 }
             }
 
         }
 
-        private void updateEstado()
+        /*private void updateEstado()
         {
             if (estado==state.ESCONDIDO)
             {
                 //respiracionHon
             }
-        }
+        }*/
 
         internal void calmate()
         {
             estado = state.ESCONDIDO;
             
             Random r = new Random();
-            timer = r.Next() % 5;
+            timerRetrasoPostProcesadoYEscondido = r.Next() % 5;
         }
 
         /*private int pieActual = 1;

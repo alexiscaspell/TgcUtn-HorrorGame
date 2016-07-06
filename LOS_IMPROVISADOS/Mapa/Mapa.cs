@@ -53,6 +53,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         private const int CANTIDAD_DE_CUARTOS = 79;
         private const int CANTIDAD_DE_PUERTAS = 15;
         private const int CANTIDAD_DE_PUERTAS_PZ = 11;
+        private List<Puerta> listaPuertasDePersecucion = new List<Puerta>();
 
         private Mapa()
         {
@@ -259,6 +260,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
         	foreach(Accionable a in objetos)
         	{
+                /*if (Personaje.Instance.estaSiendoPerseguido()&& typeof(Puerta).Equals(a.GetType()))
+                {
+                    if (((Puerta)a).abierta)
+                    {
+                        listaPuertasDePersecucion.Add((Puerta)a);
+                    }
+                }*/
         		a.acciona(Personaje.Instance.camaraFPS.camaraFramework.Position, Personaje.Instance.camaraFPS.camaraFramework.viewDir);
         	}
         }
@@ -298,6 +306,29 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             return cuartos[cuarto];
         }
 
+        internal Puerta encontrarPuertaPersecucionCercana(Vector3 position)
+        {
+            if (listaPuertasDePersecucion.Count==0)
+            {
+                return null;
+            }
+
+            foreach (Puerta puerta in listaPuertasDePersecucion)
+            {
+                if ((puerta.getBB().Position-position).Length()<=puerta.distAccion)
+                {
+                    return puerta;
+                }
+            }
+
+            return null;
+        }
+
+        internal void quitarPuertaDePersecucion(Puerta puerta)
+        {
+            listaPuertasDePersecucion.Remove(puerta);
+        }
+
         internal bool colisionaEsfera(TgcBoundingSphere esfera)
         {
             foreach (TgcMesh mesh in escena.Meshes)
@@ -331,6 +362,11 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
                 }
             }
             return false;
+        }
+
+        internal void agregarPuertaAPuertasDePersecucion(Puerta puerta)
+        {
+            listaPuertasDePersecucion.Add(puerta);
         }
 
         /*public void updateEscenaFiltrada()
