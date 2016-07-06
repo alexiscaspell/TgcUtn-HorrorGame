@@ -268,7 +268,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             	
             	if(timerRetrasoPostProcesadoYEscondido < 7)//4 me parece mejor
             	{
-            		configPosProcesado.renderizarPosProcesado(GuiController.Instance.ElapsedTime,2);
+                    ((PosProcesadoBur)configPosProcesado.posProcesados[2]).initRedAndBlur();
+                    configPosProcesado.renderizarPosProcesado(GuiController.Instance.ElapsedTime,2);
             	}
                 else
                 {            		            	
@@ -287,13 +288,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
         }
 
-        private void updateEstado()
+        /*private void updateEstado()
         {
             if (estado==state.ESCONDIDO)
             {
                 //respiracionHon
             }
-        }
+        }*/
 
         internal void calmate()
         {
