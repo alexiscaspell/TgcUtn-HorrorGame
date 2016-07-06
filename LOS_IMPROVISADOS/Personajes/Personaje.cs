@@ -73,7 +73,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         float timerRetrasoPostProcesadoYEscondido = 0;
         private TgcStaticSound sonidoLatidos;
         private TgcStaticSound sonidoRespiracionAgitada;
-
+        
         private Personaje()
         {
 
@@ -158,29 +158,29 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             //updateMemento();
             posMemento = posActual;
 
-            if (GuiController.Instance.D3dInput.buttonPressed(TgcViewer.Utils.Input.TgcD3dInput.MouseButtons.BUTTON_LEFT))
+            if (GuiController.Instance.D3dInput.buttonPressed(TgcViewer.Utils.Input.TgcD3dInput.MouseButtons.BUTTON_LEFT) && !muerto && !ganaste)
             {
                 configIluminador.apagarOPrenderIlumniador();
             }
 
-            if (GuiController.Instance.D3dInput.buttonPressed(TgcViewer.Utils.Input.TgcD3dInput.MouseButtons.BUTTON_RIGHT))
+            if (GuiController.Instance.D3dInput.buttonPressed(TgcViewer.Utils.Input.TgcD3dInput.MouseButtons.BUTTON_RIGHT) && !muerto && !ganaste)
             {
                 configIluminador.cambiarAIluminadorFluor();
             }
 
-            if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.LeftShift))
+            if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.LeftShift) && !muerto && !ganaste)
             {
                 camaraFPS.camaraFramework.setPosition(new Vector3(posActual.X,alturaAgachado, posActual.Z));
                 camaraFPS.camaraFramework.MovementSpeed /= 2; 
             }
 
-            if (GuiController.Instance.D3dInput.keyUp(Microsoft.DirectX.DirectInput.Key.LeftShift))
+            if (GuiController.Instance.D3dInput.keyUp(Microsoft.DirectX.DirectInput.Key.LeftShift) && !muerto && !ganaste)
             {
                 camaraFPS.camaraFramework.setPosition(new Vector3(posActual.X,alturaParado, posActual.Z));
                 camaraFPS.camaraFramework.MovementSpeed *= 2;
             }
 
-            if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.F))
+            if (GuiController.Instance.D3dInput.keyPressed(Microsoft.DirectX.DirectInput.Key.F) && !muerto && !ganaste)
             {
                 configIluminador.cambiarASiguienteIluminador();
             }
@@ -191,22 +191,22 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             }*/
 
             //Checkeo para movimiento de sonido
-            if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.W))
+            if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.W) && !muerto && !ganaste)
             {
                 sonidoPasos.play(true);
                 //reproducirSonidoPasos();
             }
-			if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.A))
+			if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.A) && !muerto && !ganaste)
             {
                 sonidoPasos.play(true);
                 //reproducirSonidoPasos();
             }
-			if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.S))
+			if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.S) && !muerto && !ganaste)
             {
                 sonidoPasos.play(true);
                 //reproducirSonidoPasos();
             }
-			if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.D))
+			if (GuiController.Instance.D3dInput.keyDown(Microsoft.DirectX.DirectInput.Key.D) && !muerto && !ganaste)
             {
                 sonidoPasos.play(true);
                 //reproducirSonidoPasos();
@@ -451,6 +451,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         {
             estado = state.ASUSTADO;
         }
+        
     }
 }
 
