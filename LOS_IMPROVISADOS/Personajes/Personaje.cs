@@ -71,6 +71,8 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
         
         //timer para que no sea tan brusco el cambio de estado
         float timerRetrasoPostProcesadoYEscondido = 0;
+        private TgcStaticSound sonidoLatidos;
+        private TgcStaticSound sonidoRespiracionAgitada;
 
         private Personaje()
         {
@@ -100,9 +102,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             sonidoRespiracion = new TgcStaticSound();
             sonidoRespiracion.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\respiracion.wav", 0);
 
-            
+            sonidoLatidos = new TgcStaticSound();
+            sonidoLatidos.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\latidos.wav", 0);
 
-             estado = state.PASEANDO;
+            sonidoRespiracionAgitada = new TgcStaticSound();
+            sonidoRespiracionAgitada.loadSound(GuiController.Instance.AlumnoEjemplosDir + "Media\\Sonidos\\respiracionReverb.wav", 0);
+
+            estado = state.PASEANDO;
         }
 
         internal bool estasMirandoBoss(AnimatedBoss boss)
@@ -279,6 +285,12 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
             if (estado==state.ASUSTADO)
             {
                 configPosProcesado.renderizarPosProcesado(GuiController.Instance.ElapsedTime,2);
+
+                if (!muerto)
+                {
+                    sonidoLatidos.play();
+                    sonidoRespiracionAgitada.play();
+                }
                 //configIluminador.renderizarIluminador();
             }
             if (estado==state.PASEANDO)
