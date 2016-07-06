@@ -25,8 +25,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 
 			
 			MapaObjeto mapa = new MapaObjeto();
-			mapa.cambiarVectores(new Vector3(2179.103f,8.6139f,10272.55f), new Vector3(1,1,1));
-			mapa.getMesh().rotateY(FastMath.PI/4);
+			//mapa.cambiarVectores(new Vector3(2179.103f,8.6139f,10272.55f), new Vector3(1,1,1));
+			//mapa.getMesh().rotateY(FastMath.PI/4);
+			mapa.cambiarVectores(new Vector3(864.0317f,178.7682f,9988.66f), new Vector3(1,1,1));
 			lista.Add(mapa);
 			
 			LinternaObjeto linterna = new LinternaObjeto();
@@ -59,8 +60,9 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS
 			lista.Add(llave2);
 			
 			LlaveObjeto llaveMano = LlaveObjeto.ManoObjeto();
-			llaveMano.cambiarVectores(new Vector3(23695.42f,12.56f,18625.01f), new Vector3(0.5f,0.5f,0.5f));
-			llaveMano.getMesh().rotateZ(FastMath.PI/2);
+			//llaveMano.cambiarVectores(new Vector3(23695.42f,12.56f,18625.01f), new Vector3(0.5f,0.5f,0.5f));
+			//llaveMano.getMesh().rotateZ(FastMath.PI/2);
+			llaveMano.cambiarVectores(new Vector3(23800.68f,13.3468f,18917.86f), new Vector3(1,1,1));
 			lista.Add(llaveMano);
 			
 			LlaveObjeto llaveMarron = LlaveObjeto.LlaveMarron();
