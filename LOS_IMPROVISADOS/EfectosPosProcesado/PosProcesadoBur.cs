@@ -26,7 +26,7 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
         protected const float INTENSIDAD_MAX = 0.020f;
         protected const float INTENSIDAD_MIN = 0.001f;
         protected const float AUMENTO = 0.001f;
-        //private Surface depthStencil;
+        private Surface depthStencil;
         //private Surface stencilAnterior;
 
         public PosProcesadoBur(Mapa mapa) : base(mapa)
@@ -57,9 +57,13 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
                         CustomVertex.PositionTextured.Format, Pool.Default);
             screenQuadVB.SetData(screenQuadVertices, 0, LockFlags.None);
 
-            renderTarget2D = new Texture(d3dDevice, d3dDevice.PresentationParameters.BackBufferWidth
+            /*renderTarget2D = new Texture(d3dDevice, d3dDevice.PresentationParameters.BackBufferWidth
                     , d3dDevice.PresentationParameters.BackBufferHeight, 1, Usage.RenderTarget,
-                        Format.X8R8G8B8, Pool.Default);
+                        Format.X8R8G8B8, Pool.Default);*/
+
+            renderTarget2D = new Texture(d3dDevice, d3dDevice.PresentationParameters.BackBufferWidth, d3dDevice.PresentationParameters.BackBufferHeight, 1, Usage.RenderTarget, Format.X8R8G8B8, Pool.Default);
+            //Creamos un DepthStencil que debe ser compatible con nuestra definicion de renderTarget2D.
+            depthStencil = d3dDevice.CreateDepthStencilSurface(d3dDevice.PresentationParameters.BackBufferWidth, d3dDevice.PresentationParameters.BackBufferHeight, DepthFormat.D24S8, MultiSampleType.None, 0, true);
                         
             //int pantallaWidth = ScreenSizeClass.ScreenSize.Width;
             //int pantallaHeight = ScreenSizeClass.ScreenSize.Height;
@@ -131,12 +135,18 @@ namespace AlumnoEjemplos.LOS_IMPROVISADOS.EfectosPosProcesado
             pOldRT = d3dDevice.GetRenderTarget(0);
             Surface pSurf = renderTarget2D.GetSurfaceLevel(0);
             d3dDevice.SetRenderTarget(0, pSurf);
+
+            Surface pOldDS = d3dDevice.DepthStencilSurface;//agregado
+            d3dDevice.DepthStencilSurface = depthStencil;//agregado
+            
                 
             d3dDevice.Clear(ClearFlags.Target | ClearFlags.ZBuffer, Color.Black, 1.0f, 0);
 
             drawSceneToRenderTarget(d3dDevice);
 
             pSurf.Dispose();
+
+            d3dDevice.DepthStencilSurface = pOldDS;//agregado
 
             d3dDevice.SetRenderTarget(0, pOldRT);
 
